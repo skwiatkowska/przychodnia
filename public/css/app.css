@@ -1,0 +1,87 @@
+
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .nav > li > a {
+        padding: 36px 8px;
+    }
+}
+
+
+.ania-center {
+    margin: auto;
+    width: 80%;
+}
+
+.visit-center {
+    margin: auto;
+    width: 60%;
+}
+
+.font {
+    font-size: 18px;
+}
+
+.border {
+    margin: auto;
+    width: 80%;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+.bor {
+    border: 1px solid black;
+}
+
+.link {
+    display: inline-block;
+}
+
+/*.formularz {*/
+    /*width: 30%;*/
+    /*margin: auto;*/
+/*}*/
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hour {
+    color: white !important;
+    background-color: #6699CC;!important;
+    display: inline-block;
+    /*float: left;*/
+    padding: 5px;
+    text-align: center;
+    margin: 2px;
+    font-size: 15px;
+}
+
+.hour:hover {
+    color: #000 !important;
+    background-color: #dee1ed;!important;
+    text-decoration: none;
+}
+
+.hour-div {
+    text-align: center;
+
+}
+
+.abort {
+    width: 500px;
+    margin: auto;
+    margin-top: -20px;
+}
+
+.abortText {
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
