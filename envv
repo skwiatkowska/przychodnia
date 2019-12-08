@@ -1,5 +1,5 @@
 APP_ENV=local
-APP_KEY=base64:YeO1aUfhsX75HXYQ0rO3zitAU/wR/ERnDv3S4WhSpKo=
+APP_KEY=base64:2FR9A9s9rbF9aw1IdMEFnIRJs53E/iUd3tOun373z6c=
 APP_DEBUG=true
 APP_LOG_LEVEL=debug
 APP_URL=http://localhost
@@ -7,7 +7,7 @@ APP_URL=http://localhost
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=clin2
+DB_DATABASE=przychodnia
 DB_USERNAME=root
 DB_PASSWORD=""
 

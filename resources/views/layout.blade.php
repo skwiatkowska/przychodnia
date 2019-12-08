@@ -25,14 +25,29 @@
 </head>
 <body>
 
-<div class="brand">Przychodnia Twoje Zdrowie</div>
-<div class="address-bar">3481 Plac wolności | Zdrówko, 90210 | Kontakt 666 851 258</div>
-
-
 <!-- Navigation -->
-<nav class="navbar navbar-default " role="navigation">
+<nav class="navbar navbar-light">
+    	<div class="info">
+    		<div class="col-lg-4 pr-2 align-items-center">
+		    	<a class="navbar-brand" href="/">Centrum Zdrowia AGHmed</a>
+	    	</div>
+	    	<div class="col-lg-8">
+                <div class="row d-flex">
+                    <div class="col-md-4 pr-4 navbar-text">
+                        <span class="text"><b>Adres:</b> Kraków, ul. Czarnowiejska 30</span>
+                    </div>
+                    <div class="col-md-4 pr-4 navbar-text">
+                        <span class="text"><b>Email:</b> kontakt@aghmed.com</span>
+                    </div>
+                    <div class="col-md pr-4 navbar-text">
+                        <span class="text"><b>Telefon:</b> + 48 111 111 111</span>
+                    </div>
+                </div>
+		  </div>
+    </nav>
+
+<nav class="navbar navbar-light " role="navigation">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -40,36 +55,41 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Twoje zdrowie</a>
+            <a class="navbar-brand" href="/">AGHmed</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav ">
                 <li>
-                    <a href="/">Strona główna</a>
+                    <a href="/">O nas</a>
                 </li>
-                <li>
-                    <a href="/recepty">Recepty</a>
-                </li>
+              
                 <li>
                     <a href="/lista_lekarzy">Lekarze</a>
                 </li>
+                <li>
+                    <a href="/poradnie">Poradnie</a>
+                </li>
+                <li>
+                    <a href="/rodo">RODO</a>
+                </li>
                 @if(Auth::check())
                     <li>
-                        <a href="/panel">Panel</a>
+                        <a href="/panel/wizyty">Moje wizyty</a>
+                    </li>
+                    <li>
+                        <a href="/panel/ustawienia">Ustawienia konta</a>
                     </li>
                     <li>
                         <a href="/logout">Wyloguj</a>
                     </li>
                 @else
                     <li>
-                        <a href="/login">Login</a>
-                    </li>
-                    <li>
-                        <a href="/rejestracja">Rejestracja</a>
+                        <a href="/login">Logowanie/Rejestracja</a>
                     </li>
 
                 @endif
+                
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -110,6 +130,7 @@
 </div>
 
 
+
 @yield('content')
 
 <!-- /.container -->
@@ -117,7 +138,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <p>Copyright &copy; Your Website 2014</p>
+                <p>© 2019 AGHMed. All rights reserved.</p>
             </div>
         </div>
     </div>
@@ -134,6 +155,42 @@
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
+
+    $('.carousel').on('slide.bs.carousel', function () {
+		$('.carousel-caption h3').animate({
+			marginLeft: "+=10%",
+          fontSize: "1px",
+			opacity: 0
+		}, 50);
+        $('.carousel-caption h5').animate({
+			marginLeft: "+=10%",
+          fontSize: "1px",
+			opacity: 0
+		}, 50);
+        $('.carousel-caption a').animate({
+			marginLeft: "+=10%",
+          fontSize: "1px",
+			opacity: 0
+		}, 50);
+	})
+	$('.carousel').on('slid.bs.carousel', function () {
+		$('.carousel-caption h3').animate({
+			marginLeft: 0,
+          fontSize: "40px",
+			opacity: 0.8
+		}, 600);
+        $('.carousel-caption h5').animate({
+			marginLeft: 0,
+          fontSize: "20px",
+			opacity: 0.8
+		}, 600);
+        $('.carousel-caption a').animate({
+			marginLeft: 0,
+          fontSize: "16px",
+			opacity: 0.8
+		}, 600);
+	})
+
 </script>
 
 </body>

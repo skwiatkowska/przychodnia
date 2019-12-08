@@ -9,7 +9,7 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
-                    <div id="carousel-example-generic" class="carousel slide">
+                    <div id="carousel-example-generic" class="carousel slide data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators hidden-xs">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -20,13 +20,32 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/medicine.jpg" alt="">
+                                <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/hand.jpg" alt="">
+                                <div class="carousel-caption">
+                                    <h3>Witaj na stronie AGHmed</h3>
+                                    <h5>Nasi specjaliści zadbają o zdrowie Twojej rodziny</h5>
+                                </div>
                             </div>
                             <div class="item">
-                                <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/emergency.jpg" alt="">
+                                <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/waiting-room.jpg" alt="">
+                                <div class="carousel-caption">
+                                <h3>Nie czekaj w kolejkach</h3>
+                                <a class="btn btn-primary">Umów wizytę online</a>
+                                </div>
                             </div>
                             <div class="item">
-                                <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/skull.jpg" alt="">
+                                <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/child.jpg" alt="">
+                                <div class="carousel-caption">
+                                    <h3>Z myślą o najmłodszych</h3>
+                                    <h5>Zapraszamy do nowego gabinetu pediatrycznego</h5>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/senior.jpg" alt="">
+                                <div class="carousel-caption">
+                                    <h3>Pakiet premium senior</h3>
+                                    <h5>Abonament medyczny dla osób po 65 roku życia</h5>
+                                </div>
                             </div>
                         </div>
 
@@ -38,22 +57,23 @@
                             <span class="icon-next"></span>
                         </a>
                     </div>
+                    
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="box">
-                <div class="col-lg-12">
+                <div class="col-lg-12 text-center">
                     <hr>
-                    <h2 class="intro-text text-center">O nas
+                    <h2 class="intro-text ">O nas
                     </h2>
                     <hr>
-                    <p>Przychodnia Twoje Zdrowie w Elblągu rozpoczęła swoją działalność w czerwcu 1988 roku.
-                        Jest największą placówką ochrony zdrowia w mieście, podległą Marszałkowi Warmii i Mazur. </p>
-                    <p>Przychodnia Twoje Zdrowie w Elblągu świadczy kompleksowe usługi medyczne w zakresie opieki stacjonarnej, ambulatoryjnej, pomocy doraźnej, ratownictwa medycznego i transportu sanitarnego a także diagnostyki i rehabilitacji.
-                        Dysponujemy 606 łóżkami (w tym 12 w Szpitalnym Oddziale Ratunkowym). Rocznie hospitalizujemy ponad 42 tys. pacjentów i wykonujemy blisko 14 tys. zabiegów operacyjnych, w tym prawie 2 tys. zabiegów onkologicznych.
-                        W ostatnich latach staliśmy się największym zakładem pracy w Elblągu. Zatrudniamy około 1,5 tys. osób, w tym ponad 300 lekarzy i ponad 600 pielęgniarek i położnych.</p>
+                    <p>Centrum zdrowia AGHmed zostało stworzone z myślą o Pacjentach.</p>
+                    <p>
+                    Jest to nowoczesna placówka z wykwalifikowanymi specjalistami i sprzętem najwyższej jakości. 
+                    Oferujemy szeroki zakres usług medycznych dla osób w każdym wieku. 
+                    Dzięki współpracy z wieloma lekarzami specjalistami gwarantujemy profesjonalną opiekę medyczną.</p>
                 </div>
             </div>
         </div>

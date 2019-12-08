@@ -5,21 +5,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\User;
+use Illuminate\Foundation\Auth\Patient as Authenticatable;
 
 
-/**
- * Class Pacjent
- * @package App
- *
- * @property string imie
- * @property string nazwisko
- * @property string email
- * @property string pesel
- * @property string adres
- */
 class Patient extends Model
 {
     protected $table = 'patients';
+    protected $tableu = 'users';
+    private $attempt = false;
+
     public $timestamps = false;
     private $errors = [];
 
@@ -59,6 +54,7 @@ class Patient extends Model
         $patient->adres = $adres;
         $patient->password = Hash::make($password);
         $patient->save();
+   
 
 
         return true;
@@ -66,22 +62,17 @@ class Patient extends Model
 
     public function login($email, $password){
 
-        if (empty($email)) {
-            $this->errors[] = 'Pole Email nie moze byc puste!';
-            return false;
-        }
-        if (empty($password)) {
-            $this->errors[] = 'Pole Haslo nie moze byc puste!';
-            return false;
-        }
-
         if (Auth::attempt(['email' => $email, 'password' => $password])){
             return true;
         } else {
                 $this->errors[] = 'Nieprawidlowy email lub haslo';
+                $this ->attempt = true;
             return false;
         }
 
+    }
+    public function tried(){
+        return $this->attempt;
     }
 
     public function getErrors()

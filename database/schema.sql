@@ -24,8 +24,11 @@ CREATE TABLE IF NOT EXISTS `Doctors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `imie` varchar(255) NOT NULL,
   `nazwisko` varchar(255) NOT NULL,
+  `specjalizacja` varchar(255) NOT NULL,
   `gabinet` int(11) NOT NULL,
   `telefon` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin2 AUTO_INCREMENT=1;
 
@@ -58,5 +61,20 @@ CREATE TABLE IF NOT EXISTS `Visits` (
   `id_pacjenta` int(11) NOT NULL,
   `rok_miesiac_dzien` date NOT NULL,
   `godzina_minuta` time NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin2 AUTO_INCREMENT=1;
+
+
+--
+-- Struktura tabeli dla tabeli `Histories`
+--
+
+CREATE TABLE IF NOT EXISTS `Histories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `doctor_id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `description` text NOT NULL,
+  `recommendations` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin2 AUTO_INCREMENT=1;

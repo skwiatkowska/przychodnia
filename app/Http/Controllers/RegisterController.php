@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -24,10 +25,13 @@ class RegisterController extends Controller
         $password = $request->input('haslo');
 
         $patient = new Patient();
-        $isRegistered = $patient->addNewUser($name, $surname, $email, $pesel, $adres = "nie podano", $password);
+        $user = new User();
 
+
+        $isRegistered = $patient->addNewUser($name, $surname, $email, $pesel, $adres = "nie podano", $password);
+        $user->addUser($name, $email, $password, $user_type = "pacjent");
         if ($isRegistered) {
-            return redirect('/')->with('info', 'Konto zostało zarejstrowane, możesz zalogować się w oknie logowania');
+            return redirect('login')->with('info', 'Konto zostało zarejestrowane, możesz sie teraz zalogować:');
         }
 
         $errors = $patient->getErrors();

@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\Doctor;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,12 +24,13 @@ class AuthController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        $patient = new Patient();
-        if ($patient->login($email, $password)) {
-            return redirect()->intended('/panel');
+
+        $user = new User();
+        if ($user->login($email, $password)) {
+            return redirect()->intended('') -> with('info','zalogowano poprawnie');
         }
 
-        $errors = $patient->getErrors();
+        $errors = $user->getErrors();
         return redirect('/login')->with('errors', $errors);
 
     }

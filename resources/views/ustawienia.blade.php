@@ -1,21 +1,16 @@
 @extends('layout')
 
-@section('title', 'Przychodnia')
-
-
 @section('content')
 
     <div class="container">
 
         <div class="row">
             <div class="box">
-                <div class="col-lg-12">
+                <div class="col-lg-9">
+                <div class="row">
                     <hr>
-                    <h2 class="intro-text text-center">
-                        <strong>Rejestracja konta</strong>
-                    </h2>
+                    <h4 class="text-center">Zmień swoje dane osobowe</h4>
                     <hr>
-
                     <form class="form-horizontal" method="post" align="center">
                         <div class="row">
                             {{ csrf_field() }}
@@ -80,6 +75,70 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <div class="col-sm-2 col-sm-offset-2">
+                                        <button type="submit" class="btn btn-primary form-control">Zatwierdź</button>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <div class="row">
+                    <hr>
+                    <h4 class="text-center">Zmień hasło</h4>
+                    <hr>
+                    <form class="form-horizontal" method="post" align="center">
+                        <div class="row">
+                            {{ csrf_field() }}
+                            <fieldset>
+
+                            <div class="form-group">
+                                    <label for="haslo" class="col-sm-2 control-label">Stare hasło</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="haslo" name="haslo"
+                                               placeholder="Stare hasło">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="haslo" class="col-sm-2 control-label">Nowe hasło</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="haslo" name="haslo"
+                                               placeholder="Nowe hasło">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="haslo" class="col-sm-2 control-label">Powtórz nowe hasło</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="haslo" name="haslo"
+                                               placeholder="Nowe hasło">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-2 col-sm-offset-2">
+                                        <button type="submit" class="btn btn-primary form-control">Zmień hasło</button>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <div class="row">
+                    <hr>
+                    <h4 class="text-center">Usuń konto</h4>
+                    <hr>
+                    <form class="form-horizontal" method="post" align="center">
+                        <div class="row">
+                            {{ csrf_field() }}
+                            <fieldset>
+
+                            <div class="form-group">
                                     <label for="haslo" class="col-sm-2 control-label">Hasło</label>
 
                                     <div class="col-sm-10">
@@ -90,7 +149,7 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-2 col-sm-offset-2">
-                                        <button type="submit" class="btn btn-primary form-control">Załóż konto</button>
+                                        <button type="submit" class="btn btn-primary form-control">USUŃ KONTO</button>
                                     </div>
                                 </div>
 
@@ -98,11 +157,9 @@
                         </div>
                     </form>
                 </div>
+                </div>
             </div>
         </div>
     </div>
 
-
-
-
-@endsection
+@endsection 

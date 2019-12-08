@@ -11,11 +11,6 @@ class Deadline extends Model
     protected $table = 'deadlines';
     public $timestamps = false;
 
-    /**
-     * Wyciągamy wszystkie terminy danego (o $id) lekarza, a takze jego imie i nazwisko.
-     * @param $doctorId
-     * @return array
-     */
 
     static function findDoctorFreeDeadlines($doctorId)
     {
@@ -62,19 +57,6 @@ class Deadline extends Model
             ->whereIn('rok_miesiac_dzien', $visitDays)
             ->get();
 
-        /**
-         * struktura przechowujaca zajete wizyty przez pacjentow:
-         * [
-         * 'dzien1'=> [
-         *              'godzina',
-         *              'godzina'
-         *            ],
-         * 'dzien2' => [
-         *
-         *              ]
-         * ]
-         */
-
         $busyVisits = [];
 
         foreach ($visits as $visit) {
@@ -93,6 +75,7 @@ class Deadline extends Model
          * $wynik = ['5-30-1987'=>[8:00, 9:00]]
          */
 
+   
         foreach ($doctorCalendar as $data => $hours) {
             if (array_key_exists($data, $busyVisits)) {
                 foreach ($hours as $hour) {
@@ -104,25 +87,7 @@ class Deadline extends Model
                 }
             }
         }
-
-        /**
-         * Zwracamy taka strukture:
-         *
-         * ["lekarz"] => [
-         *      "id" => "1",
-         *      imie" => "Jan",
-         *      nazwisko" => "Kowalski"
-         * ]
-         * [ "terminy" ] => [
-         *
-         *          [dzien] => [
-         *              "godzina",
-         *              "godzina",
-         *              "godzina"
-         *          ]
-         *
-         */
-
+      
         return [
             "lekarz" => [
                 "id" => $doctor->id,

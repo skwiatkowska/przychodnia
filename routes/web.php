@@ -17,6 +17,7 @@ Route::get('/panel/wizyty', 'VisitsController@visitsView');
 Route::get('/panel/wizyty/dodaj', 'VisitsController@addVisit');
 Route::post('/panel/wizyty/usun', 'VisitsController@deleteVisit');
 
-//Route::get('/recepty', 'PrescriptionsController@mainSite');
-//Route::get('/panel/recepty', 'PrescriptionsController@userPrescriptions');
-//Route::post('/panel/recepty/dodaj', 'PrescriptionsController@addPrescription');
+Route::get('/panel/ustawienia', 'UserSettingsController@mainSite');
+
+Route::get('/rodo', 'PrivacyClauseController@mainSite');
+Route::get('/poradnie', 'ClinicsController@mainSite');

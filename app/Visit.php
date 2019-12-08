@@ -89,16 +89,7 @@ class Visit extends Model
 
         // Jezeli znaleziono jakis lekarzy to odpowiedniego lekarza przypisz do kazdej wizyty
         foreach ($visits as $visit) {
-            /**
-             * $recepta = {
-             *     id => 1,
-             *     nazwa_leku => "apap"
-             *     id_lekarza => 12
-             *     ....
-             *      (tworze nowe pole w obiekcie)
-             *     lekarz => "Kowalski Jan"
-             * }
-             */
+
             if (!empty($doctors[$visit->id_lekarza])) {
                 $visit->lekarz = $doctors[$visit->id_lekarza];
             } else {
