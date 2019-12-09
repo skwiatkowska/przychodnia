@@ -2,6 +2,8 @@
 
 Route::get('/', 'HospitalController@mainSite');
 Route::get('/lista_lekarzy', 'HospitalController@doctorsList');
+Route::get('/lista_pacjentow', 'PatientController@patientsList');
+
 Route::get('/terminy/{id}', 'HospitalController@doctorsDeadlines');
 
 Route::get('/login', 'AuthController@formView')->name('formularz-logowania');

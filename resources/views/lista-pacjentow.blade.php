@@ -12,22 +12,30 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Lista lekarzy
+                    <h2 class="intro-text text-center">Lista pacjentów
                     </h2>
                     <hr>
                     <br/>
 
                     <div class="table-responsive">
                         <table class="table table-striped umow">
-                            @foreach($doctors as $doctor)
+                        <tr>
+                                <th>Imię i nazwisko</th>
+                                <th>Adres</th>
+                                <th>Pesel</th>
+                            </tr>
+                            @foreach($patients as $patient)
                                 <tr>
                                     <td>
-                                        <strong>{{$doctor['imie']}} {{$doctor['nazwisko']}}</strong>
-                                        <br>{{$doctor['specjalizacja']}}
+                                        {{$patient['imie']}} {{$patient['nazwisko']}} 
                                     </td>
                                     <td>
-                                        <a href="terminy/{{$doctor['id']}}">umów wizytę</a>
+                                        {{$patient['adres']}} 
                                     </td>
+                                    <td>
+                                        {{$patient['pesel']}}
+                                    </td>
+                         
                                 </tr>
                             @endforeach
                         </table>

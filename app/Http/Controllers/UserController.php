@@ -1,6 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Patient;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
+
 class UserController extends Controller
 {
 
@@ -18,4 +22,6 @@ class UserController extends Controller
         
         return view('user');
     }
+
+    
 }
