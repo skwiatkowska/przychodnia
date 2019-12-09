@@ -19,6 +19,19 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        //'user_type' => 'pacjent'
+    ];
+});
+
+$factory->define(App\Patient::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'imie' => $faker->name,
+		'nazwisko' => $faker->lastname,
+        'email' => $faker->unique()->safeEmail,
+		'pesel' => $faker->numberBetween(100000000000,99999999999),
+		'adres' => $faker->address,
+        'password' => $password ?: $password = bcrypt('secret'),
     ];
 });

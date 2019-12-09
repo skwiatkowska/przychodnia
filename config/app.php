@@ -1,6 +1,6 @@
 <?php
 
-define('PUBLIC_URL', '/');
+if (!defined('PUBLIC_URL')) define('PUBLIC_URL', '/');
 
 return [
 
