@@ -13,23 +13,8 @@ class Doctor extends Model
     protected $table = 'doctors';
     public $timestamps = false;
     private $errors = [];
-    private $attampt = false;
 
-
-    public function login($email, $password){
-
-        if (Auth::attempt(['email' => $email, 'password' => $password])){
-            return true;
-        } else {
-                $user->errors[] = 'Nieprawidlowy email lekarza lub haslo';
-                $this->attempt = true;
-            return false;
-        }
-
-    }
-    public function tried(){
-        return $this->attempt;
-    }
+    
 
     public function getErrors()
     {

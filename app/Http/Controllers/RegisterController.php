@@ -28,13 +28,12 @@ class RegisterController extends Controller
         $user = new User();
 
 
-        $isRegistered = $patient->addNewUser($name, $surname, $email, $pesel, $adres = "nie podano", $password);
-        $user->addUser($name, $email, $password, $user_type = "pacjent");
-        if ($isRegistered) {
-            return redirect('login')->with('info', 'Konto zostało zarejestrowane, możesz sie teraz zalogować:');
-        }
+       $isRegistered = $patient->addNewUser($name, $surname, $email, $pesel, $adres, $password);
+        $user->addUser($name, $email, $password, $user_type="patient");
 
-        $errors = $patient->getErrors();
+            return redirect('login')->with('info', 'Konto zostało zarejestrowane, możesz sie teraz zalogować:');
+
+        $errors = $user->getErrors();
         return redirect('/rejestracja')->with('errors', $errors);
     }
 

@@ -12,8 +12,7 @@ use Illuminate\Foundation\Auth\Patient as Authenticatable;
 class Patient extends Model
 {
     protected $table = 'patients';
-    protected $tableu = 'users';
-    private $attempt = false;
+        //private $attempt = false;
 
     public $timestamps = false;
     private $errors = [];
@@ -52,29 +51,14 @@ class Patient extends Model
         $patient->email = $email;
         $patient->pesel = $pesel;
         $patient->adres = $adres;
-        $patient->password = Hash::make($password);
+        $patient->password = bcrypt($password);
         $patient->save();
    
 
 
         return true;
     }
-
-    public function login($email, $password){
-
-        if (Auth::attempt(['email' => $email, 'password' => $password])){
-            return true;
-        } else {
-                $this->errors[] = 'Nieprawidlowy email lub haslo';
-                $this ->attempt = true;
-            return false;
-        }
-
-    }
-    public function tried(){
-        return $this->attempt;
-    }
-
+    
     public function getErrors()
     {
         return $this->errors;

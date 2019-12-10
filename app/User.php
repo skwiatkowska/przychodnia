@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\Patient;
 use App\Doctor;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
@@ -37,7 +36,7 @@ class User extends Authenticatable
     ];
 
 
-    public function addUser($name, $email, $password,$user_type="pacjent")
+    public function addUser($name, $email, $password,$user_type)
     {
         $data = [
             $name,
@@ -60,12 +59,23 @@ class User extends Authenticatable
         $user = new User();
         $user->name = $name;
         $user->email = $email;
-        $user->password = Hash::make($password);
+        $user->password = bcrypt($password);
         $user->user_type = $user_type;
         $user->save();
         return true;
     }
   
+    const ADMIN_TYPE = 'reception';
+    const DOCTOR_TYPE = 'doctor';
+    
+    public function isAdmin() {
+         return $this->user_type === self::ADMIN_TYPE;
+     }
+    
+    public function isDoctor() {
+         return $this->user_type === self::DOCTOR_TYPE;
+    } 
+
 
 
     public function login($email, $password){
@@ -77,26 +87,15 @@ class User extends Authenticatable
             $this->errors[] = 'Pole Haslo nie moze byc puste!';
             return false;
         }
-        $patient = new Patient();
-        if ($patient->login($email, $password)) {
-            return redirect()->intended('/panel') ;
+        if (Auth::attempt(['email' => $email, 'password' => $password])){
+            return true;
+        } else {
+                $this->errors[] = 'Nieprawidlowy email lub haslo';
+            return false;
         }
-        $this->attempt = $patient -> tried();
-
-        if ($this->attemptp){
-            $doctor = new Doctor(); 
-        
-            
-            if ($doctor->login($email, $password)) {
-                return redirect()->intended('/') -> with('info','witamy, doktorze');
-           
-            } 
-            $this->attemptd = $doctor ->tried();    
-        }
-    
-        $this->errors= $patient -> getErrors();
         
     }
+
      public function getErrors()
     {
         return $this->errors;

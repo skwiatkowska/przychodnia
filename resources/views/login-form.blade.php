@@ -27,8 +27,9 @@
                         <div class="form-group">
                             <div class="col-sm-6 col-sm-offset-3 text-center">
                             Loguj jako:
-                            <input type="radio" name="user-type" value="patient" checked > Pacjent
-                            <input type="radio" name="user-type" value="no-patient"> Lekarz/Recepcja
+                            <input type="radio" name="user_type" value="patient" checked > Pacjent
+                            <input type="radio" name="user_type" value="doctor"> Lekarz
+                            <input type="radio" name="user_type" value="reception"> Recepcja
                             </div>
                         </div>
                         <hr>

@@ -1,8 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Patient;
-use App\Doctor;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +32,9 @@ class AuthController extends Controller
         return redirect('/login')->with('errors', $errors);
 
     }
+
+
+
 
     public function logout()
     {
