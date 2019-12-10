@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
-class VisitsController extends Controller
+class VisitController extends Controller
 {
 
     public function visitsView()

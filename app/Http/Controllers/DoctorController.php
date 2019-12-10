@@ -6,14 +6,9 @@ use App\Deadline;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
-class HospitalController extends Controller
+class DoctorController extends Controller
 {
-    public function mainSite()
-    {
-        return View('przychodnia');
-    }
-
-    public function doctorsList()
+     public function doctorsList()
     {
         $doctors = Doctor::all();
         return View('lista-lekarzy', ['doctors' => $doctors]);

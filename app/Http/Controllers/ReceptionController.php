@@ -5,20 +5,11 @@ use App\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PatientController extends Controller {
+class ReceptionController extends Controller {
 
-    public function mainSite ()
+    public function mainSite()
     {
-        if (Auth::check()) {
-            return View('panel');
-        } else {
-            return redirect('/login');
-        }
-    }
-
-    public function settings()
-    {
-        return view('panel-ustawienia');
+        return View('recepcja/recepcja');
     }
 
      public function patientsList()

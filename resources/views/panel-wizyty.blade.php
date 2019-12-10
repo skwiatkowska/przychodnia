@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('content')
 
@@ -15,7 +15,8 @@
 
                     <div class="table-responsive">
                         @if($wizyty->count()==0)
-                            <h2 class="intro-text text-center">Brak wizyt
+                            <h2 class="intro-text text-center">Brak wizyt <br><br><br>
+                            <a class="btn btn-primary" href="/lista_lekarzy">Umów wizytę</a>
                             </h2>
                         @else
                             <table class="table table-striped ania-center umow">

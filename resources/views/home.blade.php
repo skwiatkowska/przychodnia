@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('layouts.layout')
 
-@section('title', 'Przychodnia')
+@section('title', 'Strona główna')
 
 @section('content')
 
@@ -30,7 +30,7 @@
                                 <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/waiting-room.jpg" alt="">
                                 <div class="carousel-caption">
                                 <h3>Nie czekaj w kolejkach</h3>
-                                <a class="btn btn-primary">Umów wizytę online</a>
+                                <a class="btn btn-primary" href="/lista_lekarzy">Umów wizytę online </a>
                                 </div>
                             </div>
                             <div class="item">

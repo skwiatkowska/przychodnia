@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('layouts.layout')
 
-@section('title', 'Przychodnia')
+@section('title', 'Dostępne terminy')
 
 
 @section('content')

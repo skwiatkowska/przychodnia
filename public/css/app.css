@@ -24,6 +24,10 @@ input[type="radio"]{
     font-size: 18px;
 }
 
+.box {
+    padding: 0 50px 0 50px;
+}
+
 .carousel-caption {
     font-weight: bold;
     color: #161515;
@@ -74,7 +78,7 @@ input[type="radio"]{
 
 .hour {
     color: white !important;
-    background-color: #6699CC;!important;
+    background-color: #6699CC !important;
     display: inline-block;
     /*float: left;*/
     padding: 5px;
@@ -85,7 +89,7 @@ input[type="radio"]{
 
 .hour:hover {
     color: #000 !important;
-    background-color: #dee1ed;!important;
+    background-color: #dee1ed !important;
     text-decoration: none;
 }
 
@@ -125,7 +129,7 @@ input[type="radio"]{
   overflow: hidden;
   top: 0;
   left: 0;
-  background-color: rgba(75,75,75,0.7);
+  background-color: rgba(75,75,75,0.3);
   -webkit-transition: all 0.4s  cubic-bezier(0.88,-0.99, 0, 1.81);
   transition: all 0.4s  cubic-bezier(0.88,-0.99, 0, 1.81);
 }
@@ -137,6 +141,8 @@ input[type="radio"]{
 .hovereffect img {
   display: block;
   position: relative;
+  border-radius: 15px;
+
 }
 
 .hovereffect h2 {
