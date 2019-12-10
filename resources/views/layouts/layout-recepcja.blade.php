@@ -48,10 +48,10 @@
                     <a href="/recepcja/lista_pacjentow">Pacjenci</a>
                 </li>
                 <li>
-                    <a href="/lista_lekarzy">Lekarze</a>
+                    <a href="/recepcja/lista_lekarzy">Lekarze</a>
                 </li>
                 <li>
-                    <a href="/wizyty">Wizyty</a>
+                    <a href="/recepcja/wizyty">Wizyty</a>
                 </li>
                 <li>
                      <a href="/logout">Wyloguj</a>
