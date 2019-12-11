@@ -22,6 +22,12 @@ Route::post('/panel/wizyty/usun', 'VisitController@deleteVisit');
 
 Route::get('/recepcja', 'ReceptionController@mainSite');
 Route::get('/recepcja/lista_pacjentow', 'ReceptionController@patientsList');
+Route::get('/recepcja/lista_lekarzy', 'ReceptionController@doctorsList');
+
+
+Route::get('/panel_lekarza', 'DoctorController@mainSite');
+Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
+Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
 
 
 

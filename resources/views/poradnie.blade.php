@@ -5,8 +5,8 @@
 
 <div class="container">
 <hr>
-                    <h4 class="text-center">Zakres działalności</h4>
-                    <hr>
+  <h4 class="text-center">Zakres działalności</h4>
+  <hr>
   <div class="row">
     <div class="col-sm-4">
     <div class="hovereffect">
