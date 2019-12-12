@@ -15,7 +15,7 @@
                         <strong>Rejestracja konta</strong>
                     </h2>
                     <hr>
-
+                    <div class="col-md-6 col-md-offset-3">
                     <form class="form-horizontal" method="post" align="center">
                         <div class="row">
                             {{ csrf_field() }}
@@ -89,7 +89,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-sm-2 col-sm-offset-2">
+                                    <div class="col-sm-3 col-sm-offset-2">
                                         <button type="submit" class="btn btn-primary form-control">Załóż konto</button>
                                     </div>
                                 </div>
@@ -97,11 +97,11 @@
                             </fieldset>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 
 

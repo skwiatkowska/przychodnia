@@ -37,6 +37,4 @@ class RegisterController extends Controller
         $errors = $user->getErrors();
         return redirect('/rejestracja')->with('errors', $errors);
     }
-
-
 }

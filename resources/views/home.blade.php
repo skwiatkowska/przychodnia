@@ -9,6 +9,7 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
+                <br/>
                     <div id="carousel-example-generic" class="carousel slide data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators hidden-xs">
@@ -16,7 +17,7 @@
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                         </ol>
-
+                        
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">

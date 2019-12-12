@@ -7,19 +7,19 @@
     <div class="container">
         <div class="row">
             <div class="box">
-                <div class="col-lg-12">
+                <div class="col-lg-10 col-lg-offset-1">
                     <br><hr>
                     <h2 class="intro-text text-center">Witaj w panelu Lekarza
                     </h2>
                     <hr><br>
                     <p class="text-center">
                     Jesteś w panelu administracyjnym dla Lekarza, który umożliwia generowanie historii zdrowia i choroby pacjenta, przeglądanie umówionych wizyt i zarządzanie własnym kontem.
-                    </p>
-                </div>
-            </div>
+                    </p> <br/>  
+            
         </div>
         <div class="row">
-    <div class="col-sm-4 box">
+        <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-sm-6 box">
     <div class="hovereffect">
         <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/patients.jpg" alt="">
         <div class="overlay">
@@ -28,7 +28,7 @@
         </div>
     </div>
     </div>
-    <div class="col-sm-4 box">
+    <div class="col-sm-6 box">
     <div class="hovereffect">
         <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/doctor.jpg" alt="">
         <div class="overlay">
@@ -36,9 +36,12 @@
            <a class="info" href="#">Przeglądaj wizytami</a>
         </div>
     </div>
+    </div>        <br/>
+
+    </div>
     </div>
   </div>
- 
+  </div>
   </div>
     </div>
 

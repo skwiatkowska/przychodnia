@@ -22,8 +22,8 @@
                             @foreach($doctors as $doctor)
                                 <tr><td></td>
                                     <td>
-                                        <strong>{{$doctor['imie']}} {{$doctor['nazwisko']}}</strong>
-                                        <br>{{$doctor['specjalizacja']}}
+                                        <strong>{{$doctor['tytul']}}  {{$doctor['imie']}} {{$doctor['nazwisko']}}</strong>
+                                        <br/>{{$doctor['specjalizacja']}}
                                     </td>
                                     <td>
                                         <a href="terminy/{{$doctor['id']}}">umów wizytę</a>

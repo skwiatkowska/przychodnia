@@ -20,7 +20,6 @@ class VisitController extends Controller
         $allVisits = $visit->getWizyty($patientId);
 
         return View('panel-wizyty', ['wizyty' => $allVisits]);
-
     }
 
     public function addVisit(Request $request)

@@ -19,7 +19,7 @@
                             <a class="btn btn-primary" href="/lista_lekarzy">Umów wizytę</a>
                             </h2>
                         @else
-                            <table class="table table-striped ania-center umow">
+                            <table class="table table-striped">
                                 <tr>
                                     <th>Imie i nazwisko</th>
                                     <th>Dzień</th>

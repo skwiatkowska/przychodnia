@@ -34,6 +34,7 @@ Route::get('/recepcja/lista_lekarzy', 'ReceptionController@doctorsList');
 Route::get('/recepcja/pacjent/{id}', 'ReceptionController@patientData');
 Route::get('/recepcja/lekarz/{id}', 'ReceptionController@doctorsDeadlines');
 
+
 Route::get('/recepcja/dodaj-pacjenta', 'RegisterController@formView');
 Route::post('/recepcja/dodaj-pacjenta', 'RegisterController@register');
 

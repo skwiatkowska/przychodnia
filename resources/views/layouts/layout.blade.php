@@ -15,12 +15,6 @@
     <link href="{{PUBLIC_URL}}css/business-casual.css" rel="stylesheet">
     <link href="{{PUBLIC_URL}}css/app.css" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-          rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
-          rel="stylesheet" type="text/css">
-
 
 </head>
 <body>
@@ -78,7 +72,7 @@
                         <a href="/panel/wizyty">Moje wizyty</a>
                     </li>
                     <li>
-                        <a href="/panel/ustawienia">Ustawienia konta</a>
+                        <a href="/panel/ustawienia">Moje konto</a>
                     </li>
                     <li>
                         <a href="/logout">Wyloguj</a>

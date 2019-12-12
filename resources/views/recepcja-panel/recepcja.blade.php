@@ -8,16 +8,16 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
+                <div class="row">
                     <br><hr>
                     <h2 class="intro-text text-center">Witaj w panelu  Recepcjonisty
                     </h2>
                     <hr><br>
                     <p class="text-center">
                     Jesteś w panelu administracyjnym dla Recepcjonisty, który umożliwia zarządzanie kontami pacjentów i lekarzy, modyfikację danych, wprowadzanie terminarzy i umawianie wizyt.
-                    </p>
+                    </p><br/>
                 </div>
-            </div>
-        </div>
+         
         <div class="row">
     <div class="col-sm-4 box">
     <div class="hovereffect">
@@ -48,7 +48,8 @@
     </div>
     </div>
   </div>
- 
+  </div>
+        </div>
   </div>
     </div>
 

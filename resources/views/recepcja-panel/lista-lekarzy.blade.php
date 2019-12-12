@@ -26,15 +26,19 @@
                         <tr><th>Nr</th>
                                 <th>Imię i nazwisko</th>
                                 <th>Specjalizacja</th>
+                                <th>Gabinet</th>
                                 <th></th>
                             </tr></thead>
                             @foreach($doctors as $doctor)
                                 <tr><td></td>
                                     <td>
-                                        {{$doctor['imie']}} {{$doctor['nazwisko']}} 
+                                    {{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} 
                                     </td>
                                     <td>
                                         {{$doctor['specjalizacja']}}
+                                    </td>
+                                    <td>
+                                        {{$doctor['gabinet']}}
                                     </td>
                                     <td>
                                 <a href="lekarz/{{$doctor['id']}}">wybierz</a>
