@@ -17,6 +17,7 @@ class CreateDoctorsTable extends Migration
             $table->increments('id');
             $table->string('imie');
             $table->string('specjalizacja');
+            $table->string('tytul');
             $table->string('nazwisko');
             $table->unsignedInteger('gabinet');
             $table->unsignedInteger('telefon');
