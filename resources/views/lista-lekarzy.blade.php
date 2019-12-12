@@ -20,7 +20,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped umow">
                             @foreach($doctors as $doctor)
-                                <tr>
+                                <tr><td></td>
                                     <td>
                                         <strong>{{$doctor['imie']}} {{$doctor['nazwisko']}}</strong>
                                         <br>{{$doctor['specjalizacja']}}

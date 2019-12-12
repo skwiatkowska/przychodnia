@@ -38,4 +38,11 @@ class ReceptionController extends Controller {
         $patients = Patient::all();
         return View('recepcja-panel/lista-pacjentow', ['patients' => $patients]);
     }
+
+
+    public function patientData($id)
+    {
+       // do napisania, zwraca view pacjent i tablice z danymi pacjenta i jego wizytami
+       return View('recepcja');
+    }
 }

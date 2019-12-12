@@ -20,14 +20,19 @@ Route::get('/panel/wizyty', 'VisitController@visitsView');
 Route::get('/panel/wizyty/dodaj', 'VisitController@addVisit');
 Route::post('/panel/wizyty/usun', 'VisitController@deleteVisit');
 
+
+Route::get('/panel_lekarza', 'DoctorController@mainSite');
+Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
+Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
+
+
 Route::get('/recepcja', 'ReceptionController@mainSite');
 Route::get('/recepcja/lista_pacjentow', 'ReceptionController@patientsList');
 Route::get('/recepcja/lista_lekarzy', 'ReceptionController@doctorsList');
 
 
-Route::get('/panel_lekarza', 'DoctorController@mainSite');
-Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
-Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
+Route::get('/pacjent/{id}', 'ReceptionController@patientData');
+
 
 
 

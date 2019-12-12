@@ -19,11 +19,11 @@
 
                     <div class="table-responsive">
                         <table class="table table-striped umow">
-                        <tr>
+                        <tr><th>Nr</th>
                                 <th>Imię i nazwisko</th>
                             </tr>
                             @foreach($doctors as $doctor)
-                                <tr>
+                                <tr><td></td>
                                     <td>
                              
                                         {{$doctor['imie']}} {{$doctor['nazwisko']}} 
