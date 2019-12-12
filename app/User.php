@@ -69,15 +69,15 @@ class User extends Authenticatable
         return $user_id;
     }
   
-    const ADMIN_TYPE = 'reception';
-    const DOCTOR_TYPE = 'doctor';
+    const ADMIN_TYPE = "reception";
+    const DOCTOR_TYPE = "doctor";
     
     public function isAdmin() {
-         return $this->user_type === self::ADMIN_TYPE;
+         return $this->user_type == self::ADMIN_TYPE;
      }
     
     public function isDoctor() {
-         return $this->user_type === self::DOCTOR_TYPE;
+         return $this->user_type == self::DOCTOR_TYPE;
     } 
 
 

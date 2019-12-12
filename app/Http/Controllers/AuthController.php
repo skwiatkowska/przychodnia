@@ -11,7 +11,7 @@ class AuthController extends Controller
     public function formView()
     {
         if (Auth::check()) {
-            return redirect('/panel');
+            return authenticated();
         } else {
             return View('login-form');
         }
@@ -25,6 +25,7 @@ class AuthController extends Controller
 
         $user = new User();
         if ($user->login($email, $password)) {
+           //return redirect()->authenticated() -> with('info','zalogowano poprawnie');
             return redirect()->intended('') -> with('info','zalogowano poprawnie');
         }
 
@@ -39,5 +40,17 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    protected function authenticated() {
+
+        if (auth()->user()->isDoctor()) {
+            return View('recepcja');
+        } 
+        else if (auth()->user()->isAdmin()) {
+            return View('panel_lekarza');
+           } else {
+               return View('/');
+               } 
+   }
 
 }

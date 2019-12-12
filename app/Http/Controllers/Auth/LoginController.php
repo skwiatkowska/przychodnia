@@ -24,14 +24,11 @@ class LoginController extends Controller
     protected function authenticated() {
 
      if (auth()->user()->isDoctor()) {
-     // an admin
          $this->redirectTo = '/rodo';
      } 
      else if (auth()->user()->isAdmin()) {
-        // an admin
             $this->redirectTo = '/lista-lekarzy';
         } else {
-            // an admin
       $this->redirectTo = '/panel';
             } 
 }

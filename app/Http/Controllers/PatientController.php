@@ -19,4 +19,17 @@ class PatientController extends Controller {
     {
         return view('panel-ustawienia');
     }
+
+    public function patientInfo()
+    {
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
+
+        $patient = new Patient();
+        $patientId = Auth::id();
+        $allData= $patient->getData($patientId);
+
+        return View('panel-ustawienia', ['ustawienia' => $allData]);
+    }
 }
