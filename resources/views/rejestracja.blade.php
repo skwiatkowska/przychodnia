@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Rejestracja nowego konta')
+@section('title', 'Rejestracja nowego konta Pacjenta')
 
 
 @section('content')
@@ -12,7 +12,7 @@
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <strong>Rejestracja konta</strong>
+                        <strong>Rejestracja konta Pacjenta</strong>
                     </h2>
                     <hr>
                     <div class="col-md-6 col-md-offset-3">

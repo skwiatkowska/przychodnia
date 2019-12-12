@@ -13,7 +13,7 @@ class Visit extends Model
     public function addVisit($patientId, $doctorId, $date, $hour)
     {
         if (!Auth::check()) {
-            $this->errors[] = 'Aby dokonać rezerwacji musisz byc <a href="/login">zalogowany!</a>!';
+            $this->errors[] = 'Aby dokonać rezerwacji musisz być <a href="/login">zalogowany!</a>!';
             return false;
         }
 
@@ -24,7 +24,7 @@ class Visit extends Model
             ->first();
 
         if ($busyDeadline) {
-            $this->errors[] = 'Wybrany termin jest juz zarezerwowany';
+            $this->errors[] = 'Wybrany termin jest już zarezerwowany';
             return false;
         }
 
@@ -34,7 +34,7 @@ class Visit extends Model
             ->first();
 
         if ($secondVisit) {
-            $this->errors[] = 'Możesz dokonoać tylko jednej rezerwacji wizyty w ciągu dnia!';
+            $this->errors[] = 'Możesz dokonać tylko jednej rezerwacji wizyty w ciągu dnia!';
             return false;
         }
 
