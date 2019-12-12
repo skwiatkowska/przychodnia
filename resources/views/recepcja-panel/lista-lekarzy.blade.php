@@ -15,7 +15,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-3 pull-right">
-                         <a type="button" class="btn btn-info" role="button" href="#">Dodaj nowego lekarza</a>
+                         <a type="button" class="btn btn-info" role="button" href="/recepcja/dodaj_lekarza">Dodaj nowego lekarza</a>
                     </div>
                 </div><br/>
                 <div class="row">

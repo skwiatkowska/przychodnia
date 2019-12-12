@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ReceptionController extends Controller {
 
+    public function mainSite()
+    {
+        return View('recepcja-panel/recepcja');
+    }
+
     public function patientRegisterFormView()
     {
         return View('/recepcja-panel/dodaj-pacjenta');
@@ -38,10 +43,17 @@ class ReceptionController extends Controller {
         return redirect('recepcja/dodaj_pacjenta')->with('errors', $errors);
     }
 
-    public function mainSite()
+
+    public function doctorRegisterFormView()
     {
-        return View('recepcja-panel/recepcja');
+        return View('/recepcja-panel/dodaj-lekarza');
     }
+
+    public function doctorRegister(Request $request)
+    {
+  //do napisania
+    }
+
 
     public function doctorsList()
     {

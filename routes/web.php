@@ -39,5 +39,5 @@ Route::get('/recepcja/dodaj_pacjenta', 'ReceptionController@patientRegisterFormV
 Route::post('/recepcja/dodaj_pacjenta', 'ReceptionController@patientRegister');
 
 
-
-
+Route::get('/recepcja/dodaj_lekarza', 'ReceptionController@doctorRegisterFormView');
+Route::post('/recepcja/dodaj_lekarza', 'ReceptionController@doctorRegister');
