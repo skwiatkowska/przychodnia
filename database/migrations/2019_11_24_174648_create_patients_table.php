@@ -21,6 +21,8 @@ class CreatePatientsTable extends Migration
             $table->string('email');
             $table->string('pesel');
             $table->string('adres');
+            $table->string('telefon');
+            $table->date('data_urodzenia');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

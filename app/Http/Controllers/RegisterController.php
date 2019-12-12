@@ -24,6 +24,8 @@ class RegisterController extends Controller
         $pesel = $request->input('pesel');
         $adres = $request->input('adres');
         $password = $request->input('haslo');
+        $telefon= $request->input('phone');
+        $data_ur= $request->input('data_urodzenia');
 
         $patient = new Patient();
         $user = new User();
@@ -33,7 +35,7 @@ class RegisterController extends Controller
         
         
 
-        $isRegistered = $patient->addNewUser($user_id, $name, $surname, $email, $pesel, $adres, $password);
+        $isRegistered = $patient->addNewUser($user_id, $name, $surname, $email, $pesel, $adres,$telefon,$data_ur=20000303, $password);
 
             return redirect('login')->with('info', 'Konto zostało zarejestrowane, możesz się teraz zalogować:'.$user_id);
 

@@ -17,7 +17,7 @@ class Patient extends Model
     public $timestamps = false;
     private $errors = [];
 
-    public function addNewUser($id_usr, $name, $surname, $email, $pesel, $adres, $password)
+    public function addNewUser($id_usr, $name, $surname, $email, $pesel, $adres,$telefon,$data_urodzenia, $password)
     {
         $data = [
             $id_usr,
@@ -26,6 +26,8 @@ class Patient extends Model
             $email,
             $pesel,
             $adres,
+            $telefon,
+            $data_urodzenia,
             $password
         ];
 
@@ -52,6 +54,8 @@ class Patient extends Model
         $patient->nazwisko = $surname;
         $patient->email = $email;
         $patient->pesel = $pesel;
+        $patient->telefon=$telefon;
+        $patient->data_urodzenia=$data_urodzenia;
         $patient->adres = $adres;
         $patient->password = bcrypt($password);
         $patient->save();
