@@ -73,7 +73,7 @@ class Patient extends Model
 
     public function getData($patientId)
     {     
-        $data_all = Patient::where('id', $patientId)->get();
+        $data_all = Patient::where('id_usr', $patientId)->get();
         return $data_all;
     }
 

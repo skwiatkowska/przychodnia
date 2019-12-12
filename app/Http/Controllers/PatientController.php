@@ -28,6 +28,7 @@ class PatientController extends Controller {
 
         $patient = new Patient();
         $patientId = Auth::id();
+        
         $allData= $patient->getData($patientId);
 
         return View('panel-ustawienia', ['ustawienia' => $allData]);
