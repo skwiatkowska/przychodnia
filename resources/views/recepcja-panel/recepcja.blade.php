@@ -33,7 +33,7 @@
         <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/doctor.jpg" alt="">
         <div class="overlay">
            <h2>Lekarze</h2>
-           <a class="info" href="#">Zarządzaj lekarzami</a>
+           <a class="info" href="/recepcja/lista_lekarzy">Zarządzaj lekarzami</a>
         </div>
     </div>
     </div>

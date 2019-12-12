@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Patient;
 use App\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;

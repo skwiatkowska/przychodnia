@@ -30,7 +30,7 @@ class ReceptionController extends Controller {
             return;
         }
 
-        return View('terminy', ['doctorsDeadlines' => $doctorsDeadlines]);
+        return View('recepcja-panel/lekarz', ['doctorsDeadlines' => $doctorsDeadlines]);
     }
 
      public function patientsList()
@@ -42,7 +42,9 @@ class ReceptionController extends Controller {
 
     public function patientData($id)
     {
-       // do napisania, zwraca view pacjent i tablice z danymi pacjenta i jego wizytami
-       return View('recepcja');
+       // do napisania, zwraca view recepcja-panel/pacjent i tablice z danymi pacjenta i jego wizytami
+       //return View('recepcja-panel/pacjent', [...]);
     }
+
+
 }
