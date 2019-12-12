@@ -62,7 +62,11 @@ class User extends Authenticatable
         $user->password = bcrypt($password);
         $user->user_type = $user_type;
         $user->save();
-        return true;
+
+        
+        $user_id = $user->id;
+
+        return $user_id;
     }
   
     const ADMIN_TYPE = 'reception';

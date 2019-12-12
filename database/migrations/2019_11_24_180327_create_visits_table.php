@@ -22,7 +22,7 @@ class CreateVisitsTable extends Migration
             $table->timestamps();
 
             $table->foreign('id_lekarza')->references('id')->on('doctors');
-            $table->foreign('id_pacjenta')->references('id')->on('patients');
+            $table->foreign('id_pacjenta')->references('id_usr')->on('patients');
 
         });
     }

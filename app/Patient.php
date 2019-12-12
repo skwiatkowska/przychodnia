@@ -17,9 +17,10 @@ class Patient extends Model
     public $timestamps = false;
     private $errors = [];
 
-    public function addNewUser($name, $surname, $email, $pesel, $adres, $password)
+    public function addNewUser($id_usr, $name, $surname, $email, $pesel, $adres, $password)
     {
         $data = [
+            $id_usr,
             $name,
             $surname,
             $email,
@@ -46,6 +47,7 @@ class Patient extends Model
         }
 
         $patient = new Patient();
+        $patient->id_usr= $id_usr;
         $patient->imie = $name;
         $patient->nazwisko = $surname;
         $patient->email = $email;
