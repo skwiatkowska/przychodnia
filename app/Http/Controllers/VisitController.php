@@ -19,7 +19,7 @@ class VisitController extends Controller
         $patientId = Auth::id();
         $allVisits = $visit->getWizyty($patientId);
 
-        return View('panel-wizyty', ['wizyty' => $allVisits]);
+        return View('pacjent-panel/panel-wizyty', ['wizyty' => $allVisits]);
     }
 
     public function addVisit(Request $request)

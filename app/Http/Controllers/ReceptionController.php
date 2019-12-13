@@ -48,7 +48,7 @@ class ReceptionController extends Controller {
 
     public function doctorRegisterFormView()
     {
-        return View('/recepcja-panel/dodaj-lekarza');
+        return View('recepcja-panel/dodaj-lekarza');
     }
 
     public function doctorRegister(Request $request)

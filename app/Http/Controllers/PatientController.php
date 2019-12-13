@@ -18,7 +18,7 @@ class PatientController extends Controller {
 
     public function settings()
     {
-        return view('panel-ustawienia');
+        return view('pacjent-panel/panel-ustawienia');
     }
 
     public function patientInfo()
@@ -32,6 +32,6 @@ class PatientController extends Controller {
         
         $allData= $patient->getData($patientId);
 
-        return View('panel-dane', ['data' => $allData]);
+        return View('pacjent-panel/panel-dane', ['data' => $allData]);
     }
 }
