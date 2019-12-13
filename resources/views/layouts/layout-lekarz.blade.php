@@ -45,6 +45,9 @@
                     <a href="/panel_lekarza/wizyty">Wizyty</a>
                 </li>
                 <li>
+                    <a href="/panel_lekarza/dane">Moje konto</a>
+                </li>
+                <li>
                      <a href="/logout">Wyloguj</a>
                 </li>   
             </ul>

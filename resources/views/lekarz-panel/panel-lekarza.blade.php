@@ -18,27 +18,33 @@
             
         </div>
         <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-    <div class="col-sm-6 box">
+    <div class="col-sm-4 box">
     <div class="hovereffect">
         <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/patients.jpg" alt="">
         <div class="overlay">
            <h2>Pacjenci</h2>
-           <a class="info" href="/panel_lekarza/lista_pacjentow">Zarządzaj pacjentami</a>
+           <a class="info" href="/panel_lekarza/lista_pacjentow">Przeglądaj listę swoich pacjentów</a>
         </div>
     </div>
     </div>
-    <div class="col-sm-6 box">
+    <div class="col-sm-4 box">
+    <div class="hovereffect">
+        <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/appointment.jpg" alt="">
+        <div class="overlay">
+           <h2>Wizyty</h2>
+           <a class="info" href="#">Przeglądaj zaplanowane wizyty</a>
+        </div>
+    </div>
+    </div> 
+    <div class="col-sm-4 box">
     <div class="hovereffect">
         <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/doctor.jpg" alt="">
         <div class="overlay">
-           <h2>Lekarze</h2>
-           <a class="info" href="#">Przeglądaj wizytami</a>
+           <h2>Moje konto</h2>
+           <a class="info" href="/recepcja/lista_lekarzy">Zarządzaj swoim kontem</a>
         </div>
-    </div>
-    </div>        <br/>
+    </div></div>       <br/>
 
-    </div>
     </div>
   </div>
   </div>

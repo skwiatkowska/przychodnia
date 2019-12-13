@@ -10,7 +10,7 @@
 
         <div class="row">
             <div class="box">
-                <div class="col-lg-12">
+                <div class="col-lg-8 col-lg-offset-2">
                     <hr>
                     <h2 class="intro-text text-center">Lista pacjentów
                     </h2>
@@ -18,25 +18,28 @@
                     <br/>
 
                     <div class="table-responsive">
-                        <table class="table table-striped umow">
-                        <tr>
-                                <th>Imię i nazwisko</th>
-                                <th>Adres</th>
-                                <th>Pesel</th>
-                            </tr>
+                    <table class="table table-striped  table-numbered">
+                        <thead>
+                            <tr>
+                            <th>Nr</th>
+                            <th>Imię i nazwisko</th>
+                            <th>Pesel</th><th></th>
+                            </tr></thead>
                             @foreach($patients as $patient)
-                                <tr>
-                                    <td>
-                                        {{$patient['imie']}} {{$patient['nazwisko']}} 
-                                    </td>
-                                    <td>
-                                        {{$patient['adres']}} 
-                                    </td>
-                                    <td>
-                                        {{$patient['pesel']}}
-                                    </td>
-                         
-                                </tr>
+                            <tr>
+                            <td>
+                            </td>
+                                <td>
+                                    {{$patient['imie']}} {{$patient['nazwisko']}}
+                                </td>
+                            
+                                <td>
+                                    {{$patient['pesel']}}
+                                </td>
+                                <td>
+                                <a href="#">wybierz</a>
+                                </td>
+                            </tr>
                             @endforeach
                         </table>
                     </div>
