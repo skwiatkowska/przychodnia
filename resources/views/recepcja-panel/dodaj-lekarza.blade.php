@@ -82,7 +82,7 @@
 
                                     <div class="col-sm-10">
                                         <input type="number" class="form-control" id="gabinet" name="gabinet"
-                                               placeholder="Pesel">
+                                               placeholder="Gabinet">
                                     </div>
                                 </div>
 

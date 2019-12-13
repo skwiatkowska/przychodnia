@@ -53,7 +53,25 @@ class ReceptionController extends Controller {
 
     public function doctorRegister(Request $request)
     {
-  //do napisania
+        $title = $request->input('tytul');
+        $name = $request->input('imie');
+        $surname = $request->input('nazwisko');
+        $specialization= $request->input('specjalizacja');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $gabinet = $request->input('gabinet');
+        $password = $request->input('haslo');
+
+        $doctor = new Doctor();
+        $user = new User();
+
+        $user_id =$user->addUser($name, $email, $password, $user_type="doctor");
+        $isRegistered = $doctor->addNewUser($user_id,$title,$name, $surname, $specialization,$email,$phone,$gabinet,$password);
+
+        if ($isRegistered)  {  return redirect('recepcja/lista_pacjentow')->with('info', 'Konto zostało zarejestrowane');
+}
+        $errors = $doctor->getErrors();
+        return redirect('recepcja/dodaj_pacjenta')->with('errors', $errors);
     }
 
 

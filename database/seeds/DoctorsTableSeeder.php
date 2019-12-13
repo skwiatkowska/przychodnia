@@ -14,6 +14,7 @@ class DoctorsTableSeeder extends Seeder
     {
         DB::table('doctors')->insert([
             [
+                'id_usr'=>1,
                 'imie' => 'Anna',
                 'nazwisko' => 'Nowak',
                 'specjalizacja' => 'dermatolog',
@@ -23,6 +24,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'nowak@przychodnia.pl',
                 'password' => bcrypt('nowak'),
             ], [
+                'id_usr'=>2,
                 'imie' => 'Jan',
                 'nazwisko' => 'Kowalski',
                 'specjalizacja' => 'pediatra',
@@ -32,6 +34,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'kowalski@przychodnia.pl',
                 'password' => bcrypt('kowalski'),
             ], [
+                'id_usr'=>777,
                 'imie' => 'Lech',
                 'nazwisko' => 'Lekarski',
                 'specjalizacja' => 'neurolog',
@@ -41,6 +44,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'lekarski@przychodnia.pl',
                 'password' => bcrypt('lekarski'),
             ], [
+                'id_usr'=>778,
                 'imie' => 'Joanna',
                 'nazwisko' => 'Leczaca',
                 'specjalizacja' => 'ortopeda',
@@ -50,6 +54,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'leczaca@przychodnia.pl',
                 'password' => bcrypt('leczaca'),
             ], [
+                'id_usr'=>779,
                 'imie' => 'Jadwiga',
                 'nazwisko' => 'Jadwigowska',
                 'specjalizacja' => 'endokrynolog',
@@ -59,6 +64,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'jadwigowska@przychodnia.pl',
                 'password' => bcrypt('jadwigowska'),
             ], [
+                'id_usr'=>780,
                 'imie' => 'Kazimierz',
                 'nazwisko' => 'Zabiegowy',
                 'specjalizacja' => 'kardiolog',
