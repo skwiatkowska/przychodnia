@@ -5,6 +5,8 @@ use App\Patient;
 use App\Doctor;
 use App\Deadline;
 use App\User;
+use App\Visit;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -82,7 +84,7 @@ class ReceptionController extends Controller {
 
     public function patientData($id)
     {
-        $patientData= Patient::findAllPatientData($id);
+        $patientData= Visit::findAllPatientData($id);
 
         if ($patientData==false) {
             abort(404);
