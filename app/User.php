@@ -80,7 +80,10 @@ class User extends Authenticatable
          return $this->user_type == self::DOCTOR_TYPE;
     } 
 
-
+    public function getUsrType($email) {
+        $type_data = User::where('email', $email)->first()['user_type'];
+        return $type_data;
+   } 
 
     public function login($email, $password){
         if (empty($email)) {

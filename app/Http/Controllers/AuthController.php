@@ -24,10 +24,19 @@ class AuthController extends Controller
 
 
         $user = new User();
+        //wywołujemy funkcję szukającą typu pacjenta o podanym adresie email
+        $type_usr = $user->getUsrType($email); 
+
         if ($user->login($email, $password)) {
-           //return redirect()->authenticated() -> with('info','zalogowano poprawnie');
+            if($type_usr=='doctor'){
+                return redirect()->intended('panel-lekarza') -> with('info','zalogowano poprawnie');
+            }elseif ($type_usr=='reception'){
+                return redirect()->intended('recepcja') -> with('info','zalogowano poprawnie');
+
+            }else{
             return redirect()->intended('') -> with('info','zalogowano poprawnie');
-        }
+            }
+    }
 
         $errors = $user->getErrors();
         return redirect('/login')->with('errors', $errors);

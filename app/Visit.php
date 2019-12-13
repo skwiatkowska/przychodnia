@@ -55,37 +55,22 @@ class Visit extends Model
 
     public function getWizyty($patientId)
     {
-        // Tablica przechowujaca id lekarzy np [ 12, 15, 17 ]
         $doctorId = [];
-        /** Tablica przechowujaca imie i nazwisko lekarza np:
-         * [
-         *  12 => "Kowalski Jan"
-         *  15 => "Mikłowicz Sebastian"
-         *  17 => "Samorodej Sabina"
-         * ]
-         */
+
         $doctors = [];
-        // Wyciagamy wszystkie wizyty danego pacjenta
         $visits = Visit::where('id_pacjenta', $patientId)->orderBy('rok_miesiac_dzien', 'asc')->get();
-        // Wyciagamy id lekarzy z pobranych wizyt
         foreach ($visits as $visit) {
             if (!in_array($visit['id_lekarza'], $doctorId)) {
-                // Dodajemy nowy id lekarza
                 $doctorId[] = $visit['id_lekarza'];
             }
         }
-        // Sprawdzamy czy w ogole warto szukac całych lekarzy (bo jak cos dysponujemy na razie samymi id'kami)
         if (!empty($doctorId)) {
-            // Robimy SQL: SELECT * FROM lekarze WHERE id IN (12, 15, 17)
             $result = Doctor::whereIn('id', $doctorId)->get();
-            // Jezeli znaleziono lekarzy to zapisujemy ich do tablicy po ich kluczu
-            // tzn 12 => "Kowalski Jan"
 
             foreach ($result as $doctor) {
                 $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
             }
         }
-
 
         // Jezeli znaleziono jakis lekarzy to odpowiedniego lekarza przypisz do kazdej wizyty
         foreach ($visits as $visit) {
