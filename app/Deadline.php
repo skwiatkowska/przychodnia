@@ -52,13 +52,14 @@ class Deadline extends Model
         }
 
         $visitDays = array_keys($doctorCalendar);
-
+        //wszystkie wizyty danego dnia
         $visits = Visit::where('id_lekarza', $doctorId)
             ->whereIn('rok_miesiac_dzien', $visitDays)
             ->get();
 
         $busyVisits = [];
 
+        //usunięcie zajętych wizyt
         foreach ($visits as $visit) {
 
             if (!array_key_exists($visit->rok_miesiac_dzien, $busyVisits)) {

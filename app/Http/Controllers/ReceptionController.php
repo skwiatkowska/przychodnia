@@ -82,8 +82,14 @@ class ReceptionController extends Controller {
 
     public function patientData($id)
     {
-       // do napisania, zwraca view recepcja-panel/pacjent i tablice z danymi pacjenta i jego wizytami
-       //return View('recepcja-panel/pacjent', [...]);
+        $patientData= Patient::findAllPatientData($id);
+
+        if ($patientData==false) {
+            abort(404);
+            return;
+        }
+
+        return View('recepcja-panel/lekarz', ['patientData' => $patientData]);
     }
 
     

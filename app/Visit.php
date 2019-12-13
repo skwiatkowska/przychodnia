@@ -98,4 +98,35 @@ class Visit extends Model
         }
         return $visits;
     }
+
+
+
+    static function findAllPatientData($id)
+    {
+        $patient = Patient::where('id',$id) -> first();
+
+        if ($patient == null){
+            return false;
+        }
+
+        //$patientVisits=[];
+        $patientAllVisits = self::where('id_pacjenta','=',$id)->get();
+
+        //$patientData = $patient->get();
+        return [
+            "pacjent" =>[
+                "id" => $patient->id,
+                "imie" => $patient->imie,
+                "nazwisko" => $patient->nazwisko,
+                "email"=>$patient->email,
+                "pesel"=>$patient->pesel,
+                "telefon"=>$patient->telefon,
+                "data_urodzenia"=>$patient->data_urodzenia
+            ],
+
+        "wizyty" => $patientAllVisits
+    ];
+
+    }
+
 }
