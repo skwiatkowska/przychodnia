@@ -61,6 +61,15 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="data_urodzenia" class="col-sm-2 control-label">Data urodzenia</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control" id="data_urodzenia" name="data_urodzenia"
+                                               placeholder="Data urodzenia">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="pesel" class="col-sm-2 control-label">Pesel</label>
 
                                     <div class="col-sm-10">

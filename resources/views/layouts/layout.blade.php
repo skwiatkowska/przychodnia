@@ -72,7 +72,7 @@
                         <a href="/panel/wizyty">Moje wizyty</a>
                     </li>
                     <li>
-                        <a href="/panel/ustawienia">Moje konto</a>
+                        <a href="/panel/dane">Moje konto</a>
                     </li>
                     <li>
                         <a href="/logout">Wyloguj</a>

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Patient;
 
 class PatientController extends Controller {
 
@@ -31,6 +32,6 @@ class PatientController extends Controller {
         
         $allData= $patient->getData($patientId);
 
-        return View('panel-ustawienia', ['ustawienia' => $allData]);
+        return View('panel-dane', ['data' => $allData]);
     }
 }

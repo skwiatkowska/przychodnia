@@ -20,11 +20,11 @@ input[type="radio"]{
     width: 60%;
 }
 
-.table {
+.table-numbered{
   counter-reset: serial-number;  /* Set the serial number counter to 0 */
 }
 
-.table td:first-child:before {
+.table-numbered td:first-child:before {
   counter-increment: serial-number;  /* Increment the serial number counter */
   content: counter(serial-number);  /* Display the counter */
 }

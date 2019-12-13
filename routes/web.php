@@ -14,7 +14,15 @@ Route::get('/terminy/{id}', 'DoctorController@doctorsDeadlines');
 Route::get('/lista_lekarzy', 'DoctorController@doctorsList');
 
 Route::get('/panel', 'PatientController@mainSite');
+Route::get('/panel/dane', 'PatientController@patientInfo');
+
 Route::get('/panel/ustawienia', 'PatientController@settings');
+Route::post('/panel/ustawienia/zmien_dane', 'PatientController@changeData');
+Route::post('/panel/ustawienia/zmien_haslo', 'PatientController@changePassword');
+Route::post('/panel/ustawienia/dezaktywuj', 'PatientController@disableAccount');
+
+
+
 
 Route::get('/panel/wizyty', 'VisitController@visitsView');
 Route::get('/panel/wizyty/dodaj', 'VisitController@addVisit');

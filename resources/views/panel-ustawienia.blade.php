@@ -11,7 +11,7 @@
                     <hr>
                     <h4 class="intro-text text-center">Zmień swoje dane osobowe</h4>
                     <hr>
-                    <form class="form-horizontal" method="post" align="center">
+                    <form class="form-horizontal" method="post" action="ustawienia/zmien_dane" align="center">
                         <div class="row">
                             {{ csrf_field() }}
                             <fieldset>
@@ -46,13 +46,22 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email" class="col-sm-3 control-label">Telefon</label>
+                                    <label for="phone" class="col-sm-3 control-label">Telefon</label>
 
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="phone" name="phone"
                                                placeholder="Telefon">
                                     </div>
 
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="data_urodzenia" class="col-sm-3 control-label">Data urodzenia</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="date" class="form-control" id="data_urodzenia" name="data_urodzenia"
+                                               placeholder="Data urodzenia">
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -89,7 +98,7 @@
                     <hr>
                     <h4 class="intro-text text-center">Zmień hasło</h4>
                     <hr>
-                    <form class="form-horizontal" method="post" align="center">
+                    <form class="form-horizontal" method="post" action="ustawienia/zmien_haslo" align="center">
                         <div class="row">
                             {{ csrf_field() }}
                             <fieldset>
@@ -131,16 +140,18 @@
                 <br>
                 <div class="row">
                     <hr>
-                    <h4 class="intro-text text-center">Usuń konto</h4>
+                    <h4 class="intro-text text-center">Dezaktywuj konto</h4>
                     <hr>
-                    <form class="form-horizontal" method="post" align="center">
+                    <div class="text-justify small">
+                    <p class="text-center">Dostęp do konta zostanie zablokowany, ale wszystkie dane zostaną zarchiwizowane w bazie danych Przychodni na wypadek ponownej potrzeby aktywacji konta.</p>
+                    </div>
+                    <form class="form-horizontal" method="post" action="ustawienia/dezaktywuj" align="center">
                         <div class="row">
                             {{ csrf_field() }}
                             <fieldset>
 
                             <div class="form-group">
                                     <label for="haslo" class="col-sm-3 control-label">Hasło</label>
-
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="haslo" name="haslo"
                                                placeholder="Hasło">
@@ -149,7 +160,7 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-3 col-sm-offset-2">
-                                        <button type="submit" class="btn btn-danger form-control">Usuń konto</button>
+                                        <button type="submit" class="btn btn-danger form-control">Dezaktywuj</button>
                                     </div>
                                 </div>
 

@@ -21,7 +21,7 @@
                 <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="table-responsive">
-                    <table class="table table-striped umow">
+                    <table class="table table-striped table-numbered">
                     <thead>
                         <tr><th>Nr</th>
                                 <th>Imię i nazwisko</th>

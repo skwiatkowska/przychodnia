@@ -18,7 +18,7 @@
                     <br/>
 
                     <div class="table-responsive">
-                        <table class="table table-striped umow">
+                        <table class="table table-striped table-numbered">
                             @foreach($doctors as $doctor)
                                 <tr><td></td>
                                     <td>
