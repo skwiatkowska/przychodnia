@@ -108,11 +108,15 @@ class Visit extends Model
         if ($patient == null){
             return false;
         }
+        $usr_id = $patient->id_usr;
+        $patientVisits=[];
+        $visit_id=[];
+        $patientAllVisits = self::where('id_pacjenta','=',$usr_id)->get();
 
-        //$patientVisits=[];
-        $patientAllVisits = self::where('id_pacjenta','=',$id)->get();
+        foreach ($patientAllVisits as $visit) {
+                $patientVisits[$visit->id] = [$visit->rok_miesiac_dzien , $visit->godzina_minuta];
+            }
 
-        //$patientData = $patient->get();
         return [
             "pacjent" =>[
                 "id" => $patient->id,
@@ -125,8 +129,7 @@ class Visit extends Model
                 "adres"=>$patient->adres
 
             ],
-
-        "wizyty" => $patientAllVisits
+            "wizyty" => $patientAllVisits
     ];
 
     }
