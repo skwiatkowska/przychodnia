@@ -1,4 +1,7 @@
-@extends('layouts.layout') @section('content')
+@extends('layouts.layout')
+@section('title', 'Moje konto')
+
+ @section('content')
 
 <div class="container">
 
@@ -12,10 +15,10 @@
                     </div>
                     <div class="row">
                     <div class="col-sm-3 pull-right">
-                         <a type="button" class="btn btn-info" role="button" href="/panel/ustawienia">Zmień ustawienia</a>
+                         <a type="button" class="btn btn-info" role="button" href="/panel/ustawienia">Ustawienia</a>
                     </div>
                     </div><br/></div>
-                    <div class="col-lg-6 col-lg-offset-3">
+                    <div class="col-lg-10 col-lg-offset-1">
                     <div class="table-responsive col-md-10 col-md-offset-1">
                         <table class="table table-striped">
                             <tr>

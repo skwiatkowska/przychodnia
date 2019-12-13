@@ -19,14 +19,14 @@
                     </div>
                 </div><br/>
                 <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-8 col-md-offset-2">
                     <div class="table-responsive">
                         <table class="table table-striped  table-numbered">
                         <thead>
                             <tr>
                             <th>Nr</th>
                             <th>Imię i nazwisko</th>
-                            <th>Pesel</th><th></th><th></th>
+                            <th>Pesel</th><th></th>
                             </tr></thead>
                             @foreach($patients as $patient)
                             <tr>

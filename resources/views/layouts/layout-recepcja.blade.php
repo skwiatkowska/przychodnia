@@ -9,7 +9,9 @@
     <title>@yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
+    <script src="{{PUBLIC_URL}}js/jquery.js"></script>
     <link href="{{PUBLIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+    <script src="{{PUBLIC_URL}}js//bootstrap.min.js"></script>
 
     <!-- Custom CSS -->
     <link href="{{PUBLIC_URL}}css/business-casual.css" rel="stylesheet">

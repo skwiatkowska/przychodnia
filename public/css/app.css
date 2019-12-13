@@ -29,6 +29,10 @@ input[type="radio"]{
   content: counter(serial-number);  /* Display the counter */
 }
 
+.btn-gray{
+background-color: #DCDCDC;
+}
+
 .font {
     font-size: 18px;
 }

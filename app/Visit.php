@@ -82,7 +82,7 @@ class Visit extends Model
             // tzn 12 => "Kowalski Jan"
 
             foreach ($result as $doctor) {
-                $doctors[$doctor->id] = $doctor->nazwisko . " " . $doctor->imie;
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
             }
         }
 
@@ -121,7 +121,9 @@ class Visit extends Model
                 "email"=>$patient->email,
                 "pesel"=>$patient->pesel,
                 "telefon"=>$patient->telefon,
-                "data_urodzenia"=>$patient->data_urodzenia
+                "data_urodzenia"=>$patient->data_urodzenia,
+                "adres"=>$patient->adres
+
             ],
 
         "wizyty" => $patientAllVisits
