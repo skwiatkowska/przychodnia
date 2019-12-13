@@ -14,6 +14,7 @@
                     </h2>
                     <hr>
                     <br/>
+                    <div class="col-md-8 col-md-offset-2">
 
                     <div class="table-responsive">
                         @if($wizyty->count()==0)
@@ -52,7 +53,7 @@
                             </table>
                         @endif
                     </div>
-                </div>
+                </div></div>
             </div>
         </div>
     </div>

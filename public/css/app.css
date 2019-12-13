@@ -1,9 +1,6 @@
 
-
-@media screen and (min-width: 768px) and (max-width: 1200px) {
-    .nav > li > a {
-        padding: 1px 1px;
-    }
+.nav > li > a {
+max-height:20px;
 }
 
 .navbar{

@@ -23,7 +23,6 @@ Route::post('/panel/ustawienia/dezaktywuj', 'PatientController@disableAccount');
 
 
 
-
 Route::get('/panel/wizyty', 'VisitController@visitsView');
 Route::get('/panel/wizyty/dodaj', 'VisitController@addVisit');
 Route::post('/panel/wizyty/usun', 'VisitController@deleteVisit');

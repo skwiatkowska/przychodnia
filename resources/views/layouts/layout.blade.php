@@ -28,7 +28,7 @@
 	    	<div class="col-lg-8">
                 <div class="row d-flex">
                     <div class="col-md-4 pr-4 navbar-text">
-                        <span class="text"><b>Adres:</b> Kraków, ul. Czarnowiejska 30</span>
+                        <span class="text addr"><b>Adres:</b> Kraków, ul. Czarnowiejska 30</span>
                     </div>
                     <div class="col-md-4 pr-4 navbar-text">
                         <span class="text"><b>Email:</b> kontakt@aghmed.com</span>
@@ -53,7 +53,7 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav ">
+            <ul class="nav navbar-nav">
                 <li>
                     <a href="/">O nas</a>
                 </li>

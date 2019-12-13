@@ -9,6 +9,7 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
+                <div class="row">
                 <br/>
                     <div id="carousel-example-generic" class="carousel slide data-ride="carousel">
                         <!-- Indicators -->
@@ -60,8 +61,7 @@
                     </div>
                     
                 </div>
-            </div>
-        </div>
+      
 
         <div class="row">
             <div class="box">
@@ -77,6 +77,8 @@
                     Dzięki współpracy z wieloma lekarzami specjalistami gwarantujemy profesjonalną opiekę medyczną.</p>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     </div>
 
