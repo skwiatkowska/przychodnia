@@ -88,6 +88,8 @@ class Visit extends Model
 
     static function findAllPatientData($id)
     {
+        $doctorId = [];
+
         $patient = Patient::where('id',$id) -> first();
 
         if ($patient == null){
@@ -101,6 +103,35 @@ class Visit extends Model
         foreach ($patientAllVisits as $visit) {
                 $patientVisits[$visit->id] = [$visit->rok_miesiac_dzien , $visit->godzina_minuta];
             }
+
+            foreach ($patientAllVisits as $visit) {
+                if (!in_array($visit['id_lekarza'], $doctorId)) {
+                    $doctorId[] = $visit['id_lekarza'];
+                }
+            }
+
+        if (!empty($doctorId)) {
+            $result = Doctor::whereIn('id', $doctorId)->get();
+
+            foreach ($result as $doctor) {
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+                $room[$doctor->id] = $doctor->gabinet;
+
+            }
+        }
+
+        foreach ($patientAllVisits as $visit) {
+
+            if (!empty($doctors[$visit->id_lekarza])) {
+                $visit->lekarz = $doctors[$visit->id_lekarza];
+                $visit->gabinet = $room[$visit->id_lekarza];
+
+            } else {
+                $visit->lekarz = "";
+                $visit->gabinet = "";
+
+            }
+        }
 
         return [
             "pacjent" =>[

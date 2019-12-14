@@ -7,7 +7,7 @@
         <div class="box"><br/>
 		<div class="row">
                     <hr>
-                    <h4 class="intro-text text-center">Pacjent {{$patientData['pacjent']['imie']}} {{$patientData['pacjent']['nazwisko']}}</h4>
+                    <h4 class="intro-text text-center">Pacjent <strong>{{$patientData['pacjent']['imie']}} {{$patientData['pacjent']['nazwisko']}}</strong></h4>
                     <hr><br/>
                     </div>
 		<div class="row">
@@ -97,7 +97,56 @@
                     <div class="tab-pane" id="wizyty">
                         <br>
                         <div class="row">
-                                <p>{{$patientData['wizyty']}}</p>
+                        <div class="col-md-8 col-md-offset-2">
+
+<div class="table-responsive">
+    @if($patientData['wizyty']->count()==0)
+        <h2 class="intro-text text-center">Brak wizyt <br><br><br>
+        </h2>
+    @else
+        <table class="table table-striped table-numbered">
+            <tr class="text-center">
+                <th>Nr</th>
+                <th>Lekarz</th>
+                <th>Gabinet</th>
+                <th>Dzień</th>
+                <th>Godzina</th>
+                <th>Odwołaj</th>
+            </tr>
+            @foreach($patientData['wizyty'] as $wizyta)
+                <tr> <td></td>
+                    <td>
+                        {{$wizyta['lekarz']}}
+                    </td>
+                    <td>
+                        {{$wizyta['gabinet']}}
+                    </td>
+                    <td>
+                        {{$wizyta['rok_miesiac_dzien']}}
+                    </td>
+                    <td>
+                        {{$wizyta['godzina_minuta']}}
+                    </td>
+                    <td>
+                        <form method="post" action="{{$patientData['pacjent']['id']}}/usun_wizyte">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="id_wizyty" value="{{$wizyta['id']}}">
+                            <input type="hidden" name="id_pacjenta" value="{{$patientData['pacjent']['id']}}">
+
+                            <input type="submit" class="btn btn-sm btn-secondary" role="button"
+                                   value="odwołaj"/>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+        @endif
+
+        <div class="col-sm-3 col-sm-offset-1 pull-left">
+                         <a type="button" class="btn btn-gray" role="button" href="{{$patientData['pacjent']['id']}}/nowa_wizyta">Dodaj wizytę</a>
+						 <br/><br/>
+</div>
+</div>
                         </div>
                     </div>
 				</div>

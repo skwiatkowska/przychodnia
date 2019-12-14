@@ -74,11 +74,27 @@ class ReceptionController extends Controller {
         return redirect('recepcja/dodaj_pacjenta')->with('errors', $errors);
     }
 
-
     public function doctorsList()
     {
         $doctors = Doctor::all();
         return View('recepcja-panel/lista-lekarzy', ['doctors' => $doctors]);
+    }
+
+    public function doctorsListForAPatient()
+    {
+        $doctors = Doctor::all();
+        return View('recepcja-panel/nowa-wizyta', ['doctors' => $doctors]);
+    }
+
+    public function doctorsDeadlinesForAPatient($id)
+    {
+        $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($id);
+
+        if ($doctorsDeadlines==false) {
+            abort(404);
+            return;
+        }
+        return View('recepcja-panel/nowa-wizyta-terminy', ['doctorsDeadlines' => $doctorsDeadlines]);
     }
 
     public function doctorsDeadlines($id)
@@ -113,6 +129,9 @@ class ReceptionController extends Controller {
     }
 
    
+    public function deleteVisit(Request $request){
+ //do napisania wraca na strone localhost:8000/recepcja/pacjent/{id}
+ return redirect('/recepcja'/pacjent/'.$patientId')->with('info', 'Wizyta została odwołana');
 
-
+    }
 }

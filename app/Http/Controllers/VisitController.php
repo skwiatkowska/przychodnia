@@ -47,7 +47,7 @@ class VisitController extends Controller
 
         Visit::where('id', $visitId)->delete();
 
-        return redirect('/panel/wizyty')->with('info', 'Wizyta została odwołana');;
+        return redirect('/panel/wizyty')->with('info', 'Wizyta została odwołana');
 
     }
 }
