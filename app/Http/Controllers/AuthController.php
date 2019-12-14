@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         if ($user->login($email, $password)) {
             if($type_usr=='doctor'){
-                return redirect()->intended('panel-lekarza') -> with('info','zalogowano poprawnie');
+                return redirect()->intended('panel_lekarza') -> with('info','zalogowano poprawnie');
             }elseif ($type_usr=='reception'){
                 return redirect()->intended('recepcja') -> with('info','zalogowano poprawnie');
 

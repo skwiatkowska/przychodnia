@@ -34,7 +34,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'kowalski@przychodnia.pl',
                 'password' => bcrypt('kowalski'),
             ], [
-                'id_usr'=>777,
+                'id_usr'=>8,
                 'imie' => 'Lech',
                 'nazwisko' => 'Lekarski',
                 'specjalizacja' => 'neurolog',
@@ -44,7 +44,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'lekarski@przychodnia.pl',
                 'password' => bcrypt('lekarski'),
             ], [
-                'id_usr'=>778,
+                'id_usr'=>9,
                 'imie' => 'Joanna',
                 'nazwisko' => 'Leczaca',
                 'specjalizacja' => 'ortopeda',
@@ -54,7 +54,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'leczaca@przychodnia.pl',
                 'password' => bcrypt('leczaca'),
             ], [
-                'id_usr'=>779,
+                'id_usr'=>10,
                 'imie' => 'Jadwiga',
                 'nazwisko' => 'Jadwigowska',
                 'specjalizacja' => 'endokrynolog',
@@ -64,7 +64,7 @@ class DoctorsTableSeeder extends Seeder
                 'email' => 'jadwigowska@przychodnia.pl',
                 'password' => bcrypt('jadwigowska'),
             ], [
-                'id_usr'=>780,
+                'id_usr'=>11,
                 'imie' => 'Kazimierz',
                 'nazwisko' => 'Zabiegowy',
                 'specjalizacja' => 'kardiolog',
