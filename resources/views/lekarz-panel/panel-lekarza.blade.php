@@ -41,7 +41,7 @@
         <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/doctor.jpg" alt="">
         <div class="overlay">
            <h2>Moje konto</h2>
-           <a class="info" href="/recepcja/lista_lekarzy">Zarządzaj swoim kontem</a>
+           <a class="info" href="/panel_lekarza/dane">Zarządzaj swoim kontem</a>
         </div>
     </div></div>       <br/>
 

@@ -68,10 +68,10 @@ class ReceptionController extends Controller {
         $user_id =$user->addUser($name, $email, $password, $user_type="doctor");
         $isRegistered = $doctor->addNewUser($user_id,$title,$name, $surname, $specialization,$email,$phone,$gabinet,$password);
 
-        if ($isRegistered)  {  return redirect('recepcja/lista_pacjentow')->with('info', 'Konto zostało zarejestrowane');
+        if ($isRegistered)  {  return redirect('recepcja/lista_lekarzy')->with('info', 'Konto zostało zarejestrowane');
 }
         $errors = $doctor->getErrors();
-        return redirect('recepcja/dodaj_pacjenta')->with('errors', $errors);
+        return redirect('recepcja/dodaj_lekarza')->with('errors', $errors);
     }
 
     public function doctorsList()

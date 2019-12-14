@@ -30,6 +30,9 @@ Route::post('/panel/wizyty/usun', 'VisitController@deleteVisit');
 Route::get('/panel_lekarza', 'DoctorController@mainSite');
 Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
 Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
+Route::get('/panel_lekarza/dane', 'DoctorController@doctorInfo');
+Route::get('/panel/ustawienia', 'DoctorController@settings');
+
 
 
 Route::get('/recepcja', 'ReceptionController@mainSite');
