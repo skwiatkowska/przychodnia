@@ -131,7 +131,7 @@ class ReceptionController extends Controller {
    
     public function deleteVisit(Request $request){
  //do napisania wraca na strone localhost:8000/recepcja/pacjent/{id}
- return redirect('/recepcja'/pacjent/'.$patientId')->with('info', 'Wizyta została odwołana');
+ //return redirect('/recepcja/pacjent/'.$patientId)->with('info', 'Wizyta została odwołana');
 
     }
 }
