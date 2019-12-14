@@ -53,6 +53,16 @@ class DatabasePatientSeeder extends Seeder
                 'telefon' => '123128883',
                 'data_urodzenia' => 19981009,
                 'password' => bcrypt('antoni'),
+            ], [
+                'id_usr' => 12,
+                'imie' => 'Test',
+                'nazwisko' => 'Test',
+                'email' => 'test@test.test',
+                'pesel' => '11111111111',
+                'adres' => 'Test adresu',
+                'telefon' => '111111111',
+                'data_urodzenia' => 20191214,
+                'password' => bcrypt('test'),
             ]
         ]);
     }

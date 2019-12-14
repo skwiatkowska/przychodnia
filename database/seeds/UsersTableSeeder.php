@@ -70,6 +70,11 @@ class UsersTableSeeder extends Seeder
                 'email' => 'zabiegowy@przychodnia.pl',
                 'password' => bcrypt('zabiegowy'),
                 'user_type' => 'doctor',
+            ], [
+                'imie' => 'Test',
+                'email' => 'test@test.test',
+                'password' => bcrypt('test'),
+                'user_type' => 'patient',
             ]
         ]);
     }
