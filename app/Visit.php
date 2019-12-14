@@ -150,4 +150,12 @@ class Visit extends Model
 
     }
 
+
+    public function getAllVisits()
+    {
+       $visits = Visit::all()->select('id_lekarza','rok_miesiac_dzien','id_pacjenta')->get()->groupBy('id_lekarza','rok_miesiac_dzien');
+       return($visits);
+
+    }
+
 }

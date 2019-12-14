@@ -134,4 +134,11 @@ class ReceptionController extends Controller {
  //return redirect('/recepcja/pacjent/'.$patientId)->with('info', 'Wizyta została odwołana');
 
     }
+
+    public function allVisits()
+    {
+        $visit = new Visit();
+        $visits = $visit->getAllVisits();
+        return View('recepcja-panel/wizyty', ['visits' => $visits]);
+    }
 }
