@@ -10,7 +10,7 @@ class PatientController extends Controller {
     public function mainSite ()
     {
         if (Auth::check()) {
-            return View('panel');
+            return View('pacjent-panel/panel');
         } else {
             return redirect('/login');
         }
