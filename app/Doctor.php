@@ -62,4 +62,10 @@ class Doctor extends Model
         return $this->errors;
     }
 
+    public function getData($doctorId)
+    {     
+        $data_all = Doctor::where('id_usr', $doctorId)->get();
+        return $data_all[0];
+    }
+
 }

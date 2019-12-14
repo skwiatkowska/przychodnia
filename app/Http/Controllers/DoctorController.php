@@ -38,4 +38,18 @@ class DoctorController extends Controller
         $patients = Patient::all();
         return View('lekarz-panel/lista-pacjentow', ['patients' => $patients]);
     }
+
+    public function doctorInfo()
+    {
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
+
+        $doctor = new Doctor();
+        $doctorId = Auth::id();
+        
+        $allData= $doctor->getData($doctorId);
+
+        return View('lekarz-panel/dane', ['data' => $allData]);
+    }
 }
