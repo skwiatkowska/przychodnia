@@ -21,7 +21,6 @@
 </head>
 <body>
 
-<!-- Navigation -->
 
 <nav class="navbar navbar-light " role="navigation">
     <div class="container-fluid">
