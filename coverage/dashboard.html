@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\xampp\htdocs\przychodnia\app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/nv.d3.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">C:\xampp\htdocs\przychodnia\app</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/HomeController.php.html#7">HomeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/BroadcastServiceProvider.php.html#8">BroadcastServiceProvider</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="History.php.html#11">History</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ForgotPasswordController.php.html#8">ForgotPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#9">LoginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ResetPasswordController.php.html#8">ResetPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RevalidateBackHistory.php.html#7">RevalidateBackHistory</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#8">RedirectIfAuthenticated</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#8">AuthController</a></td><td class="text-right">13%</td></tr>
+       <tr><td><a href="Http/Controllers/VisitController.php.html#9">VisitController</a></td><td class="text-right">31%</td></tr>
+       <tr><td><a href="Visit.php.html#7">Visit</a></td><td class="text-right">37%</td></tr>
+       <tr><td><a href="User.php.html#12">User</a></td><td class="text-right">45%</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#14">ReceptionController</a></td><td class="text-right">55%</td></tr>
+       <tr><td><a href="Http/Controllers/DoctorController.php.html#10">DoctorController</a></td><td class="text-right">56%</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#13">Handler</a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Doctor.php.html#11">Doctor</a></td><td class="text-right">78%</td></tr>
+       <tr><td><a href="Http/Controllers/PatientController.php.html#8">PatientController</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Deadline.php.html#6">Deadline</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Patient.php.html#12">Patient</a></td><td class="text-right">84%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Visit.php.html#7">Visit</a></td><td class="text-right">141</td></tr>
+       <tr><td><a href="History.php.html#11">History</a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#8">AuthController</a></td><td class="text-right">74</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#14">ReceptionController</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="User.php.html#12">User</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#9">LoginController</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Controllers/VisitController.php.html#9">VisitController</a></td><td class="text-right">13</td></tr>
+       <tr><td><a href="Http/Controllers/DoctorController.php.html#10">DoctorController</a></td><td class="text-right">11</td></tr>
+       <tr><td><a href="Deadline.php.html#6">Deadline</a></td><td class="text-right">10</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#13">Handler</a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="Doctor.php.html#11">Doctor</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Patient.php.html#12">Patient</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#8">RedirectIfAuthenticated</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/PatientController.php.html#8">PatientController</a></td><td class="text-right">5</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Visit.php.html#154"><abbr title="Visit::getAllVisits">getAllVisits</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Patient.php.html#68"><abbr title="Patient::getErrors">getErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#132"><abbr title="ReceptionController::deleteVisit">deleteVisit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#138"><abbr title="ReceptionController::allVisits">allVisits</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/VisitController.php.html#25"><abbr title="VisitController::addVisit">addVisit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/VisitController.php.html#44"><abbr title="VisitController::deleteVisit">deleteVisit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#18"><abbr title="RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RevalidateBackHistory.php.html#16"><abbr title="RevalidateBackHistory::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/BroadcastServiceProvider.php.html#15"><abbr title="BroadcastServiceProvider::boot">boot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PatientController.php.html#19"><abbr title="PatientController::settings">settings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#75"><abbr title="User::isAdmin">isAdmin</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#79"><abbr title="User::isDoctor">isDoctor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#83"><abbr title="User::getUsrType">getUsrType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#88"><abbr title="User::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#106"><abbr title="User::getErrors">getErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visit.php.html#13"><abbr title="Visit::addVisit">addVisit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visit.php.html#51"><abbr title="Visit::getErrors">getErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#26"><abbr title="ReceptionController::patientRegister">patientRegister</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#89"><abbr title="ReceptionController::doctorsDeadlinesForAPatient">doctorsDeadlinesForAPatient</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/HomeController.php.html#24"><abbr title="HomeController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#47"><abbr title="AuthController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="History.php.html#19"><abbr title="History::addNewHistory">addNewHistory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#24"><abbr title="LoginController::authenticated">authenticated</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#48"><abbr title="LoginController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#79"><abbr title="Handler::unauthenticated">unauthenticated</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ResetPasswordController.php.html#35"><abbr title="ResetPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#20"><abbr title="AuthController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#53"><abbr title="AuthController::authenticated">authenticated</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="History.php.html#55"><abbr title="History::getHistory">getHistory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/DoctorController.php.html#42"><abbr title="DoctorController::doctorInfo">doctorInfo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Doctor.php.html#65"><abbr title="Doctor::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Doctor.php.html#60"><abbr title="Doctor::getErrors">getErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/HomeController.php.html#14"><abbr title="HomeController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ForgotPasswordController.php.html#28"><abbr title="ForgotPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visit.php.html#56"><abbr title="Visit::getWizyty">getWizyty</abbr></a></td><td class="text-right">46%</td></tr>
+       <tr><td><a href="Visit.php.html#89"><abbr title="Visit::findAllPatientData">findAllPatientData</abbr></a></td><td class="text-right">63%</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#49"><abbr title="Handler::render">render</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Deadline.php.html#15"><abbr title="Deadline::findDoctorFreeDeadlines">findDoctorFreeDeadlines</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/DoctorController.php.html#24"><abbr title="DoctorController::doctorsDeadlines">doctorsDeadlines</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#119"><abbr title="ReceptionController::patientData">patientData</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#100"><abbr title="ReceptionController::doctorsDeadlines">doctorsDeadlines</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/PatientController.php.html#24"><abbr title="PatientController::patientInfo">patientInfo</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Doctor.php.html#17"><abbr title="Doctor::addNewUser">addNewUser</abbr></a></td><td class="text-right">86%</td></tr>
+       <tr><td><a href="Patient.php.html#20"><abbr title="Patient::addNewUser">addNewUser</abbr></a></td><td class="text-right">86%</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#54"><abbr title="ReceptionController::doctorRegister">doctorRegister</abbr></a></td><td class="text-right">86%</td></tr>
+       <tr><td><a href="User.php.html#39"><abbr title="User::addUser">addUser</abbr></a></td><td class="text-right">87%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="History.php.html#55"><abbr title="History::getHistory">getHistory</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="User.php.html#88"><abbr title="User::login">login</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Visit.php.html#13"><abbr title="Visit::addVisit">addVisit</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="History.php.html#19"><abbr title="History::addNewHistory">addNewHistory</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#20"><abbr title="AuthController::login">login</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Visit.php.html#56"><abbr title="Visit::getWizyty">getWizyty</abbr></a></td><td class="text-right">14</td></tr>
+       <tr><td><a href="Visit.php.html#89"><abbr title="Visit::findAllPatientData">findAllPatientData</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#24"><abbr title="LoginController::authenticated">authenticated</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#53"><abbr title="AuthController::authenticated">authenticated</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Deadline.php.html#15"><abbr title="Deadline::findDoctorFreeDeadlines">findDoctorFreeDeadlines</abbr></a></td><td class="text-right">10</td></tr>
+       <tr><td><a href="Http/Controllers/DoctorController.php.html#42"><abbr title="DoctorController::doctorInfo">doctorInfo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#89"><abbr title="ReceptionController::doctorsDeadlinesForAPatient">doctorsDeadlinesForAPatient</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/VisitController.php.html#25"><abbr title="VisitController::addVisit">addVisit</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#18"><abbr title="RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#79"><abbr title="Handler::unauthenticated">unauthenticated</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Doctor.php.html#17"><abbr title="Doctor::addNewUser">addNewUser</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Patient.php.html#20"><abbr title="Patient::addNewUser">addNewUser</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#49"><abbr title="Handler::render">render</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="User.php.html#39"><abbr title="User::addUser">addUser</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#100"><abbr title="ReceptionController::doctorsDeadlines">doctorsDeadlines</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#119"><abbr title="ReceptionController::patientData">patientData</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/DoctorController.php.html#24"><abbr title="DoctorController::doctorsDeadlines">doctorsDeadlines</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/PatientController.php.html#24"><abbr title="PatientController::patientInfo">patientInfo</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/ReceptionController.php.html#54"><abbr title="ReceptionController::doctorRegister">doctorRegister</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.8</a> using <a href="https://secure.php.net/" target="_top">PHP 7.3.11</a> with <a href="https://xdebug.org/">Xdebug 2.9.0</a> and <a href="https://phpunit.de/">PHPUnit 5.7.27</a> at Sun Dec 15 8:55:45 UTC 2019.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/holder.min.js" type="text/javascript"></script>
+  <script src="js/d3.min.js" type="text/javascript"></script>
+  <script src="js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([8,0,1,0,2,1,2,1,1,3,0,11], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([34,0,0,0,0,1,0,1,0,10,0,27], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"Http\/Kernel.php.html#7\">Kernel<\/a>"],[80,10,"<a href=\"Deadline.php.html#6\">Deadline<\/a>"],[78.125,6,"<a href=\"Doctor.php.html#11\">Doctor<\/a>"],[60,6,"<a href=\"Exceptions\/Handler.php.html#13\">Handler<\/a>"],[0,11,"<a href=\"History.php.html#11\">History<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ForgotPasswordController.php.html#8\">ForgotPasswordController<\/a>"],[0,4,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#9\">LoginController<\/a>"],[100,2,"<a href=\"Http\/Controllers\/RegisterController.php.html#11\">RegisterController<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ResetPasswordController.php.html#8\">ResetPasswordController<\/a>"],[13.636363636363635,10,"<a href=\"Http\/Controllers\/AuthController.php.html#8\">AuthController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#10\">Controller<\/a>"],[56.25,7,"<a href=\"Http\/Controllers\/DoctorController.php.html#10\">DoctorController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/HomeController.php.html#7\">HomeController<\/a>"],[80,5,"<a href=\"Http\/Controllers\/PatientController.php.html#8\">PatientController<\/a>"],[55.55555555555556,17,"<a href=\"Http\/Controllers\/ReceptionController.php.html#14\">ReceptionController<\/a>"],[31.57894736842105,5,"<a href=\"Http\/Controllers\/VisitController.php.html#9\">VisitController<\/a>"],[100,3,"<a href=\"Http\/Controllers\/WebsiteController.php.html#8\">WebsiteController<\/a>"],[100,0,"<a href=\"Http\/Middleware\/EncryptCookies.php.html#7\">EncryptCookies<\/a>"],[0,2,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#8\">RedirectIfAuthenticated<\/a>"],[0,1,"<a href=\"Http\/Middleware\/RevalidateBackHistory.php.html#7\">RevalidateBackHistory<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrimStrings.php.html#7\">TrimStrings<\/a>"],[100,0,"<a href=\"Http\/Middleware\/VerifyCsrfToken.php.html#7\">VerifyCsrfToken<\/a>"],[84.375,6,"<a href=\"Patient.php.html#12\">Patient<\/a>"],[100,2,"<a href=\"Providers\/AppServiceProvider.php.html#7\">AppServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#8\">AuthServiceProvider<\/a>"],[0,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#8\">BroadcastServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#8\">EventServiceProvider<\/a>"],[100,4,"<a href=\"Providers\/RouteServiceProvider.php.html#8\">RouteServiceProvider<\/a>"],[45.16129032258064,11,"<a href=\"User.php.html#12\">User<\/a>"],[37.333333333333336,22,"<a href=\"Visit.php.html#7\">Visit<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[80,10,"<a href=\"Deadline.php.html#15\">Deadline::findDoctorFreeDeadlines<\/a>"],[86.20689655172413,4,"<a href=\"Doctor.php.html#17\">Doctor::addNewUser<\/a>"],[0,1,"<a href=\"Doctor.php.html#60\">Doctor::getErrors<\/a>"],[0,1,"<a href=\"Doctor.php.html#65\">Doctor::getData<\/a>"],[100,1,"<a href=\"Exceptions\/Handler.php.html#37\">Handler::report<\/a>"],[80,3,"<a href=\"Exceptions\/Handler.php.html#49\">Handler::render<\/a>"],[0,2,"<a href=\"Exceptions\/Handler.php.html#79\">Handler::unauthenticated<\/a>"],[0,4,"<a href=\"History.php.html#19\">History::addNewHistory<\/a>"],[0,7,"<a href=\"History.php.html#55\">History::getHistory<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ForgotPasswordController.php.html#28\">ForgotPasswordController::__construct<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#24\">LoginController::authenticated<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#48\">LoginController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/RegisterController.php.html#14\">RegisterController::formView<\/a>"],[100,1,"<a href=\"Http\/Controllers\/RegisterController.php.html#19\">RegisterController::register<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ResetPasswordController.php.html#35\">ResetPasswordController::__construct<\/a>"],[100,2,"<a href=\"Http\/Controllers\/AuthController.php.html#11\">AuthController::formView<\/a>"],[0,4,"<a href=\"Http\/Controllers\/AuthController.php.html#20\">AuthController::login<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AuthController.php.html#47\">AuthController::logout<\/a>"],[0,3,"<a href=\"Http\/Controllers\/AuthController.php.html#53\">AuthController::authenticated<\/a>"],[100,1,"<a href=\"Http\/Controllers\/DoctorController.php.html#13\">DoctorController::mainSite<\/a>"],[100,1,"<a href=\"Http\/Controllers\/DoctorController.php.html#18\">DoctorController::doctorsList<\/a>"],[80,2,"<a href=\"Http\/Controllers\/DoctorController.php.html#24\">DoctorController::doctorsDeadlines<\/a>"],[100,1,"<a href=\"Http\/Controllers\/DoctorController.php.html#36\">DoctorController::patientsList<\/a>"],[0,2,"<a href=\"Http\/Controllers\/DoctorController.php.html#42\">DoctorController::doctorInfo<\/a>"],[0,1,"<a href=\"Http\/Controllers\/HomeController.php.html#14\">HomeController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/HomeController.php.html#24\">HomeController::index<\/a>"],[100,2,"<a href=\"Http\/Controllers\/PatientController.php.html#10\">PatientController::mainSite<\/a>"],[0,1,"<a href=\"Http\/Controllers\/PatientController.php.html#19\">PatientController::settings<\/a>"],[83.33333333333334,2,"<a href=\"Http\/Controllers\/PatientController.php.html#24\">PatientController::patientInfo<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#16\">ReceptionController::mainSite<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#21\">ReceptionController::patientRegisterFormView<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#26\">ReceptionController::patientRegister<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#49\">ReceptionController::doctorRegisterFormView<\/a>"],[86.66666666666667,2,"<a href=\"Http\/Controllers\/ReceptionController.php.html#54\">ReceptionController::doctorRegister<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#77\">ReceptionController::doctorsList<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#83\">ReceptionController::doctorsListForAPatient<\/a>"],[0,2,"<a href=\"Http\/Controllers\/ReceptionController.php.html#89\">ReceptionController::doctorsDeadlinesForAPatient<\/a>"],[80,2,"<a href=\"Http\/Controllers\/ReceptionController.php.html#100\">ReceptionController::doctorsDeadlines<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#112\">ReceptionController::patientsList<\/a>"],[80,2,"<a href=\"Http\/Controllers\/ReceptionController.php.html#119\">ReceptionController::patientData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#132\">ReceptionController::deleteVisit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ReceptionController.php.html#138\">ReceptionController::allVisits<\/a>"],[100,2,"<a href=\"Http\/Controllers\/VisitController.php.html#12\">VisitController::visitsView<\/a>"],[0,2,"<a href=\"Http\/Controllers\/VisitController.php.html#25\">VisitController::addVisit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/VisitController.php.html#44\">VisitController::deleteVisit<\/a>"],[100,1,"<a href=\"Http\/Controllers\/WebsiteController.php.html#10\">WebsiteController::mainSite<\/a>"],[100,1,"<a href=\"Http\/Controllers\/WebsiteController.php.html#15\">WebsiteController::rodo<\/a>"],[100,1,"<a href=\"Http\/Controllers\/WebsiteController.php.html#20\">WebsiteController::clinicList<\/a>"],[0,2,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#18\">RedirectIfAuthenticated::handle<\/a>"],[0,1,"<a href=\"Http\/Middleware\/RevalidateBackHistory.php.html#16\">RevalidateBackHistory::handle<\/a>"],[86.20689655172413,4,"<a href=\"Patient.php.html#20\">Patient::addNewUser<\/a>"],[0,1,"<a href=\"Patient.php.html#68\">Patient::getErrors<\/a>"],[100,1,"<a href=\"Patient.php.html#74\">Patient::getData<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#14\">AppServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#24\">AppServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#24\">AuthServiceProvider::boot<\/a>"],[0,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#15\">BroadcastServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#26\">EventServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#24\">RouteServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#36\">RouteServiceProvider::map<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#52\">RouteServiceProvider::mapWebRoutes<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#66\">RouteServiceProvider::mapApiRoutes<\/a>"],[87.5,3,"<a href=\"User.php.html#39\">User::addUser<\/a>"],[0,1,"<a href=\"User.php.html#75\">User::isAdmin<\/a>"],[0,1,"<a href=\"User.php.html#79\">User::isDoctor<\/a>"],[0,1,"<a href=\"User.php.html#83\">User::getUsrType<\/a>"],[0,4,"<a href=\"User.php.html#88\">User::login<\/a>"],[0,1,"<a href=\"User.php.html#106\">User::getErrors<\/a>"],[0,4,"<a href=\"Visit.php.html#13\">Visit::addVisit<\/a>"],[0,1,"<a href=\"Visit.php.html#51\">Visit::getErrors<\/a>"],[46.666666666666664,7,"<a href=\"Visit.php.html#56\">Visit::getWizyty<\/a>"],[63.63636363636363,9,"<a href=\"Visit.php.html#89\">Visit::findAllPatientData<\/a>"],[0,1,"<a href=\"Visit.php.html#154\">Visit::getAllVisits<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

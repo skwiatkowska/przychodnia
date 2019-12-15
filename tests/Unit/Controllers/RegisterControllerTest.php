@@ -30,7 +30,9 @@ class RegisterControllerTest extends TestCase
 			'email' => $email = $this->faker->unique()->safeEmail,		
 			'pesel' => $this->faker->numberBetween(100000000000,99999999999),
 			'adres' => $this->faker->address,
-            'haslo' => $this->faker->password(8)
+            'haslo' => $this->faker->password(8),
+			'phone' => $this->faker->numberBetween(100000000,999999999),
+			'data_urodzenia' => $this->faker->date	
 		];	
         /* Nie mozna uzyc factory, bo klasa Patient ukrywa haslo
 		$user = factory(Patient::class)->create([

@@ -33,5 +33,24 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
 		'pesel' => $faker->numberBetween(100000000000,99999999999),
 		'adres' => $faker->address,
         'password' => $password ?: $password = bcrypt('secret'),
+		'phone' => $this->faker->numberBetween(100000000,999999999),
+		'data_urodzenia' => $this->faker->date	
     ];
 });
+
+$factory->define(App\Doctor::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+		'imie' => $faker->name,
+		'nazwisko' => $faker->lastname,
+        'email' => $faker->unique()->safeEmail,
+		'tytul' => $faker->word,
+		'specjalizacja' => $faker->word,
+		'gabinet' => $faker->randomDigit ,
+        'haslo' => $password ?: $password = bcrypt('secret'),
+		'phone' => $this->faker->numberBetween(100000000,999999999),
+
+    ];
+});
+

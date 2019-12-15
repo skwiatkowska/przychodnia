@@ -1,5 +1,7 @@
 <?php
 
+// NIE OK
+
 namespace Tests\Unit\Controllers;
 
 use Tests\TestCase;
@@ -24,7 +26,7 @@ class VisitsControllerTest extends TestCase
         $user = factory(User::class)->make(); 
 		$response = $this->actingAs($user)->get('/panel/wizyty');
 		$response->assertSuccessful();
-        $response->assertViewIs('panel-wizyty');
+        $response->assertViewIs('pacjent-panel.panel-wizyty');
     }
 	
 	//Czy zalogowanemu uzytkownikowi wyswietlaja sie wszystkie wizyty?
@@ -36,7 +38,7 @@ class VisitsControllerTest extends TestCase
 		$allVisits = $visit -> getWizyty($userId);
 		$response = $this->actingAs($user)->get('/panel/wizyty');
 		$response->assertSuccessful();
-        $response->assertViewIs('panel-wizyty');
+        $response->assertViewIs('pacjent-panel.panel-wizyty');
 		$response->assertViewHas(['wizyty' => $allVisits]);
     }
 	
