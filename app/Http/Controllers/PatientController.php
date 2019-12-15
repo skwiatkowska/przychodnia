@@ -58,7 +58,7 @@ class PatientController extends Controller {
         $patient->changeData($patientId,$name,$surname,$email,$pesel,$adres,$telefon,$data_ur);
 
 
-        return view('pacjent-panel/panel')->with('successMsg', 'Dane zostały zmienione');
+        return redirect('panel/dane')->with('info', 'Dane zostały zmienione');
     }
 
     
@@ -75,7 +75,7 @@ class PatientController extends Controller {
         $user = User::where('id',$patientId)->first();
         $user->changePassword($patientId,$old,$new,$new2);
        
-        return view('pacjent-panel/panel-ustawienia');
+        return redirect('panel/dane')->with('info', 'Hasło zostało zmienione');
     }
 /*
     public function disableAccount(Request $request)
