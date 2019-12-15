@@ -29,10 +29,7 @@ Route::post('/panel/wizyty/usun', 'VisitController@deleteVisit');
 
 Route::get('/panel_lekarza', 'DoctorController@mainSite');
 Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
-Route::get('/panel_lekarza/lista_pacjentow', 'DoctorController@patientsList');
 Route::get('/panel_lekarza/dane', 'DoctorController@doctorInfo');
-Route::get('/panel/ustawienia', 'DoctorController@settings');
-
 
 
 Route::get('/recepcja', 'ReceptionController@mainSite');
@@ -55,3 +52,6 @@ Route::post('/recepcja/dodaj_pacjenta', 'ReceptionController@patientRegister');
 
 Route::get('/recepcja/dodaj_lekarza', 'ReceptionController@doctorRegisterFormView');
 Route::post('/recepcja/dodaj_lekarza', 'ReceptionController@doctorRegister');
+
+Route::get('/recepcja/wizyty', 'ReceptionController@allVisits');
+

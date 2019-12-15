@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout-lekarz')
 @section('title', 'Moje konto')
 
  @section('content')
@@ -13,12 +13,8 @@
                     <h4 class="intro-text text-center">Twoje dane osobowe</h4>
                     <hr>
                     </div>
-                    <div class="row">
-                    <div class="col-sm-3 pull-right">
-                         <a type="button" class="btn btn-info" role="button" href="/panel_lekarza/ustawienia">Ustawienia</a>
-                    </div>
-                    </div><br/></div>
-                    <div class="col-lg-10 col-lg-offset-1">
+               <br/></div>
+                    <div class="col-lg-8 col-lg-offset-2">
                     <div class="table-responsive col-md-10 col-md-offset-1">
                         <table class="table table-striped">
                             <tr>

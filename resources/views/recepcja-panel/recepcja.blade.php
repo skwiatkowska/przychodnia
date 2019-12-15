@@ -42,7 +42,7 @@
         <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/appointment.jpg" alt="">
         <div class="overlay">
            <h2>Wizyty</h2>
-           <a class="info" href="#">Zarządzaj umówionymi wizytami</a>
+           <a class="info" href="/recepcja/wizyty">Zarządzaj umówionymi wizytami</a>
         </div>
         
     </div>
