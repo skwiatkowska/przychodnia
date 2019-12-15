@@ -153,9 +153,53 @@ class Visit extends Model
 
     public function getAllVisits()
     {
-       $visits = Visit::all()->select('id_lekarza','rok_miesiac_dzien','id_pacjenta')->get()->groupBy('id_lekarza','rok_miesiac_dzien');
-       return($visits);
+       $visits = Visit::all();
+       /* // grupowanie wizyt lekarz -> dni -> pacjenci
+       $idLekarzy = [];
+       foreach($visits as $visit){
 
+            if (!in_array($visit['id_lekarza'], $idLekarzy)) {
+                $idLekarzy[] = $visit['id_lekarza'];
+            }
+        }   
+        
+        $wizyty = [];
+
+       foreach ($idLekarzy as $doctor_id){
+        $lekarz = Doctor::where('id',$doctor_id) -> first();
+
+        $daty = Visit::where('id_lekarza',$doctor_id)->get();
+        $dni=[]; //unikalne dni
+
+        foreach ($daty as $data){
+            if (!in_array($data['rok_miesiac_dzien'], $dni)) {
+                $dni[] = $visit['rok_miesiac_dzien'];
+            }
+
+
+            $pacjenci = [];
+            $patients = Visit::where('id_lekarza',$doctor_id)->where('rok_miesiac_dzien',$data)->get();
+            foreach( $patients as $pacjent){
+             if (!in_array($pacjent['id_pacjenta'], $pacjenci)) {
+                 $pacjenci[] = $pacjent['id_pacjenta'];
+             }
+            }
+
+            $dane_pacjenta =[];
+            foreach( $patients as $pacjent){
+                $patient = Patient::where('id',$pacjent) ->first;
+                $dane_pacjenta[] = $patient;
+            }
+
+            $dni[]=$dane_pacjenta;
+
+       }
+       $wizyty[]= $dni;
+
+
+
+    }*/
+       return ($visits);
     }
 
 }
