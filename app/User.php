@@ -2,6 +2,7 @@
 
 namespace App;
 use App\Doctor;
+use App\Patient;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
@@ -106,5 +107,36 @@ class User extends Authenticatable
      public function getErrors()
     {
         return $this->errors;
+    }
+
+    public function changeData($patientId,$name, $email)
+    {
+        $user = User::where('id',$patientId)->first();
+        if ($name) {
+            $user->name = $name;
+        }
+        if ($email) {
+            $user->email = $email;
+        }
+        $user->save();
+        return true;
+    }
+    public function changePassword($patientId,$old,$new,$new2)
+    {
+        $user = User::where('id',$patientId)->first();
+        $patient = Patient::where('id_usr',$patientId)->first();
+        $password=$user->password;
+        if (Hash::check($old,$password) ){
+            if($new==$new2){
+                $user->remember_token=null;
+                $user->password=bcrypt($new);
+                $user->save();
+                $patient->password=bcrypt($new);
+                $patient->save();
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

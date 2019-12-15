@@ -76,6 +76,34 @@ class Patient extends Model
         $data_all = Patient::where('id_usr', $patientId)->get();
         return $data_all[0];
     }
+    public function changeData($patientId,$name,$surname,$email,$pesel,$adres,$telefon,$data_ur)
+    {     
+        $patient = Patient::where('id_usr',$patientId)->first();
+
+        if ($name) {
+            $patient->imie = $name;
+        }
+        if ($surname) {
+            $patient->nazwisko = $surname;
+        }
+        if ($email) {
+            $patient->email = $email;
+        }
+        if ($pesel) {
+            $patient->pesel = $pesel;
+        }
+        if ($adres) {
+            $patient->adres = $adres;
+        }
+        if ($telefon) {
+            $patient->telefon = $telefon;
+        }
+        if ($data_ur) {
+            $patient->data_urodzenia = $data_ur;
+        }
+        $patient->save();
+        return true;
+    }
 
 
     

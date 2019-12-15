@@ -117,7 +117,7 @@
                                     <label for="haslo" class="col-sm-3 control-label">Nowe hasło</label>
 
                                     <div class="col-sm-8">
-                                        <input type="password" class="form-control" id="haslo" name="haslo"
+                                        <input type="password" class="form-control" id="haslo1" name="haslo1"
                                                placeholder="Nowe hasło">
                                     </div>
                                 </div>
@@ -125,7 +125,7 @@
                                     <label for="haslo" class="col-sm-3 control-label">Powtórz<br/> nowe hasło</label>
 
                                     <div class="col-sm-8">
-                                        <input type="password" class="form-control" id="haslo" name="haslo"
+                                        <input type="password" class="form-control" id="haslo2" name="haslo2"
                                                placeholder="Nowe hasło">
                                     </div>
                                 </div>
