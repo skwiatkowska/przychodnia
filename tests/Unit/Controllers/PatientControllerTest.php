@@ -43,9 +43,9 @@ class PatientControllerTest extends TestCase
 	public function testNotAuthenticatedUserSettingsPanelSiteView()
     {
 		$response = $this->get('/panel/ustawienia');
-		//$response->assertSuccessful();				//!!!!!!!!!!!!!!
+		$response->assertSuccessful();				//!!!!!!!!!!!!!!
 		//$response->assertRedirect('/login');
-		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+		//$response->assertStatus(500);			//!!!!!!!!!!!!!!
 	}
 		
 	//Czy zalogowanemu uzytkownikowi 'pacjent' wyswietla sie widok panelu ustawien?
@@ -53,9 +53,9 @@ class PatientControllerTest extends TestCase
     {
         $user = factory(User::class)->make(['user_type' => 'patient',]); 
 		$response = $this->actingAs($user)->get('/panel/ustawienia');
-		//$response->assertSuccessful();
-        //$response->assertViewIs('pacjent-panel.panel-ustawienia');
-		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+		$response->assertSuccessful();
+        $response->assertViewIs('pacjent-panel.panel-ustawienia');
+		
     }
 	
 	//Czy zalogowanemu innemu uzytkownikowi wyswietla sie widok panelu ustawien?
@@ -63,8 +63,8 @@ class PatientControllerTest extends TestCase
     {
         $user = factory(User::class)->make(['user_type' => 'doctor',]); 
 		$response = $this->actingAs($user)->get('/panel/ustawienia');
-		//$response->assertSuccessful();			//!!!!!!!!!!!!!!
-		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+		$response->assertSuccessful();			//!!!!!!!!!!!!!!
+		
     }
 	
 	

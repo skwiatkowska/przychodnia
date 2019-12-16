@@ -304,18 +304,21 @@ class ReceptionControllerTest extends TestCase
 		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$i);
         $response->assertStatus(404);
     }
+	
+	
 	/*
-	//Czy zalogowanemu uzytkownikowi wyswietlaja sie wszystkie wizyty?
+	//Czy zalogowanemu uzytkownikowi 'recepcja' wyswietlaja sie wszystkie wizyty?
 	public function testAllVisitsView()
     {
-        $user = factory(User::class)->make(); 
-		$userId = $user->id;
+        $user = factory(User::class)->make(['user_type' => 'reception',]); 
+		//$userId = $user->id;
 		$visit = new Visit();	//metoda statyczna
-		$allVisits = $visit -> getWizyty($userId);
+		//$allVisits = $visit -> getWizyty($userId);
+		$allVisits = $visit ->getAllVisits();
 		$response = $this->actingAs($user)->get('/panel/wizyty');
 		$response->assertSuccessful();
-        $response->assertViewIs('panel-wizyty');
-		$response->assertViewHas(['wizyty' => $allVisits]);
+        $response->assertViewIs('recepcja-panel.wizyty');
+		$response->assertViewHas(['visits' => $allVisits]);
     }
 	*/
 	

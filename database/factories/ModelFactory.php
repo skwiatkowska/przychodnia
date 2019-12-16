@@ -33,7 +33,7 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
 		'pesel' => $faker->numberBetween(100000000000,99999999999),
 		'adres' => $faker->address,
         'password' => $password ?: $password = bcrypt('secret'),
-		'phone' => $this->faker->numberBetween(100000000,999999999),
+		'telefon' => $this->faker->numberBetween(100000000,999999999),
 		'data_urodzenia' => $this->faker->date	
     ];
 });

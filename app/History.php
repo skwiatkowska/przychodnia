@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Patient;
 use Illuminate\Support\Facades\Auth;
 
-
+/**
+ * @codeCoverageIgnore
+ */
 
 class History extends Model
 {
@@ -15,7 +17,9 @@ class History extends Model
     public $timestamps = false;
     private $errors = [];
 
-
+	/**
+	 * @codeCoverageIgnore
+	 */
     public function addNewHistory($patient_id, $doctor_id, $date,$description, $recommendations)
     {
         $data = [
@@ -51,7 +55,9 @@ class History extends Model
 
         return true;
     }
-
+	/**
+	 * @codeCoverageIgnore
+	 */
     public function getHistory($patient_id)
     {
         $doctor_id = [];

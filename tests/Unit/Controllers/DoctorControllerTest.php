@@ -92,4 +92,30 @@ class DoctorControllerTest extends TestCase
         $response->assertViewIs('lekarz-panel.lista-pacjentow');
 		$response->assertViewHas(['patients' => $patients]);
     }
+	
+	
+	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok panelu dane lekarza?
+	public function testNotAuthenticatedUserDoctorInfoPanelSiteView()
+    {
+		$response = $this->get('/panel_lekarza/dane');
+		$response->assertRedirect('/login');
+	}
+		
+	//Czy zalogowanemu uzytkownikowi 'lekarz' wyswietla sie widok panelu dane lekarza?
+	public function testDoctorInfoPanelSiteView()
+    {
+        $user = factory(User::class)->make(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/dane');
+		//$response->assertSuccessful();
+        //$response->assertViewIs('lekarz-panel.dane');
+		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+    }
+	
+	//Czy zalogowanemu innemu uzytkownikowi wyswietla sie widok panelu dane lekarza?
+	public function testOtherUserDoctorInfoPanelSiteView()
+    {
+        $user = factory(User::class)->make(['user_type' => 'patient',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/dane');
+		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+    }
 }
