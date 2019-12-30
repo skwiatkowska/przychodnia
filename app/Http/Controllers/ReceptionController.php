@@ -15,16 +15,25 @@ class ReceptionController extends Controller {
 
     public function mainSite()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         return View('recepcja-panel/recepcja');
     }
 
     public function patientRegisterFormView()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         return View('/recepcja-panel/dodaj-pacjenta');
     }
 
     public function patientRegister(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $name = $request->input('imie');
         $surname = $request->input('nazwisko');
         $email = $request->input('email');
@@ -48,11 +57,17 @@ class ReceptionController extends Controller {
 
     public function doctorRegisterFormView()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         return View('recepcja-panel/dodaj-lekarza');
     }
 
     public function doctorRegister(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $title = $request->input('tytul');
         $name = $request->input('imie');
         $surname = $request->input('nazwisko');
@@ -76,18 +91,27 @@ class ReceptionController extends Controller {
 
     public function doctorsList()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $doctors = Doctor::all();
         return View('recepcja-panel/lista-lekarzy', ['doctors' => $doctors]);
     }
 
     public function doctorsListForAPatient()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $doctors = Doctor::all();
         return View('recepcja-panel/nowa-wizyta', ['doctors' => $doctors]);
     }
 
     public function doctorsDeadlinesForAPatient($id)
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($id);
 
         if ($doctorsDeadlines==false) {
@@ -99,6 +123,9 @@ class ReceptionController extends Controller {
 
     public function doctorsDeadlines($id)
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($id);
 
         if ($doctorsDeadlines==false) {
@@ -111,6 +138,9 @@ class ReceptionController extends Controller {
 
      public function patientsList()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $patients = Patient::all();
         return View('recepcja-panel/lista-pacjentow', ['patients' => $patients]);
     }
@@ -118,6 +148,9 @@ class ReceptionController extends Controller {
 
     public function patientData($id)
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $patientData= Visit::findAllPatientData($id);
 
         if ($patientData==false) {
@@ -130,6 +163,9 @@ class ReceptionController extends Controller {
 
    
     public function deleteVisit(Request $request){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
  //do napisania wraca na strone localhost:8000/recepcja/pacjent/{id}
  //return redirect('/recepcja/pacjent/'.$patientId)->with('info', 'Wizyta została odwołana');
 
@@ -137,8 +173,25 @@ class ReceptionController extends Controller {
 
     public function allVisits()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $visit = new Visit();
         $visits = $visit->getAllVisits();
         return View('recepcja-panel/wizyty', ['visits' => $visits]);
+    }
+
+    public function patientSettings($id)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $patientData= Visit::findAllPatientData($id);
+
+        if ($patientData==false) {
+            abort(404);
+            return;
+        }
+        return view('recepcja-panel/pacjent-ustawienia', ['patientData' => $patientData]);
     }
 }

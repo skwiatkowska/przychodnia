@@ -12,6 +12,9 @@ class DoctorController extends Controller
 
     public function mainSite()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         return View('lekarz-panel/panel-lekarza');
     }
 
@@ -35,12 +38,18 @@ class DoctorController extends Controller
 
     public function patientsList()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         $patients = Patient::all();
         return View('lekarz-panel/lista-pacjentow', ['patients' => $patients]);
     }
 
     public function doctorInfo()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         if (!Auth::check()) {
             return redirect('/login');
         }

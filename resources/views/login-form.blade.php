@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('title', 'Logowanie')
+
 @section('content')
 
     <div class="container">
@@ -21,7 +23,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-6 col-sm-offset-3">
-                                <input type="password" class="form-control" name="password" placeholder="Haslo">
+                                <input type="password" class="form-control" name="password" placeholder="Hasło">
                             </div>
                         </div>
                         <div class="form-group">

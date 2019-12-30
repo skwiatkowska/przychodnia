@@ -87,7 +87,7 @@
                                 </td>
                             </tr>
                         </table><div class="col-sm-3 col-sm-offset-1 pull-left">
-                         <a type="button" class="btn btn-gray" role="button" href="#">Ustawienia</a>
+                         <a type="button" class="btn btn-gray" role="button" href="{{$patientData['pacjent']['id']}}/ustawienia">Ustawienia</a>
 						 <br/><br/>
                     </div>
                     </div>
@@ -98,6 +98,7 @@
                         <br>
                         <div class="row">
                         <div class="col-md-8 col-md-offset-2">
+                        </br>
 
 <div class="table-responsive">
     @if($patientData['wizyty']->count()==0)
@@ -128,7 +129,7 @@
                         {{$wizyta['godzina_minuta']}}
                     </td>
                     <td>
-                        <form method="post" action="{{$patientData['pacjent']['id']}}/usun_wizyte">
+                        <form method="post" action="id_pacjenta/usun_wizyte">
                             {{ csrf_field() }}
                             <input type="hidden" name="id_wizyty" value="{{$wizyta['id']}}">
                             <input type="hidden" name="id_pacjenta" value="{{$patientData['pacjent']['id']}}">

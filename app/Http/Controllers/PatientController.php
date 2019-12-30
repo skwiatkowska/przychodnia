@@ -20,6 +20,9 @@ class PatientController extends Controller {
 
     public function settings()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
         return view('pacjent-panel/panel-ustawienia');
     }
 
@@ -39,7 +42,7 @@ class PatientController extends Controller {
     public function changeData(Request $request)
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
         $name = $request->input('imie');
         $surname = $request->input('nazwisko');
@@ -65,7 +68,7 @@ class PatientController extends Controller {
     public function changePassword(Request $request)
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
         $old = $request->input('haslo');
         $new = $request->input('haslo1');
@@ -80,8 +83,8 @@ class PatientController extends Controller {
 /*
     public function disableAccount(Request $request)
     {
-        if (!Auth::check()) {
-            return redirect('/login');
+          if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
         return view('pacjent-panel/panel-ustawienia');
     }*/
