@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Doctor;
 use App\Deadline;
 use App\Patient;
+use App\Visit;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
@@ -60,5 +62,20 @@ class DoctorController extends Controller
         $allData= $doctor->getData($doctorId);
 
         return View('lekarz-panel/dane', ['data' => $allData]);
+    }
+
+    public function patientData($id)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $patientData= Visit::findAllPatientData($id);
+
+        if ($patientData==false) {
+            abort(404);
+            return;
+        }
+
+        return View('lekarz-panel/pacjent', ['patientData' => $patientData]);
     }
 }

@@ -37,7 +37,7 @@
                                     {{$patient['pesel']}}
                                 </td>
                                 <td>
-                                <a href="#">wybierz</a>
+                                <a href="pacjent/{{$patient['id']}}">wybierz</a>
                                 </td>
                             </tr>
                             @endforeach
