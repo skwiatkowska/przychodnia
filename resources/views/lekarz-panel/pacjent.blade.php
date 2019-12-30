@@ -106,10 +106,9 @@
     @else
         <table class="table table-striped table-condensed">
             <tr class="text-center">
-                <th>Lekarz</th>
-                <th>Gabinet</th>
                 <th>Dzień</th>
                 <th>Godzina</th>
+                <th>Lekarz</th>
                 <th>Przebieg wizyty</th>
             </tr>
             @foreach($patientData['wizyty'] as $wizyta)
@@ -117,17 +116,15 @@
 
             <tr data-toggle="collapse" data-target="#{{$wizyta['id']}}" class="accordion-toggle">
 
-                    <td>
-                        {{$wizyta['lekarz']}}
-                    </td>
-                    <td>
-                        {{$wizyta['gabinet']}}
-                    </td>
+                   
                     <td>
                         {{$wizyta['rok_miesiac_dzien']}}
                     </td>
                     <td>
                         {{$wizyta['godzina_minuta']}}
+                    </td>
+                    <td>
+                        {{$wizyta['lekarz']}}
                     </td>
                     <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
                 </tr>
