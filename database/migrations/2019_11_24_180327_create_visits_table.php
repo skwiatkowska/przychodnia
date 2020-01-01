@@ -19,6 +19,8 @@ class CreateVisitsTable extends Migration
             $table->unsignedInteger('id_pacjenta');
             $table->date('rok_miesiac_dzien');
             $table->string('godzina_minuta');
+            $table->string('opis');
+            $table->string('zalecenia');
             $table->timestamps();
 
             $table->foreign('id_lekarza')->references('id')->on('doctors');

@@ -10,7 +10,7 @@ class Visit extends Model
     public $timestamps = false;
     private $errors = [];
 
-    public function addVisit($patientId, $doctorId, $date, $hour)
+    public function addVisit($patientId, $doctorId, $date, $hour, $description, $reccomendations)
     {
         if (!Auth::check()) {
             $this->errors[] = 'Aby dokonać rezerwacji musisz być <a href="/login">zalogowany!</a>!';
@@ -43,6 +43,8 @@ class Visit extends Model
         $visit->id_pacjenta = $patientId;
         $visit->rok_miesiac_dzien = $date;
         $visit->godzina_minuta = $hour;
+        $visit->opis = $description;
+        $visit->zalecenia = $reccomendations;
         $visit->save();
 
         return true;
@@ -153,9 +155,9 @@ class Visit extends Model
 
     public function getAllVisits()
     {
-       $visits = Visit::all()->select('id_lekarza','rok_miesiac_dzien','id_pacjenta')->get()->groupBy('id_lekarza','rok_miesiac_dzien');
-       return($visits);
        $visits = Visit::all();
+       return($visits);
+      // $visits = Visit::all();
        /* // grupowanie wizyt lekarz -> dni -> pacjenci
        $idLekarzy = [];
        foreach($visits as $visit){
@@ -190,6 +192,67 @@ class Visit extends Model
        $wizyty[]= $dni;
     }*/
        return ($visits);
+    }
+
+
+    static function findAllDoctorData($id)
+    {
+        $patId = [];
+
+        $doctor = Doctor::where('id',$id) -> first();
+
+        if ($doctor == null){
+            return false;
+        }
+        $usr_id = $doctor->id_usr;
+
+        $docVisits=[];
+        $visit_id=[];
+        $docAllVisits = self::where('id_lekarza','=',$usr_id)->get();
+       
+
+        foreach ($docAllVisits as $visit) {
+                $docVisits[$visit->id] = [$visit->rok_miesiac_dzien , $visit->godzina_minuta];
+            }
+
+            foreach ($docAllVisits as $visit) {
+                if (!in_array($visit['id_pacjenta'], $patId)) {
+                    $patId[] = $visit['id_pacjenta'];
+                }
+            }
+
+        if (!empty($patId)) {
+            $result = Patient::whereIn('id', $patId)->get();
+
+            foreach ($result as $patient) {
+                $patients[$patient->id] = $patient->imie . " " . $patient->nazwisko;
+            }
+        }
+
+        foreach ($docAllVisits as $visit) {
+
+            if (!empty($patients[$visit->id_pacjenta])) {
+                $visit->pacjent = $patients[$visit->id_pacjenta];
+            } else {
+                $visit->pacjent = "";
+
+            }
+        }
+
+        return [
+            "lekarz" =>[
+                "id" => $doctor->id,
+                "tytul" => $doctor->tytul,
+                "imie" => $doctor->imie,
+                "nazwisko" => $doctor->nazwisko,
+                "email"=>$doctor->email,
+                "gabinet"=>$doctor->gabinet,
+                "telefon"=>$doctor->telefon,
+
+            ],
+            "wizyty" => $docAllVisits
+    ];
+
     }
   
 

@@ -39,6 +39,7 @@
                                 </div>
                                 <input type="hidden" name="id_lekarza" value="{{$doctorsDeadlines['lekarz']['id']}}"/>
                                 <input type="hidden" name="data" value="{{$date}}">
+
                             </form>
                         </div>
                     @endforeach

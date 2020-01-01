@@ -30,7 +30,7 @@ class VisitController extends Controller
         $hour = $request->query('godzina');
 
         $visit = new Visit();
-        $isVisit = $visit->addVisit($patientId, $doctorId, $date, $hour);
+        $isVisit = $visit->addVisit($patientId, $doctorId, $date, $hour,$description = "", $recommendations = "");
 
         if ($isVisit) {
             return redirect('/panel/wizyty')->with('info', 'Wizyta została poprawnie zarezerwowana.');

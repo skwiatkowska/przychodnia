@@ -166,6 +166,9 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $visitId = $request->input('id_wizyty');
+
+        Visit::where('id', $visitId)->delete();
  //do napisania wraca na strone localhost:8000/recepcja/pacjent/{id}
  //return redirect('/recepcja/pacjent/'.$patientId)->with('info', 'Wizyta została odwołana');
 
@@ -193,5 +196,41 @@ class ReceptionController extends Controller {
             return;
         }
         return view('recepcja-panel/pacjent-ustawienia', ['patientData' => $patientData]);
+    }
+
+
+    public function addVisit($id, Request $request)
+    {
+        $patientId = $id;
+        $doctorId = $request->query('id_lekarza');
+        $date = $request->query('data');
+        $hour = $request->query('godzina');
+
+        $visit = new Visit();
+        $isVisit = $visit->addVisit($patientId, $doctorId, $date, $hour);
+
+        if ($isVisit) {
+            return redirect('/panel/wizyty')->with('info', 'Wizyta została poprawnie zarezerwowana.');
+        }
+
+        $errors = $visit->getErrors();
+        return redirect('/terminy/'.$doctorId)->with('errors', $errors);
+
+    }
+
+    public function doctorData($id)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $doctorData= Visit::findAllDoctorData($id);
+    
+
+        if ($doctorData==false) {
+            abort(404);
+            return;
+        }
+
+        return View('recepcja-panel/lekarz', ['doctorData' => $doctorData]);
     }
 }
