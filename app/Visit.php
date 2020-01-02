@@ -162,18 +162,24 @@ public function getTodaysVisits($patientId){
         }
         $usr_id = $patient->id_usr;
         $patientVisits=[];
-        $visit_id=[];
-        $patientAllVisits = self::where('id_pacjenta','=',$usr_id)->get();
+        $visit_id=[]; 
+        $today = date("Ymd");
 
-        foreach ($patientAllVisits as $visit) {
+        $patientPastVisits = self::where('id_pacjenta','=',$usr_id)->where('rok_miesiac_dzien','<',$today)->get();
+       
+        $patientFutureVisits = self::where('id_pacjenta','=',$usr_id)->where('rok_miesiac_dzien','>',$today)->get();
+        $patientTodaysVisits = self::where('id_pacjenta','=',$usr_id)->where('rok_miesiac_dzien',$today)->get();
+
+
+        foreach ($patientPastVisits as $visit) {
                 $patientVisits[$visit->id] = [$visit->rok_miesiac_dzien , $visit->godzina_minuta];
             }
 
-            foreach ($patientAllVisits as $visit) {
-                if (!in_array($visit['id_lekarza'], $doctorId)) {
-                    $doctorId[] = $visit['id_lekarza'];
-                }
+        foreach ($patientPastVisits as $visit) {
+            if (!in_array($visit['id_lekarza'], $doctorId)) {
+                $doctorId[] = $visit['id_lekarza'];
             }
+        }
 
         if (!empty($doctorId)) {
             $result = Doctor::whereIn('id', $doctorId)->get();
@@ -185,7 +191,7 @@ public function getTodaysVisits($patientId){
             }
         }
 
-        foreach ($patientAllVisits as $visit) {
+        foreach ($patientPastVisits as $visit) {
 
             if (!empty($doctors[$visit->id_lekarza])) {
                 $visit->lekarz = $doctors[$visit->id_lekarza];
@@ -197,6 +203,75 @@ public function getTodaysVisits($patientId){
 
             }
         }
+    //
+    foreach ($patientFutureVisits as $visit) {
+        $patientVisits[$visit->id] = [$visit->rok_miesiac_dzien , $visit->godzina_minuta];
+    }
+
+        foreach ($patientFutureVisits as $visit) {
+            if (!in_array($visit['id_lekarza'], $doctorId)) {
+                $doctorId[] = $visit['id_lekarza'];
+            }
+        }
+        if (!empty($doctorId)) {
+            $result = Doctor::whereIn('id', $doctorId)->get();
+
+            foreach ($result as $doctor) {
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+                $room[$doctor->id] = $doctor->gabinet;
+
+            }
+        }
+
+
+        foreach ($patientFutureVisits as $visit) {
+
+            if (!empty($doctors[$visit->id_lekarza])) {
+                $visit->lekarz = $doctors[$visit->id_lekarza];
+                $visit->gabinet = $room[$visit->id_lekarza];
+
+            } else {
+                $visit->lekarz = "";
+                $visit->gabinet = "";
+
+            }
+        }
+        //
+        foreach ($patientTodaysVisits as $visit) {
+            $patientVisits[$visit->id] = [$visit->rok_miesiac_dzien , $visit->godzina_minuta];
+        }
+
+        foreach ($patientTodaysVisits as $visit) {
+            if (!in_array($visit['id_lekarza'], $doctorId)) {
+                $doctorId[] = $visit['id_lekarza'];
+            }
+        }
+        if (!empty($doctorId)) {
+            $result = Doctor::whereIn('id', $doctorId)->get();
+
+            foreach ($result as $doctor) {
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+                $room[$doctor->id] = $doctor->gabinet;
+
+            }
+        }
+
+
+        foreach ($patientTodaysVisits as $visit) {
+
+            if (!empty($doctors[$visit->id_lekarza])) {
+                $visit->lekarz = $doctors[$visit->id_lekarza];
+                $visit->gabinet = $room[$visit->id_lekarza];
+
+            } else {
+                $visit->lekarz = "";
+                $visit->gabinet = "";
+
+            }
+        }
+
+
+
 
         return [
             "pacjent" =>[
@@ -210,7 +285,10 @@ public function getTodaysVisits($patientId){
                 "adres"=>$patient->adres
 
             ],
-            "wizyty" => $patientAllVisits
+            "wizyty" => $patientFutureVisits,
+          //  "wizyty_przeszle" =>$patientPastVisits,
+          //  "wizyty_dzisiejsze" =>$patientTodaysVisits
+
     ];
 
     }
