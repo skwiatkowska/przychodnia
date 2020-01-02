@@ -199,18 +199,25 @@ class ReceptionController extends Controller {
     }
 
 
-    public function addVisit($id, Request $request)
+    public function addVisit(Request $request,$id,$id_lekarza)
     {
+
         $patientId = $id;
-        $doctorId = $request->query('id_lekarza');
+        $doctorId =$id_lekarza;
+       // $doctorId = $request->query('id_lekarza');
+        //$doctorId = $id_lekarza;
+        //                                <input type="hidden" name="id_lekarza" value="{{$doctorsDeadlines['lekarz']['id']}}"/>
+
         $date = $request->query('data');
         $hour = $request->query('godzina');
 
         $visit = new Visit();
-        $isVisit = $visit->addVisit($patientId, $doctorId, $date, $hour);
+        $isVisit = $visit->addVisit($patientId, $doctorId, $date, $hour,"","");
 
         if ($isVisit) {
-            return redirect('/panel/wizyty')->with('info', 'Wizyta została poprawnie zarezerwowana.');
+            return view('/panel/wizyty')->with('info', 'Wizyta została poprawnie zarezerwowana.');
+        }else{return view('/panel/wizyty')->with('info', 'ERROR'.$patientId);
+
         }
 
         $errors = $visit->getErrors();

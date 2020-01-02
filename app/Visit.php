@@ -156,16 +156,19 @@ class Visit extends Model
     public function getAllVisits()
     {
        $visits = Visit::all();
-       return($visits);
-      // $visits = Visit::all();
-       /* // grupowanie wizyt lekarz -> dni -> pacjenci
-       $idLekarzy = [];
-       foreach($visits as $visit){
-            if (!in_array($visit['id_lekarza'], $idLekarzy)) {
-                $idLekarzy[] = $visit['id_lekarza'];
-            }
-        }   
-        
+
+
+      if ($visits==null){
+        return false;
+        }
+
+  
+      $idLekarzy = [];
+      foreach($visits as $visit){
+           if (!in_array($visit['id_lekarza'], $idLekarzy)) {
+               $idLekarzy[] = $visit['id_lekarza'];
+           }
+       }  
         $wizyty = [];
        foreach ($idLekarzy as $doctor_id){
         $lekarz = Doctor::where('id',$doctor_id) -> first();
@@ -190,8 +193,18 @@ class Visit extends Model
             $dni[]=$dane_pacjenta;
        }
        $wizyty[]= $dni;
-    }*/
-       return ($visits);
+    }
+
+    return ["lekarz" => [
+            "id" => $lekarz->id,
+            "imie" => $lekarz->imie,
+            "nazwisko" => $lekarz->nazwisko,
+            "daty" => [
+                "dzien"=> $visit->rok_miesiac_dzien
+                
+            ]
+        ]
+    ];
     }
 
 

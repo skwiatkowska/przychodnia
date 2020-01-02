@@ -19,7 +19,7 @@
                     @foreach($doctorsDeadlines['terminy'] as $date => $hours)
                         <div class="border">
                             <form role="form" class="visit-center form-horizontal" method="get"
-                                  action="###">
+                                  action="../dodaj">
                                 <div class="row">
                                     {{ csrf_field() }}
                                     <div class="form-group text-center font">
@@ -38,6 +38,7 @@
                                     {{--<div class="clearfix"></div>--}}
                                 </div>
                                 <input type="hidden" name="id_lekarza" value="{{$doctorsDeadlines['lekarz']['id']}}"/>
+
                                 <input type="hidden" name="data" value="{{$date}}">
 
                             </form>

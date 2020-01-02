@@ -2,7 +2,5 @@
 @section('title', 'Wizyty')
 @section('content')
 
-
-
 {{$visits}}
 @endsection
