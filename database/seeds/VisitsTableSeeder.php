@@ -54,6 +54,34 @@ class VisitsTableSeeder extends Seeder
                 'godzina_minuta'=>'9:30',
                 'opis'=>'opis wizyty test 5',
                 'zalecenia'=>'zalecenia5',
+            ], [
+                'id_lekarza'=> 3,
+                'id_pacjenta'=> 7,
+                'rok_miesiac_dzien'=>20191206,
+                'godzina_minuta'=>'9:30',
+                'opis'=>'opis wizyty test 5',
+                'zalecenia'=>'zalecenia5',
+            ], [
+                'id_lekarza'=> 4,
+                'id_pacjenta'=> 7,
+                'rok_miesiac_dzien'=>20191203,
+                'godzina_minuta'=>'9:30',
+                'opis'=>'opis wizyty test 5',
+                'zalecenia'=>'zalecenia5',
+            ], [
+                'id_lekarza'=> 4,
+                'id_pacjenta'=> 12,
+                'rok_miesiac_dzien'=>20191210,
+                'godzina_minuta'=>'9:30',
+                'opis'=>'opis wizyty test 5',
+                'zalecenia'=>'zalecenia5',
+            ], [
+                'id_lekarza'=> 5,
+                'id_pacjenta'=> 12,
+                'rok_miesiac_dzien'=>20191210,
+                'godzina_minuta'=>'9:30',
+                'opis'=>'opis wizyty test 5',
+                'zalecenia'=>'zalecenia5',
             ]
         ]);
     }
