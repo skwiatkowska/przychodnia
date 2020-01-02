@@ -267,6 +267,11 @@ class Visit extends Model
     ];
 
     }
+
+    /*public function doctorsVisits($doctor_id){
+        $doctors_visits = Visit::where('id_lekarza',$id_lekarza)->get();
+        return $doctors_visits;
+    }*/
   
 
 }

@@ -78,4 +78,17 @@ class DoctorController extends Controller
 
         return View('lekarz-panel/pacjent', ['patientData' => $patientData]);
     }
+
+    public function visits(){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+
+        $doctor = new Doctor();
+        $doctorId = Auth::id();
+        $allvisits = Visit::where('id_lekarza',$doctorId)->get();
+       
+        //return View('lekarz-panel/wizyty', ['data' => $allvisits]);
+        return redirect('/panel_lekarza')->with('info','wizyty'.$allvisits);
+    }
 }
