@@ -60,7 +60,7 @@ public function getTodaysVisits($patientId){
         $doctorId = [];
 
         $doctors = [];
-        $visits = Visit::where('id_pacjenta', $patientId)->where('rok_miesiac_dzien',$today)->orderBy('rok_miesiac_dzien', 'asc')->get();
+        $visits = Visit::where('id_pacjenta', $patientId)->whereDate('rok_miesiac_dzien',$today)->orderBy('rok_miesiac_dzien','asc')->get();
         foreach ($visits as $visit) {
             if (!in_array($visit['id_lekarza'], $doctorId)) {
                 $doctorId[] = $visit['id_lekarza'];
@@ -91,7 +91,7 @@ public function getTodaysVisits($patientId){
         $doctorId = [];
 
         $doctors = [];
-        $visits = Visit::where('id_pacjenta', $patientId)->where('rok_miesiac_dzien','<',$today)->orderBy('rok_miesiac_dzien', 'asc')->get();
+        $visits = Visit::where('id_pacjenta', $patientId)->whereDate('rok_miesiac_dzien','<',$today)->orderBy('rok_miesiac_dzien','asc')->get();
         foreach ($visits as $visit) {
             if (!in_array($visit['id_lekarza'], $doctorId)) {
                 $doctorId[] = $visit['id_lekarza'];
@@ -123,7 +123,7 @@ public function getTodaysVisits($patientId){
         $doctorId = [];
 
         $doctors = [];
-        $visits = Visit::where('id_pacjenta', $patientId)->wherewhere('rok_miesiac_dzien','>',$today)->orderBy('rok_miesiac_dzien', 'asc')->get();
+        $visits = Visit::where('id_pacjenta', $patientId)->whereDate('rok_miesiac_dzien','>',$today)->orderBy('rok_miesiac_dzien','asc')->get();
         foreach ($visits as $visit) {
             if (!in_array($visit['id_lekarza'], $doctorId)) {
                 $doctorId[] = $visit['id_lekarza'];
