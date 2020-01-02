@@ -109,12 +109,6 @@
                             <fieldset>
 
                             <div class="form-group">
-                                    <label for="haslo" class="col-sm-3 control-label">Stare hasło</label>
-
-                                    <div class="col-sm-8">
-                                        <input type="password" class="form-control" id="haslo" name="haslo"
-                                               placeholder="Stare hasło">
-                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="haslo" class="col-sm-3 control-label">Nowe hasło</label>
@@ -154,15 +148,6 @@
                         <div class="row">
                             {{ csrf_field() }}
                             <fieldset>
-
-                            <div class="form-group">
-                                    <label for="haslo" class="col-sm-3 control-label">Hasło</label>
-                                    <div class="col-sm-8">
-                                        <input type="password" class="form-control" id="haslo" name="haslo"
-                                               placeholder="Hasło">
-                                    </div>
-                                </div>
-
                                 <div class="form-group">
                                     <div class="col-sm-3 col-sm-offset-2">
                                         <button type="submit" class="btn btn-danger form-control">Dezaktywuj</button>
