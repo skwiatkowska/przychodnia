@@ -29,6 +29,33 @@ class ReceptionController extends Controller {
         return View('/recepcja-panel/dodaj-pacjenta');
     }
 
+
+    public function disableAccount($id){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $user = User::deactivateUser($id);
+
+        if ($user = false) {
+            abort(404);
+            return;
+        }
+        return redirect('recepcja-panel/lista-pacjentow')->with('info','Wybrane konto zostało zdezaktywowane');
+    }
+
+    public function enableAccount($id){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $user = User::activateUser($id);
+
+        if ($user = false) {
+            abort(404);
+            return;
+        }
+        return redirect('recepcja-panel/lista-pacjentow')->with('info','Wybrane konto zostało aktywowane');
+    }
+
     public function patientRegister(Request $request)
     {
         if (!Auth::check()) {
@@ -40,16 +67,18 @@ class ReceptionController extends Controller {
         $pesel = $request->input('pesel');
         $adres = $request->input('adres');
         $password = $request->input('haslo');
+        $telefon= $request->input('phone');
+        $data_ur= $request->input('data_urodzenia');
 
         $patient = new Patient();
         $user = new User();
 
 
-       $isRegistered = $patient->addNewUser($name, $surname, $email, $pesel, $adres, $password);
-        $user->addUser($name, $email, $password, $user_type="patient");
+       
+        $usr_id=$user->addUser($name, $email, $password, $user_type="patient", $status="active");
 
             return redirect('recepcja/lista_pacjentow')->with('info', 'Konto zostało zarejestrowane');
-
+        $isRegistered = $patient->addNewUser($usr_id,$name, $surname, $email, $pesel, $adres, $telefon, $data_ur, $password);
         $errors = $user->getErrors();
         return redirect('recepcja/dodaj_pacjenta')->with('errors', $errors);
     }
@@ -80,7 +109,7 @@ class ReceptionController extends Controller {
         $doctor = new Doctor();
         $user = new User();
 
-        $user_id =$user->addUser($name, $email, $password, $user_type="doctor");
+        $user_id =$user->addUser($name, $email, $password, $user_type="doctor", $status = "active");
         $isRegistered = $doctor->addNewUser($user_id,$title,$name, $surname, $specialization,$email,$phone,$gabinet,$password);
 
         if ($isRegistered)  {  return redirect('recepcja/lista_lekarzy')->with('info', 'Konto zostało zarejestrowane');

@@ -31,7 +31,7 @@ class RegisterController extends Controller
         $user = new User();
         
 
-        $user_id=$user->addUser($name, $email, $password, $user_type="patient");
+        $user_id=$user->addUser($name, $email, $password, $user_type="patient",$status = "active");
         
         
 

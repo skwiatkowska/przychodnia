@@ -37,13 +37,14 @@ class User extends Authenticatable
     ];
 
 
-    public function addUser($name, $email, $password,$user_type)
+    public function addUser($name, $email, $password,$user_type,$status)
     {
         $data = [
             $name,
             $email,
             $password,
-            $user_type
+            $user_type,
+            $status
         ];
 
         // Sprawdz czy pola nie sa puste
@@ -62,6 +63,7 @@ class User extends Authenticatable
         $user->email = $email;
         $user->password = bcrypt($password);
         $user->user_type = $user_type;
+        $user->status=$status;
         $user->save();
 
         
@@ -80,13 +82,29 @@ class User extends Authenticatable
     public function isDoctor() {
          return $this->user_type == self::DOCTOR_TYPE;
     } 
+    public function isActive($email) {
+        $status = User::where('email', $email)->first()['status'];
+        return $status;
+   } 
+   public function deactivateUser($id){
+       $user = User::where('id',$id)->first();
+       $user->status = "inactive";
+       $user->save();
+       return true;
+   }
+   public function activateUser($id){
+    $user = User::where('id',$id)->first();
+    $user->status = "active";
+    $user->save();
+    return true;
+}
 
     public function getUsrType($email) {
         $type_data = User::where('email', $email)->first()['user_type'];
         return $type_data;
    } 
 
-    public function login($email, $password){
+    public function login($email, $password, $type,$status){
         if (empty($email)) {
             $this->errors[] = 'Pole Email nie moze byc puste!';
             return false;
@@ -95,7 +113,11 @@ class User extends Authenticatable
             $this->errors[] = 'Pole Haslo nie moze byc puste!';
             return false;
         }
-        if (Auth::attempt(['email' => $email, 'password' => $password])){
+        if (empty($type)) {
+            $this->errors[] = 'Zaznacz rodzaj użytkownika!';
+            return false;
+        }
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'user_type'=>$type,'status'=>$status])){
             return true;
         } else {
                 $this->errors[] = 'Nieprawidlowy email lub haslo';

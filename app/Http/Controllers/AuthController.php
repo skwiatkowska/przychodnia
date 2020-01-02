@@ -21,16 +21,16 @@ class AuthController extends Controller
     {
         $email = $request->input('email');
         $password = $request->input('password');
-
+        $type= $request->input('user_type');
 
         $user = new User();
-        //wywołujemy funkcję szukającą typu pacjenta o podanym adresie email
-        $type_usr = $user->getUsrType($email); 
+        //wywołujemy funkcję szukającą statusu pacjenta o podanym adresie email
+        $st_usr = $user->isActive($email); 
 
-        if ($user->login($email, $password)) {
-            if($type_usr=='doctor'){
+        if ($user->login($email, $password,$type,$status="active")) {
+            if($type=='doctor'){
                 return redirect()->intended('panel_lekarza') -> with('info','Zalogowano poprawnie');
-            }elseif ($type_usr=='reception'){
+            }elseif ($type=='reception'){
                 return redirect()->intended('recepcja') -> with('info','Zalogowano poprawnie');
 
             }else{
