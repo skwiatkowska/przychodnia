@@ -55,12 +55,75 @@ class Visit extends Model
         return $this->errors;
     }
 
-    public function getWizyty($patientId)
-    {
+public function getTodaysVisits($patientId){
+    $today = date("Ymd");
         $doctorId = [];
 
         $doctors = [];
-        $visits = Visit::where('id_pacjenta', $patientId)->orderBy('rok_miesiac_dzien', 'asc')->get();
+        $visits = Visit::where('id_pacjenta', $patientId)->where('rok_miesiac_dzien',$today)->orderBy('rok_miesiac_dzien', 'asc')->get();
+        foreach ($visits as $visit) {
+            if (!in_array($visit['id_lekarza'], $doctorId)) {
+                $doctorId[] = $visit['id_lekarza'];
+            }
+        }
+        if (!empty($doctorId)) {
+            $result = Doctor::whereIn('id', $doctorId)->get();
+
+            foreach ($result as $doctor) {
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+            }
+        }
+
+        // Jezeli znaleziono jakis lekarzy to odpowiedniego lekarza przypisz do kazdej wizyty
+        foreach ($visits as $visit) {
+
+            if (!empty($doctors[$visit->id_lekarza])) {
+                $visit->lekarz = $doctors[$visit->id_lekarza];
+            } else {
+                $visit->lekarz = "";
+            }
+        }
+        return $visits;
+
+}
+    public function getPastVisits($patientId){
+        $today = date("Ymd");
+        $doctorId = [];
+
+        $doctors = [];
+        $visits = Visit::where('id_pacjenta', $patientId)->where('rok_miesiac_dzien','<',$today)->orderBy('rok_miesiac_dzien', 'asc')->get();
+        foreach ($visits as $visit) {
+            if (!in_array($visit['id_lekarza'], $doctorId)) {
+                $doctorId[] = $visit['id_lekarza'];
+            }
+        }
+        if (!empty($doctorId)) {
+            $result = Doctor::whereIn('id', $doctorId)->get();
+
+            foreach ($result as $doctor) {
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+            }
+        }
+
+        // Jezeli znaleziono jakis lekarzy to odpowiedniego lekarza przypisz do kazdej wizyty
+        foreach ($visits as $visit) {
+
+            if (!empty($doctors[$visit->id_lekarza])) {
+                $visit->lekarz = $doctors[$visit->id_lekarza];
+            } else {
+                $visit->lekarz = "";
+            }
+        }
+        return $visits;
+
+    }
+    public function getFutureVisits($patientId)
+    {
+        $today = date("Ymd");
+        $doctorId = [];
+
+        $doctors = [];
+        $visits = Visit::where('id_pacjenta', $patientId)->wherewhere('rok_miesiac_dzien','>',$today)->orderBy('rok_miesiac_dzien', 'asc')->get();
         foreach ($visits as $visit) {
             if (!in_array($visit['id_lekarza'], $doctorId)) {
                 $doctorId[] = $visit['id_lekarza'];
