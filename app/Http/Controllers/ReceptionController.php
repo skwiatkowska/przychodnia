@@ -189,6 +189,13 @@ class ReceptionController extends Controller {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
         $patientData= Visit::findAllPatientData($id);
+        $id_user= Patient::where('id',$id)->first()['id_usr'];
+        $status= User::where('id',$id_user)->first()['status'];
+        $patientDatafull = [
+            'pacjent' => $patientData,
+            'status' => $status
+        ];
+
 
         if ($patientData==false) {
             abort(404);
