@@ -131,7 +131,7 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $doctors = Doctor::all();
+        $doctors = Doctor::orderBy('nazwisko','asc')->get();;
         return View('recepcja-panel/lista-lekarzy', ['doctors' => $doctors]);
     }
 
@@ -140,7 +140,7 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $doctors = Doctor::all();
+        $doctors = Doctor::orderBy('nazwisko','asc')->get();;
         return View('recepcja-panel/nowa-wizyta', ['doctors' => $doctors]);
     }
 
@@ -178,7 +178,7 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $patients = Patient::all();
+        $patients = Patient::orderBy('nazwisko','asc')->get();;
         return View('recepcja-panel/lista-pacjentow', ['patients' => $patients]);
     }
 

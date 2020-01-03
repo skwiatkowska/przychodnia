@@ -22,7 +22,7 @@ class DoctorController extends Controller
 
      public function doctorsList()
     {
-        $doctors = Doctor::all();
+        $doctors = Doctor::orderBy('nazwisko','asc')->get();
         return View('lista-lekarzy', ['doctors' => $doctors]);
     }
 
@@ -43,7 +43,7 @@ class DoctorController extends Controller
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $patients = Patient::all();
+        $patients = Patient::orderBy('nazwisko','asc')->get();
         return View('lekarz-panel/lista-pacjentow', ['patients' => $patients]);
     }
 
