@@ -93,7 +93,7 @@ class PatientController extends Controller {
             abort(404);
             return;
         }
-        return redirect('pacjent-panel/panel-ustawienia')->with('info','Wybrane konto zostało zdezaktywowane');
+        return redirect('/logout')->with('info','Wybrane konto zostało zdezaktywowane');
     }
 
 

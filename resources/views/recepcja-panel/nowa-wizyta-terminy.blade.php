@@ -19,7 +19,7 @@
                     @foreach($doctorsDeadlines['terminy'] as $date => $hours)
                         <div class="border">
                             <form role="form" class="visit-center form-horizontal" method="get"
-                                  action="../dodaj">
+                                  action="{{$doctorsDeadlines['lekarz']['id']}}/dodaj_wizyte">
                                 <div class="row">
                                     {{ csrf_field() }}
                                     <div class="form-group text-center font">

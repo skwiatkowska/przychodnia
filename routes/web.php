@@ -46,7 +46,7 @@ Route::get('/recepcja/pacjent/{id}/nowa_wizyta', 'ReceptionController@doctorsLis
 Route::get('/recepcja/pacjent/{id_pacjenta}/terminy/{id}', 'ReceptionController@doctorsDeadlinesForAPatient');
 
 //Route::get('/recepcja/pacjent/{id}', 'ReceptionController@addVisit');
-Route::get('/recepcja/pacjent/{id}/terminy/{id_lekarza}', 'ReceptionController@addVisit');
+Route::get('/recepcja/pacjent/{id}/terminy/{id_lekarza}/dodaj_wizyte', 'ReceptionController@addVisit');
 
 
 Route::get('/recepcja/pacjent/{id}/ustawienia', 'ReceptionController@patientSettings');

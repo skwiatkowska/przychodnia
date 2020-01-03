@@ -47,7 +47,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/')->with('info','Wylogowano.');
     }
 
     protected function authenticated() {
