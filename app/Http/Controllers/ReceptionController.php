@@ -205,19 +205,6 @@ class ReceptionController extends Controller {
         return View('recepcja-panel/pacjent', ['patientData' => $patientData]);
     }
 
-   
-    public function deleteVisit(Request $request){
-        if (!Auth::check()) {
-            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
-        }
-        $visitId = $request->input('id_wizyty');
-
-        Visit::where('id', $visitId)->delete();
- //do napisania wraca na strone localhost:8000/recepcja/pacjent/{id}
- //return redirect('/recepcja/pacjent/'.$patientId)->with('info', 'Wizyta została odwołana');
-
-    }
-
     public function allVisits()
     {
         if (!Auth::check()) {
@@ -267,6 +254,16 @@ class ReceptionController extends Controller {
         $errors = $visit->getErrors();
         return redirect('/terminy/'.$doctorId)->with('errors', $errors);
 
+    }
+    public function deleteVisit(Request $request){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $visitId = $request->input('id_wizyty');
+
+        Visit::where('id', $visitId)->delete();
+ //do napisania wraca na strone localhost:8000/recepcja/pacjent/{id}
+   return redirect('/recepcja')->with('info', 'Wizyta została odwołana');
     }
 
     public function doctorData($id)
