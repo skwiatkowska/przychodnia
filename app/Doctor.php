@@ -68,4 +68,6 @@ class Doctor extends Model
         return $data_all[0];
     }
 
+
+
 }
