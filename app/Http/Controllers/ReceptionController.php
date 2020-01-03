@@ -30,30 +30,38 @@ class ReceptionController extends Controller {
     }
 
 
-    public function disableAccount($id){
+    public function disablePatientAccount($id){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $user = User::deactivateUser($id);
-
+        //$user = User::deactivateUser($id);
+        $patient = Patient::where('id',$id)->first();
+        $id_usr=$patient->getUserId($id);
+        $user=User::where('id',$id_usr)->first();
+        $user->deactivateUser($id_usr);
+ 
         if ($user = false) {
             abort(404);
             return;
         }
-        return redirect('recepcja-panel/lista-pacjentow')->with('info','Wybrane konto zostało zdezaktywowane');
+        return redirect('/recepcja/lista_pacjentow')->with('info','Wybrane konto zostało zdezaktywowane');
     }
 
     public function enableAccount($id){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $user = User::activateUser($id);
+       // $user = User::activateUser($id);
+       $patient = Patient::where('id',$id)->first();
+       $id_usr=$patient->getUderId($id);
+       $user=User::where('id',$id_usr)->first();
+       $user->activateUser($id_usr);
 
         if ($user = false) {
             abort(404);
             return;
         }
-        return redirect('recepcja-panel/lista-pacjentow')->with('info','Wybrane konto zostało aktywowane');
+        return redirect('/recepcja/lista_pacjentow')->with('info','Wybrane konto zostało aktywowane');
     }
 
     public function patientRegister(Request $request)

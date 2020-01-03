@@ -104,7 +104,12 @@ class Patient extends Model
         $patient->save();
         return true;
     }
-
+    public function getUserId($patientId)
+    {     
+        $id_usr = Patient::where('id', $patientId)->first()['id_usr'];  ;
+        
+        return $id_usr;
+    }
 
     
 }
