@@ -144,12 +144,12 @@ class ReceptionController extends Controller {
         return View('recepcja-panel/nowa-wizyta', ['doctors' => $doctors]);
     }
 
-    public function doctorsDeadlinesForAPatient($id)
+    public function doctorsDeadlinesForAPatient($id,$doctor_id)
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($id);
+        $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($doctor_id);
 
         if ($doctorsDeadlines==false) {
             abort(404);
@@ -247,13 +247,13 @@ class ReceptionController extends Controller {
 
         $date = $request->query('data');
         $hour = $request->query('godzina');
-
+        $patient_usr = Patient::where('id',$patientId)->first()['id_usr'];
         $visit = new Visit();
-        $isVisit = $visit->addVisit($patientId, $doctorId, $date, $hour,"","");
+        $isVisit = $visit->addVisit($patient_usr, $doctorId, $date, $hour,"","");
 
         if ($isVisit) {
-            return view('/panel/wizyty')->with('info', 'Wizyta została poprawnie zarezerwowana.');
-        }else{return view('/panel/wizyty')->with('info', 'ERROR'.$patientId);
+            return redirect('/panel/wizyty')->with('info', 'Wizyta została poprawnie zarezerwowana.');
+        }else{return redirect('/panel/wizyty')->with('info', 'ERROR'.$patientId);
 
         }
 
