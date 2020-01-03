@@ -18,7 +18,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-sm-6 col-sm-offset-3">
-                                <input type="email" class="form-control" name="email" placeholder="Email">
+                                <input type="email" class="form-control" name="email" placeholder="E-mail">
                             </div>
                         </div>
                         <div class="form-group">

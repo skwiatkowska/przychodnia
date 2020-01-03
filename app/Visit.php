@@ -285,9 +285,9 @@ public function getTodaysVisits($patientId){
                 "adres"=>$patient->adres
 
             ],
-            "wizyty" => $patientFutureVisits,
-          //  "wizyty_przeszle" =>$patientPastVisits,
-          //  "wizyty_dzisiejsze" =>$patientTodaysVisits
+            "wizytyNadchodzace" => $patientFutureVisits,
+             "wizytyPrzeszle" =>$patientPastVisits,
+             "wizytyDzis" =>$patientTodaysVisits
 
     ];
 
