@@ -80,6 +80,23 @@ class PatientController extends Controller {
        
         return redirect('panel/dane')->with('info', 'Hasło zostało zmienione');
     }
+
+    public function disableAccount(){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $patientId = Auth::id();
+
+        $user = User::where('id',$patientId)->first();
+        $user->deactivateUser($patientId);
+        if ($user = false) {
+            abort(404);
+            return;
+        }
+        return redirect('pacjent-panel/panel-ustawienia')->with('info','Wybrane konto zostało zdezaktywowane');
+    }
+
+
 /*
     public function disableAccount(Request $request)
     {

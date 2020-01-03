@@ -86,12 +86,14 @@ class User extends Authenticatable
         $status = User::where('email', $email)->first()['status'];
         return $status;
    } 
+
    public function deactivateUser($id){
-       $user = User::where('id',$id)->first();
-       $user->status = "inactive";
-       $user->save();
-       return true;
-   }
+    $user = User::where('id',$id)->first();
+    $user->status = "inactive";
+    $user->save();
+    return true;
+}
+
    public function activateUser($id){
     $user = User::where('id',$id)->first();
     $user->status = "active";
