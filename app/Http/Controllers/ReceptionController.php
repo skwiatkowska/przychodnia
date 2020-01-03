@@ -191,12 +191,8 @@ class ReceptionController extends Controller {
         $patientData= Visit::findAllPatientData($id);
         $id_user= Patient::where('id',$id)->first()['id_usr'];
         $status= User::where('id',$id_user)->first()['status'];
-        $patientDatafull = [
-            'pacjent' => $patientData,
-            'status' => $status
-        ];
-
-
+        $arr1 = array('status' => $status);
+        $patientData['pacjent'] = $patientData['pacjent'] + $arr1;
         if ($patientData==false) {
             abort(404);
             return;

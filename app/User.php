@@ -122,7 +122,7 @@ class User extends Authenticatable
         if (Auth::attempt(['email' => $email, 'password' => $password, 'user_type'=>$type,'status'=>$status])){
             return true;
         } else {
-                $this->errors[] = 'Nieprawidlowy email lub haslo';
+                $this->errors[] = 'Nieprawidłowy email lub haslo';
             return false;
         }
         

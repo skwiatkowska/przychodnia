@@ -53,6 +53,7 @@ Route::get('/recepcja/pacjent/{id}/ustawienia', 'ReceptionController@patientSett
 Route::post('/recepcja/pacjent/{id}/ustawienia/zmien_dane', 'ReceptionController@changePatientData');
 Route::post('/recepcja/pacjent/{id}/ustawienia/zmien_haslo', 'ReceptionController@changePatientPassword');
 Route::post('/recepcja/pacjent/{id}/ustawienia/dezaktywuj', 'ReceptionController@disablePatientAccount');
+Route::post('/recepcja/pacjent/{id}/ustawienia/aktywuj', 'ReceptionController@enableAccount');
 
 
 //Route::get('/recepcja/lekarz/{id}', 'ReceptionController@doctorsDeadlines');

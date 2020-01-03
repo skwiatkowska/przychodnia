@@ -6,7 +6,7 @@
             <br/>
             <div class="row">
                 <hr>
-                <h4 class="intro-text text-center">Pacjent <strong>{{$patientData['pacjent']['imie']}} {{$patientData['pacjent']['nazwisko']}}</strong></h4>
+                <h4 class="intro-text text-center">Pacjent  {{$patientData['pacjent']['imie']}} <strong>{{$patientData['pacjent']['imie']}} {{$patientData['pacjent']['nazwisko']}}</strong></h4>
                 <hr>
                 <br/>
             </div>
@@ -21,8 +21,12 @@
                         </div>
                     </div>
                 </div>
+            </div><br/>
+            @if($patientData['pacjent']['status'] == 'inactive')
+            <div class="row">
+                <h2 class="text-center"><span class="blink">KONTO DEZAKTYWOWANE</span></strong></h2>
             </div>
-            <br/>
+            @endif
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="tab-content">
@@ -96,23 +100,32 @@
                                                 </td>
                                             </tr>
                                         </table>
+                                        @if($patientData['pacjent']['status'] != 'inactive')
                                         <div class="col-sm-3 col-sm-offset-1 pull-left">
                                             <a type="button" class="btn btn-gray" role="button" href="{{$patientData['pacjent']['id']}}/ustawienia">Ustawienia</a>
                                             <br/>
                                             <br/>
                                         </div>
+                                        @else
+                                        <div class="col-sm-3 col-sm-offset-1 pull-left">
+                                            <a type="button" class="btn btn-danger" role="button" href="{{$patientData['pacjent']['id']}}/ustawienia/aktywuj">Aktywuj konto</a>
+                                            <br/>
+                                            <br/>
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="wizyty">
                             <br>
-
+                            @if($patientData['pacjent']['status'] != 'inactive')
                             <div class="row">
                                 <div class="col-sm-3 pull-right">
                                     <a type="button" class="btn btn-info" role="button" href="{{$patientData['pacjent']['id']}}/nowa_wizyta">Nowa wizyta</a>
                                 </div>
                             </div>
+                            @endif
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     </br>
