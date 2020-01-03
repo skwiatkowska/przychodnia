@@ -21,7 +21,7 @@ class VisitController extends Controller
         $futureVisits=$visit->getFutureVisits($patientId);
         $todaysVisits=$visit->getTodaysVisits($patientId);
 
-        return View('pacjent-panel/panel-wizyty', ['wizyty' => $pastVisits]);
+        return View('pacjent-panel/panel-wizyty', ['wizytyPrzeszle' => $pastVisits, 'wizytyDzis' => $todaysVisits, 'wizytyNadchodzace' => $futureVisits]);
     }
 
     public function addVisit(Request $request)
