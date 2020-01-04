@@ -6,9 +6,8 @@
             <br/>
             <div class="row">
                 <hr>
-                <h4 class="intro-text text-center">Pacjent  {{$patientData['pacjent']['imie']}} <strong>{{$patientData['pacjent']['imie']}} {{$patientData['pacjent']['nazwisko']}}</strong></h4>
+                <h4 class="intro-text text-center">Pacjent <strong>{{$patientData['pacjent']['imie']}} {{$patientData['pacjent']['nazwisko']}}</strong></h4>
                 <hr>
-                <br/>
             </div>
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-3">
@@ -21,7 +20,8 @@
                         </div>
                     </div>
                 </div>
-            </div><br/>
+            </div>
+            <br/> 
             @if($patientData['pacjent']['status'] == 'inactive')
             <div class="row">
                 <h2 class="text-center"><span class="blink">KONTO DEZAKTYWOWANE</span></strong></h2>
@@ -108,17 +108,17 @@
                                         </div>
                                         @else
                                         <div class="col-sm-2 col-sm-offset-1 pull-left">
-                                        <form class="form-horizontal" method="post" action="{{$patientData['pacjent']['id']}}/ustawienia/aktywuj" align="center">
-                        <div class="row">
-                            {{ csrf_field() }}
-                            <fieldset>
-                                <div class="form-group">
-                                        <button type="submit" class="btn btn-danger form-control">Aktywuj</button>
-                                </div>
+                                            <form class="form-horizontal" method="post" action="{{$patientData['pacjent']['id']}}/ustawienia/aktywuj" align="center">
+                                                <div class="row">
+                                                    {{ csrf_field() }}
+                                                    <fieldset>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-danger form-control">Aktywuj</button>
+                                                        </div>
 
-                            </fieldset>
-                        </div>
-                    </form>
+                                                    </fieldset>
+                                                </div>
+                                            </form>
                                         </div>
                                         @endif
                                     </div>
@@ -126,8 +126,7 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="wizyty">
-                            <br>
-                            @if($patientData['pacjent']['status'] != 'inactive')
+                            <br> @if($patientData['pacjent']['status'] != 'inactive')
                             <div class="row">
                                 <div class="col-sm-3 pull-right">
                                     <a type="button" class="btn btn-info" role="button" href="{{$patientData['pacjent']['id']}}/nowa_wizyta">Nowa wizyta</a>
@@ -285,7 +284,8 @@
                                             <br>
                                         </div>
 
-                                        @endif @endif
+                                        @endif 
+                                    @endif
 
                                     </div>
                                 </div>

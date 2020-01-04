@@ -47,7 +47,7 @@ class ReceptionController extends Controller {
         return redirect('/recepcja/pacjent/'.$id)->with('info','Konto zostało zdezaktywowane.');
     }
 
-    public function enableAccount($id){
+    public function enablePatientAccount($id){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
@@ -225,6 +225,19 @@ class ReceptionController extends Controller {
         return view('recepcja-panel/pacjent-ustawienia', ['patientData' => $patientData]);
     }
 
+    public function doctorSettings($id)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $doctorData= Visit::findAllDoctorData($id);
+
+        if ($doctorData==false) {
+            abort(404);
+            return;
+        }
+        return view('recepcja-panel/lekarz-ustawienia', ['doctorData' => $doctorData]);
+    }
 
     public function addVisit(Request $request,$id,$id_lekarza)
     {
@@ -268,7 +281,10 @@ class ReceptionController extends Controller {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
         $doctorData= Visit::findAllDoctorData($id);
-    
+        $id_user= Doctor::where('id',$id)->first()['id_usr'];
+        $status= User::where('id',$id_user)->first()['status'];
+        $arr1 = array('status' => $status);
+        $doctorData['lekarz'] = $doctorData['lekarz'] + $arr1;
 
         if ($doctorData==false) {
             abort(404);

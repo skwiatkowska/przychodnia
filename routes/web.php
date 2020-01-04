@@ -51,12 +51,17 @@ Route::get('/recepcja/pacjent/{id}/ustawienia', 'ReceptionController@patientSett
 Route::post('/recepcja/pacjent/{id}/ustawienia/zmien_dane', 'ReceptionController@changePatientData');
 Route::post('/recepcja/pacjent/{id}/ustawienia/zmien_haslo', 'ReceptionController@changePatientPassword');
 Route::post('/recepcja/pacjent/{id}/ustawienia/dezaktywuj', 'ReceptionController@disablePatientAccount');
-Route::post('/recepcja/pacjent/{id}/ustawienia/aktywuj', 'ReceptionController@enableAccount');
+Route::post('/recepcja/pacjent/{id}/ustawienia/aktywuj', 'ReceptionController@enablePatientAccount');
 
 
 //Route::get('/recepcja/lekarz/{id}', 'ReceptionController@doctorsDeadlines');
 Route::get('/recepcja/lekarz/{id}', 'ReceptionController@doctorData');
 
+Route::get('/recepcja/lekarz/{id}/ustawienia', 'ReceptionController@doctorSettings');
+Route::post('/recepcja/lekarz/{id}/ustawienia/zmien_dane', 'ReceptionController@changeDoctorData');
+Route::post('/recepcja/lekarz/{id}/ustawienia/zmien_haslo', 'ReceptionController@changeDoctorPassword');
+Route::post('/recepcja/lekarz/{id}/ustawienia/dezaktywuj', 'ReceptionController@disableDoctorAccount');
+Route::post('/recepcja/lekarz/{id}/ustawienia/aktywuj', 'ReceptionController@enableDoctorAccount');
 
 Route::get('/recepcja/dodaj_pacjenta', 'ReceptionController@patientRegisterFormView');
 Route::post('/recepcja/dodaj_pacjenta', 'ReceptionController@patientRegister');

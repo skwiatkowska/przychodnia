@@ -402,6 +402,7 @@ public function getTodaysVisits($patientId){
                 "email"=>$doctor->email,
                 "gabinet"=>$doctor->gabinet,
                 "telefon"=>$doctor->telefon,
+                "specjalizacja"=>$doctor->specjalizacja,
 
             ],
             "wizyty" => $docAllVisits
