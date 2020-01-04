@@ -44,7 +44,7 @@ class ReceptionController extends Controller {
             abort(404);
             return;
         }
-        return redirect('/recepcja/lista_pacjentow')->with('info','Wybrane konto zostało zdezaktywowane');
+        return redirect('/recepcja/pacjent/'.$id)->with('info','Konto zostało zdezaktywowane.');
     }
 
     public function enableAccount($id){
@@ -53,7 +53,7 @@ class ReceptionController extends Controller {
         }
        // $user = User::activateUser($id);
        $patient = Patient::where('id',$id)->first();
-       $id_usr=$patient->getUderId($id);
+       $id_usr=$patient->getUserId($id);
        $user=User::where('id',$id_usr)->first();
        $user->activateUser($id_usr);
 
@@ -61,7 +61,7 @@ class ReceptionController extends Controller {
             abort(404);
             return;
         }
-        return redirect('/recepcja/lista_pacjentow')->with('info','Wybrane konto zostało aktywowane');
+        return redirect('/recepcja/pacjent/'.$id)->with('info','Konto zostało aktywowane.');
     }
 
     public function patientRegister(Request $request)

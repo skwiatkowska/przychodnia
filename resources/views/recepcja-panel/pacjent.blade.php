@@ -107,10 +107,18 @@
                                             <br/>
                                         </div>
                                         @else
-                                        <div class="col-sm-3 col-sm-offset-1 pull-left">
-                                            <a type="button" class="btn btn-danger" role="button" href="{{$patientData['pacjent']['id']}}/ustawienia/aktywuj">Aktywuj konto</a>
-                                            <br/>
-                                            <br/>
+                                        <div class="col-sm-2 col-sm-offset-1 pull-left">
+                                        <form class="form-horizontal" method="post" action="{{$patientData['pacjent']['id']}}/ustawienia/aktywuj" align="center">
+                        <div class="row">
+                            {{ csrf_field() }}
+                            <fieldset>
+                                <div class="form-group">
+                                        <button type="submit" class="btn btn-danger form-control">Aktywuj</button>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </form>
                                         </div>
                                         @endif
                                     </div>
