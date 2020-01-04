@@ -93,7 +93,9 @@ class Deadline extends Model
             "lekarz" => [
                 "id" => $doctor->id,
                 "imie" => $doctor->imie,
-                "nazwisko" => $doctor->nazwisko
+                "nazwisko" => $doctor->nazwisko,
+                "tytul" => $doctor->tytul
+
             ],
             "terminy" => $doctorCalendar
         ];
