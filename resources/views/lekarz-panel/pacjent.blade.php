@@ -1,6 +1,4 @@
-@extends('layouts.layout-lekarz') 
-@section('title', 'Pacjent') 
-@section('content')
+@extends('layouts.layout-lekarz') @section('title', 'Pacjent') @section('content')
 
 <div class="container">
     <div class="row">
@@ -24,7 +22,6 @@
                     </div>
                 </div>
             </div>
-            <br/>
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="tab-content">
@@ -111,15 +108,13 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     </br>
-                                    <h2 class="text-center">W BUDOWIE (trzeba rozdzielic wizyty w zaleznosci od daty)</h2>
                                     <div class="table-responsive">
-                                        @if($patientData['wizyty']->count()==0)
-                                        <h2 class="intro-text text-center">Brak wizyt <br><br><br>
-                                        </h2> 
-                                        @else
-                <hr>
-                <h4 class="intro-text text-center">Nadchodzące</h4>
-                <hr>
+                                        @if($patientData['wizytyNadchodzace']->count()==0 && $patientData['wizytyDzis']->count()==0 && $patientData['wizytyPrzeszle']->count()==0)
+                                            <h2 class="intro-text text-center">Brak wizyt <br><br><br>
+                                            </h2> 
+                                        @else 
+                                        @if ($patientData['wizytyDzis']->count() != 0)
+                                        <h4 class="text-center"><br>Nadchodzące</h4>
                                         <table class="table table-striped table-condensed">
                                             <tr class="text-center">
                                                 <th>Dzień</th>
@@ -127,9 +122,9 @@
                                                 <th>Lekarz</th>
                                                 <th>Przebieg wizyty</th>
                                             </tr>
-                                            @foreach($patientData['wizyty'] as $wizyta)
+                                            @foreach($patientData['wizytyDzis'] as $wizyta)
                                             <tbody>
-                                                <tr data-toggle="collapse" data-target="#{{$wizyta['id']}}" class="accordion-toggle">
+                                                <tr data-toggle="collapse" data-target="#{{$wizyta['id']}}" class="info accordion-toggle">
 
                                                     <td>
                                                         {{$wizyta['rok_miesiac_dzien']}}
@@ -141,43 +136,47 @@
                                                         {{$wizyta['lekarz']}}
                                                     </td>
                                                     <td>
-                                                        <button class="btn btn-gray btn-sm">dodaj</button>
+                                                        <button class="btn btn-info">dodaj</button>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="6" class="hiddenRow">
                                                         <div id="{{$wizyta['id']}}" class=" accordian-body collapse">
-                                                        <br><div class="border">
-                            <form role="form" class="visit-center form-horizontal" method="get"
-                                  action="">
-                                <div class="row">
-                                    {{ csrf_field() }}
-                                    <div class="form-group text-center font">
-                                        <label class="control-label">Objawy</label>
-                                        <textarea class="form-control" id="opis" row="5"></textarea>
+                                                            <br>
+                                                            <div class="border">
+                                                                <form role="form" class="visit-center form-horizontal" method="get" action="{{$patientData['pacjent']['id']}}/dodaj_opis_wizyty">
+                                                                    <div class="row">
+                                                                        {{ csrf_field() }}
+                                                                        <div class="form-group text-center font">
+                                                                            <label class="control-label">Objawy</label>
+                                                                            <textarea class="form-control" id="opis" row="5"></textarea>
 
-                                    </div>
-                                    <div class="form-group text-center font">
-                                        <label class="control-label">Zalecenia</label>
-                                        <textarea class="form-control" id="zalecenia" row="5"></textarea>
+                                                                        </div>
+                                                                        <div class="form-group text-center font">
+                                                                            <label class="control-label">Zalecenia</label>
+                                                                            <textarea class="form-control" id="zalecenia" row="5"></textarea>
 
-                                    </div>
-                                  
-                                    <div class="form-group text-center">
-                                        <input class="btn btn-info" type="submit" value="Zatwierdź">
-                                    </div>
-                                    {{--<div class="clearfix"></div>--}}
-                                </div>
-                               
-                            </form>
-                        </div>
+                                                                        </div>
+
+                                                                        <div class="form-group text-center">
+                                                                            <input class="btn btn-info" type="submit" value="Zatwierdź">
+                                                                        </div>
+                                                                        {{--
+                                                                        <div class="clearfix"></div>--}}
+                                                                        <input type="hidden" name="id_pacjenta" value="{{$patientData['pacjent']['id']}}"/>
+                                                                        <input type="hidden" name="id_wizyty" value="{{$wizyta['id']}}"/>
+
+                                                                    </div>
+
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
 
-                                            @endforeach
-                                            @foreach($patientData['wizyty'] as $wizyta)
+                                            @endforeach 
+                                            @foreach($patientData['wizytyNadchodzace'] as $wizyta)
                                             <tbody>
                                                 <tr data-toggle="collapse" data-target="#{{$wizyta['id']}}" class="accordion-toggle">
 
@@ -199,15 +198,13 @@
 
                                             @endforeach
 
-
                                         </table>
 
+                                        @endif
+                                        <br>
+                                        <br> @if ($patientData['wizytyPrzeszle']->count() != 0)
 
-
-                                    <br><br><br>
-                                    <hr>
-                                    <h4 class="intro-text text-center">Minione</h4>
-                                    <hr>
+                                        <h4 class="text-center"><br>Minione</h4>
                                         <table class="table table-striped table-condensed">
                                             <tr class="text-center">
                                                 <th>Dzień</th>
@@ -215,7 +212,7 @@
                                                 <th>Lekarz</th>
                                                 <th>Przebieg wizyty</th>
                                             </tr>
-                                            @foreach($patientData['wizyty'] as $wizyta)
+                                            @foreach($patientData['wizytyPrzeszle'] as $wizyta)
                                             <tbody>
                                                 <tr data-toggle="collapse" data-target="#{{$wizyta['id']}}min" class="accordion-toggle">
 
@@ -262,7 +259,7 @@
 
                                         </table>
 
-                                        @endif
+                                        @endif @endif
 
                                     </div>
                                 </div>

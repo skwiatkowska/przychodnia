@@ -33,6 +33,8 @@ Route::get('/panel_lekarza/dane', 'DoctorController@doctorInfo');
 Route::get('/panel_lekarza/pacjent/{id}', 'DoctorController@patientData');
 Route::get('/panel_lekarza/wizyty', 'DoctorController@visits');
 
+Route::get('/panel_lekarza/pacjent/{id}/dodaj_opis_wizyty', 'DoctorController@addVisitDescription');
+
 
 Route::get('/recepcja', 'ReceptionController@mainSite');
 Route::get('/recepcja/lista_pacjentow', 'ReceptionController@patientsList');
