@@ -32,7 +32,7 @@
         <img class="img-responsive img-full" src="{{PUBLIC_URL}}img/appointment.jpg" alt="">
         <div class="overlay">
            <h2>Wizyty</h2>
-           <a class="info" href="#">Przeglądaj zaplanowane wizyty</a>
+           <a class="info" href="/panel_lekarza/wizyty">Przeglądaj zaplanowane wizyty</a>
         </div>
     </div>
     </div> 

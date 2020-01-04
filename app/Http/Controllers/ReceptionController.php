@@ -242,8 +242,8 @@ class ReceptionController extends Controller {
         $isVisit = $visit->addVisit($patient_usr, $doctorId, $date, $hour,"","");
 
         if ($isVisit) {
-            return redirect('/panel/wizyty')->with('info', 'Wizyta została poprawnie zarezerwowana.');
-        }else{return redirect('/panel/wizyty')->with('info', 'ERROR'.$patientId);
+            return redirect('/recepcja/pacjent/'.$patientId)->with('info', 'Wizyta została poprawnie zarezerwowana.');
+        }else{return redirect('/recepcja/pacjent/'.$patientId)->with('info', 'ERROR'.$patientId);
 
         }
 

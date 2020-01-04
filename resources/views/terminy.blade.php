@@ -11,7 +11,7 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center"> {{$doctorsDeadlines['lekarz']['imie']}} {{$doctorsDeadlines['lekarz']['nazwisko']}} - <strong>Terminarz</strong>
+                    <h2 class="intro-text text-center"> {{$doctorsDeadlines['lekarz']['tytul']}} {{$doctorsDeadlines['lekarz']['imie']}} {{$doctorsDeadlines['lekarz']['nazwisko']}} - <strong>Terminarz</strong>
                     </h2>
                     <hr>
                     <br/>

@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Strona główna')
+@section('title', 'Przychodnia AGH-med - strona główna')
 
 @section('content')
 

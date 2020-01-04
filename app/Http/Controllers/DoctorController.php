@@ -89,7 +89,7 @@ class DoctorController extends Controller
         $allvisits = Visit::where('id_lekarza',$doctorId)->get();
        
         $fullVisits = Deadline::findDoctorAllDeadlines($doctorId);
-        //return View('lekarz-panel/wizyty', ['data' => $allvisits]);
-        return redirect('/panel_lekarza')->with('info','wizyty'.$fullVisits);
+        return View('lekarz-panel/wizyty', ['data' => $fullVisits]);
+        //return redirect('lekarz-panel/wizyty');//->with('info','wizyty'.$fullVisits);
     }
 }
