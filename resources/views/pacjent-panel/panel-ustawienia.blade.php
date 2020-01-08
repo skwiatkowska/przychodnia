@@ -105,28 +105,28 @@
                             {{ csrf_field() }}
                             <fieldset>
 
-                            <div class="form-group">
+                            <div class="form-group required">
                                     <label for="haslo" class="col-sm-3 control-label">Stare hasło</label>
 
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="haslo" name="haslo"
-                                               placeholder="Stare hasło">
+                                               placeholder="Stare hasło" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="haslo" class="col-sm-3 control-label">Nowe hasło</label>
 
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="haslo1" name="haslo1"
-                                               placeholder="Nowe hasło">
+                                               placeholder="Nowe hasło" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="haslo" class="col-sm-3 control-label">Powtórz<br/> nowe hasło</label>
 
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="haslo2" name="haslo2"
-                                               placeholder="Nowe hasło">
+                                               placeholder="Nowe hasło" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -152,11 +152,11 @@
                             {{ csrf_field() }}
                             <fieldset>
 
-                            <div class="form-group">
+                            <div class="form-group required">
                                     <label for="haslo" class="col-sm-3 control-label">Hasło</label>
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="haslo" name="haslo"
-                                               placeholder="Hasło">
+                                               placeholder="Hasło" required>
                                     </div>
                                 </div>
 

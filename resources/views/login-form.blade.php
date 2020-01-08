@@ -16,14 +16,16 @@
                     <h6 class="text-center">Podaj swoje dane do logowania:</h6>
                     <form method="post" role="form" class="form-horizontal">
                         {{ csrf_field() }}
-                        <div class="form-group">
+                        <div class="form-group required">
+                        <label class="control-label"></label>
                             <div class="col-sm-6 col-sm-offset-3">
-                                <input type="email" class="form-control" name="email" placeholder="E-mail">
+                                <input type="email" class="form-control" name="email" placeholder="E-mail" required>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group required">
+                        <label class="control-label"></label>
                             <div class="col-sm-6 col-sm-offset-3">
-                                <input type="password" class="form-control" name="password" placeholder="Hasło">
+                                <input type="password" class="form-control" name="password" placeholder="Hasło" required>
                             </div>
                         </div>
                         <div class="form-group">

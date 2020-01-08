@@ -113,7 +113,7 @@
                                             <h2 class="intro-text text-center">Brak wizyt <br><br><br>
                                             </h2> 
                                         @else 
-                                        @if ($patientData['wizytyDzis']->count() != 0)
+                                        @if ($patientData['wizytyDzis']->count() != 0 || $patientData['wizytyNadchodzace']->count() != 0)
                                         <h4 class="text-center"><br>Nadchodzące</h4>
                                         <table class="table table-striped table-condensed">
                                             <tr class="text-center">
@@ -147,14 +147,14 @@
                                                                 <form role="form" class="visit-center form-horizontal" method="get" action="{{$patientData['pacjent']['id']}}/dodaj_opis_wizyty">
                                                                     <div class="row">
                                                                         {{ csrf_field() }}
-                                                                        <div class="form-group text-center font">
+                                                                        <div class="form-group  required text-center font">
                                                                             <label class="control-label">Objawy</label>
-                                                                            <textarea class="form-control" id="opis" row="5"></textarea>
+                                                                            <textarea class="form-control" id="opis" row="5" required></textarea>
 
                                                                         </div>
-                                                                        <div class="form-group text-center font">
+                                                                        <div class="form-group  required text-center font">
                                                                             <label class="control-label">Zalecenia</label>
-                                                                            <textarea class="form-control" id="zalecenia" row="5"></textarea>
+                                                                            <textarea class="form-control" id="zalecenia" row="5" required></textarea>
 
                                                                         </div>
 

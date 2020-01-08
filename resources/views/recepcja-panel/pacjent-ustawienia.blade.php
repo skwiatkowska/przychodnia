@@ -21,69 +21,69 @@
                             {{ csrf_field() }}
                             <fieldset>
 
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="imie" class="col-sm-3 control-label">Imię</label>
 
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="imie" name="imie"
-                                               placeholder="Imię">
+                                               placeholder="Imię" required>
                                     </div>
                                 </div>
 
 
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="nazwisko" class="col-sm-3 control-label">Nazwisko</label>
 
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="nazwisko" name="nazwisko"
-                                               placeholder="Nazwisko">
+                                               placeholder="Nazwisko" required>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="email" class="col-sm-3 control-label">E-mail</label>
 
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="emaill" name="email"
-                                               placeholder="E-mail">
+                                               placeholder="E-mail" required>
                                     </div>
 
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="phone" class="col-sm-3 control-label">Telefon</label>
 
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="phone" name="phone"
-                                               placeholder="Telefon">
+                                               placeholder="Telefon" required>
                                     </div>
 
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="data_urodzenia" class="col-sm-3 control-label">Data urodzenia</label>
 
                                     <div class="col-sm-8">
                                         <input type="date" class="form-control" id="data_urodzenia" name="data_urodzenia"
-                                               placeholder="Data urodzenia">
+                                               placeholder="Data urodzenia" required>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="pesel" class="col-sm-3 control-label">Pesel</label>
 
                                     <div class="col-sm-8">
                                         <input type="number" class="form-control" id="pesel" name="pesel"
-                                               placeholder="Pesel">
+                                               placeholder="Pesel" required>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="email" class="col-sm-3 control-label">Adres</label>
 
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="adres" name="adres"
-                                               placeholder="Adres">
+                                               placeholder="Adres" required>
                                     </div>
 
                                 </div>
@@ -110,20 +110,20 @@
 
                             <div class="form-group">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="haslo" class="col-sm-3 control-label">Nowe hasło</label>
 
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="haslo1" name="haslo1"
-                                               placeholder="Nowe hasło">
+                                               placeholder="Nowe hasło" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group required">
                                     <label for="haslo" class="col-sm-3 control-label">Powtórz<br/> nowe hasło</label>
 
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="haslo2" name="haslo2"
-                                               placeholder="Nowe hasło">
+                                               placeholder="Nowe hasło" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
