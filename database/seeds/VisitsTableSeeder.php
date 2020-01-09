@@ -27,13 +27,6 @@ class VisitsTableSeeder extends Seeder
                 'opis'=>'opis wizyty test 2',
                 'zalecenia'=>'zalecenia2',
             ], [
-                'id_lekarza'=> 1,
-                'id_pacjenta'=> 12,
-                'rok_miesiac_dzien'=>20191228,
-                'godzina_minuta'=>'19:00',
-                'opis'=>'opis wizyty test 3',
-                'zalecenia'=>'zalecenia3',
-            ], [
                 'id_lekarza'=> 2,
                 'id_pacjenta'=> 5,
                 'rok_miesiac_dzien'=>20191229,

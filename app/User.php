@@ -108,11 +108,11 @@ class User extends Authenticatable
 
     public function login($email, $password, $type,$status){
         if (empty($email)) {
-            $this->errors[] = 'Pole Email nie moze byc puste!';
+            $this->errors[] = 'Pole E-mail nie moze być puste!';
             return false;
         }
         if (empty($password)) {
-            $this->errors[] = 'Pole Haslo nie moze byc puste!';
+            $this->errors[] = 'Pole Hasło nie moze być puste!';
             return false;
         }
         if (empty($type)) {
@@ -122,7 +122,7 @@ class User extends Authenticatable
         if (Auth::attempt(['email' => $email, 'password' => $password, 'user_type'=>$type,'status'=>$status])){
             return true;
         } else {
-                $this->errors[] = 'Nieprawidłowy email lub haslo';
+                $this->errors[] = 'Nieprawidłowy email lub hasło';
             return false;
         }
         
