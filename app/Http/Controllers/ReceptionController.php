@@ -135,6 +135,15 @@ class ReceptionController extends Controller {
         return View('recepcja-panel/lista-lekarzy', ['doctors' => $doctors]);
     }
 
+    public function doctorsListForVisits()
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $doctors = Doctor::orderBy('nazwisko','asc')->get();;
+        return View('recepcja-panel/wizyty', ['doctors' => $doctors]);
+    }
+
     public function doctorsListForAPatient()
     {
         if (!Auth::check()) {

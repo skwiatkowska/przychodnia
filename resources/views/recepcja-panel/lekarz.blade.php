@@ -15,13 +15,14 @@
 		<div class="row">
             <div class="col-lg-10 col-lg-offset-3">
                 <div id="tab" data-toggle="buttons-radio">
-                <div class="col-md-4 col-md-4-offset-1">
-                         <a href="#dane" class="col-sm-8 btn btn-large btn-info active" data-toggle="tab">Dane osobowe</a>
-                   </div>
-                   <div class="col-md-4 col-md-4-offset-1">
+                    <div class="col-md-4 col-md-4-offset-1">
+                            <a href="#dane" class="col-sm-8 btn btn-large btn-info active" data-toggle="tab">Dane osobowe</a>
+                    </div>
+                    <div class="col-md-4 col-md-4-offset-1">
                     <a href="#terminarz" class="col-sm-8 btn btn-large btn-info" data-toggle="tab">Terminarz</a>
+                    </div>
                 </div>
-                </div></div>
+                </div>
              </div>
              @if($doctorData['lekarz']['status'] == 'inactive')
             <div class="row">

@@ -39,6 +39,7 @@ Route::get('/panel_lekarza/pacjent/{id}/dodaj_opis_wizyty', 'DoctorController@ad
 Route::get('/recepcja', 'ReceptionController@mainSite');
 Route::get('/recepcja/lista_pacjentow', 'ReceptionController@patientsList');
 Route::get('/recepcja/lista_lekarzy', 'ReceptionController@doctorsList');
+Route::get('/recepcja/wizyty', 'ReceptionController@doctorsListForVisits');
 
 
 Route::get('/recepcja/pacjent/{id}', 'ReceptionController@patientData');
@@ -71,6 +72,4 @@ Route::post('/recepcja/dodaj_pacjenta', 'ReceptionController@patientRegister');
 
 Route::get('/recepcja/dodaj_lekarza', 'ReceptionController@doctorRegisterFormView');
 Route::post('/recepcja/dodaj_lekarza', 'ReceptionController@doctorRegister');
-
-Route::get('/recepcja/wizyty', 'ReceptionController@allVisits');
 
