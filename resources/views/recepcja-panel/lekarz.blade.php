@@ -122,13 +122,29 @@
                     </div>
                     <div class="tab-pane" id="terminarz">
                         <br>
-                        <div class="row">
-                        @foreach($visits['terminy'] as $visit)
-                        @foreach($visit as $vv)
-                        {{$vv}}<br>
-                        @endforeach
-                        @endforeach
+                        <div class="row"> 
+            @foreach($visits['terminy'] as $date => $hours)
+                <div class="border">
+
+                    <div class="row">
+                        <div class="form-group text-center font">
+                            <label class="control-label">{{$date}}</label>
                         </div>
+                        <div class="form-group">
+                            <table class="table table-striped">
+                                @foreach($hours as $hour )
+                                <tr>
+                                    <td>
+                                        {{$hour}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
                     </div>
 				</div>
                 </div>

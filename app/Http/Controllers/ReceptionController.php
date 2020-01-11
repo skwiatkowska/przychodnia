@@ -285,7 +285,7 @@ class ReceptionController extends Controller {
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
-        }
+        } 
         $doctorData= Visit::findAllDoctorData($id);
         $id_user= Doctor::where('id',$id)->first()['id_usr'];
         $status= User::where('id',$id_user)->first()['status'];

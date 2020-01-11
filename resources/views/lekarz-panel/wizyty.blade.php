@@ -18,7 +18,6 @@
                 <div class="border">
 
                     <div class="row">
-                        {{ csrf_field() }}
                         <div class="form-group text-center font">
                             <label class="control-label">{{$date}}</label>
                         </div>

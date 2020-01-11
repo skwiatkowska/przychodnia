@@ -195,6 +195,7 @@ class Deadline extends Model
                         $doctorCalendar[$data][$key] = implode([$doctorCalendar[$data][$key]," zajęta - ".$alldata1->imie.' '.$alldata1->nazwisko]);
                     }else{
                         $key = array_search($hour, $doctorCalendar[$data]);
+                        $arr1 = array('hour' => $key);
                         $doctorCalendar[$data][$key] = implode([$doctorCalendar[$data][$key],"  "]);
                     }
                 }
