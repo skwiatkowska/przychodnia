@@ -140,8 +140,22 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $doctors = Doctor::orderBy('nazwisko','asc')->get();;
-        return View('recepcja-panel/wizyty', ['doctors' => $doctors]);
+        $doctors = Doctor::orderBy('nazwisko','asc')->get();
+ 
+        return View('recepcja-panel/wizyty-start', ['doctors' => $doctors]);
+    }
+
+    public function doctorsListAndVisits($id)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $doctors = Doctor::orderBy('nazwisko','asc')->get();
+        $visits = Deadline::findDoctorAllDeadlines($id);
+        $doctorData= Visit::findAllDoctorData($id);
+
+
+        return View('recepcja-panel/wizyty', ['doctors' => $doctors, 'doctorData' => $doctorData, 'doctorVisits' => $visits]);
     }
 
     public function doctorsListForAPatient()

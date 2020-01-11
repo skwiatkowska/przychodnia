@@ -86,6 +86,17 @@ background-color: #DCDCDC;
     justify-content: center;
 }
 
+.btn-blue-hover-active {
+     background-color: rgb(238,238,238) !important;
+     color: rgb(37,151,184)!important;
+     font-weight: bold; 
+}
+
+.btn-blue-hover:hover {
+    color: rgb(37,151,184)!important;
+}
+
+
 .hour {
     color: white !important;
     background-color: #6699CC !important;

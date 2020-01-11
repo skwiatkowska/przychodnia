@@ -12,27 +12,21 @@
                     <h4 class="intro-text text-center">Lekarz {{$doctorData['lekarz']['tytul']}} <strong>{{$doctorData['lekarz']['imie']}} {{$doctorData['lekarz']['nazwisko']}}</strong></h4>
                     <hr><br/>
                     </div>
-		<div class="row">
-            <div class="col-lg-10 col-lg-offset-3">
-                <div id="tab" data-toggle="buttons-radio">
-                    <div class="col-md-4 col-md-4-offset-1">
-                            <a href="#dane" class="col-sm-8 btn btn-large btn-info active" data-toggle="tab">Dane osobowe</a>
-                    </div>
-                    <div class="col-md-4 col-md-4-offset-1">
-                    <a href="#terminarz" class="col-sm-8 btn btn-large btn-info" data-toggle="tab">Terminarz</a>
+
+                    <div class="row">
+                    <div class="col-md-4 pull-right">
+                         <a type="button" class="col-sm-3 btn btn-info" role="button" target="_blank" href="/recepcja/wizyty/{{$doctorData['lekarz']['id']}}">Terminarz</a>
                     </div>
                 </div>
-                </div>
-             </div>
-             @if($doctorData['lekarz']['status'] == 'inactive')
-            <div class="row">
+            
+           
+			 <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                @if($doctorData['lekarz']['status'] == 'inactive')
+                <div class="row">
                 <h2 class="text-center"><span class="blink">KONTO DEZAKTYWOWANE</span></strong></h2>
             </div>
             @endif
-			 <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                <div class="tab-content">
-                    <div class="tab-pane active" id="dane">
                         <br>
                         <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
@@ -116,35 +110,8 @@
                                             </form>
                                         </div>
                                         @endif
-                    </div>
-                </div>
+             
                         </div>
-                    </div>
-                    <div class="tab-pane" id="terminarz">
-                        <br>
-                        <div class="row"> 
-            @foreach($visits['terminy'] as $date => $hours)
-                <div class="border">
-
-                    <div class="row">
-                        <div class="form-group text-center font">
-                            <label class="control-label">{{$date}}</label>
-                        </div>
-                        <div class="form-group">
-                            <table class="table table-striped">
-                                @foreach($hours as $hour )
-                                <tr>
-                                    <td>
-                                        {{$hour}}
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
                     </div>
 				</div>
                 </div>

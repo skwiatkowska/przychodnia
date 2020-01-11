@@ -115,6 +115,18 @@ class DeadlinesTableSeeder extends Seeder
                 'godzina_od' => '8:00',
                 'godzina_do' => '16:00',
                 'rok_miesiac_dzien' => 20210327,
+		 ],[
+                'id_lekarza' => 6,
+                'godzina_od' => '9:00',
+                'godzina_do' => '17:00',
+                'rok_miesiac_dzien' => 20200112,
+            ],[
+
+                'id_lekarza' => 6,
+                'godzina_od' => '8:00',
+                'godzina_do' => '14:00',
+                'rok_miesiac_dzien' => 20200114,
+
             ],
         ]);
     }

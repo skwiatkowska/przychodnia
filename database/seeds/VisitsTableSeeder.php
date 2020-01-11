@@ -47,7 +47,7 @@ class VisitsTableSeeder extends Seeder
                 'godzina_minuta'=>'16:30',
                 'opis'=>'opis wizyty test 5',
                 'zalecenia'=>'zalecenia5',
-], [
+		 ], [
                 'id_lekarza'=> 3,
                 'id_pacjenta'=> 4,
                 'rok_miesiac_dzien'=>20191221,
@@ -76,6 +76,21 @@ class VisitsTableSeeder extends Seeder
                 'godzina_minuta'=>'18:30',
                 'opis'=>'opis wizyty test 5',
                 'zalecenia'=>'zalecenia5',
+		 ], [
+                'id_lekarza'=> 6,
+                'id_pacjenta'=> 7,
+                'rok_miesiac_dzien'=>20200112,
+                'godzina_minuta'=>'13:30',
+                'opis'=>'opis wizyty test 25',
+                'zalecenia'=>'zalecenia25',
+            ], [
+                'id_lekarza'=> 6,
+                'id_pacjenta'=> 12,
+                'rok_miesiac_dzien'=>20200114,
+                'godzina_minuta'=>'12:30',
+                'opis'=>'opis wizyty test 15',
+                'zalecenia'=>'zalecenia15',
+
             ], [
                 'id_lekarza'=> 5,
                 'id_pacjenta'=> 12,
