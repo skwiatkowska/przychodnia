@@ -78,7 +78,7 @@ class DoctorController extends Controller
 
         return View('lekarz-panel/pacjent', ['patientData' => $patientData]);
     }
-
+ 
     public function visits(){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');

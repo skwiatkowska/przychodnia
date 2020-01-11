@@ -201,7 +201,7 @@ class Deadline extends Model
             }
         }
 
-
+ 
         $past_deadlines=[];
         $future_deadlines=[];
 
@@ -212,9 +212,7 @@ class Deadline extends Model
                 "imie" => $doctor->imie,
                 "nazwisko" => $doctor->nazwisko
             ],
-            "terminyWolne" => $doctorCalendar,
-            //"terminyWolne" =>$future_deadlines,
-            "terminyZajete" => []
+            "terminy" => $doctorCalendar,
         ];
 
     }
