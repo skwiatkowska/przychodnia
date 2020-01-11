@@ -110,11 +110,14 @@ class Deadline extends Model
             return false;
         }
 
+        $today = date("Ymd");
+
         $doctorDeadlines = self::where('id_lekarza', '=', $doctorId)->get();
 
         $hourVisitFrom = [];
         $hourVisitTo = [];
         $doctorCalendar = [];
+        $doctorCalendarPast = [];
 
         foreach ($doctorDeadlines as $visitHours) {
 
@@ -132,14 +135,17 @@ class Deadline extends Model
 
             $start = $hourVisitFrom[0];
             $end = $hourVisitTo[0];
-
-            $doctorCalendar[$date] = [];
+            if ($date>$today){
+                $doctorCalendarPast[$date]=[];
+            }else{
+                $doctorCalendar[$date] = [];
+            
             
 
             while (strtotime($start) < strtotime($end)) {
                 $doctorCalendar[$date][] = $start;
                 $start = date('H:i', strtotime($start . '+' . self::visitTime . ' minutes'));
-            }
+            }}
         }
 
         $visitDays = array_keys($doctorCalendar);
@@ -149,13 +155,6 @@ class Deadline extends Model
             ->get();
 
         $patientIds=[];
-
-       /* foreach($visits as $visit){
-            $patientIds[]=$visit->id_pacjenta;
-        }*/
-
-        
-
 
         $busyVisits = [];
 
@@ -201,6 +200,11 @@ class Deadline extends Model
                 }
             }
         }
+
+
+        $past_deadlines=[];
+        $future_deadlines=[];
+
       
         return [
             "lekarz" => [
@@ -209,6 +213,7 @@ class Deadline extends Model
                 "nazwisko" => $doctor->nazwisko
             ],
             "terminyWolne" => $doctorCalendar,
+            //"terminyWolne" =>$future_deadlines,
             "terminyZajete" => []
         ];
 
