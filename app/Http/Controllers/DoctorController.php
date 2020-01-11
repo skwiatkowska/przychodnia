@@ -84,11 +84,15 @@ class DoctorController extends Controller
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
 
-        $doctor = new Doctor();
+        
         $doctorId = Auth::id();
-        $allvisits = Visit::where('id_lekarza',$doctorId)->get();
+        
+        $doctor = Doctor::where('id_usr',$doctorId)->first();
+        $doctorId_correct = $doctor->id;
+
+        $allvisits = Visit::where('id_lekarza',$doctorId_correct)->get();
        
-        $fullVisits = Deadline::findDoctorAllDeadlines($doctorId);
+        $fullVisits = Deadline::findDoctorAllDeadlines($doctorId_correct);
         return View('lekarz-panel/wizyty', ['data' => $fullVisits]);
         //return redirect('lekarz-panel/wizyty');//->with('info','wizyty'.$fullVisits);
     }
