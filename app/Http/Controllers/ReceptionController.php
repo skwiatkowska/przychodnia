@@ -292,6 +292,8 @@ class ReceptionController extends Controller {
         $arr1 = array('status' => $status);
         $doctorData['lekarz'] = $doctorData['lekarz'] + $arr1;
 
+        $visits = Deadline::findDoctorAllDeadlines($id);
+        
         if ($doctorData==false) {
             abort(404);
             return;
