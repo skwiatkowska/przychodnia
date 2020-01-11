@@ -18,7 +18,7 @@
                         <ul class="nav nav-pills nav-stacked Fixed">
                             @foreach($doctors as $doctor)
                             @if($doctorData['lekarz']['id'] == $doctor['id'])
-                                <li class=""><a class="btn btn-primary btn-blue-hover-active" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
+                                <li class=""><a class="btn btn-blue-hover-active" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
                             @else
                             <li class=""><a class="btn btn-info btn-blue-hover" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
 

@@ -16,7 +16,7 @@
                     <div class="col-md-3">
                         <ul class="nav nav-pills nav-stacked">
                             @foreach($doctors as $doctor)
-                            <li class=""><a class="btn btn-primary btn-blue-hover" href="wizyty/{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
+                            <li class=""><a class="btn btn-info btn-blue-hover" href="wizyty/{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
                             @endforeach
                         </ul>
                         
