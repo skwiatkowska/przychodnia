@@ -221,9 +221,11 @@
                                                                     {{$wizyta['godzina_minuta']}}
                                                                 </td>
                                                                 <td>
-                                                                    <form method="post" action="wizyty/usun">
+                                                                    <form method="post" action="{{$patientData['pacjent']['id']}}/usun_wizyte">
                                                                         {{ csrf_field() }}
                                                                         <input type="hidden" name="id_wizyty" value="{{$wizyta['id']}}">
+                                                                        <input type="hidden" name="id_pacjenta" value="{{$patientData['pacjent']['id']}}">
+
                                                                         <input type="submit" class="btn btn-sm btn-gray" role="button" value="odwołaj" />
                                                                     </form>
                                                                 </td>

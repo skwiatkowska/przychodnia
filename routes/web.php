@@ -43,8 +43,7 @@ Route::get('/recepcja/wizyty', 'ReceptionController@doctorsListForVisits');
 
 
 Route::get('/recepcja/pacjent/{id}', 'ReceptionController@patientData');
-//Route::post('/recepcja/pacjent/{id}/usun_wizyte', 'ReceptionController@deleteVisit');
-Route::post('/recepcja/pacjent/wizyty/usun', 'ReceptionController@deleteVisit');
+Route::post('/recepcja/pacjent/{id}/usun_wizyte', 'ReceptionController@deleteVisit');
 
 
 Route::get('/recepcja/pacjent/{id}/nowa_wizyta', 'ReceptionController@doctorsListForAPatient');
