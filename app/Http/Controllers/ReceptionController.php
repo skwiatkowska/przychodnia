@@ -299,6 +299,6 @@ class ReceptionController extends Controller {
             return;
         }
 
-        return View('recepcja-panel/lekarz', ['doctorData' => $doctorData]);
+        return View('recepcja-panel/lekarz', ['doctorData' => $doctorData, 'visits' => $visits]);
     }
 }

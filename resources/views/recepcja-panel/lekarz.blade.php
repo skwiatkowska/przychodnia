@@ -123,6 +123,11 @@
                     <div class="tab-pane" id="terminarz">
                         <br>
                         <div class="row">
+                        @foreach($visits['terminy'] as $visit)
+                        @foreach($visit as $vv)
+                        {{$vv}}<br>
+                        @endforeach
+                        @endforeach
                         </div>
                     </div>
 				</div>
