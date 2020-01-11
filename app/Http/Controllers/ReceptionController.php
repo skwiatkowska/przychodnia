@@ -274,14 +274,11 @@ class ReceptionController extends Controller {
 
     }
     public function deleteVisit(Request $request){
-        if (!Auth::check()) {
-            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
-        }
         $visitId = $request->input('id_wizyty');
 
         Visit::where('id', $visitId)->delete();
  //do napisania wraca na strone localhost:8000/recepcja/pacjent/{id}
-   return redirect('/recepcja')->with('info', 'Wizyta została odwołana');
+         return redirect('/recepcja')->with('info', 'Wizyta została odwołana');
     }
 
     public function doctorData($id)
