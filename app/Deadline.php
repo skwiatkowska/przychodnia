@@ -134,6 +134,7 @@ class Deadline extends Model
             $end = $hourVisitTo[0];
 
             $doctorCalendar[$date] = [];
+            
 
             while (strtotime($start) < strtotime($end)) {
                 $doctorCalendar[$date][] = $start;
@@ -147,6 +148,15 @@ class Deadline extends Model
             ->whereIn('rok_miesiac_dzien', $visitDays)
             ->get();
 
+        $patientIds=[];
+
+       /* foreach($visits as $visit){
+            $patientIds[]=$visit->id_pacjenta;
+        }*/
+
+        
+
+
         $busyVisits = [];
 
         //usunięcie zajętych wizyt
@@ -156,26 +166,37 @@ class Deadline extends Model
                 $busyVisits[$visit->rok_miesiac_dzien] = [];
             }
             $busyVisits[$visit->rok_miesiac_dzien][] = substr($visit->godzina_minuta, 0, 5);
+            $patientIds[]=$visit->id_pacjenta;
 
         }
-        $patients=$visits;
+        $alldata = Deadline::join('Visits','Deadlines.id_lekarza','=','Visits.id_lekarza')->join('Patients','Patients.id','=','Visits.id_pacjenta')->where('Visits.id_lekarza', $doctorId)
+        ->whereIn('Visits.rok_miesiac_dzien', $visitDays)->whereIn('Patients.id_usr',$patientIds)->get();
+
+        $patients=Patient::whereIn('id_usr',$patientIds)->get();
+        $imiona_i_nazwiska = [];
+        foreach ($patients as $pacjent){
+
+            $imiona_i_nazwiska[]=$pacjent->imie.' '.$pacjent->nazwisko;
+        }
 
 
-        // z tablicy termianrz usuwamy godziny ktore wystepuja w tablicy zajeteWizyty
-        /**
-         * $zajeteWizyty = ['5-30-1987'=>[12:00]]
-         * $termianrz = ['5-30-1987'=>[8:00, 9:00, 12:00]]
-         * $wynik = ['5-30-1987'=>[8:00, 9:00]]
-         */
-
-   
         foreach ($doctorCalendar as $data => $hours) {
             if (array_key_exists($data, $busyVisits)) {
                 foreach ($hours as $hour) {
                     $hasFound = in_array($hour, $busyVisits[$data]);
+
                     if ($hasFound) {
+                        $key = array_search($hour, $doctorCalendar[$data]); //która godzina w doctor kalendarzu
+                        $key2 = array_search($hour, $busyVisits[$data]); //która godzina w doctor kalendarzu
+                        
+                        $alldata1 = Deadline::join('Visits','Deadlines.id_lekarza','=','Visits.id_lekarza')->join('Patients','Patients.id_usr','=','Visits.id_pacjenta')->where('Visits.id_lekarza', $doctorId)
+        ->where('Visits.rok_miesiac_dzien', $data)->where('Visits.godzina_minuta',$hour)->first();
+
+                        
+                        $doctorCalendar[$data][$key] = implode([$doctorCalendar[$data][$key]," zajęta - ".$alldata1->imie.' '.$alldata1->nazwisko]);
+                    }else{
                         $key = array_search($hour, $doctorCalendar[$data]);
-                        unset($doctorCalendar[$data][$key]);
+                        $doctorCalendar[$data][$key] = implode([$doctorCalendar[$data][$key],"  "]);
                     }
                 }
             }
@@ -188,7 +209,7 @@ class Deadline extends Model
                 "nazwisko" => $doctor->nazwisko
             ],
             "terminyWolne" => $doctorCalendar,
-            "terminyZajete" => $busyVisits
+            "terminyZajete" => []
         ];
 
     }
