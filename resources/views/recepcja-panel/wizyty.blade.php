@@ -21,13 +21,25 @@
                                 <li class=""><a class="btn btn-info btn-blue-hover-active" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
                             @else
                             <li class=""><a class="btn btn-info btn-blue-hover" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
-
                             @endif
                             @endforeach
                         </ul>
                     </div>
 
                     <div class="col-md-9">
+                    <div class="row">
+                    <div class="col-sm-3 pull-right">
+                         <button type="button" class="btn btn-info info accordion-toggle"data-toggle="collapse" data-target="#nowa_wizyta" role="button">Nowy termin</button>
+                    </div>
+                </div>
+
+                <div class="row hiddenRow">
+                <div id="nowa_wizyta" class=" accordian-body collapse">
+                         <button type="button" class="btn btn-info info accordion-toggle"data-toggle="collapse" data-target="#nowa_wizyta" role="button">Nowy termin</button>
+                    </div>
+                </div>
+
+
                     <div class="row"> 
                     </br>
             @foreach($doctorVisits['terminy'] as $date => $hours)
