@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\DoctorController",
-    "line": 12,
-    "short_desc": "",
+    "line": 15,
+    "short_desc": "Kontroler panelu lekarza.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\DoctorController.php",
     "relative_file": null,
-    "hash": "ae4d9e9895a54bd63c9aa3159d0a12895f50edff",
+    "hash": "1c1729df0352b48304c001f9dd32ef869bc13925",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -28,11 +28,16 @@
     "methods": {
         "mainSite": {
             "name": "mainSite",
-            "line": 15,
-            "short_desc": "",
+            "line": 21,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu lekarza.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok panelu lekarza",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -42,11 +47,16 @@
         },
         "doctorsList": {
             "name": "doctorsList",
-            "line": 23,
-            "short_desc": "",
+            "line": 33,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy lekarzy.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok listy lekarzy",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -56,11 +66,16 @@
         },
         "doctorsDeadlines": {
             "name": "doctorsDeadlines",
-            "line": 29,
-            "short_desc": "",
+            "line": 43,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wolnych termin\u00f3w lekarza.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok termin\u00f3w lekarza",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -69,7 +84,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 29,
+                    "line": 43,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -83,11 +98,16 @@
         },
         "patientsList": {
             "name": "patientsList",
-            "line": 41,
-            "short_desc": "",
+            "line": 59,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy pacjent\u00f3w.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok listy pacjent\u00f3w",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -97,11 +117,16 @@
         },
         "doctorInfo": {
             "name": "doctorInfo",
-            "line": 50,
-            "short_desc": "",
+            "line": 72,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych lekarza.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok danych lekarza",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -111,11 +136,16 @@
         },
         "patientData": {
             "name": "patientData",
-            "line": 67,
-            "short_desc": "",
+            "line": 93,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych pacjenta.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok danych pacjenta",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -124,7 +154,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 67,
+                    "line": 93,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -138,11 +168,16 @@
         },
         "visits": {
             "name": "visits",
-            "line": 82,
-            "short_desc": "",
+            "line": 112,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wizyt u lekarza.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok wizyt u lekarza",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

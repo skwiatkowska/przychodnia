@@ -9,9 +9,15 @@ use App\Visit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
+/**
+* Kontroler panelu lekarza.
+*/
 class DoctorController extends Controller
 {
-
+	/**
+	*Funkcja odpowiada za wyświetlenie panelu lekarza.
+	*@return view Widok panelu lekarza
+	*/
     public function mainSite()
     {
         if (!Auth::check()) {
@@ -20,12 +26,20 @@ class DoctorController extends Controller
         return View('lekarz-panel/panel-lekarza');
     }
 
+	/**
+	*Funkcja odpowiada za wyświetlenie listy lekarzy.
+	*@return view Widok listy lekarzy
+	*/
      public function doctorsList()
     {
         $doctors = Doctor::orderBy('nazwisko','asc')->get();
         return View('lista-lekarzy', ['doctors' => $doctors]);
     }
 
+	/**
+	*Funkcja odpowiada za wyświetlenie wolnych terminów lekarza.
+	*@return view Widok terminów lekarza
+	*/
     public function doctorsDeadlines($id)
     {
         $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($id);
@@ -38,6 +52,10 @@ class DoctorController extends Controller
         return View('terminy', ['doctorsDeadlines' => $doctorsDeadlines]);
     }
 
+	/**
+	*Funkcja odpowiada za wyświetlenie listy pacjentów.
+	*@return view Widok listy pacjentów
+	*/
     public function patientsList()
     {
         if (!Auth::check()) {
@@ -47,6 +65,10 @@ class DoctorController extends Controller
         return View('lekarz-panel/lista-pacjentow', ['patients' => $patients]);
     }
 
+	/**
+	*Funkcja odpowiada za wyświetlenie danych lekarza.
+	*@return view Widok danych lekarza
+	*/
     public function doctorInfo()
     {
         if (!Auth::check()) {
@@ -64,6 +86,10 @@ class DoctorController extends Controller
         return View('lekarz-panel/dane', ['data' => $allData]);
     }
 
+	/**
+	*Funkcja odpowiada za wyświetlenie danych pacjenta.
+	*@return view Widok danych pacjenta
+	*/
     public function patientData($id)
     {
         if (!Auth::check()) {
@@ -79,6 +105,10 @@ class DoctorController extends Controller
         return View('lekarz-panel/pacjent', ['patientData' => $patientData]);
     }
  
+	/**
+	*Funkcja odpowiada za wyświetlenie wizyt u lekarza.
+	*@return view Widok wizyt u lekarza
+	*/
     public function visits(){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');

@@ -6,9 +6,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Patient;
 use App\User;
 
-
+/**
+* Kontroler panelu pacjenta.
+*/
 class PatientController extends Controller {
 
+	/**
+	*Funkcja odpowiada za wyświetlenie panelu pacjenta.
+	*@return view Widok panelu pacjenta
+	*/
     public function mainSite ()
     {
         if (Auth::check()) {
@@ -18,6 +24,10 @@ class PatientController extends Controller {
         }
     }
 
+	/**
+	*Funkcja odpowiada za wyświetlenie panelu ustawień.
+	*@return view Widok panelu ustawień
+	*/
     public function settings()
     {
         if (!Auth::check()) {
@@ -26,6 +36,10 @@ class PatientController extends Controller {
         return view('pacjent-panel/panel-ustawienia');
     }
 
+	/**
+	*Funkcja odpowiada za wyświetlenie danych pacjenta.
+	*@return view Widok danych pacjenta
+	*/
     public function patientInfo()
     {
         if (!Auth::check()) {
@@ -39,6 +53,11 @@ class PatientController extends Controller {
 
         return View('pacjent-panel/panel-dane', ['data' => $allData]);
     }
+	
+	/**
+	*Funkcja odpowiada za przesłanie danych do zmiany ustawień
+	*@return void W przypadku udanej zmiany danych przekierowuje na stronę danych.
+	*/
     public function changeData(Request $request)
     {
         if (!Auth::check()) {
@@ -64,7 +83,10 @@ class PatientController extends Controller {
         return redirect('panel/dane')->with('info', 'Dane zostały zmienione');
     }
 
-    
+    /**
+	*Funkcja odpowiada za przesłanie danych do zmiany hasła
+	*@return void W przypadku udanej zmiany danych przekierowuje na stronę danych.
+	*/
     public function changePassword(Request $request)
     {
         if (!Auth::check()) {
@@ -81,6 +103,10 @@ class PatientController extends Controller {
         return redirect('panel/dane')->with('info', 'Hasło zostało zmienione');
     }
 
+	/**
+	*????Funkcja odpowiada za dezaktywację konta.
+	*@return void W przypadku pomyślnej dezaktywacji wylogowuje użytkownika.
+	*/
     public function disableAccount(){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');

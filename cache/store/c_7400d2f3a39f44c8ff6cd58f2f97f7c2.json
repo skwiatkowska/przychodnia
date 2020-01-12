@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\PatientController",
-    "line": 10,
-    "short_desc": "",
+    "line": 12,
+    "short_desc": "Kontroler panelu pacjenta.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\PatientController.php",
     "relative_file": null,
-    "hash": "a4caa7ef9e1d043e6c796d852343539dacfc7ec2",
+    "hash": "b0af0202de81dd0649117c832f3e1cad6cce5787",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -26,11 +26,16 @@
     "methods": {
         "mainSite": {
             "name": "mainSite",
-            "line": 12,
-            "short_desc": "",
+            "line": 18,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu pacjenta.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok panelu pacjenta",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -40,11 +45,16 @@
         },
         "settings": {
             "name": "settings",
-            "line": 21,
-            "short_desc": "",
+            "line": 31,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu ustawie\u0144.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok panelu ustawie\u0144",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -54,11 +64,16 @@
         },
         "patientInfo": {
             "name": "patientInfo",
-            "line": 29,
-            "short_desc": "",
+            "line": 43,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych pacjenta.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok danych pacjenta",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -68,11 +83,16 @@
         },
         "changeData": {
             "name": "changeData",
-            "line": 42,
-            "short_desc": "",
+            "line": 61,
+            "short_desc": "Funkcja odpowiada za przes\u0142anie danych do zmiany ustawie\u0144",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "W przypadku udanej zmiany danych przekierowuje na stron\u0119 danych.",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -81,7 +101,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 42,
+                    "line": 61,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -99,8 +119,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 42,
-                            "endLine": 42
+                            "startLine": 61,
+                            "endLine": 61
                         }
                     },
                     "default": null,
@@ -111,11 +131,16 @@
         },
         "changePassword": {
             "name": "changePassword",
-            "line": 68,
-            "short_desc": "",
+            "line": 90,
+            "short_desc": "Funkcja odpowiada za przes\u0142anie danych do zmiany has\u0142a",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "W przypadku udanej zmiany danych przekierowuje na stron\u0119 danych.",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -124,7 +149,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 68,
+                    "line": 90,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -142,8 +167,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 68,
-                            "endLine": 68
+                            "startLine": 90,
+                            "endLine": 90
                         }
                     },
                     "default": null,
@@ -154,11 +179,16 @@
         },
         "disableAccount": {
             "name": "disableAccount",
-            "line": 84,
-            "short_desc": "",
+            "line": 110,
+            "short_desc": "????Funkcja odpowiada za dezaktywacj\u0119 konta.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "W przypadku pomy\u015blnej dezaktywacji wylogowuje u\u017cytkownika.",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

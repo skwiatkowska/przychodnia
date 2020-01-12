@@ -5,9 +5,16 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+* Kontroler autoryzacji.
+*/
 class AuthController extends Controller
 {
-
+	
+	/**
+	*Funkcja odpowiada za wyświetlenie formularza logowania.
+	*@return view Widok formularza logowania
+	*/
     public function formView()
     {
         if (Auth::check()) {
@@ -17,6 +24,12 @@ class AuthController extends Controller
         }
     }
 
+	/**
+	*Funkcja odpowiada za przesłanie danych logowania.
+	*@return void Przy logowaniu zakończonym sukcesem - przekierowuje na
+	odpowiedni panel w zależności od typu użytkownika, w przypadku niepowodzenia zostaje
+	na stronie logowania.
+	*/
     public function login(Request $request)
     {
         $email = $request->input('email');
@@ -43,13 +56,20 @@ class AuthController extends Controller
 
     }
 
-
+	/**
+	*Funkcja odpowiada za wylogowywanie.
+	*@return void Przekierowuje na stronę startową.
+	*/
     public function logout()
     {
         Auth::logout();
         return redirect('/')->with('info','Wylogowano');
     }
 
+	/**
+	*?????Funkcja odpowiada za wylogowywanie.
+	*@return void Przekierowuje na stronę startową.
+	*/
     protected function authenticated() {
 
         if (auth()->user()->isDoctor()) {
