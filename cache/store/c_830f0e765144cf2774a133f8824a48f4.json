@@ -1,0 +1,399 @@
+{
+    "name": "App\\Visit",
+    "line": 11,
+    "short_desc": "Klasa odpowiedzialna za wizyty.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Visit.php",
+    "relative_file": null,
+    "hash": "7fdc8cb9f4596f9cf9edbb4c8763be3d293f790c",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "Auth": "Illuminate\\Support\\Facades\\Auth"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 13,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "visits",
+                "attributes": {
+                    "startLine": 13,
+                    "endLine": 13,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "timestamps": {
+            "name": "timestamps",
+            "line": 14,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "name": {
+                    "nodeType": "Name",
+                    "parts": [
+                        "false"
+                    ],
+                    "attributes": {
+                        "startLine": 14,
+                        "endLine": 14,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "parts": [
+                                "App",
+                                "false"
+                            ],
+                            "attributes": {
+                                "startLine": 14,
+                                "endLine": 14
+                            }
+                        }
+                    }
+                },
+                "attributes": {
+                    "startLine": 14,
+                    "endLine": 14
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "addVisit": {
+            "name": "addVisit",
+            "line": 28,
+            "short_desc": "Funkcja dodaje now\u0105 wizyt\u0119 do bazy.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 doda\u0107 histori\u0119 do bazy.\nFALSE je\u015bli nast\u0105pi\u0142a pr\u00f3ba nieautoryzowanego dost\u0119pu, b\u0105d\u017a niepoprawnie wype\u0142niono pola.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "The \"recommendations\" @param tag variable name is wrong (should be \"reccomendations\")"
+            ],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 28,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "doctorId": {
+                    "name": "doctorId",
+                    "line": 28,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "date": {
+                    "name": "date",
+                    "line": 28,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "hour": {
+                    "name": "hour",
+                    "line": 28,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "description": {
+                    "name": "description",
+                    "line": 28,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "reccomendations": {
+                    "name": "reccomendations",
+                    "line": 28,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getErrors": {
+            "name": "getErrors",
+            "line": 68,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getTodaysVisits": {
+            "name": "getTodaysVisits",
+            "line": 79,
+            "short_desc": "Funkcja zwraca wizyty danego pacjenta z dzisiejszego dnia.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Wizyty danego pacjenta z dzisiaj",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 79,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getPastVisits": {
+            "name": "getPastVisits",
+            "line": 116,
+            "short_desc": "Funkcja zwraca wizyty danego pacjenta z przesz\u0142o\u015bci.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Wizyty danego pacjenta z przesz\u0142o\u015bci",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 116,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getFutureVisits": {
+            "name": "getFutureVisits",
+            "line": 153,
+            "short_desc": "Funkcja zwraca przysz\u0142e wizyty danego pacjenta.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Przysz\u0142e wizyty danego pacjenta",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 153,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "findAllPatientData": {
+            "name": "findAllPatientData",
+            "line": 191,
+            "short_desc": "Funkcja znajduje wszystkie informacje o pacjencie: dane i wizyty.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Wszystkie informacje o pacjencie: dane i wizyty",
+            "tags": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 191,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getAllVisits": {
+            "name": "getAllVisits",
+            "line": 337,
+            "short_desc": "Funkcja znajduje wszystkie wizyty.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Wszystkie wizyty",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "findAllDoctorData": {
+            "name": "findAllDoctorData",
+            "line": 396,
+            "short_desc": "Funkcja znajduje wszystkie informacje o lekarzu: dane i wizyty.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Wszystkie informacje o lekarzu: dane i wizyty",
+            "tags": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 396,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

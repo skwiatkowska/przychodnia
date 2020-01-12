@@ -1,0 +1,820 @@
+{
+    "name": "App\\User",
+    "line": 17,
+    "short_desc": "Klasa odpowiedzialna za u\u017cytkownika.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "C:\\xampp\\htdocs\\przychodnia\\app\\User.php",
+    "relative_file": null,
+    "hash": "04fc676646a33ee17a7556caa80705445a83703f",
+    "parent": "Illuminate\\Foundation\\Auth\\User",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Doctor": "App\\Doctor",
+        "Patient": "App\\Patient",
+        "Notifiable": "Illuminate\\Notifications\\Notifiable",
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "Hash": "Illuminate\\Support\\Facades\\Hash",
+        "Mail": "Illuminate\\Support\\Facades\\Mail",
+        "Auth": "Illuminate\\Support\\Facades\\Auth",
+        "Authenticatable": "Illuminate\\Foundation\\Auth\\User"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Notifications\\Notifiable": "Illuminate\\Notifications\\Notifiable"
+    },
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 20,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "users",
+                "attributes": {
+                    "startLine": 20,
+                    "endLine": 20,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "timestamps": {
+            "name": "timestamps",
+            "line": 21,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "name": {
+                    "nodeType": "Name",
+                    "parts": [
+                        "false"
+                    ],
+                    "attributes": {
+                        "startLine": 21,
+                        "endLine": 21,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "parts": [
+                                "App",
+                                "false"
+                            ],
+                            "attributes": {
+                                "startLine": 21,
+                                "endLine": 21
+                            }
+                        }
+                    }
+                },
+                "attributes": {
+                    "startLine": 21,
+                    "endLine": 21
+                }
+            },
+            "errors": []
+        },
+        "fillable": {
+            "name": "fillable",
+            "line": 31,
+            "short_desc": "Atrybuty, kt\u00f3re mo\u017cna przypisa\u0107.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "name",
+                            "attributes": {
+                                "startLine": 32,
+                                "endLine": 32,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 32,
+                            "endLine": 32
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "email",
+                            "attributes": {
+                                "startLine": 32,
+                                "endLine": 32,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 32,
+                            "endLine": 32
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "password",
+                            "attributes": {
+                                "startLine": 32,
+                                "endLine": 32,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 32,
+                            "endLine": 32
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "user_type",
+                            "attributes": {
+                                "startLine": 32,
+                                "endLine": 32,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 32,
+                            "endLine": 32
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 31,
+                    "endLine": 33,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        },
+        "hidden": {
+            "name": "hidden",
+            "line": 40,
+            "short_desc": "Atrybuty, kt\u00f3re s\u0105 ukryte.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "password",
+                            "attributes": {
+                                "startLine": 41,
+                                "endLine": 41,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 41,
+                            "endLine": 41
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "remember_token",
+                            "attributes": {
+                                "startLine": 41,
+                                "endLine": 41,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 41,
+                            "endLine": 41
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 40,
+                    "endLine": 42,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "addUser": {
+            "name": "addUser",
+            "line": 54,
+            "short_desc": "Funkcja dodaje nowego u\u017cytkownika do bazy.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "Id u\u017cytkownika je\u015bli uda\u0142o si\u0119 doda\u0107 pacjenta do bazy.\nFALSE je\u015bli niepoprawnie wype\u0142niono pola.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "name": {
+                    "name": "name",
+                    "line": 54,
+                    "short_desc": "Imi\u0119 u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "email": {
+                    "name": "email",
+                    "line": 54,
+                    "short_desc": "Email u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "password": {
+                    "name": "password",
+                    "line": 54,
+                    "short_desc": "Has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "user_type": {
+                    "name": "user_type",
+                    "line": 54,
+                    "short_desc": "Typ u\u017cytkownika: patient, doctor lub reception",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "status": {
+                    "name": "status",
+                    "line": 54,
+                    "short_desc": "Status u\u017cytkownika: active lub inactive",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "isAdmin": {
+            "name": "isAdmin",
+            "line": 97,
+            "short_desc": "Funkcja sprawdza, czy u\u017cytkownik jest adminem.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "isDoctor": {
+            "name": "isDoctor",
+            "line": 106,
+            "short_desc": "Funkcja sprawdza, czy u\u017cytkownik jest lekarzem.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "isActive": {
+            "name": "isActive",
+            "line": 115,
+            "short_desc": "Funkcja sprawdza, czy u\u017cytkownik ma aktywny status.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "Zwraca aktualny status u\u017cytkownika: active lub inactive",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "email": {
+                    "name": "email",
+                    "line": 115,
+                    "short_desc": "Email u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "deactivateUser": {
+            "name": "deactivateUser",
+            "line": 125,
+            "short_desc": "Funkcja dezaktywuje u\u017cytkownika.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli pomy\u015blnie dezaktywowano u\u017cytkownika.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 125,
+                    "short_desc": "Id u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "activateUser": {
+            "name": "activateUser",
+            "line": 137,
+            "short_desc": "Funkcja aktywuje u\u017cytkownika.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli pomy\u015blnie dezaktywowano u\u017cytkownika.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 137,
+                    "short_desc": "Id u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getUsrType": {
+            "name": "getUsrType",
+            "line": 149,
+            "short_desc": "Funkcja zwraca typ u\u017cytkownika.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "Zwraca typ u\u017cytkownika: patient, doctor lub reception",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "email": {
+                    "name": "email",
+                    "line": 149,
+                    "short_desc": "Email u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "login": {
+            "name": "login",
+            "line": 163,
+            "short_desc": "Funkcja odpowiada za logowanie u\u017cytkownika.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 poprawnie zalogowa\u0107.\nFALSE je\u015bli b\u0142\u0119dnie wype\u0142niono pola.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "email": {
+                    "name": "email",
+                    "line": 163,
+                    "short_desc": "Email u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "password": {
+                    "name": "password",
+                    "line": 163,
+                    "short_desc": "Has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "type": {
+                    "name": "type",
+                    "line": 163,
+                    "short_desc": "Typ u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "status": {
+                    "name": "status",
+                    "line": 163,
+                    "short_desc": "Status u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getErrors": {
+            "name": "getErrors",
+            "line": 188,
+            "short_desc": "Funkcja zwraca b\u0142\u0119dy.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "changeData": {
+            "name": "changeData",
+            "line": 200,
+            "short_desc": "Funkcja zmienia dane u\u017cytkownika.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 zmieni\u0107 dane u\u017cytkownika.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 200,
+                    "short_desc": "Id danego u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "name": {
+                    "name": "name",
+                    "line": 200,
+                    "short_desc": "Imi\u0119 u\u017cytkownika - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "email": {
+                    "name": "email",
+                    "line": 200,
+                    "short_desc": "Email u\u017cytkownika - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changePassword": {
+            "name": "changePassword",
+            "line": 222,
+            "short_desc": "Funkcja zmienia has\u0142o u\u017cytkownika.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 zmieni\u0107 has\u0142o u\u017cytkownika.\nFALSE je\u015bli wyst\u0105pi\u0142y b\u0142\u0119dy.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 222,
+                    "short_desc": "Id danego u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "old": {
+                    "name": "old",
+                    "line": 222,
+                    "short_desc": "Stare has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "new": {
+                    "name": "new",
+                    "line": 222,
+                    "short_desc": "Nowe has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "new2": {
+                    "name": "new2",
+                    "line": 222,
+                    "short_desc": "Powt\u00f3rzone nowe has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": {
+        "ADMIN_TYPE": {
+            "name": "ADMIN_TYPE",
+            "line": 89,
+            "short_desc": "",
+            "long_desc": ""
+        },
+        "DOCTOR_TYPE": {
+            "name": "DOCTOR_TYPE",
+            "line": 90,
+            "short_desc": "",
+            "long_desc": ""
+        }
+    }
+}

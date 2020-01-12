@@ -7,6 +7,7 @@ use App\Patient;
 use Illuminate\Support\Facades\Auth;
 
 /**
+ * Klasa odpowiedzialna za historię wizyt pacjenta. 
  * @codeCoverageIgnore
  */
 
@@ -18,6 +19,14 @@ class History extends Model
     private $errors = [];
 
 	/**
+	 * Funkcja dodaje nową historię wizyty do bazy.
+	 * @param integer $patient_id Id danego pacjenta
+	 * @param integer $doctor_id Id danego lekarza
+	 * @param date $date Data wizyty
+	 * @param string $description Opis wizyty
+	 * @param string $recommendations Zalecenia lekarza
+	 * @return boolean TRUE jeśli udało się dodać historię do bazy. 
+	 FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie wypełniono pola.
 	 * @codeCoverageIgnore
 	 */
     public function addNewHistory($patient_id, $doctor_id, $date,$description, $recommendations)
@@ -56,6 +65,9 @@ class History extends Model
         return true;
     }
 	/**
+	 * Funkcja zwraca wszystkie historie wizyt pacjenta.
+	 * @param integer $patient_id Id danego pacjenta
+	 * @return array Wszystkie historie wizyt pacjenta
 	 * @codeCoverageIgnore
 	 */
     public function getHistory($patient_id)

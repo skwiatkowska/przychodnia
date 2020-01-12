@@ -1,0 +1,167 @@
+{
+    "name": "App\\Deadline",
+    "line": 10,
+    "short_desc": "Klasa odpowiedzialna za terminarz danego lekarza.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Deadline.php",
+    "relative_file": null,
+    "hash": "19c7f6a0b7ca4f7c69f59be54374ac426fd2e8a0",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 18,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "deadlines",
+                "attributes": {
+                    "startLine": 18,
+                    "endLine": 18,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "timestamps": {
+            "name": "timestamps",
+            "line": 19,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "name": {
+                    "nodeType": "Name",
+                    "parts": [
+                        "false"
+                    ],
+                    "attributes": {
+                        "startLine": 19,
+                        "endLine": 19,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "parts": [
+                                "App",
+                                "false"
+                            ],
+                            "attributes": {
+                                "startLine": 19,
+                                "endLine": 19
+                            }
+                        }
+                    }
+                },
+                "attributes": {
+                    "startLine": 19,
+                    "endLine": 19
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "findDoctorFreeDeadlines": {
+            "name": "findDoctorFreeDeadlines",
+            "line": 26,
+            "short_desc": "Funkcja znajduje wolne terminy danego lekarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Dane lekarza oraz jego wolne terminy",
+            "tags": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "doctorId": {
+                    "name": "doctorId",
+                    "line": 26,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "findDoctorAllDeadlines": {
+            "name": "findDoctorAllDeadlines",
+            "line": 121,
+            "short_desc": "Funkcja znajduje wszystkie terminy danego lekarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Dane lekarza oraz jego wszystkie terminy",
+            "tags": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "doctorId": {
+                    "name": "doctorId",
+                    "line": 121,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": {
+        "visitTime": {
+            "name": "visitTime",
+            "line": 16,
+            "short_desc": "Ustalony czas wizyty jednego pacjenta",
+            "long_desc": ""
+        }
+    }
+}

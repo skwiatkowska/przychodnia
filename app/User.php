@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+* Klasa odpowiedzialna za użytkownika.
+*/
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -18,8 +22,9 @@ class User extends Authenticatable
     private $errors = [];
     private $attemptp = false;
     private $attemptd = false;
+	
     /**
-     * The attributes that are mass assignable.
+     * Atrybuty, które można przypisać.
      *
      * @var array
      */
@@ -28,7 +33,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * Atrybuty, które są ukryte.
      *
      * @var array
      */
@@ -36,7 +41,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+	/**
+	*Funkcja dodaje nowego użytkownika do bazy.
+	*@param string $name Imię użytkownika
+	*@param string $email Email użytkownika
+	*@param string $password Hasło użytkownika
+	*@param string $user_type Typ użytkownika: patient, doctor lub reception
+	*@param string $status Status użytkownika: active lub inactive
+	*@return mixed Id użytkownika jeśli udało się dodać pacjenta do bazy. 
+	 FALSE jeśli niepoprawnie wypełniono pola.	
+	*/
     public function addUser($name, $email, $password,$user_type,$status)
     {
         $data = [
@@ -75,38 +89,78 @@ class User extends Authenticatable
     const ADMIN_TYPE = "reception";
     const DOCTOR_TYPE = "doctor";
     
+	/**
+     * Funkcja sprawdza, czy użytkownik jest adminem.
+     *
+     * @return boolean
+     */
     public function isAdmin() {
          return $this->user_type == self::ADMIN_TYPE;
      }
     
+	/**
+     * Funkcja sprawdza, czy użytkownik jest lekarzem.
+     *
+     * @return boolean
+     */
     public function isDoctor() {
          return $this->user_type == self::DOCTOR_TYPE;
     } 
+	
+	/**
+     * Funkcja sprawdza, czy użytkownik ma aktywny status.
+     * @param string $email Email użytkownika
+     * @return string Zwraca aktualny status użytkownika: active lub inactive
+     */
     public function isActive($email) {
         $status = User::where('email', $email)->first()['status'];
         return $status;
-   } 
+    } 
 
-   public function deactivateUser($id){
+	/**
+     * Funkcja dezaktywuje użytkownika.
+     * @param integer $id Id użytkownika
+     * @return boolean TRUE jeśli pomyślnie dezaktywowano użytkownika.
+     */
+    public function deactivateUser($id){
     $user = User::where('id',$id)->first();
     $user->status = "inactive";
     $user->save();
     return true;
-}
+    }
 
-   public function activateUser($id){
+	/**
+     * Funkcja aktywuje użytkownika.
+     * @param integer $id Id użytkownika
+     * @return boolean TRUE jeśli pomyślnie dezaktywowano użytkownika.
+     */
+    public function activateUser($id){
     $user = User::where('id',$id)->first();
     $user->status = "active";
     $user->save();
     return true;
-}
-
+    }
+ 
+	/**
+     * Funkcja zwraca typ użytkownika.
+     * @param string $email Email użytkownika
+     * @return string Zwraca typ użytkownika: patient, doctor lub reception
+     */
     public function getUsrType($email) {
         $type_data = User::where('email', $email)->first()['user_type'];
         return $type_data;
-   } 
+    } 
 
-    public function login($email, $password, $type,$status){
+	/**
+     * Funkcja odpowiada za logowanie użytkownika.
+     * @param string $email Email użytkownika
+	 * @param string $password Hasło użytkownika
+	 * @param string $type Typ użytkownika
+	 * @param string $status Status użytkownika
+     * @return boolean TRUE jeśli udało się poprawnie zalogować. 
+	   FALSE jeśli błędnie wypełniono pola.
+     */
+    public function login($email, $password, $type, $status){
         if (empty($email)) {
             $this->errors[] = 'Pole E-mail nie moze być puste!';
             return false;
@@ -128,11 +182,21 @@ class User extends Authenticatable
         
     }
 
+	/**
+	*Funkcja zwraca błędy.
+	*/
      public function getErrors()
     {
         return $this->errors;
     }
-
+	
+	/**
+	*Funkcja zmienia dane użytkownika.
+	*@param integer $patientId Id danego użytkownika
+	*@param string $name Imię użytkownika - jeśli ma pozostać niezmienione: Null
+	*@param string $email Email użytkownika - jeśli ma pozostać niezmienione: Null
+	*@return boolean TRUE jeśli udało się zmienić dane użytkownika.
+	*/
     public function changeData($patientId,$name, $email)
     {
         $user = User::where('id',$patientId)->first();
@@ -145,6 +209,16 @@ class User extends Authenticatable
         $user->save();
         return true;
     }
+	
+	/**
+	*Funkcja zmienia hasło użytkownika.
+	*@param integer $patientId Id danego użytkownika
+	*@param string $old Stare hasło użytkownika 
+	*@param string $new Nowe hasło użytkownika 
+	*@param string $new2 Powtórzone nowe hasło użytkownika 
+	*@return boolean TRUE jeśli udało się zmienić hasło użytkownika.
+	 FALSE jeśli wystąpiły błędy.
+	*/
     public function changePassword($patientId,$old,$new,$new2)
     {
         $user = User::where('id',$patientId)->first();

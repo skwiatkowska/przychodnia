@@ -34,12 +34,28 @@ class VisitsControllerTest extends TestCase
     {
         $user = factory(User::class)->make(); 
 		$userId = $user->id;
-		$visit = new Visit();	//metoda statyczna
-		$allVisits = $visit -> getWizyty($userId);
+		//$visit = new Visit();	//metoda statyczna
+		//$allVisits = $visit -> getWizyty($userId);
 		$response = $this->actingAs($user)->get('/panel/wizyty');
 		$response->assertSuccessful();
         $response->assertViewIs('pacjent-panel.panel-wizyty');
-		$response->assertViewHas(['wizyty' => $allVisits]);
+		//$response->assertViewHas(['wizyty' => $allVisits]);
     }
+	/*
+	public function testNotAuthenticatedUserAddVisit()
+	{
+		$visit = new Visit();
+		$this->assertFalse($visit -> addVisit(4, 1, '2019-12-27', '8:00'));		
+	}*/
+	/**
+     *@group visit
+     */
+	 /*
+	public function testAuthenticatedUserAddVisit()
+	{
+		$user = factory(User::class)->make(['user_type' => 'patient',]);
+		$response = $this->actingAs($user)->post('/terminy/1',[1,'2019-12-27', '8:00']);
+		$response->assertRedirect('/panel/wizyty');		
+	}*/
 	
 }

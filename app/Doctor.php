@@ -8,12 +8,30 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\User;
 use Illuminate\Foundation\Auth\Doctor as Authenticatable;
 
+/**
+* Klasa odpowiedzialna za lekarza.
+*/
+
 class Doctor extends Model
 {
     protected $table = 'doctors';
     public $timestamps = false;
     private $errors = [];
 
+	/**
+	*Funkcja dodaje nowego lekarza do bazy.
+	*@param integer $user_id Id danego lekarza
+	*@param string $title Tytuł lekarza
+	*@param string $name Imię lekarza
+	*@param string $surname Nazwisko lekarza
+	*@param string $specialization Specjalizacja lekarza
+	*@param string $email Email lekarza
+	*@param integer $phone Telefon lekarza
+	*@param integer $gabinet Numer gabbinetu lekarza
+	*@param string $password Hasło lekarza
+	*@return boolean TRUE jeśli udało się dodać lekarza do bazy. 
+	FALSE jeśli email lekarza istnieje już w bazie, bądź niepoprawnie wypełniono pola.	
+	*/
     public function addNewUser($user_id,$title,$name, $surname, $specialization,$email,$phone,$gabinet,$password)
     {
         $data = [
@@ -57,11 +75,19 @@ class Doctor extends Model
         return true;
     }
 
+	/**
+	*Funkcja zwraca błędy.
+	*/
     public function getErrors()
     {
         return $this->errors;
     }
-
+	
+	/**
+	*Funkcja zwraca wszystkie dane lekarza.
+	*@param integer $doctorId Id danego lekarza
+	*@return array Wszystkie dane lekarza
+	*/
     public function getData($doctorId)
     {     
         $data_all = Doctor::where('id_usr', $doctorId)->get();

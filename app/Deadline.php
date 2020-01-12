@@ -3,15 +3,26 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+* Klasa odpowiedzialna za terminarz danego lekarza.
+*/
+
 class Deadline extends Model
 {
-    //Ustalony czas wizyty jednego pacjenta.
-    const visitTime = 30;
+    /**
+	*Ustalony czas wizyty jednego pacjenta
+    *@var 
+	*/
+	const visitTime = 30;
 
     protected $table = 'deadlines';
     public $timestamps = false;
 
-
+	/**
+	*Funkcja znajduje wolne terminy danego lekarza.
+	*@param integer $doctorId Id danego lekarza
+	*@return array Dane lekarza oraz jego wolne terminy
+	*/
     static function findDoctorFreeDeadlines($doctorId)
     {
         $doctor = Doctor::where('id', $doctorId)->first();
@@ -70,7 +81,7 @@ class Deadline extends Model
         }
 
         // z tablicy termianrz usuwamy godziny ktore wystepuja w tablicy zajeteWizyty
-        /**
+        /*
          * $zajeteWizyty = ['5-30-1987'=>[12:00]]
          * $termianrz = ['5-30-1987'=>[8:00, 9:00, 12:00]]
          * $wynik = ['5-30-1987'=>[8:00, 9:00]]
@@ -102,6 +113,11 @@ class Deadline extends Model
 
     }
 
+	/**
+	*Funkcja znajduje wszystkie terminy danego lekarza.
+	*@param integer $doctorId Id danego lekarza
+	*@return array Dane lekarza oraz jego wszystkie terminy
+	*/
     static function findDoctorAllDeadlines($doctorId)
     {
         $doctor = Doctor::where('id', $doctorId)->first();
@@ -201,7 +217,7 @@ class Deadline extends Model
             }
         }
 
- 
+
         $past_deadlines=[];
         $future_deadlines=[];
 
@@ -212,7 +228,9 @@ class Deadline extends Model
                 "imie" => $doctor->imie,
                 "nazwisko" => $doctor->nazwisko
             ],
-            "terminy" => $doctorCalendar,
+            "terminyWolne" => $doctorCalendar,
+            //"terminyWolne" =>$future_deadlines,
+            "terminyZajete" => []
         ];
 
     }

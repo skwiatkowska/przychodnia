@@ -1,0 +1,470 @@
+{
+    "name": "App\\Patient",
+    "line": 15,
+    "short_desc": "Klasa odpowiedzialna za pacjenta.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Patient.php",
+    "relative_file": null,
+    "hash": "84cd5e160fb8143acc650aea7c2dc146d872c84d",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "Hash": "Illuminate\\Support\\Facades\\Hash",
+        "Mail": "Illuminate\\Support\\Facades\\Mail",
+        "Auth": "Illuminate\\Support\\Facades\\Auth",
+        "User": "Illuminate\\Support\\Facades\\User",
+        "Authenticatable": "Illuminate\\Foundation\\Auth\\Patient"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 17,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "patients",
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 17,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "timestamps": {
+            "name": "timestamps",
+            "line": 20,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "name": {
+                    "nodeType": "Name",
+                    "parts": [
+                        "false"
+                    ],
+                    "attributes": {
+                        "startLine": 20,
+                        "endLine": 20,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "parts": [
+                                "App",
+                                "false"
+                            ],
+                            "attributes": {
+                                "startLine": 20,
+                                "endLine": 20
+                            }
+                        }
+                    }
+                },
+                "attributes": {
+                    "startLine": 20,
+                    "endLine": 20
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "addNewUser": {
+            "name": "addNewUser",
+            "line": 37,
+            "short_desc": "Funkcja dodaje nowego pacjenta do bazy.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 doda\u0107 pacjenta do bazy.\nFALSE je\u015bli email pacjenta istnieje ju\u017c w bazie, b\u0105d\u017a niepoprawnie wype\u0142niono pola.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id_usr": {
+                    "name": "id_usr",
+                    "line": 37,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "name": {
+                    "name": "name",
+                    "line": 37,
+                    "short_desc": "Imi\u0119 pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "surname": {
+                    "name": "surname",
+                    "line": 37,
+                    "short_desc": "Nazwisko pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "email": {
+                    "name": "email",
+                    "line": 37,
+                    "short_desc": "Email pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "pesel": {
+                    "name": "pesel",
+                    "line": 37,
+                    "short_desc": "Pesel pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "adres": {
+                    "name": "adres",
+                    "line": 37,
+                    "short_desc": "Adres pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "telefon": {
+                    "name": "telefon",
+                    "line": 37,
+                    "short_desc": "Telefon pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "data_urodzenia": {
+                    "name": "data_urodzenia",
+                    "line": 37,
+                    "short_desc": "Data urodzenia pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\date",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "password": {
+                    "name": "password",
+                    "line": 37,
+                    "short_desc": "Has\u0142o pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getErrors": {
+            "name": "getErrors",
+            "line": 88,
+            "short_desc": "Funkcja zwraca b\u0142\u0119dy.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getData": {
+            "name": "getData",
+            "line": 98,
+            "short_desc": "Funkcja zwraca wszystkie dane pacjenta.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Wszystkie dane pacjenta",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 98,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changeData": {
+            "name": "changeData",
+            "line": 115,
+            "short_desc": "Funkcja zmienia dane pacjenta.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 zmieni\u0107 dane pacjenta.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"8\" @param tags are expected but only \"7\" found"
+            ],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 115,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "name": {
+                    "name": "name",
+                    "line": 115,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "surname": {
+                    "name": "surname",
+                    "line": 115,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "email": {
+                    "name": "email",
+                    "line": 115,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "pesel": {
+                    "name": "pesel",
+                    "line": 115,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "adres": {
+                    "name": "adres",
+                    "line": 115,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "telefon": {
+                    "name": "telefon",
+                    "line": 115,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "data_ur": {
+                    "name": "data_ur",
+                    "line": 115,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getUserId": {
+            "name": "getUserId",
+            "line": 149,
+            "short_desc": "????????Funkcja zwraca id u\u017cytkownika danego pacjenta .",
+            "long_desc": "",
+            "hint": [
+                [
+                    "integer",
+                    false
+                ]
+            ],
+            "hint_desc": "Id u\u017cytkownika danego pacjenta.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 149,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

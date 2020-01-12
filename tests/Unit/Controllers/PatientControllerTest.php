@@ -43,9 +43,7 @@ class PatientControllerTest extends TestCase
 	public function testNotAuthenticatedUserSettingsPanelSiteView()
     {
 		$response = $this->get('/panel/ustawienia');
-		$response->assertSuccessful();				//!!!!!!!!!!!!!!
-		//$response->assertRedirect('/login');
-		//$response->assertStatus(500);			//!!!!!!!!!!!!!!
+		$response->assertRedirect('/login');
 	}
 		
 	//Czy zalogowanemu uzytkownikowi 'pacjent' wyswietla sie widok panelu ustawien?

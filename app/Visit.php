@@ -4,12 +4,27 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
+/**
+* Klasa odpowiedzialna za wizyty.
+*/
+
 class Visit extends Model
 {
     protected $table = 'visits';
     public $timestamps = false;
     private $errors = [];
 
+	/**
+	 * Funkcja dodaje nową wizytę do bazy.
+	 * @param integer $patientId Id danego pacjenta
+	 * @param integer $doctorId Id danego lekarza
+	 * @param date $date Data wizyty
+	 * @param string $hour Godzina wizyty
+	 * @param string $description Opis wizyty
+	 * @param string $recommendations Zalecenia lekarza
+	 * @return boolean TRUE jeśli udało się dodać historię do bazy. 
+	 FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie wypełniono pola.
+	*/
     public function addVisit($patientId, $doctorId, $date, $hour, $description, $reccomendations)
     {
         if (!Auth::check()) {
@@ -55,37 +70,49 @@ class Visit extends Model
         return $this->errors;
     }
 
-public function getTodaysVisits($patientId){
-    $today = date("Ymd");
-        $doctorId = [];
 
-        $doctors = [];
-        $visits = Visit::where('id_pacjenta', $patientId)->whereDate('rok_miesiac_dzien',$today)->orderBy('rok_miesiac_dzien','asc')->get();
-        foreach ($visits as $visit) {
-            if (!in_array($visit['id_lekarza'], $doctorId)) {
-                $doctorId[] = $visit['id_lekarza'];
-            }
-        }
-        if (!empty($doctorId)) {
-            $result = Doctor::whereIn('id', $doctorId)->get();
+	/**
+	* Funkcja zwraca wizyty danego pacjenta z dzisiejszego dnia.
+	* @param integer $patientId Id danego pacjenta
+	* @return array Wizyty danego pacjenta z dzisiaj
+	*/
+	public function getTodaysVisits($patientId){
+		$today = date("Ymd");
+			$doctorId = [];
 
-            foreach ($result as $doctor) {
-                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
-            }
-        }
+			$doctors = [];
+			$visits = Visit::where('id_pacjenta', $patientId)->whereDate('rok_miesiac_dzien',$today)->orderBy('rok_miesiac_dzien','asc')->get();
+			foreach ($visits as $visit) {
+				if (!in_array($visit['id_lekarza'], $doctorId)) {
+					$doctorId[] = $visit['id_lekarza'];
+				}
+			}
+			if (!empty($doctorId)) {
+				$result = Doctor::whereIn('id', $doctorId)->get();
 
-        // Jezeli znaleziono jakis lekarzy to odpowiedniego lekarza przypisz do kazdej wizyty
-        foreach ($visits as $visit) {
+				foreach ($result as $doctor) {
+					$doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+				}
+			}
 
-            if (!empty($doctors[$visit->id_lekarza])) {
-                $visit->lekarz = $doctors[$visit->id_lekarza];
-            } else {
-                $visit->lekarz = "";
-            }
-        }
-        return $visits;
+			// Jezeli znaleziono jakis lekarzy to odpowiedniego lekarza przypisz do kazdej wizyty
+			foreach ($visits as $visit) {
 
-}
+				if (!empty($doctors[$visit->id_lekarza])) {
+					$visit->lekarz = $doctors[$visit->id_lekarza];
+				} else {
+					$visit->lekarz = "";
+				}
+			}
+			return $visits;
+
+	}
+	
+	/**
+	* Funkcja zwraca wizyty danego pacjenta z przeszłości.
+	* @param integer $patientId Id danego pacjenta
+	* @return array Wizyty danego pacjenta z przeszłości
+	*/
     public function getPastVisits($patientId){
         $today = date("Ymd");
         $doctorId = [];
@@ -117,6 +144,12 @@ public function getTodaysVisits($patientId){
         return $visits;
 
     }
+	
+	/**
+	* Funkcja zwraca przyszłe wizyty danego pacjenta.
+	* @param integer $patientId Id danego pacjenta
+	* @return array Przyszłe wizyty danego pacjenta
+	*/
     public function getFutureVisits($patientId)
     {
         $today = date("Ymd");
@@ -150,7 +183,11 @@ public function getTodaysVisits($patientId){
     }
 
 
-
+	/**
+	* Funkcja znajduje wszystkie informacje o pacjencie: dane i wizyty.
+	* @param integer $id Id danego pacjenta
+	* @return array Wszystkie informacje o pacjencie: dane i wizyty
+	*/
     static function findAllPatientData($id)
     {
         $doctorId = [];
@@ -293,7 +330,10 @@ public function getTodaysVisits($patientId){
 
     }
 
-
+	/**
+	* Funkcja znajduje wszystkie wizyty.
+	* @return array Wszystkie wizyty
+	*/
     public function getAllVisits()
     {
        $visits = Visit::all();
@@ -348,7 +388,11 @@ public function getTodaysVisits($patientId){
     ];
     }
 
-
+	/**
+	* Funkcja znajduje wszystkie informacje o lekarzu: dane i wizyty.
+	* @param integer $id Id danego lekarza
+	* @return array Wszystkie informacje o lekarzu: dane i wizyty
+	*/
     static function findAllDoctorData($id)
     {
         $patId = [];

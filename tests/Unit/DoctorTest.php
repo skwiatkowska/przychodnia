@@ -7,25 +7,75 @@ use App\Doctor;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * 
+ * @group doctor
+ */
 class DoctorTest extends TestCase
 {
     use WithFaker;
-    /**
-     * 
-     * @group doctor
-
-     */
-	 /*
-    public function testGetErrors()
+    
+	
+	public function testAddNewUserCorrectData()
     {
-		$i = 0;	
-        $this->assertFalse(Deadline::findDoctorFreeDeadlines($i));
-    }*/
+		$user_id = 200;
+		$name = $this->faker->name;
+		$surname = $this->faker->lastname;
+		$email = $this->faker->unique()->safeEmail;
+		$title = $this->faker->word;
+		$specialization = $this->faker->word;
+		$gabinet = $this->faker->randomDigit ;
+		$password = $this->faker->password(8);
+		$phone = $this->faker->numberBetween(100000000,999999999);
+
+		$doctorU =  new Doctor;
+        $this->assertTrue($doctorU->addNewUser($user_id,$title,$name, $surname, $specialization,$email,$phone,$gabinet,$password));
+	}
 	
 	/**
-     * 
-     * @group doctor
-     *  @expectedException \ErrorException
+	*@covers App\Doctor::addNewUser
+	*@covers App\Doctor::getErrors
+	*/ 
+
+    public function testAddNewUserEmptyField()
+    {
+		$user_id = null;
+		$name = $this->faker->name;
+		$surname = $this->faker->lastname;
+		$email = $this->faker->unique()->safeEmail;
+		$title = $this->faker->word;
+		$specialization = $this->faker->word;
+		$gabinet = $this->faker->randomDigit ;
+		$password = $this->faker->password(8);
+		$phone = null;
+
+		$doctorU =  new Doctor;
+        $this->assertFalse($doctorU->addNewUser($user_id,$title,$name, $surname, $specialization,$email,$phone,$gabinet,$password));
+		$this->assertNotNull($doctorU -> getErrors());
+	}
+	
+	/**
+	*@covers App\Doctor::addNewUser
+	*@covers App\Doctor::getErrors
+	*/ 
+	public function testAddNewUserWrongEmail()
+    {
+		$user_id = 100;
+		$name = $this->faker->name;
+		$surname = $this->faker->lastname;
+		$email = "nowak@przychodnia.pl";
+		$title = $this->faker->word;
+		$specialization = $this->faker->word;
+		$gabinet = $this->faker->randomDigit ;
+		$password = $this->faker->password(8);
+		$phone = $this->faker->numberBetween(100000000,999999999);
+
+		$doctorU =  new Doctor;
+        $this->assertFalse($doctorU->addNewUser($user_id,$title,$name, $surname, $specialization,$email,$phone,$gabinet,$password));
+		$this->assertNotNull($doctorU -> getErrors());
+	}
+	/**
+     * @expectedException \ErrorException
      */
 	public function testGetDataWrongID()
 	{
@@ -35,10 +85,6 @@ class DoctorTest extends TestCase
 		$this->expectExceptionMessage('Undefined offset: '.$i);
     }
 	
-	/**
-     * 
-     * @group doctor   
-     */
 	 
 	public function testGetDataCorrectID()
 	{

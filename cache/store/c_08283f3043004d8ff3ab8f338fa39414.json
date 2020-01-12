@@ -1,0 +1,248 @@
+{
+    "name": "App\\History",
+    "line": 14,
+    "short_desc": "Klasa odpowiedzialna za histori\u0119 wizyt pacjenta.",
+    "long_desc": "",
+    "hint": null,
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
+    "namespace": "App",
+    "file": "C:\\xampp\\htdocs\\przychodnia\\app\\History.php",
+    "relative_file": null,
+    "hash": "f354e69e39443c17d408dd36dfef2c2e7194ef62",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "Patient": "App\\Patient",
+        "Auth": "Illuminate\\Support\\Facades\\Auth"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 16,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "histories",
+                "attributes": {
+                    "startLine": 16,
+                    "endLine": 16,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "timestamps": {
+            "name": "timestamps",
+            "line": 18,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "name": {
+                    "nodeType": "Name",
+                    "parts": [
+                        "false"
+                    ],
+                    "attributes": {
+                        "startLine": 18,
+                        "endLine": 18,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "parts": [
+                                "App",
+                                "false"
+                            ],
+                            "attributes": {
+                                "startLine": 18,
+                                "endLine": 18
+                            }
+                        }
+                    }
+                },
+                "attributes": {
+                    "startLine": 18,
+                    "endLine": 18
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "addNewHistory": {
+            "name": "addNewHistory",
+            "line": 32,
+            "short_desc": "Funkcja dodaje now\u0105 histori\u0119 wizyty do bazy.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 doda\u0107 histori\u0119 do bazy.\nFALSE je\u015bli nast\u0105pi\u0142a pr\u00f3ba nieautoryzowanego dost\u0119pu, b\u0105d\u017a niepoprawnie wype\u0142niono pola.",
+            "tags": {
+                "codeCoverageIgnore": [
+                    [
+                        ""
+                    ]
+                ]
+            },
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patient_id": {
+                    "name": "patient_id",
+                    "line": 32,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "doctor_id": {
+                    "name": "doctor_id",
+                    "line": 32,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "date": {
+                    "name": "date",
+                    "line": 32,
+                    "short_desc": "Data wizyty",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\date",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "description": {
+                    "name": "description",
+                    "line": 32,
+                    "short_desc": "Opis wizyty",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "recommendations": {
+                    "name": "recommendations",
+                    "line": 32,
+                    "short_desc": "Zalecenia lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getHistory": {
+            "name": "getHistory",
+            "line": 73,
+            "short_desc": "Funkcja zwraca wszystkie historie wizyt pacjenta.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Wszystkie historie wizyt pacjenta",
+            "tags": {
+                "codeCoverageIgnore": [
+                    [
+                        ""
+                    ]
+                ]
+            },
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patient_id": {
+                    "name": "patient_id",
+                    "line": 73,
+                    "short_desc": "Id danego pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

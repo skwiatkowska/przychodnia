@@ -1,0 +1,315 @@
+{
+    "name": "App\\Doctor",
+    "line": 15,
+    "short_desc": "Klasa odpowiedzialna za lekarza.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Doctor.php",
+    "relative_file": null,
+    "hash": "fe74917c7f2144a28b9e8eef6470111f820ccc93",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "Hash": "Illuminate\\Support\\Facades\\Hash",
+        "Mail": "Illuminate\\Support\\Facades\\Mail",
+        "Auth": "Illuminate\\Support\\Facades\\Auth",
+        "User": "Illuminate\\Support\\Facades\\User",
+        "Authenticatable": "Illuminate\\Foundation\\Auth\\Doctor"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 17,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "doctors",
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 17,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "timestamps": {
+            "name": "timestamps",
+            "line": 18,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "name": {
+                    "nodeType": "Name",
+                    "parts": [
+                        "false"
+                    ],
+                    "attributes": {
+                        "startLine": 18,
+                        "endLine": 18,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "parts": [
+                                "App",
+                                "false"
+                            ],
+                            "attributes": {
+                                "startLine": 18,
+                                "endLine": 18
+                            }
+                        }
+                    }
+                },
+                "attributes": {
+                    "startLine": 18,
+                    "endLine": 18
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "addNewUser": {
+            "name": "addNewUser",
+            "line": 35,
+            "short_desc": "Funkcja dodaje nowego lekarza do bazy.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 doda\u0107 lekarza do bazy.\nFALSE je\u015bli email lekarza istnieje ju\u017c w bazie, b\u0105d\u017a niepoprawnie wype\u0142niono pola.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "user_id": {
+                    "name": "user_id",
+                    "line": 35,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "title": {
+                    "name": "title",
+                    "line": 35,
+                    "short_desc": "Tytu\u0142 lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "name": {
+                    "name": "name",
+                    "line": 35,
+                    "short_desc": "Imi\u0119 lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "surname": {
+                    "name": "surname",
+                    "line": 35,
+                    "short_desc": "Nazwisko lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "specialization": {
+                    "name": "specialization",
+                    "line": 35,
+                    "short_desc": "Specjalizacja lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "email": {
+                    "name": "email",
+                    "line": 35,
+                    "short_desc": "Email lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "phone": {
+                    "name": "phone",
+                    "line": 35,
+                    "short_desc": "Telefon lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "gabinet": {
+                    "name": "gabinet",
+                    "line": 35,
+                    "short_desc": "Numer gabbinetu lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "password": {
+                    "name": "password",
+                    "line": 35,
+                    "short_desc": "Has\u0142o lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getErrors": {
+            "name": "getErrors",
+            "line": 81,
+            "short_desc": "Funkcja zwraca b\u0142\u0119dy.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getData": {
+            "name": "getData",
+            "line": 91,
+            "short_desc": "Funkcja zwraca wszystkie dane lekarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "Wszystkie dane lekarza",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "doctorId": {
+                    "name": "doctorId",
+                    "line": 91,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}
