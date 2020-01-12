@@ -15,9 +15,9 @@
                     <div class="col-md-3">
                         <ul class="nav nav-pills nav-stacked Fixed">
                             @foreach($doctors as $doctor) @if($doctorData['lekarz']['id'] == $doctor['id'])
-                            <li class=""><a class="btn btn-info btn-blue-hover-active" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
+                            <li><a class="btn btn-info btn-blue-hover-active" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
                             @else
-                            <li class=""><a class="btn btn-info btn-blue-hover" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
+                            <li><a class="btn btn-info btn-blue-hover" href="{{$doctor['id']}}">{{$doctor['tytul']}} {{$doctor['imie']}} {{$doctor['nazwisko']}} </a></li>
                             @endif @endforeach
                         </ul>
                     </div>
@@ -41,7 +41,7 @@
                                                 <br/>
                                                 <br/>
                                                 <div class="row col-md-10 col-md-offset-1">
-
+                    
                                                     <table id="newDeadlinesTable" class="table table-striped table-numbered ">
                                                         <tr class="text-center">
                                                             <th>Lp</th>
