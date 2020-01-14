@@ -443,7 +443,7 @@ class ReceptionController extends Controller {
         $patient->changeData($usr_id,$name,$surname,$email,$pesel,$adres,$telefon,$data_ur);
 
 
-        return redirect('recepcja/lista_pacjentow')->with('info', 'Dane zostały zmienione');
+        return redirect('recepcja/pacjent/'.$patientId)->with('info', 'Dane zostały zmienione');
     }
     /**
 	*Funkcja odpowiada za zmianę hasła danego pacjenta
@@ -462,7 +462,7 @@ class ReceptionController extends Controller {
         $user = User::where('id',$usr_id)->first();
         $user->ForceNewPassword($usr_id,$new,$new2);
        
-        return redirect('recepcja/lista_pacjentow')->with('info', 'Hasło zostało zmienione');
+        return redirect('recepcja/pacjent/'.$id)->with('info', 'Hasło zostało zmienione');
     }
 
     /**
@@ -490,7 +490,7 @@ class ReceptionController extends Controller {
         $user->changeData($usr_id,$name, $email);
         $doctor->changeData($id,$title,$name,$surname,$email,$telefon,$specialization,$room);
 
-        return redirect('recepcja/lista_lekarzy')->with('info', 'Dane zostały zmienione');
+        return redirect('recepcja/lekarz/'.$id)->with('info', 'Dane zostały zmienione');
     }
     /**
 	*Funkcja odpowiada za zmianę hasła danego pacjenta
@@ -509,7 +509,7 @@ class ReceptionController extends Controller {
         $user = User::where('id',$usr_id)->first();
         $user->ResetDoctorPassword($usr_id,$new,$new2);
        
-        return redirect('recepcja/lista_pacjentow')->with('info', 'Hasło zostało zmienione');
+        return redirect('recepcja/lekarz/'.$id)->with('info', 'Hasło zostało zmienione');
     }
 
     /**
