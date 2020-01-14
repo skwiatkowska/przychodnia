@@ -260,4 +260,29 @@ class User extends Authenticatable
         
         return false;
     }
+
+
+    /**
+	*Funkcja zmienia hasło użytkownika - lekarza.
+	*@param integer $id Id danego użytkownika
+	*@param string $new Nowe hasło użytkownika 
+	*@param string $new2 Powtórzone nowe hasło użytkownika 
+	*@return boolean TRUE jeśli udało się zmienić hasło użytkownika.
+	 FALSE jeśli wystąpiły błędy.
+	*/
+    public function ResetDoctorPassword($id,$new,$new2)
+    {
+        $user = User::where('id',$id)->first();
+        $doctor = Doctor::where('id_usr',$id)->first();
+        if($new==$new2){
+            $user->remember_token=null;
+            $user->password=bcrypt($new);
+            $user->save();
+            $doctor->password=bcrypt($new);
+            $doctor->save();
+            return true;
+        }
+        
+        return false;
+    }
 }

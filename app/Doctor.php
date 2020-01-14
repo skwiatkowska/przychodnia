@@ -94,6 +94,48 @@ class Doctor extends Model
         return $data_all[0];
     }
 
+    /**
+	*Funkcja zmienia dane lekarza.
+    *@param integer $id Id danego lekarza
+    *@param string $title Tytuł Naukowy lekarza - jeśli ma pozostać niezmienione: Null
+    *@param string $name Imie lekarza - jeśli ma pozostać niezmienione: Null
+	*@param string $surname Nazwisko lekarza - jeśli ma pozostać niezmienione: Null
+	*@param string $email Email lekarza - jeśli ma pozostać niezmienione: Null
+    *@param string $telefon Telefon lekarza - jeśli ma pozostać niezmienione: Null
+    *@param string $specialization Specjalizacja lekarza - jeśli ma pozostać niezmienione: Null
+    *@param string $room Gabinet lekarza - jeśli ma pozostać niezmienione: Null
+	*@return boolean TRUE jeśli udało się zmienić dane lekarza.
+	*/
+    public function changeData($id,$title,$name,$surname,$email,$telefon,$specialization,$room)
+    {     
+        $doctor = Doctor::where('id',$id)->first();
+        if ($title) {
+            $doctor->tytul = $title;
+        }
+        if ($name) {
+            $doctor->imie = $name;
+        }
+        if ($surname) {
+            $doctor->nazwisko = $surname;
+        }
+        if ($email) {
+            $doctor->email = $email;
+        }
+        if ($telefon) {
+            $doctor->telefon = $telefon;
+        }
+        if ($specialization) {
+            $doctor->specjalizacja = $specialization;
+        }
+        if ($room) {
+            $doctor->gabinet = $room;
+        }
+        
+        
+        
+        $doctor->save();
+        return true;
+    }
 
 
 }

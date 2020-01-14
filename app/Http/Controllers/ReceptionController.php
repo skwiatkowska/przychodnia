@@ -465,5 +465,52 @@ class ReceptionController extends Controller {
         return redirect('recepcja/lista_pacjentow')->with('info', 'Hasło zostało zmienione');
     }
 
+    /**
+	*Funkcja odpowiada za zmianę danych danego pacjenta
+	*@param integer $id Id pacjenta
+	*@return redirect widok listy pacjentów
+	*/
+    public function changeDoctorData($id,Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $title = $request->input('tytul');
+        $name = $request->input('imie');
+        $surname = $request->input('nazwisko');
+        $email = $request->input('email');
+        $telefon= $request->input('phone');
+        $specialization = $request->input('specjalizacja');
+        $room = $request->input('gabinet');
+
+        $doctor = Doctor::where('id',$id)->first();
+        $usr_id = $doctor->id_usr;
+        $user = User::where('id',$usr_id)->first();
+
+        $user->changeData($usr_id,$name, $email);
+        $doctor->changeData($id,$title,$name,$surname,$email,$telefon,$specialization,$room);
+
+        return redirect('recepcja/lista_lekarzy')->with('info', 'Dane zostały zmienione');
+    }
+    /**
+	*Funkcja odpowiada za zmianę hasła danego pacjenta
+	*@param integer $id Id pacjenta
+	*@return redirect widok listy pacjentów
+	*/
+    public function changeDoctorPassword($id,Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $new = $request->input('haslo1');
+        $new2 = $request->input('haslo2');
+        $doctor = Doctor::where('id',$id)->first();
+        $usr_id = $doctor->id_usr;
+        $user = User::where('id',$usr_id)->first();
+        $user->ResetDoctorPassword($usr_id,$new,$new2);
+       
+        return redirect('recepcja/lista_pacjentow')->with('info', 'Hasło zostało zmienione');
+    }
+
 
 }
