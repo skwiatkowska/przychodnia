@@ -142,7 +142,7 @@ class Patient extends Model
     }
 	
 	/**
-	*????????Funkcja zwraca id użytkownika danego pacjenta .
+	*Funkcja zwraca id użytkownika danego pacjenta .
 	*@param integer $patientId Id danego pacjenta
 	*@return integer Id użytkownika danego pacjenta.
 	*/

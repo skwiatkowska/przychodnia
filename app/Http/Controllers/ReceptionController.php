@@ -414,4 +414,31 @@ class ReceptionController extends Controller {
 
         return View('recepcja-panel/lekarz', ['doctorData' => $doctorData, 'visits' => $visits]);
     }
+
+    public function changePatientData($id,Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $name = $request->input('imie');
+        $surname = $request->input('nazwisko');
+        $email = $request->input('email');
+        $pesel = $request->input('pesel');
+        $adres = $request->input('adres');
+        $telefon= $request->input('phone');
+        $data_ur= $request->input('data_urodzenia');
+
+        $patientId = $id;
+
+        $patient = Patient::where('id',$patientId)->first();
+        $usr_id = $patient->id_usr;
+        $user = User::where('id',$usr_id)->first();
+
+        $user->changeData($usr_id,$name, $email);
+        $patient->changeData($usr_id,$name,$surname,$email,$pesel,$adres,$telefon,$data_ur);
+
+
+        return redirect('recepcja/lista_pacjentow')->with('info', 'Dane zostały zmienione');
+    }
+
 }
