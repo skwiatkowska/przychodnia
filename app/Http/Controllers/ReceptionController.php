@@ -465,4 +465,5 @@ class ReceptionController extends Controller {
         return redirect('recepcja/lista_pacjentow')->with('info', 'Hasło zostało zmienione');
     }
 
+
 }
