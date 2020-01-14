@@ -512,5 +512,47 @@ class ReceptionController extends Controller {
         return redirect('recepcja/lista_pacjentow')->with('info', 'Hasło zostało zmienione');
     }
 
+    /**
+	*Funkcja odpowiada za dezaktywację konta lekarza.
+	*@return void W przypadku pomyślnej dezaktywacji przekierowuje na stronę lekarza
+	z odpowiednim komunikatem.
+	*/
+    public function disableDoctorAccount($id){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $doctor = Doctor::where('id',$id)->first();
+        $id_usr=$doctor->id_usr;
+        $user=User::where('id',$id_usr)->first();
+        $user->deactivateUser($id_usr);
+ 
+        if ($user = false) {
+            abort(404);
+            return;
+        }
+        return redirect('/recepcja/lekarz/'.$id)->with('info','Konto zostało zdezaktywowane.');
+    }
+
+	/**
+	*Funkcja odpowiada za aktywację konta lekarz.
+	*@return void W przypadku pomyślnej aktywacji przekierowuje na stronę lekarza
+	z odpowiednim komunikatem.
+	*/
+    public function enableDoctorAccount($id){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+       $doctor = Doctor::where('id',$id)->first();
+       $id_usr=$doctor->id_usr;
+       $user=User::where('id',$id_usr)->first();
+       $user->activateUser($id_usr);
+
+        if ($user = false) {
+            abort(404);
+            return;
+        }
+        return redirect('/recepcja/lekarz/'.$id)->with('info','Konto zostało aktywowane.');
+    }
+
 
 }
