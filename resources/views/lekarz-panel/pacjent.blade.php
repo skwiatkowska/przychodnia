@@ -136,7 +136,11 @@
                                                         {{$wizyta['lekarz']}}
                                                     </td>
                                                     <td>
+                                                    @if ($wizyta['zalecenia'] == '' || $wizyta['opis'] == '')
                                                         <button class="btn btn-info">dodaj</button>
+                                                    @else
+                                                    <a class="">pokaż</a>
+                                                    @endif
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -149,18 +153,28 @@
                                                                         {{ csrf_field() }}
                                                                         <div class="form-group  required text-center font">
                                                                             <label class="control-label">Objawy</label>
-                                                                            <textarea class="form-control" id="opis" row="5" required></textarea>
-
+                                                                            @if ($wizyta['opis'] == '')
+                                                                            <textarea class="form-control" name="opis" id="opis" row="5" required></textarea>
+                                                                            @else
+                                                                            <textarea class="form-control" name="opis" id="opis" row="5" placeholder="{{$wizyta['opis']}}" disabled required></textarea>
+                                                                            @endif
                                                                         </div>
                                                                         <div class="form-group  required text-center font">
                                                                             <label class="control-label">Zalecenia</label>
-                                                                            <textarea class="form-control" id="zalecenia" row="5" required></textarea>
+                                                                            @if ($wizyta['zalecenia'] == '')
+                                                                            <textarea class="form-control" name="zalecenia" id="zalecenia" row="5" required></textarea>
+                                                                            @else
+                                                                            <textarea class="form-control" name="zalecenia" id="zalecenia" row="5" placeholder="{{$wizyta['zalecenia']}}" disabled required></textarea>
+
+                                                                            @endif
 
                                                                         </div>
+                                                                        @if ($wizyta['zalecenia'] == '' && $wizyta['opis'] == '')
 
                                                                         <div class="form-group text-center">
-                                                                            <input class="btn btn-info" type="submit" value="Zatwierdź">
+                                                                            <input class="btn btn-info" type="submit" value="Zapisz">
                                                                         </div>
+                                                                        @endif
                                                                         {{--
                                                                         <div class="clearfix"></div>--}}
                                                                         <input type="hidden" name="id_pacjenta" value="{{$patientData['pacjent']['id']}}"/>

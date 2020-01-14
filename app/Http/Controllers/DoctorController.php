@@ -7,7 +7,8 @@ use App\Patient;
 use App\Visit;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+
 
 /**
 * Kontroler panelu lekarza.
@@ -127,16 +128,18 @@ class DoctorController extends Controller
         //return redirect('lekarz-panel/wizyty');//->with('info','wizyty'.$fullVisits);
     }
 
-    public function addVisitDescription($id_wizyty,Request $request){
+    public function addVisitDescription($id,Request $request){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
         $description = $request->input('opis');
         $recommendation = $request->input('zalecenia');
+        $patientId = $request->input('id_pacjenta');
+        $visitId = $request->input('id_wizyty');
 
-        $visit = Visit::where('id',$id_wizyty)->first();
-        $check = $visit->addDescription($id_wizyty,$description,$recommendation);
-       
-        return View('lekarz-panel/panel-lekarza');
+        $visit = Visit::where('id',$visitId)->first();
+        $check = $visit->addDescription($visitId,$description,$recommendation);
+        
+        return redirect('/panel_lekarza/pacjent/'.$patientId)->with('info', 'Dodano opis wizyty.');
     }
 }
