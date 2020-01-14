@@ -75,10 +75,7 @@ class DoctorController extends Controller
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
-
+      
         $doctor = new Doctor();
         $doctorId = Auth::id();
         
@@ -102,8 +99,13 @@ class DoctorController extends Controller
             abort(404);
             return;
         }
+        $doctor = new Doctor();
+        $doctorId = Auth::id();
+        
+        $doctorData= $doctor->getData($doctorId);
+        
 
-        return View('lekarz-panel/pacjent', ['patientData' => $patientData]);
+        return View('lekarz-panel/pacjent', ['patientData' => $patientData, 'doctorData' => $doctorData]);
     }
  
 	/**
@@ -132,6 +134,7 @@ class DoctorController extends Controller
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        
         $description = $request->input('opis');
         $recommendation = $request->input('zalecenia');
         $patientId = $request->input('id_pacjenta');
