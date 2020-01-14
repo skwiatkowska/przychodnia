@@ -237,4 +237,27 @@ class User extends Authenticatable
         
         return false;
     }
+    /**
+	*Funkcja zmienia hasło użytkownika - pacjenta.
+	*@param integer $patientId Id danego użytkownika
+	*@param string $new Nowe hasło użytkownika 
+	*@param string $new2 Powtórzone nowe hasło użytkownika 
+	*@return boolean TRUE jeśli udało się zmienić hasło użytkownika.
+	 FALSE jeśli wystąpiły błędy.
+	*/
+    public function ForceNewPassword($patientId,$new,$new2)
+    {
+        $user = User::where('id',$patientId)->first();
+        $patient = Patient::where('id_usr',$patientId)->first();
+        if($new==$new2){
+            $user->remember_token=null;
+            $user->password=bcrypt($new);
+            $user->save();
+            $patient->password=bcrypt($new);
+            $patient->save();
+            return true;
+        }
+        
+        return false;
+    }
 }

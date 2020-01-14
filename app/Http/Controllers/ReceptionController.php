@@ -415,6 +415,11 @@ class ReceptionController extends Controller {
         return View('recepcja-panel/lekarz', ['doctorData' => $doctorData, 'visits' => $visits]);
     }
 
+    /**
+	*Funkcja odpowiada za zmianę danych danego pacjenta
+	*@param integer $id Id pacjenta
+	*@return redirect widok listy pacjentów
+	*/
     public function changePatientData($id,Request $request)
     {
         if (!Auth::check()) {
@@ -439,6 +444,25 @@ class ReceptionController extends Controller {
 
 
         return redirect('recepcja/lista_pacjentow')->with('info', 'Dane zostały zmienione');
+    }
+    /**
+	*Funkcja odpowiada za zmianę hasła danego pacjenta
+	*@param integer $id Id pacjenta
+	*@return redirect widok listy pacjentów
+	*/
+    public function changePatientPassword($id,Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $new = $request->input('haslo1');
+        $new2 = $request->input('haslo2');
+        $patient = Patient::where('id',$id)->first();
+        $usr_id = $patient->id_usr;
+        $user = User::where('id',$usr_id)->first();
+        $user->ForceNewPassword($usr_id,$new,$new2);
+       
+        return redirect('recepcja/lista_pacjentow')->with('info', 'Hasło zostało zmienione');
     }
 
 }
