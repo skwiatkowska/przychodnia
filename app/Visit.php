@@ -454,10 +454,22 @@ class Visit extends Model
 
     }
 
-    /*public function doctorsVisits($doctor_id){
-        $doctors_visits = Visit::where('id_lekarza',$id_lekarza)->get();
-        return $doctors_visits;
-    }*/
+
+
+    public function addDescription($id_wizyty,$description,$recommendation)
+    {
+        $visit = Visit::where('id',$id_wizyty)->first();     
+        if ($description) {
+            $visit->opis = $description;
+        }
+        if ($recommendation) {
+            $visit->zalecenia = $recommendation;
+        }
+        $visit->save();
+        return true;   
+
+    }
+
   
 
 }

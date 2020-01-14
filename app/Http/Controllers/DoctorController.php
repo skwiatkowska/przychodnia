@@ -126,4 +126,17 @@ class DoctorController extends Controller
         return View('lekarz-panel/wizyty', ['data' => $fullVisits]);
         //return redirect('lekarz-panel/wizyty');//->with('info','wizyty'.$fullVisits);
     }
+
+    public function addVisitDescription($id_wizyty,Request $request){
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $description = $request->input('opis');
+        $recommendation = $request->input('zalecenia');
+
+        $visit = Visit::where('id',$id_wizyty)->first();
+        $check = $visit->addDescription($id_wizyty,$description,$recommendation);
+       
+        return View('lekarz-panel/panel-lekarza');
+    }
 }
