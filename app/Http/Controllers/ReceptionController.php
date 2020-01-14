@@ -187,7 +187,7 @@ class ReceptionController extends Controller {
     }
 
 	/**
-	*????Funkcja odpowiada za wyświetlenie listy lekarzy wraz z wizytami.
+	*Funkcja odpowiada za wyświetlenie listy wszystkich lekarzy oraz wizyt lekarza o danych id.
 	**@param integer $id Id lekarza
 	*@return view Widok listy lekarzy z wizytami
 	*/
@@ -218,7 +218,7 @@ class ReceptionController extends Controller {
     }
 
 	/**
-	*???Funkcja odpowiada za wyświetlenie możliwych terminów nowej wizyty.
+	*Funkcja odpowiada za wyświetlenie możliwych terminów nowej wizyty dla pacjenta.
 	*@param integer $id Id pacjenta
 	*@param integer $doctor_id Id lekarza
 	*@return view Widok wolnych terminów
