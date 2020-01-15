@@ -1,4 +1,4 @@
-@extends('layouts.layout-recepcja') @section('title', 'Lista lekarzy') @section('content')
+@extends('layouts.layout-recepcja') @section('title', 'Terminarz lekarza') @section('content')
 
 <div class="container">
 
@@ -7,7 +7,7 @@
             <div class="col-lg-12">
                 <div class="row">
                     <hr>
-                    <h2 class="intro-text text-center">Wizyty - <b>{{$doctorData['lekarz']['tytul']}} {{$doctorData['lekarz']['imie']}} {{$doctorData['lekarz']['nazwisko']}}</b>
+                    <h2 class="intro-text text-center">Terminarz - <b>{{$doctorData['lekarz']['tytul']}} {{$doctorData['lekarz']['imie']}} {{$doctorData['lekarz']['nazwisko']}}</b>
                     </h2>
                     <hr>
                 </div>
@@ -25,13 +25,12 @@
                     <div class="col-md-9">
                         <div class="row">
                             <div class="col-sm-3 pull-right">
-                                <button type="button" class="btn btn-info info accordion-toggle" data-toggle="collapse" data-target="#nowy_termin" role="button">Nowy termin</button>
+                                <button type="button" onclick="showOrHideVisitDescriptionForm()" class="btn btn-info info" role="button">Nowy termin</button>
                             </div>
                         </div>
 
-                        <div class="row hiddenRow">
+                        <div id="nowyOpis">
 
-                            <div id="nowy_termin" class=" accordian-body collapse">
                                 <br>
                                 <div class="border">
                                     <form role="form" class="form-horizontal" method="get" action="dodaj_opis_wizyty">
@@ -75,8 +74,16 @@
 
                                     </form>
                                 </div>
-                            </div>
 
+                        </div>
+                        <form role="form" method="post" action="usun_wizyty">
+
+                        <div class="row">
+                        <br/>
+                            <div class="col-sm-3 pull-right">
+                            {{ csrf_field() }}
+                                <input type="submit" class="btn btn-danger" role="button" value="Usuń wizyty" />
+                            </div>
                         </div>
 
                         <div class="row col-md-12 col-md-offset-0">
@@ -89,10 +96,13 @@
                                         <label class="control-label">{{$date}}</label>
                                     </div>
                                     <div class="form-group">
-                                        <table class="table table-striped table-numbered">
+                                        <table class="table table-striped">
                                             @foreach($hours as $hour )
                                                 <tr>
-                                                    <td class="col-md-1"></td>
+                                                    <td class="col-md-1">
+                                                    <input type="checkbox" name="visitsToDelete[]" value="{{$doctor['id']}} {{$date}} {{$hour}}" />
+
+                                                    </td>
                                                     <td id="oneRow" class="col-md-2">
                                                     {{substr($hour, 0, 5)}}
 
@@ -117,6 +127,8 @@
                             @endforeach
 
                         </div>
+                        </form>
+
                     </div>
 
                 </div>

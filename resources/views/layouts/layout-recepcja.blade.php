@@ -116,9 +116,9 @@ $(document).ready(function()  {
                 el[i].classList.add("btn-info");
 
             }
-}
-
-
+        }
+        var newDescr = document.getElementById("nowyOpis");
+        newDescr.style.display = "none";
     } )  
 
 
@@ -127,6 +127,15 @@ function goToAPatientProfile(arg){
     window.location.href = "/recepcja/pacjent/".concat(arg);
 
 } 
+
+function showOrHideVisitDescriptionForm() {
+  var x = document.getElementById("nowyOpis");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 </script>
 
 
