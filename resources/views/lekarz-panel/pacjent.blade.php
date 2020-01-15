@@ -140,7 +140,7 @@
                                                     @if ($wizyta['zalecenia'] == '' || $wizyta['opis'] == '')
                                                         <button class="btn btn-info">dodaj</button>
                                                     @else
-                                                    <a class="">pokaż</a>
+                                                    <a>pokaż</a>
                                                     @endif
                                                     </td>
                                                 </tr>
@@ -152,6 +152,14 @@
                                                                 <form role="form" class="visit-center form-horizontal" method="get" action="{{$patientData['pacjent']['id']}}/dodaj_opis_wizyty">
                                                                     <div class="row">
                                                                         {{ csrf_field() }}
+                                                                        @if ($wizyta['zalecenia'] != '' || $wizyta['opis'] != '')
+                                                                        <div class="row">
+                                                                        <div class="col-sm-2 pull-right">
+                                                                            <button type="button" class="btn btn-gray" id="editBtn" onclick="enableInputs('zalecenia','opis', 'zapiszBtn')" role="button">Edytuj</button>
+                                                                        </div>
+                                                                    </div>               
+                                                                        @endif
+
                                                                         <div class="form-group  required text-center font">
                                                                             <label class="control-label">Objawy</label>
                                                                             @if ($wizyta['opis'] == '')
@@ -174,6 +182,11 @@
 
                                                                         <div class="form-group text-center">
                                                                             <input class="btn btn-info" type="submit" value="Zapisz">
+                                                                        </div>
+                                                                        @else
+
+                                                                        <div class="form-group text-center">
+                                                                            <input class="btn btn-info" type="submit" id='zapiszBtn' disabled value="Zapisz">
                                                                         </div>
                                                                         @endif
                                                                         {{--

@@ -26,7 +26,7 @@
                                 @foreach($hours as $hour )
                                 <tr>
                                     <td>
-                                        {{$hour}}
+                                        {{$hour}} 
                                     </td>
                                 </tr>
                                 @endforeach

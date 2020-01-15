@@ -100,5 +100,19 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="{{PUBLIC_URL}}js/bootstrap.min.js"></script>
 
+
+<script>
+    function enableInputs(el1, el2, el3) {
+        document.getElementById(el1).disabled = false;
+        document.getElementById(el2).disabled = false;
+        document.getElementById(el3).disabled = false;
+
+        document.getElementById(el1).value = document.getElementById(el1).placeholder;
+        document.getElementById(el2).value = document.getElementById(el2).placeholder;
+
+    }    
+</script>
+
+
 </body>
 </html>
