@@ -126,7 +126,7 @@ function goToAPatientProfile(arg){
     console.log(arg);
     window.location.href = "/recepcja/pacjent/".concat(arg);
 
-} 
+};
 
 function showOrHideVisitDescriptionForm() {
   var x = document.getElementById("nowyOpis");
@@ -135,7 +135,16 @@ function showOrHideVisitDescriptionForm() {
   } else {
     x.style.display = "none";
   }
+};
+
+
+function checkIfAnyChechboxIsSelected(id) {
+    var checked = $(id).find(':checked').length;
+    console.log(checked);
+   
+
 }
+
 </script>
 
 
