@@ -13,28 +13,41 @@
 
                 </div>
             </div>
-            <div class="row"> 
+            <div class="row  col-md-10 col-md-offset-1"> 
             @foreach($data['terminy'] as $date => $hours)
-                <div class="border">
+                            <div class="border">
 
-                    <div class="row">
-                        <div class="form-group text-center font">
-                            <label class="control-label">{{$date}}</label>
-                        </div>
-                        <div class="form-group">
-                            <table class="table table-striped">
-                                @foreach($hours as $hour )
-                                <tr>
-                                    <td>
-                                        {{$hour}} 
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+                                <div class="row">
+                                    <div class="form-group text-center font">
+                                        <label class="control-label">{{$date}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <table class="table table-striped table-numbered">
+                                            @foreach($hours as $hour )
+                                                <tr>
+                                                    <td class="col-md-1"></td>
+                                                    <td id="oneRow" class="col-md-2">
+                                                    {{substr($hour, 0, 5)}}
+
+                                                    </td>
+                                                    <td id="oneRow" class="col-md-3 col-md-offset-1">
+                                                    @if(substr($hour, 6, -3) == "")
+                                                    -
+                                                    @else
+                                                    {{substr($hour, 6, -2)}}
+                                                    @endif
+                                                    </td>
+                                                    <td class="col-md-2 text-right">
+                                                        <button class="btn btn-gray col-sm-10 redirectBtn" onclick="goToAPatientProfile({{substr($hour, -2)}})" type="btn" name="{{$hour}}">ds</button>
+                                                    </td>
+                                                </tr>
+
+                                            @endforeach
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
             </div>
         </div>
 

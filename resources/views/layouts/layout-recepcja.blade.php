@@ -101,5 +101,34 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="{{PUBLIC_URL}}js/bootstrap.min.js"></script>
 
+
+<script>
+$(document).ready(function()  {
+        var el = document.getElementsByClassName('redirectBtn');
+        for(var i=0; i<el.length; i++) {
+            if (el[i].name.length <= 7){
+                el[i].innerText = "brak wizyty";
+                el[i].disabled = true;
+            }
+            else{
+                el[i].innerText = "Profil pacjenta";
+                el[i].classList.remove("btn-gray");
+                el[i].classList.add("btn-info");
+
+            }
+}
+
+
+    } )  
+
+
+function goToAPatientProfile(arg){
+    console.log(arg);
+    window.location.href = "/recepcja/pacjent/".concat(arg);
+
+} 
+</script>
+
+
 </body>
 </html>

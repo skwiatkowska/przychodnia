@@ -41,7 +41,7 @@
                                                 <br/>
                                                 <br/>
                                                 <div class="row col-md-10 col-md-offset-1">
-                    
+
                                                     <table id="newDeadlinesTable" class="table table-striped table-numbered ">
                                                         <tr class="text-center">
                                                             <th>Lp</th>
@@ -64,7 +64,7 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                           
+
                                             <div class="form-group text-center">
                                                 <input class="btn btn-info" type="submit" value="Dodaj">
                                             </div>
@@ -79,7 +79,7 @@
 
                         </div>
 
-                        <div class="row">
+                        <div class="row col-md-12 col-md-offset-0">
                             </br>
                             @foreach($doctorVisits['terminy'] as $date => $hours)
                             <div class="border">
@@ -89,19 +89,33 @@
                                         <label class="control-label">{{$date}}</label>
                                     </div>
                                     <div class="form-group">
-                                        <table class="table table-striped">
+                                        <table class="table table-striped table-numbered">
                                             @foreach($hours as $hour )
-                                            <tr>
-                                                <td>
-                                                    {{$hour}}
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td class="col-md-1"></td>
+                                                    <td id="oneRow" class="col-md-2">
+                                                    {{substr($hour, 0, 5)}}
+
+                                                    </td>
+                                                    <td id="oneRow" class="col-md-3 col-md-offset-1">
+                                                    @if(substr($hour, 6, -3) == "")
+                                                    -
+                                                    @else
+                                                    {{substr($hour, 6, -2)}}
+                                                    @endif
+                                                    </td>
+                                                    <td class="col-md-2 text-right">
+                                                        <button class="btn btn-gray col-sm-10 redirectBtn" onclick="goToAPatientProfile({{substr($hour, -2)}})" type="btn" name="{{$hour}}">ds</button>
+                                                    </td>
+                                                </tr>
+
                                             @endforeach
                                         </table>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
+
                         </div>
                     </div>
 

@@ -208,7 +208,7 @@ class Deadline extends Model
         ->where('Visits.rok_miesiac_dzien', $data)->where('Visits.godzina_minuta',$hour)->first();
 
                         
-                        $doctorCalendar[$data][$key] = implode([$doctorCalendar[$data][$key]," ----- ".$alldata1->imie.' '.$alldata1->nazwisko.' ----- nr PESEL: '.$alldata1->pesel]);
+                        $doctorCalendar[$data][$key] = implode([$doctorCalendar[$data][$key]," ".$alldata1->imie.' '.$alldata1->nazwisko.' '. $alldata1->id]);
                     }else{
                         $key = array_search($hour, $doctorCalendar[$data]);
                         $doctorCalendar[$data][$key] = implode([$doctorCalendar[$data][$key],"  "]);
