@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                             <div class="form-group">
-                                <div class="col-md-2 col-md-offset-5">
+                                <div class="col-md-2 col-md-offset-2">
                                 <input type="date" class="form-control" id="wybierzDzienInput" required value="<?php echo date('Y-m-d'); ?>" onchange="getExactDate()">
                             <br><br></div>
                         </div>
