@@ -135,7 +135,7 @@ function goToAPatientProfile(arg){
 };
 
 function showOrHideVisitDescriptionForm() {
-  var x = document.getElementById("nowyOpis");
+  var x = document.getElementById("noweTerminy");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
