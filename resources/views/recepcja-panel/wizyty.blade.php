@@ -41,7 +41,7 @@
                         <div id="noweTerminy">
                             <br>
                             <div class="border">
-                                <form role="form" class="form-horizontal" method="get" action="dodaj_opis_wizyty">
+                                <form role="form" class="form-horizontal" method="get" action="{{$doctor['id']}}/dodaj_termin">
                                     <div class="row">
                                         <div class="form-group text-center">
                                             <label class="control-label">Dodaj nowe terminy dla lekarza</label>

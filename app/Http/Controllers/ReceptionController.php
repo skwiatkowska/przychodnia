@@ -554,5 +554,25 @@ class ReceptionController extends Controller {
         return redirect('/recepcja/lekarz/'.$id)->with('info','Konto zostało aktywowane.');
     }
 
+    public function addDeadlines($id,Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $doctor_id = $id;
+        $hour_from = $request->input('godzina_od');
+        $hour_to = $request->input('godzina_do');
+        $date = $request->input('data');
+
+       
+        $deadline=new Deadline();
+        $check= $deadline->addDeadline($doctor_id,$hour_from,$hour_to,$date);
+        if ($check){
+        return redirect('recepcja/lista_lekarzy')->with('info', 'Godziny przyjęć zostały dodane poprawnie'.$id);
+        }
+        $errors = $deadline->getErrors();
+        return redirect('recepcja/lista_lekarzy')->with('errors', $errors);
+    }
+
 
 }

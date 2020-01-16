@@ -17,6 +17,7 @@ class Deadline extends Model
 
     protected $table = 'deadlines';
     public $timestamps = false;
+    private $errors = [];
 
 	/**
 	*Funkcja znajduje wolne terminy danego lekarza.
@@ -231,5 +232,37 @@ class Deadline extends Model
             "terminy" => $doctorCalendar
         ];
 
+    }
+
+
+    public function addDeadline($doctor_id,$hour_from,$hour_to,$date)
+    {
+        $data = [
+            $doctor_id,
+            $hour_from,
+            $hour_to,
+            $date
+        ];
+
+        foreach ($data as $input) {
+            if (empty($input)) {
+                $this->errors[] = 'Wszystkie pola sa obowiazkowe';
+                return false;
+            }
+        }
+
+        $deadline = new Deadline();
+        $deadline->id_lekarza = $doctor_id;
+        $deadline->godzina_od = $hour_from;
+        $deadline->godzina_do= $hour_to;
+        $deadline->rok_miesiac_dzien = $date;
+        $deadline->save();
+
+        return true;
+    }
+
+    public function getErrors()
+    {
+        return $this->errors;
     }
 }
