@@ -3,10 +3,9 @@
 Strona umozliwiajaca:
 
 - przegladania przyjmujacych lekarzy w danej placowce
-- przegladania dostepnych wizyt
+- przegladania dostepnych terminow wizyt
 - logowanie i rejestracja pacjenta
-- mozliwosc rezerwacji wizyty do danego lekarza
+- mozliwosc rezerwacji wizyty u danego lekarza
 - mozliwosc odwolania wizyty
-- mozliwosc zamowienia recepty
-- przegladanie wizyt i recept danego pacjenta
+- przegladanie historii wizyt 
 "# przychodnia" 
