@@ -62,8 +62,11 @@ class DoctorController extends Controller
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $patients = Patient::orderBy('nazwisko','asc')->get();
-        return View('lekarz-panel/lista-pacjentow', ['patients' => $patients]);
+        $doctorId_usr = Auth::id();
+        $doctor = Doctor::where('id_usr',$doctorId_usr)->first();
+        $doctor_id=$doctor->id;
+        $all=Visit::where('id_lekarza',$doctor_id)->join('patients','Visits.id_pacjenta','=','Patients.id_usr')->orderBy('nazwisko','asc')->get();
+        return View('lekarz-panel/lista-pacjentow', ['patients' => $all]);
     }
 
 	/**
