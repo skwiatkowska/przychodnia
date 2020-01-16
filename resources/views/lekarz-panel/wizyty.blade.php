@@ -13,9 +13,20 @@
 
                 </div>
             </div>
-            <div class="row  col-md-10 col-md-offset-1"> 
+            <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-2 col-md-offset-5">
+                                <input type="date" class="form-control" id="wybierzDzienInput" required value="<?php echo date('Y-m-d'); ?>" onchange="getExactDate()">
+                            <br><br></div>
+                        </div>
+
+                        <div class="row text-center" id="brakWizytDanegoDnia">
+                            <p><br><br><br><br><br>Brak terminów w tym dniu.<br><br><br><br><br><br></p>
+                        </div>
+
+            <div class="row  col-md-8 col-md-offset-2"> 
             @foreach($data['terminy'] as $date => $hours)
-                            <div class="border">
+                            <div class="border data">
 
                                 <div class="row">
                                     <div class="form-group text-center font">

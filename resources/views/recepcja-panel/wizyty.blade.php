@@ -38,7 +38,7 @@
 
                         </div>
 
-                        <div id="nowyOpis">
+                        <div id="noweTerminy">
                             <br>
                             <div class="border">
                                 <form role="form" class="form-horizontal" method="get" action="dodaj_opis_wizyty">
@@ -86,11 +86,11 @@
                         </div>
 
                         <div class="row text-center" id="brakWizytDanegoDnia">
-                            <p><br><br><br><br><br><br><br>Brak wizyt w danym dniu.</p>
+                            <p><br><br><br><br><br><br><br>Brak terminów w tym dniu.</p>
                         </div>
 
                             <div class="row col-md-12 col-md-offset-0">
-                                </br>
+                                <br><br>
                                 @foreach($doctorVisits['terminy'] as $date => $hours)
                                 <div class="border data">
 

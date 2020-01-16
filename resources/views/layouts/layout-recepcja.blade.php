@@ -117,7 +117,7 @@ $(document).ready(function()  {
 
             }
         }
-        var newDescr = document.getElementById("nowyOpis");
+        var newDescr = document.getElementById("noweTerminy");
         newDescr.style.display = "none";
         
         var noVisitsOnThatDay = document.getElementById("brakWizytDanegoDnia");
