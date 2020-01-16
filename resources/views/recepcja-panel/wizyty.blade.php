@@ -41,7 +41,7 @@
                         <div id="noweTerminy">
                             <br>
                             <div class="border">
-                                <form role="form" class="form-horizontal" method="get" action="{{$doctor['id']}}/dodaj_termin">
+                                <form role="form" class="form-horizontal" method="get" action="{{$doctorData['lekarz']['id']}}/dodaj_termin">
                                     <div class="row">
                                         <div class="form-group text-center">
                                             <label class="control-label">Dodaj nowe terminy dla lekarza</label>
@@ -77,7 +77,7 @@
                                         </div>
                                         {{--
                                         <div class="clearfix"></div>--}}
-                                        <input type="hidden" name="id_lekarza" value="{{$doctor['id']}}" />
+                                        <input type="hidden" name="id_lekarza" value="{{$doctorData['lekarz']['id']}}" />
                                     </div>
 
                                 </form>
@@ -108,7 +108,7 @@
                                                         <input type="submit" value="Usuń" class="btn btn-primary form-control"/>
                                                         <input type="hidden" name="date" value="{{$date}}" />
                                                         <input type="hidden" name="hour" value="{{substr($hour, 0, 5)}}" />
-                                                        <input type="hidden" name="doctorId" value="{{$doctor['id']}}" />
+                                                        <input type="hidden" name="doctorId" value="{{$doctorData['lekarz']['id']}}" />
 
 
                                                     </td></form>

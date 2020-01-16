@@ -568,10 +568,10 @@ class ReceptionController extends Controller {
         $deadline=new Deadline();
         $check= $deadline->addDeadline($doctor_id,$hour_from,$hour_to,$date);
         if ($check){
-        return redirect('recepcja/lista_lekarzy')->with('info', 'Godziny przyjęć zostały dodane poprawnie'.$id);
+        return redirect('recepcja/wizyty/'.$id)->with('info', 'Godziny przyjęć zostały dodane poprawnie');
         }
         $errors = $deadline->getErrors();
-        return redirect('recepcja/lista_lekarzy')->with('errors', $errors);
+        return redirect('recepcja/wizyty/'.$id)->with('errors', $errors);
     }
 
 
