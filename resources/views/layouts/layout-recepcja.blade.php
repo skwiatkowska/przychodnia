@@ -119,6 +119,12 @@ $(document).ready(function()  {
         }
         var newDescr = document.getElementById("nowyOpis");
         newDescr.style.display = "none";
+        
+        var noVisitsOnThatDay = document.getElementById("brakWizytDanegoDnia");
+        noVisitsOnThatDay.style.display = "none";
+
+        getExactDate();
+ 
     } )  
 
 
@@ -145,6 +151,35 @@ function checkIfAnyChechboxIsSelected(id) {
 
 }
 
+
+function getExactDate() {
+  var input, filter, data, label, i, txtValue;
+  input = document.getElementById("wybierzDzienInput");
+  filter = input.value.toUpperCase();
+  data = document.getElementsByClassName("data");
+  console.log(filter);
+
+  var noneCounts = 0;
+  for (i = 0; i < data.length; i++) {
+    label = data[i].getElementsByTagName("label")[0];
+    
+    if (label) {
+      txtValue = label.textContent || label.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        data[i].style.display = "";
+        document.getElementById("brakWizytDanegoDnia").style.display = "none";
+      } else {
+        data[i].style.display = "none";
+        noneCounts += 1;
+      }
+    }
+  }
+  console.log(noneCounts);
+
+  if(data.length == noneCounts){
+        document.getElementById("brakWizytDanegoDnia").style.display = "";
+  }
+}
 </script>
 
 

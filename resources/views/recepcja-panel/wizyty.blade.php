@@ -27,10 +27,18 @@
                             <div class="col-sm-3 pull-right">
                                 <button type="button" onclick="showOrHideVisitDescriptionForm()" class="btn btn-info info" role="button">Nowy termin</button>
                             </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-3 col-md-offset-1">
+                                <input type="date" class="form-control" id="wybierzDzienInput" required value="<?php echo date('Y-m-d'); ?>" onchange="getExactDate()">
+                            </div>
+                        </div>
+
                         </div>
 
                         <div id="nowyOpis">
-
                             <br>
                             <div class="border">
                                 <form role="form" class="form-horizontal" method="get" action="dodaj_opis_wizyty">
@@ -77,16 +85,18 @@
 
                         </div>
 
-                          
+                        <div class="row text-center" id="brakWizytDanegoDnia">
+                            <p><br><br><br><br><br><br><br>Brak wizyt w danym dniu.</p>
+                        </div>
 
                             <div class="row col-md-12 col-md-offset-0">
                                 </br>
                                 @foreach($doctorVisits['terminy'] as $date => $hours)
-                                <div class="border">
+                                <div class="border data">
 
                                     <div class="row">
                                         <div class="form-group text-center font">
-                                            <label class="control-label">{{$date}}</label>
+                                            <label class="control-label data-label">{{$date}}</label>
                                         </div>
                                         <div class="form-group">
                                             <table class="table table-striped">
