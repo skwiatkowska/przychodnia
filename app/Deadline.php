@@ -265,4 +265,38 @@ class Deadline extends Model
     {
         return $this->errors;
     }
+
+    public function removeDeadline($doctor_id,$hour,$date)
+    {
+        $data = [
+            $doctor_id,
+            $hour,
+            $date
+        ];
+
+        foreach ($data as $input) {
+            if (empty($input)) {
+                $this->errors[] = 'Wszystkie pola sa obowiazkowe';
+                return false;
+            }
+        }
+
+        $deadline =Deadline::where('id_lekarza',$doctor_id)->where('rok_miesiac_dzien',$date)->where('godzina_od','<=',$hour)->where('godzina_do','>=',$hour)->delete();
+        if ($deadline->godzina_od == $hour){
+            $deadline->godzina_od = date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
+            $deadline->save();
+        }else if($deadline->godzina_do == $hour){
+            $deadline->godzina_do = date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
+            $deadline->save();
+        }else{
+            $new_to_hr=date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
+            $new_from_hr=date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
+           
+            self::addDeadline($doctor_id,$deadline->$hour_from,$new_to_hr,$date);
+            self::addDeadline($doctor_id,$deadline->$new_from_hr,$deadline->$godzina_do,$date);
+            $deadline->delete();
+        }
+        
+        return true;
+    }
 }

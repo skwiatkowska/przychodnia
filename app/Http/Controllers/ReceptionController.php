@@ -574,5 +574,24 @@ class ReceptionController extends Controller {
         return redirect('recepcja/wizyty/'.$id)->with('errors', $errors);
     }
 
+    public function deleteDeadline(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $doctor_id = $request->input('doctorId');
+        $hour = $request->input('hour');
+        $date = $request->input('date');
+
+       
+        $deadline=new Deadline();
+        $check= $deadline->removeDeadline($doctor_id,$hou,$date);
+        if ($check){
+        return redirect('recepcja/wizyty/'.$id)->with('info', 'Godziny przyjęć zostały dodane poprawnie');
+        }
+        $errors = $deadline->getErrors();
+        return redirect('recepcja/wizyty/'.$id)->with('errors', $errors);
+    }
+
 
 }
