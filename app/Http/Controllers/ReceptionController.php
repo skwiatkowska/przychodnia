@@ -360,7 +360,7 @@ class ReceptionController extends Controller {
         if ($patientData==false) {
             abort(404);
             return;
-        }
+        } 
 
         return View('recepcja-panel/pacjent', ['patientData' => $patientData]);
     }

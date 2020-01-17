@@ -124,7 +124,7 @@
                                     <div id="past" class="panel-collapse collapse">
                                         <table class="table table-striped">
                                             <tr>
-                                                <th class="col-md-4">Lekarz</th>
+                                                <th class="col-md-6">Lekarz</th>
                                                 <th class="col-md-3">Dzień</th>
                                                 <th class="col-md-3">Godzina</th>
                                                 <th></th>

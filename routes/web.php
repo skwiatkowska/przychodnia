@@ -62,7 +62,6 @@ Route::post('/recepcja/pacjent/{id}/ustawienia/dezaktywuj', 'ReceptionController
 Route::post('/recepcja/pacjent/{id}/ustawienia/aktywuj', 'ReceptionController@enablePatientAccount');
 
 
-//Route::get('/recepcja/lekarz/{id}', 'ReceptionController@doctorsDeadlines');
 Route::get('/recepcja/lekarz/{id}', 'ReceptionController@doctorData');
 
 Route::get('/recepcja/lekarz/{id}/ustawienia', 'ReceptionController@doctorSettings');

@@ -134,7 +134,7 @@
                             </div>
                             @endif
                             <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
+                                <div class="col-md-10 col-md-offset-1">
                                     </br>
 
                                     <div class="table-responsive">
@@ -160,7 +160,7 @@
                                                             </tr>
                                                             @foreach($patientData['wizytyDzis'] as $wizyta)
                                                             <tr>
-                                                                <td>
+                                                                <td class="col-md-5">
                                                                     {{$wizyta['lekarz']}}
                                                                 </td>
                                                                 <td>
@@ -208,7 +208,7 @@
                                                             </tr>
                                                             @foreach($patientData['wizytyNadchodzace'] as $wizyta)
                                                             <tr>
-                                                                <td>
+                                                                <td class="col-md-5">
                                                                     {{$wizyta['lekarz']}}
                                                                 </td>
                                                                 <td>
@@ -253,10 +253,10 @@
                                                     <div id="past" class="panel-collapse collapse">
                                                         <table class="table table-striped">
                                                             <tr>
-                                                                <th class="col-md-4">Lekarz</th>
+                                                                <th class="col-md-5">Lekarz</th>
                                                                 <th class="col-md-3">Gabinet</th>
                                                                 <th class="col-md-3">Dzień</th>
-                                                                <th class="col-md-3">Godzina</th>
+                                                                <th class="col-md-2">Godzina</th>
                                                                 <th></th>
                                                             </tr>
                                                             @foreach($patientData['wizytyPrzeszle'] as $wizyta)

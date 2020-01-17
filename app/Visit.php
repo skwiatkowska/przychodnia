@@ -94,7 +94,7 @@ class Visit extends Model
 				$result = Doctor::whereIn('id', $doctorId)->get();
 
 				foreach ($result as $doctor) {
-					$doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+					$doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko ." - ". $doctor->specjalizacja;
 				}
 			}
 
@@ -133,7 +133,7 @@ class Visit extends Model
             $result = Doctor::whereIn('id', $doctorId)->get();
 
             foreach ($result as $doctor) {
-                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko ." - ". $doctor->specjalizacja;
             }
         }
 
@@ -173,7 +173,7 @@ class Visit extends Model
             $result = Doctor::whereIn('id', $doctorId)->get();
 
             foreach ($result as $doctor) {
-                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko ." - ". $doctor->specjalizacja;
             }
         }
 
@@ -231,7 +231,7 @@ class Visit extends Model
             $result = Doctor::whereIn('id', $doctorId)->get();
 
             foreach ($result as $doctor) {
-                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko ." - ". $doctor->specjalizacja;
                 $room[$doctor->id] = $doctor->gabinet;
 
             }
@@ -263,7 +263,7 @@ class Visit extends Model
             $result = Doctor::whereIn('id', $doctorId)->get();
 
             foreach ($result as $doctor) {
-                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko ." - ". $doctor->specjalizacja;
                 $room[$doctor->id] = $doctor->gabinet;
 
             }
@@ -296,7 +296,7 @@ class Visit extends Model
             $result = Doctor::whereIn('id', $doctorId)->get();
 
             foreach ($result as $doctor) {
-                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko;
+                $doctors[$doctor->id] = $doctor->tytul . " " . $doctor->imie . " " . $doctor->nazwisko ." - ". $doctor->specjalizacja;
                 $room[$doctor->id] = $doctor->gabinet;
 
             }
