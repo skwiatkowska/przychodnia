@@ -282,11 +282,10 @@ class Deadline extends Model
 	*@return boolean TRUE jeśli udało się usunąć termin z bazy. 
 	FALSE jeśli niepoprawnie wypełniono pola.	
 	*/
-    public function removeDeadline($doctor_id,$hour,$date)
+    public function removeDeadline($doctor_id,$date)
     {
         $data = [
             $doctor_id,
-            $hour,
             $date
         ];
 
@@ -297,23 +296,8 @@ class Deadline extends Model
             }
         }
 
-        $deadline =Deadline::where('id_lekarza',$doctor_id)->where('rok_miesiac_dzien',$date)->where('godzina_od','<=',$hour)->where('godzina_do','>=',$hour)->first();
-        if ($deadline->godzina_od == $hour){
-            $deadline->godzina_od = date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
-            $deadline->save();
-        }else if($deadline->godzina_do == $hour){
-            $deadline->godzina_do = date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
-            $deadline->save();
-        }else{
-            //$new_to_hr=date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
-            //$new_from_hr=date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
-           $visit = new Visit();
-           $visit->addVisit(12, $doctor_id, $date, $hour, " ", " ");
-            //self::addDeadline($doctor_id,$deadline->godzina_od,$new_to_hr,$date);
-           // self::addDeadline($doctor_id,$new_from_hr,$deadline->godzina_do,$date);
-           // $deadline->delete();
-        }
-        
+        $deadline =Deadline::where('id_lekarza',$doctor_id)->where('rok_miesiac_dzien',$date)->delete();
+
         return true;
     }
     public function changeDeadline($doctor_id,$hour_from,$hour_to,$date)

@@ -574,20 +574,19 @@ class ReceptionController extends Controller {
         return redirect('recepcja/wizyty/'.$id)->with('errors', $errors);
     }
 
-    public function deleteDeadline(Request $request)
+    public function deleteDeadline($id,Request $request)
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $doctor_id = $request->input('doctorId');
-        $hour = $request->input('hour');
+        $doctor_id = $id;
         $date = $request->input('date');
 
        
         $deadline=new Deadline();
-        $check= $deadline->removeDeadline($doctor_id,$hour,$date);
+        $check= $deadline->removeDeadline($doctor_id,$date);
         if ($check){
-        return redirect('recepcja/wizyty/'.$doctor_id)->with('info', 'Wybrana godzina została poprawnie usunięta z terminarza');
+        return redirect('recepcja/wizyty/'.$doctor_id)->with('info', 'Wybrany dzień przyjęć został poprawnie usunięty z terminarza');
         }
         $errors = $deadline->getErrors();
         return redirect('recepcja/wizyty/')->with('errors', $errors);
