@@ -17,6 +17,7 @@
                     <br/>
 
                     @foreach($doctorsDeadlines['terminy'] as $date => $hours)
+                    <div class="row col-md-8 col-md-offset-2">
                         <div class="border">
                             <form role="form" class="visit-center form-horizontal" method="get"
                                   action="../panel/wizyty/dodaj">
@@ -40,7 +41,7 @@
                                 <input type="hidden" name="id_lekarza" value="{{$doctorsDeadlines['lekarz']['id']}}"/>
                                 <input type="hidden" name="data" value="{{$date}}">
                             </form>
-                        </div>
+                        </div></div>
                     @endforeach
 
                 </div>
