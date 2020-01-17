@@ -16,7 +16,7 @@
                     </h2>
                     <hr>
                     <div class="col-md-6 col-md-offset-3">
-                    <form class="form-horizontal" method="post" align="center">
+                    <form class="form-horizontal" name="registerForm" method="post" align="center">
                         <div class="row">
                             {{ csrf_field() }}
                             <fieldset>
@@ -64,7 +64,7 @@
                                     <label for="data_urodzenia" class="col-sm-2 control-label">Data urodzenia</label>
 
                                     <div class="col-sm-10">
-                                        <input type="date" class="form-control" id="data_urodzenia" name="data_urodzenia"
+                                        <input type="date" class="form-control" max="<?php echo date('Y-m-d'); ?>" id="data_urodzenia" name="data_urodzenia"
                                                placeholder="Data urodzenia" required>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                     <label for="pesel" class="col-sm-2 control-label">Pesel</label>
 
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="pesel" name="pesel"
+                                        <input type="number" onchange="return validatePesel()" class="form-control" id="pesel" name="pesel"
                                                placeholder="Pesel" required>
                                     </div>
                                 </div>
