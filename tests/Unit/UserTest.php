@@ -36,6 +36,7 @@ class UserTest extends TestCase
 		$this->assertFalse($usr -> addUser($name, $email, $password, $user_type, $status));		
 	}
 	
+	
 	public function testIsAdminIfAdmin() {
 		$user = factory(User::class)->make(['user_type' => 'reception',]); 
 		$this->assertTrue($user->isAdmin());
@@ -46,6 +47,7 @@ class UserTest extends TestCase
 		$this->assertFalse($user->isAdmin());
     }
 
+
 	public function testIsDoctorIfDoctor() {
 		$user = factory(User::class)->make(['user_type' => 'doctor',]); 
 		$this->assertTrue($user->isDoctor());
@@ -55,6 +57,7 @@ class UserTest extends TestCase
 		$user = factory(User::class)->make(['user_type' => 'patient',]); 
 		$this->assertFalse($user->isDoctor());
     }
+	
 	
 	public function testIsActiveActive() {
 		$email = "test@test.test";	
@@ -68,6 +71,7 @@ class UserTest extends TestCase
 		$this->assertEquals($user->isActive($email),"inactive");
     }
 	
+	
 	public function testDeactivateUser() {
 		$id = 12;	
 		$user = new User();
@@ -76,6 +80,7 @@ class UserTest extends TestCase
 		$this->assertEquals($status,"inactive");
     }	
 	
+	
 	public function testActivateUser() {
 		$id = 12;	
 		$user = new User();
@@ -83,6 +88,7 @@ class UserTest extends TestCase
 		$status = User::where('id', $id)->get()[0]['status'];
 		$this->assertEquals($status,"active");
     }
+	
 	
 	public function testgetUsrTypePatient() {
 		$email = "test@test.test";
@@ -142,6 +148,7 @@ class UserTest extends TestCase
 		$this->assertNotNull($user -> getErrors());
 	}
 	
+	
 	/**
      * @expectedException \Error
      */
@@ -166,6 +173,7 @@ class UserTest extends TestCase
 		$this -> assertEquals($email, $email_);
 		$user->changeData($i,"Test","test@test.test");
 	}
+	
 	
 	/**
      * @expectedException \ErrorException
@@ -203,6 +211,65 @@ class UserTest extends TestCase
 		$this -> assertTrue($user->changePassword($i,$old,$new,$new));
 		$user->changePassword($i,$new,$old,$old);
 	}
+	
+	
+	/**
+     * @expectedException \ErrorException
+     */
+	public function testForceNewPasswordWrongID()
+	{
+		$i = 0;	
+		$user = new User();
+		$this -> assertFalse($user->forceNewPassword($i,null,null));
+	}
+	
+	public function testForceNewPasswordCorrectIDWrongNew2Password()
+	{
+		$i = 12;
+		$new = "test1";
+		$user = new User();
+		$this -> assertFalse($user->forceNewPassword($i,$new,"xs"));
+	}
+	
+	public function testForceNewPasswordCorrectIDCorrectPasswords()
+	{
+		$i = 12;
+		$old = "test";
+		$new = "test1";
+		$user = new User();
+		$this -> assertTrue($user->forceNewPassword($i,$new,$new));
+		$user->forceNewPassword($i,$old,$old);
+	}
+	
+	
+	/**
+     * @expectedException \ErrorException
+     */
+	public function testResetDoctorPasswordWrongID()
+	{
+		$i = 0;	
+		$user = new User();
+		$this -> assertFalse($user->resetDoctorPassword($i,null,null));
+	}
+	
+	public function testResetDoctorPasswordCorrectIDWrongNew2Password()
+	{
+		$i = 8;
+		$new = "test1";
+		$user = new User();
+		$this -> assertFalse($user->resetDoctorPassword($i,$new,"xs"));
+	}
+	
+	public function testResetDoctorPasswordCorrectIDCorrectPasswords()
+	{
+		$i = 8;
+		$old = "lekarski";
+		$new = "test1";
+		$user = new User();
+		$this -> assertTrue($user->resetDoctorPassword($i,$new,$new));
+		$user->resetDoctorPassword($i,$old,$old);
+	}
+	
 }
 
 		

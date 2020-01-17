@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Patient.php",
     "relative_file": null,
-    "hash": "84cd5e160fb8143acc650aea7c2dc146d872c84d",
+    "hash": "12237aa688517d6cca301a0388a383c0b70e24f2",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -431,7 +431,7 @@
         "getUserId": {
             "name": "getUserId",
             "line": 149,
-            "short_desc": "????????Funkcja zwraca id u\u017cytkownika danego pacjenta .",
+            "short_desc": "Funkcja zwraca id u\u017cytkownika danego pacjenta.",
             "long_desc": "",
             "hint": [
                 [

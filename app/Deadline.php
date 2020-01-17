@@ -234,7 +234,15 @@ class Deadline extends Model
 
     }
 
-
+	/**
+	*Funkcja dodaje nowy terminarz do bazy.
+	*@param integer $doctor_id Id danego lekarza
+	*@param string $hour_from Godzina rozpoczęcia przyjmowania pacjentów
+	*@param string $hour_to Godzina zakończenia przyjmowania pacjentów
+	*@param date $date Data 
+	*@return boolean TRUE jeśli udało się dodać termin do bazy. 
+	FALSE jeśli niepoprawnie wypełniono pola.	
+	*/
     public function addDeadline($doctor_id,$hour_from,$hour_to,$date)
     {
         $data = [
@@ -264,5 +272,47 @@ class Deadline extends Model
     public function getErrors()
     {
         return $this->errors;
+    }
+
+	/**
+	*Funkcja usuwa termin z bazy.
+	*@param integer $doctor_id Id danego lekarza
+	*@param string $hour Godzina przyjmowania pacjentów
+	*@param date $date Data 
+	*@return boolean TRUE jeśli udało się usunąć termin z bazy. 
+	FALSE jeśli niepoprawnie wypełniono pola.	
+	*/
+    public function removeDeadline($doctor_id,$hour,$date)
+    {
+        $data = [
+            $doctor_id,
+            $hour,
+            $date
+        ];
+
+        foreach ($data as $input) {
+            if (empty($input)) {
+                $this->errors[] = 'Wszystkie pola sa obowiazkowe';
+                return false;
+            }
+        }
+
+        $deadline =Deadline::where('id_lekarza',$doctor_id)->where('rok_miesiac_dzien',$date)->where('godzina_od','<=',$hour)->where('godzina_do','>=',$hour)->delete();
+        if ($deadline->godzina_od == $hour){
+            $deadline->godzina_od = date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
+            $deadline->save();
+        }else if($deadline->godzina_do == $hour){
+            $deadline->godzina_do = date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
+            $deadline->save();
+        }else{
+            $new_to_hr=date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
+            $new_from_hr=date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
+           
+            self::addDeadline($doctor_id,$deadline->godzina_od,$new_to_hr,$date);
+            self::addDeadline($doctor_id,$new_from_hr,$deadline->$godzina_do,$date);
+            $deadline->delete();
+        }
+        
+        return true;
     }
 }

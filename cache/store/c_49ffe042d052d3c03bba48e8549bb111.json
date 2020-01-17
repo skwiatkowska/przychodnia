@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\ReceptionController.php",
     "relative_file": null,
-    "hash": "332d055c4c84bc0fffc637f30e1be156cb705601",
+    "hash": "5096bf00dd1a75bc96057b1b047fd58835bddebd",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -285,7 +285,7 @@
         "doctorsListAndVisits": {
             "name": "doctorsListAndVisits",
             "line": 194,
-            "short_desc": "????Funkcja odpowiada za wy\u015bwietlenie listy lekarzy wraz z wizytami.",
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy wszystkich lekarzy oraz wizyt lekarza o danych id.",
             "long_desc": "*@param integer $id Id lekarza",
             "hint": [
                 [
@@ -336,7 +336,7 @@
         "doctorsDeadlinesForAPatient": {
             "name": "doctorsDeadlinesForAPatient",
             "line": 226,
-            "short_desc": "???Funkcja odpowiada za wy\u015bwietlenie mo\u017cliwych termin\u00f3w nowej wizyty.",
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie mo\u017cliwych termin\u00f3w nowej wizyty dla pacjenta.",
             "long_desc": "",
             "hint": [
                 [
@@ -724,6 +724,373 @@
                     ],
                     "tags": [],
                     "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changePatientData": {
+            "name": "changePatientData",
+            "line": 423,
+            "short_desc": "Funkcja odpowiada za zmian\u0119 danych danego pacjenta",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redirect",
+                    false
+                ]
+            ],
+            "hint_desc": "widok listy pacjent\u00f3w",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 423,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 423,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 423,
+                            "endLine": 423
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changePatientPassword": {
+            "name": "changePatientPassword",
+            "line": 453,
+            "short_desc": "Funkcja odpowiada za zmian\u0119 has\u0142a danego pacjenta",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redirect",
+                    false
+                ]
+            ],
+            "hint_desc": "widok listy pacjent\u00f3w",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 453,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 453,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 453,
+                            "endLine": 453
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changeDoctorData": {
+            "name": "changeDoctorData",
+            "line": 473,
+            "short_desc": "Funkcja odpowiada za zmian\u0119 danych danego pacjenta",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redirect",
+                    false
+                ]
+            ],
+            "hint_desc": "widok listy pacjent\u00f3w",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 473,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 473,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 473,
+                            "endLine": 473
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changeDoctorPassword": {
+            "name": "changeDoctorPassword",
+            "line": 500,
+            "short_desc": "Funkcja odpowiada za zmian\u0119 has\u0142a danego pacjenta",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redirect",
+                    false
+                ]
+            ],
+            "hint_desc": "widok listy pacjent\u00f3w",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 500,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 500,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 500,
+                            "endLine": 500
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "disableDoctorAccount": {
+            "name": "disableDoctorAccount",
+            "line": 520,
+            "short_desc": "Funkcja odpowiada za dezaktywacj\u0119 konta lekarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "W przypadku pomy\u015blnej dezaktywacji przekierowuje na stron\u0119 lekarza\nz odpowiednim komunikatem.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 520,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "enableDoctorAccount": {
+            "name": "enableDoctorAccount",
+            "line": 541,
+            "short_desc": "Funkcja odpowiada za aktywacj\u0119 konta lekarz.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "W przypadku pomy\u015blnej aktywacji przekierowuje na stron\u0119 lekarza\nz odpowiednim komunikatem.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 541,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "addDeadlines": {
+            "name": "addDeadlines",
+            "line": 557,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 557,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 557,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 557,
+                            "endLine": 557
+                        }
+                    },
                     "default": null,
                     "variadic": false,
                     "is_by_ref": false

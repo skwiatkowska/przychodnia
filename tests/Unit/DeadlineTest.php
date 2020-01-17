@@ -17,6 +17,7 @@ class DeadlineTest extends TestCase
 {
 	use WithFaker;
     
+	
     public function testFindDoctorFreeDeadlinesWrongID()
     {
 		$i = 0;	
@@ -30,14 +31,6 @@ class DeadlineTest extends TestCase
     }
 	
 	
-	public function testFindDoctorFreeDeadlinesWhenBusyVisitExist()
-    {
-		$visit = new Visit();
-		$visit -> addVisit(4, 1, '2019-12-27', '8:30', "", "");
-		$i = 1;	
-        $this->assertNotNull(Deadline::findDoctorFreeDeadlines($i));
-    }
-	
 	public function testFindDoctorAllDeadlinesWrongID()
     {
 		$i = 0;	
@@ -50,5 +43,35 @@ class DeadlineTest extends TestCase
         $this->assertNotNull(Deadline::findDoctorAllDeadlines($i));
     }
 	
+	
+	/**
+	*@covers App\Deadline::addDeadline
+	*@covers App\Deadline::getErrors
+	*/
+	
+	public function testAddDeadlineCorrectIDEmptyField()
+    {
+		$i = 1;	
+		$deadline = new Deadline();
+        $this->assertFalse($deadline -> addDeadline($i,null,null,null));
+		$this->assertNotNull($deadline -> getErrors());
+		$this->assertContains($deadline -> getErrors()[0],'Wszystkie pola sa obowiazkowe');
+    }
+	
+	public function testAddDeadlineCorrectIDNotEmptyField()
+    {
+		$i = 1;
+		$hour_from = '12:00';
+		$hour_to = '14:00';
+		$date = 20200117;
+		$deadline = new Deadline();
+        $this->assertTrue($deadline -> addDeadline($i,$hour_from, $hour_to, $date));
+    }
+	
+	public function testAddDeadlineWrongID()
+    {
+		$i = 0;	
+		$deadline = new Deadline();
+        $this->assertFalse($deadline -> addDeadline($i,null,null,null));
+    }
 }
-//assertContains()
