@@ -1,6 +1,6 @@
 {
     "name": "App\\Doctor",
-    "line": 15,
+    "line": 16,
     "short_desc": "Klasa odpowiedzialna za lekarza.",
     "long_desc": "",
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Doctor.php",
     "relative_file": null,
-    "hash": "db405ca4014a8f65618d532ebac787cf362dfc40",
+    "hash": "d19098503113e586ddda0fdf6f287eb57dbb54eb",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -27,7 +27,7 @@
     "properties": {
         "table": {
             "name": "table",
-            "line": 17,
+            "line": 18,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -38,8 +38,8 @@
                 "nodeType": "Scalar_String",
                 "value": "doctors",
                 "attributes": {
-                    "startLine": 17,
-                    "endLine": 17,
+                    "startLine": 18,
+                    "endLine": 18,
                     "kind": 1
                 }
             },
@@ -47,7 +47,7 @@
         },
         "timestamps": {
             "name": "timestamps",
-            "line": 18,
+            "line": 19,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -62,8 +62,8 @@
                         "false"
                     ],
                     "attributes": {
-                        "startLine": 18,
-                        "endLine": 18,
+                        "startLine": 19,
+                        "endLine": 19,
                         "namespacedName": {
                             "nodeType": "Name_FullyQualified",
                             "parts": [
@@ -71,15 +71,15 @@
                                 "false"
                             ],
                             "attributes": {
-                                "startLine": 18,
-                                "endLine": 18
+                                "startLine": 19,
+                                "endLine": 19
                             }
                         }
                     }
                 },
                 "attributes": {
-                    "startLine": 18,
-                    "endLine": 18
+                    "startLine": 19,
+                    "endLine": 19
                 }
             },
             "errors": []
@@ -88,7 +88,7 @@
     "methods": {
         "addNewUser": {
             "name": "addNewUser",
-            "line": 35,
+            "line": 36,
             "short_desc": "Funkcja dodaje nowego lekarza do bazy.",
             "long_desc": "",
             "hint": [
@@ -106,7 +106,7 @@
             "parameters": {
                 "user_id": {
                     "name": "user_id",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Id danego lekarza",
                     "long_desc": null,
                     "hint": [
@@ -123,7 +123,7 @@
                 },
                 "title": {
                     "name": "title",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Tytu\u0142 lekarza",
                     "long_desc": null,
                     "hint": [
@@ -140,7 +140,7 @@
                 },
                 "name": {
                     "name": "name",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Imi\u0119 lekarza",
                     "long_desc": null,
                     "hint": [
@@ -157,7 +157,7 @@
                 },
                 "surname": {
                     "name": "surname",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Nazwisko lekarza",
                     "long_desc": null,
                     "hint": [
@@ -174,7 +174,7 @@
                 },
                 "specialization": {
                     "name": "specialization",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Specjalizacja lekarza",
                     "long_desc": null,
                     "hint": [
@@ -191,7 +191,7 @@
                 },
                 "email": {
                     "name": "email",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Email lekarza",
                     "long_desc": null,
                     "hint": [
@@ -208,7 +208,7 @@
                 },
                 "phone": {
                     "name": "phone",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Telefon lekarza",
                     "long_desc": null,
                     "hint": [
@@ -225,7 +225,7 @@
                 },
                 "gabinet": {
                     "name": "gabinet",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Numer gabbinetu lekarza",
                     "long_desc": null,
                     "hint": [
@@ -242,7 +242,7 @@
                 },
                 "password": {
                     "name": "password",
-                    "line": 35,
+                    "line": 36,
                     "short_desc": "Has\u0142o lekarza",
                     "long_desc": null,
                     "hint": [
@@ -261,7 +261,7 @@
         },
         "getErrors": {
             "name": "getErrors",
-            "line": 81,
+            "line": 82,
             "short_desc": "Funkcja zwraca b\u0142\u0119dy.",
             "long_desc": "",
             "hint": null,
@@ -275,7 +275,7 @@
         },
         "getData": {
             "name": "getData",
-            "line": 91,
+            "line": 92,
             "short_desc": "Funkcja zwraca wszystkie dane lekarza.",
             "long_desc": "",
             "hint": [
@@ -293,7 +293,7 @@
             "parameters": {
                 "doctorId": {
                     "name": "doctorId",
-                    "line": 91,
+                    "line": 92,
                     "short_desc": "Id danego lekarza",
                     "long_desc": null,
                     "hint": [
@@ -312,7 +312,7 @@
         },
         "changeData": {
             "name": "changeData",
-            "line": 109,
+            "line": 110,
             "short_desc": "Funkcja zmienia dane lekarza.",
             "long_desc": "",
             "hint": [
@@ -330,7 +330,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 109,
+                    "line": 110,
                     "short_desc": "Id danego lekarza",
                     "long_desc": null,
                     "hint": [
@@ -347,7 +347,7 @@
                 },
                 "title": {
                     "name": "title",
-                    "line": 109,
+                    "line": 110,
                     "short_desc": "Tytu\u0142 Naukowy lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
                     "long_desc": null,
                     "hint": [
@@ -364,7 +364,7 @@
                 },
                 "name": {
                     "name": "name",
-                    "line": 109,
+                    "line": 110,
                     "short_desc": "Imie lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
                     "long_desc": null,
                     "hint": [
@@ -381,7 +381,7 @@
                 },
                 "surname": {
                     "name": "surname",
-                    "line": 109,
+                    "line": 110,
                     "short_desc": "Nazwisko lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
                     "long_desc": null,
                     "hint": [
@@ -398,7 +398,7 @@
                 },
                 "email": {
                     "name": "email",
-                    "line": 109,
+                    "line": 110,
                     "short_desc": "Email lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
                     "long_desc": null,
                     "hint": [
@@ -415,7 +415,7 @@
                 },
                 "telefon": {
                     "name": "telefon",
-                    "line": 109,
+                    "line": 110,
                     "short_desc": "Telefon lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
                     "long_desc": null,
                     "hint": [
@@ -432,7 +432,7 @@
                 },
                 "specialization": {
                     "name": "specialization",
-                    "line": 109,
+                    "line": 110,
                     "short_desc": "Specjalizacja lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
                     "long_desc": null,
                     "hint": [
@@ -449,7 +449,7 @@
                 },
                 "room": {
                     "name": "room",
-                    "line": 109,
+                    "line": 110,
                     "short_desc": "Gabinet lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
                     "long_desc": null,
                     "hint": [

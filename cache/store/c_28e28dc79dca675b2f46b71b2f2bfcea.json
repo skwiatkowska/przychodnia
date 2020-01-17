@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\AuthController.php",
     "relative_file": null,
-    "hash": "3fed23ffa80e13e07ab47064c31855bee95d5099",
+    "hash": "a0bad2ee99f16d2ebecbfd1bde8a049e9cc5c114",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -104,25 +104,6 @@
             "hint_desc": "Przekierowuje na stron\u0119 startow\u0105.",
             "tags": [],
             "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": []
-        },
-        "authenticated": {
-            "name": "authenticated",
-            "line": 73,
-            "short_desc": "?????Funkcja odpowiada za wylogowywanie.",
-            "long_desc": "",
-            "hint": [
-                [
-                    "void",
-                    false
-                ]
-            ],
-            "hint_desc": "Przekierowuje na stron\u0119 startow\u0105.",
-            "tags": [],
-            "modifiers": 2,
             "is_by_ref": "",
             "exceptions": [],
             "errors": [],

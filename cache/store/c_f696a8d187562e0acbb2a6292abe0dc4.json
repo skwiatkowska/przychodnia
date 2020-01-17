@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Deadline.php",
     "relative_file": null,
-    "hash": "c050610277df695e2629a47c2dc1e87e5e91c5b5",
+    "hash": "44d26359504a5f850ace2040e99ba2e54623e112",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -120,7 +120,7 @@
         },
         "findDoctorAllDeadlines": {
             "name": "findDoctorAllDeadlines",
-            "line": 122,
+            "line": 123,
             "short_desc": "Funkcja znajduje wszystkie terminy danego lekarza.",
             "long_desc": "",
             "hint": [
@@ -138,7 +138,7 @@
             "parameters": {
                 "doctorId": {
                     "name": "doctorId",
-                    "line": 122,
+                    "line": 123,
                     "short_desc": "Id danego lekarza",
                     "long_desc": null,
                     "hint": [
@@ -157,7 +157,7 @@
         },
         "addDeadline": {
             "name": "addDeadline",
-            "line": 246,
+            "line": 240,
             "short_desc": "Funkcja dodaje nowy terminarz do bazy.",
             "long_desc": "",
             "hint": [
@@ -175,7 +175,7 @@
             "parameters": {
                 "doctor_id": {
                     "name": "doctor_id",
-                    "line": 246,
+                    "line": 240,
                     "short_desc": "Id danego lekarza",
                     "long_desc": null,
                     "hint": [
@@ -192,7 +192,7 @@
                 },
                 "hour_from": {
                     "name": "hour_from",
-                    "line": 246,
+                    "line": 240,
                     "short_desc": "Godzina rozpocz\u0119cia przyjmowania pacjent\u00f3w",
                     "long_desc": null,
                     "hint": [
@@ -209,7 +209,7 @@
                 },
                 "hour_to": {
                     "name": "hour_to",
-                    "line": 246,
+                    "line": 240,
                     "short_desc": "Godzina zako\u0144czenia przyjmowania pacjent\u00f3w",
                     "long_desc": null,
                     "hint": [
@@ -226,7 +226,7 @@
                 },
                 "date": {
                     "name": "date",
-                    "line": 246,
+                    "line": 240,
                     "short_desc": "Data",
                     "long_desc": null,
                     "hint": [
@@ -245,7 +245,7 @@
         },
         "getErrors": {
             "name": "getErrors",
-            "line": 275,
+            "line": 269,
             "short_desc": "Funkcja zwraca b\u0142\u0119dy.",
             "long_desc": "",
             "hint": null,
@@ -256,6 +256,148 @@
             "exceptions": [],
             "errors": [],
             "parameters": []
+        },
+        "removeDeadline": {
+            "name": "removeDeadline",
+            "line": 281,
+            "short_desc": "Funkcja usuwa termin z bazy.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 usun\u0105\u0107 termin z bazy.\nFALSE je\u015bli niepoprawnie wype\u0142niono pola.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "doctor_id": {
+                    "name": "doctor_id",
+                    "line": 281,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "date": {
+                    "name": "date",
+                    "line": 281,
+                    "short_desc": "Data",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\date",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changeDeadline": {
+            "name": "changeDeadline",
+            "line": 309,
+            "short_desc": "Funkcja zmienia termin w bazie.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 zmieni\u0107 termin w bazie.\nFALSE je\u015bli niepoprawnie wype\u0142niono pola.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "doctor_id": {
+                    "name": "doctor_id",
+                    "line": 309,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "hour_from": {
+                    "name": "hour_from",
+                    "line": 309,
+                    "short_desc": "Godzina rozpocz\u0119cia przyjmowania pacjent\u00f3w",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "hour_to": {
+                    "name": "hour_to",
+                    "line": 309,
+                    "short_desc": "Godzina zako\u0144czenia przyjmowania pacjent\u00f3w",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "date": {
+                    "name": "date",
+                    "line": 309,
+                    "short_desc": "Data",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\date",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
         }
     },
     "constants": {

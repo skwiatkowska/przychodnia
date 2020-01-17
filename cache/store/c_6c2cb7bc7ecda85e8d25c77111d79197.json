@@ -1,14 +1,20 @@
 {
     "name": "App\\Exceptions\\Handler",
-    "line": 13,
+    "line": 15,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
-    "tags": [],
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
     "namespace": "App\\Exceptions",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Exceptions\\Handler.php",
     "relative_file": null,
-    "hash": "9fe1c03fbd4798fb9d3c5041c15ebc4d1a969fb7",
+    "hash": "2bc8f2e08da91ab5792795512b9c3b99f04a297b",
     "parent": "Illuminate\\Foundation\\Exceptions\\Handler",
     "modifiers": 0,
     "is_trait": false,
@@ -27,7 +33,7 @@
     "properties": {
         "dontReport": {
             "name": "dontReport",
-            "line": 20,
+            "line": 22,
             "short_desc": "A list of the exception types that should not be reported.",
             "long_desc": "",
             "hint": [
@@ -55,67 +61,6 @@
                                     "AuthenticationException"
                                 ],
                                 "attributes": {
-                                    "startLine": 21,
-                                    "endLine": 21
-                                }
-                            },
-                            "name": "class",
-                            "attributes": {
-                                "startLine": 21,
-                                "endLine": 21
-                            }
-                        },
-                        "byRef": false,
-                        "attributes": {
-                            "startLine": 21,
-                            "endLine": 21
-                        }
-                    },
-                    {
-                        "nodeType": "Expr_ArrayItem",
-                        "key": null,
-                        "value": {
-                            "nodeType": "Expr_ClassConstFetch",
-                            "class": {
-                                "nodeType": "Name_FullyQualified",
-                                "parts": [
-                                    "Illuminate",
-                                    "Auth",
-                                    "Access",
-                                    "AuthorizationException"
-                                ],
-                                "attributes": {
-                                    "startLine": 22,
-                                    "endLine": 22
-                                }
-                            },
-                            "name": "class",
-                            "attributes": {
-                                "startLine": 22,
-                                "endLine": 22
-                            }
-                        },
-                        "byRef": false,
-                        "attributes": {
-                            "startLine": 22,
-                            "endLine": 22
-                        }
-                    },
-                    {
-                        "nodeType": "Expr_ArrayItem",
-                        "key": null,
-                        "value": {
-                            "nodeType": "Expr_ClassConstFetch",
-                            "class": {
-                                "nodeType": "Name_FullyQualified",
-                                "parts": [
-                                    "Symfony",
-                                    "Component",
-                                    "HttpKernel",
-                                    "Exception",
-                                    "HttpException"
-                                ],
-                                "attributes": {
                                     "startLine": 23,
                                     "endLine": 23
                                 }
@@ -141,9 +86,9 @@
                                 "nodeType": "Name_FullyQualified",
                                 "parts": [
                                     "Illuminate",
-                                    "Database",
-                                    "Eloquent",
-                                    "ModelNotFoundException"
+                                    "Auth",
+                                    "Access",
+                                    "AuthorizationException"
                                 ],
                                 "attributes": {
                                     "startLine": 24,
@@ -170,9 +115,11 @@
                             "class": {
                                 "nodeType": "Name_FullyQualified",
                                 "parts": [
-                                    "Illuminate",
-                                    "Session",
-                                    "TokenMismatchException"
+                                    "Symfony",
+                                    "Component",
+                                    "HttpKernel",
+                                    "Exception",
+                                    "HttpException"
                                 ],
                                 "attributes": {
                                     "startLine": 25,
@@ -200,8 +147,9 @@
                                 "nodeType": "Name_FullyQualified",
                                 "parts": [
                                     "Illuminate",
-                                    "Validation",
-                                    "ValidationException"
+                                    "Database",
+                                    "Eloquent",
+                                    "ModelNotFoundException"
                                 ],
                                 "attributes": {
                                     "startLine": 26,
@@ -219,11 +167,69 @@
                             "startLine": 26,
                             "endLine": 26
                         }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Illuminate",
+                                    "Session",
+                                    "TokenMismatchException"
+                                ],
+                                "attributes": {
+                                    "startLine": 27,
+                                    "endLine": 27
+                                }
+                            },
+                            "name": "class",
+                            "attributes": {
+                                "startLine": 27,
+                                "endLine": 27
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 27,
+                            "endLine": 27
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Illuminate",
+                                    "Validation",
+                                    "ValidationException"
+                                ],
+                                "attributes": {
+                                    "startLine": 28,
+                                    "endLine": 28
+                                }
+                            },
+                            "name": "class",
+                            "attributes": {
+                                "startLine": 28,
+                                "endLine": 28
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 28,
+                            "endLine": 28
+                        }
                     }
                 ],
                 "attributes": {
-                    "startLine": 20,
-                    "endLine": 27,
+                    "startLine": 22,
+                    "endLine": 29,
                     "kind": 2
                 }
             },
@@ -233,7 +239,7 @@
     "methods": {
         "report": {
             "name": "report",
-            "line": 37,
+            "line": 39,
             "short_desc": "Report or log an exception.",
             "long_desc": "This is a great spot to send exceptions to Sentry, Bugsnag, etc.",
             "hint": [
@@ -251,7 +257,7 @@
             "parameters": {
                 "exception": {
                     "name": "exception",
-                    "line": 37,
+                    "line": 39,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -267,8 +273,8 @@
                             "Exception"
                         ],
                         "attributes": {
-                            "startLine": 37,
-                            "endLine": 37
+                            "startLine": 39,
+                            "endLine": 39
                         }
                     },
                     "default": null,
@@ -279,7 +285,7 @@
         },
         "render": {
             "name": "render",
-            "line": 49,
+            "line": 51,
             "short_desc": "Render an exception into an HTTP response.",
             "long_desc": "",
             "hint": [
@@ -297,7 +303,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 49,
+                    "line": 51,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -314,7 +320,7 @@
                 },
                 "exception": {
                     "name": "exception",
-                    "line": 49,
+                    "line": 51,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -330,8 +336,8 @@
                             "Exception"
                         ],
                         "attributes": {
-                            "startLine": 49,
-                            "endLine": 49
+                            "startLine": 51,
+                            "endLine": 51
                         }
                     },
                     "default": null,
@@ -342,7 +348,7 @@
         },
         "unauthenticated": {
             "name": "unauthenticated",
-            "line": 78,
+            "line": 80,
             "short_desc": "Convert an authentication exception into an unauthenticated response.",
             "long_desc": "",
             "hint": [
@@ -360,7 +366,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 79,
+                    "line": 81,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -377,7 +383,7 @@
                 },
                 "exception": {
                     "name": "exception",
-                    "line": 79,
+                    "line": 81,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -395,8 +401,8 @@
                             "AuthenticationException"
                         ],
                         "attributes": {
-                            "startLine": 79,
-                            "endLine": 79
+                            "startLine": 81,
+                            "endLine": 81
                         }
                     },
                     "default": null,

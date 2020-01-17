@@ -1,21 +1,22 @@
 {
     "name": "App\\Http\\Controllers\\WebsiteController",
-    "line": 8,
-    "short_desc": "",
+    "line": 12,
+    "short_desc": "Kontroler g\u0142\u00f3wnego panelu.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\WebsiteController.php",
     "relative_file": null,
-    "hash": "841c38166b7861b18d01eaea00c1fe283e244c3a",
+    "hash": "3825627b47bd4788d7ec38e6f6e9049fb482b619",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
     "is_interface": false,
     "aliases": {
         "Auth": "Illuminate\\Support\\Facades\\Auth",
-        "Request": "Illuminate\\Http\\Request"
+        "Request": "Illuminate\\Http\\Request",
+        "User": "App\\User"
     },
     "errors": [],
     "interfaces": [],
@@ -24,11 +25,16 @@
     "methods": {
         "mainSite": {
             "name": "mainSite",
-            "line": 10,
-            "short_desc": "",
+            "line": 18,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie odpowiedniego panelu.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok odpowiedniego panelu g\u0142\u00f3wnego w zale\u017cno\u015bci od rodzaju u\u017cytkownika",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -38,11 +44,16 @@
         },
         "rodo": {
             "name": "rodo",
-            "line": 15,
-            "short_desc": "",
+            "line": 38,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie klauzuli rodo.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok klauzuli RODO",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -52,11 +63,16 @@
         },
         "clinicList": {
             "name": "clinicList",
-            "line": 20,
-            "short_desc": "",
+            "line": 47,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy poradni.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok listy poradni",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

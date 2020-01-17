@@ -1,14 +1,20 @@
 {
     "name": "App\\Http\\Middleware\\VerifyCsrfToken",
-    "line": 7,
+    "line": 10,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
-    "tags": [],
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
     "namespace": "App\\Http\\Middleware",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Middleware\\VerifyCsrfToken.php",
     "relative_file": null,
-    "hash": "508c74c801c1e1838e9670dc861e82dcb79b2c5d",
+    "hash": "3b508f1ad70394eb26d5309558da33936b421495",
     "parent": "Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken",
     "modifiers": 0,
     "is_trait": false,
@@ -22,7 +28,7 @@
     "properties": {
         "except": {
             "name": "except",
-            "line": 14,
+            "line": 17,
             "short_desc": "The URIs that should be excluded from CSRF verification.",
             "long_desc": "",
             "hint": [
@@ -38,8 +44,8 @@
                 "nodeType": "Expr_Array",
                 "items": [],
                 "attributes": {
-                    "startLine": 14,
-                    "endLine": 16,
+                    "startLine": 17,
+                    "endLine": 19,
                     "kind": 2
                 }
             },

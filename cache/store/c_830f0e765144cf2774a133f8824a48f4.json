@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Visit.php",
     "relative_file": null,
-    "hash": "fc7946df97c0a2c474e9848a367c175eef76dc7d",
+    "hash": "409b91b69df9f031f52c6327963479c864f1f9dc",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,

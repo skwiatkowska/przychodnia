@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\ReceptionController.php",
     "relative_file": null,
-    "hash": "5096bf00dd1a75bc96057b1b047fd58835bddebd",
+    "hash": "822731d482734b4493a142f601b852c7e8bae746",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -48,7 +48,7 @@
         },
         "patientRegisterFormView": {
             "name": "patientRegisterFormView",
-            "line": 35,
+            "line": 36,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie formularza rejestracji pacjenta.",
             "long_desc": "",
             "hint": [
@@ -67,7 +67,7 @@
         },
         "disablePatientAccount": {
             "name": "disablePatientAccount",
-            "line": 48,
+            "line": 55,
             "short_desc": "Funkcja odpowiada za dezaktywacj\u0119 konta pacjenta.",
             "long_desc": "",
             "hint": [
@@ -85,7 +85,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 48,
+                    "line": 55,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -99,7 +99,7 @@
         },
         "enablePatientAccount": {
             "name": "enablePatientAccount",
-            "line": 70,
+            "line": 84,
             "short_desc": "Funkcja odpowiada za aktywacj\u0119 konta pacjenta.",
             "long_desc": "",
             "hint": [
@@ -117,7 +117,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 70,
+                    "line": 84,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -131,7 +131,7 @@
         },
         "patientRegister": {
             "name": "patientRegister",
-            "line": 92,
+            "line": 113,
             "short_desc": "Funkcja odpowiada za przes\u0142anie danych rejestracji pacjenta.",
             "long_desc": "",
             "hint": [
@@ -149,7 +149,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 92,
+                    "line": 113,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -167,8 +167,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 92,
-                            "endLine": 92
+                            "startLine": 113,
+                            "endLine": 113
                         }
                     },
                     "default": null,
@@ -179,7 +179,7 @@
         },
         "doctorRegisterFormView": {
             "name": "doctorRegisterFormView",
-            "line": 123,
+            "line": 145,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie formularza rejestracji lekarza.",
             "long_desc": "",
             "hint": [
@@ -198,7 +198,7 @@
         },
         "doctorRegister": {
             "name": "doctorRegister",
-            "line": 136,
+            "line": 164,
             "short_desc": "Funkcja odpowiada za przes\u0142anie danych rejestracji lekarza.",
             "long_desc": "",
             "hint": [
@@ -216,7 +216,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 136,
+                    "line": 164,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -234,8 +234,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 136,
-                            "endLine": 136
+                            "startLine": 164,
+                            "endLine": 164
                         }
                     },
                     "default": null,
@@ -246,7 +246,7 @@
         },
         "doctorsList": {
             "name": "doctorsList",
-            "line": 166,
+            "line": 194,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy lekarzy.",
             "long_desc": "",
             "hint": [
@@ -265,7 +265,7 @@
         },
         "doctorsListForVisits": {
             "name": "doctorsListForVisits",
-            "line": 179,
+            "line": 213,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu wizyt.",
             "long_desc": "",
             "hint": [
@@ -284,7 +284,7 @@
         },
         "doctorsListAndVisits": {
             "name": "doctorsListAndVisits",
-            "line": 194,
+            "line": 234,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy wszystkich lekarzy oraz wizyt lekarza o danych id.",
             "long_desc": "*@param integer $id Id lekarza",
             "hint": [
@@ -302,7 +302,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 194,
+                    "line": 234,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -316,7 +316,7 @@
         },
         "doctorsListForAPatient": {
             "name": "doctorsListForAPatient",
-            "line": 211,
+            "line": 257,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu nowej wizyty.",
             "long_desc": "",
             "hint": [
@@ -335,7 +335,7 @@
         },
         "doctorsDeadlinesForAPatient": {
             "name": "doctorsDeadlinesForAPatient",
-            "line": 226,
+            "line": 278,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie mo\u017cliwych termin\u00f3w nowej wizyty dla pacjenta.",
             "long_desc": "",
             "hint": [
@@ -345,116 +345,6 @@
                 ]
             ],
             "hint_desc": "Widok wolnych termin\u00f3w",
-            "tags": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "id": {
-                    "name": "id",
-                    "line": 226,
-                    "short_desc": "Id pacjenta",
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "integer",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": null,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                },
-                "doctor_id": {
-                    "name": "doctor_id",
-                    "line": 226,
-                    "short_desc": "Id lekarza",
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "integer",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": null,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                }
-            }
-        },
-        "doctorsDeadlines": {
-            "name": "doctorsDeadlines",
-            "line": 245,
-            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wolnych termin\u00f3w danego lekarza.",
-            "long_desc": "",
-            "hint": [
-                [
-                    "\\App\\Http\\Controllers\\view",
-                    false
-                ]
-            ],
-            "hint_desc": "Widok wolnych termin\u00f3w",
-            "tags": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "id": {
-                    "name": "id",
-                    "line": 245,
-                    "short_desc": "Id lekarza",
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "integer",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": null,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                }
-            }
-        },
-        "patientsList": {
-            "name": "patientsList",
-            "line": 264,
-            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy pacjent\u00f3w.",
-            "long_desc": "",
-            "hint": [
-                [
-                    "\\App\\Http\\Controllers\\view",
-                    false
-                ]
-            ],
-            "hint_desc": "Widok listy pacjent\u00f3w",
-            "tags": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": []
-        },
-        "patientData": {
-            "name": "patientData",
-            "line": 278,
-            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych danego pacjenta.",
-            "long_desc": "",
-            "hint": [
-                [
-                    "\\App\\Http\\Controllers\\view",
-                    false
-                ]
-            ],
-            "hint_desc": "Widok danych pacjenta",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -477,12 +367,122 @@
                     "default": null,
                     "variadic": false,
                     "is_by_ref": false
+                },
+                "doctor_id": {
+                    "name": "doctor_id",
+                    "line": 278,
+                    "short_desc": "Id lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "doctorsDeadlines": {
+            "name": "doctorsDeadlines",
+            "line": 305,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wolnych termin\u00f3w danego lekarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok wolnych termin\u00f3w",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 305,
+                    "short_desc": "Id lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "patientsList": {
+            "name": "patientsList",
+            "line": 332,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy pacjent\u00f3w.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok listy pacjent\u00f3w",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "patientData": {
+            "name": "patientData",
+            "line": 352,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych danego pacjenta.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok danych pacjenta",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 352,
+                    "short_desc": "Id pacjenta",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
                 }
             }
         },
         "allVisits": {
             "name": "allVisits",
-            "line": 300,
+            "line": 382,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wszystkich wizyt",
             "long_desc": "",
             "hint": [
@@ -501,7 +501,7 @@
         },
         "patientSettings": {
             "name": "patientSettings",
-            "line": 315,
+            "line": 403,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu ustawie\u0144 pacjenta.",
             "long_desc": "",
             "hint": [
@@ -519,7 +519,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 315,
+                    "line": 403,
                     "short_desc": "Id pacjenta",
                     "long_desc": null,
                     "hint": [
@@ -538,7 +538,7 @@
         },
         "doctorSettings": {
             "name": "doctorSettings",
-            "line": 334,
+            "line": 430,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu ustawie\u0144 lekarza.",
             "long_desc": "",
             "hint": [
@@ -556,7 +556,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 334,
+                    "line": 430,
                     "short_desc": "Id lekarza",
                     "long_desc": null,
                     "hint": [
@@ -575,7 +575,7 @@
         },
         "addVisit": {
             "name": "addVisit",
-            "line": 353,
+            "line": 457,
             "short_desc": "Funkcja odpowiada za przes\u0142anie danych um\u00f3wienia wizyty",
             "long_desc": "",
             "hint": [
@@ -593,7 +593,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 353,
+                    "line": 457,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -611,8 +611,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 353,
-                            "endLine": 353
+                            "startLine": 457,
+                            "endLine": 457
                         }
                     },
                     "default": null,
@@ -621,7 +621,7 @@
                 },
                 "id": {
                     "name": "id",
-                    "line": 353,
+                    "line": 457,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -633,7 +633,7 @@
                 },
                 "id_lekarza": {
                     "name": "id_lekarza",
-                    "line": 353,
+                    "line": 457,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -647,7 +647,7 @@
         },
         "deleteVisit": {
             "name": "deleteVisit",
-            "line": 384,
+            "line": 488,
             "short_desc": "Funkcja odpowiada za przes\u0142anie danych odwo\u0142ania wizyty",
             "long_desc": "",
             "hint": [
@@ -665,7 +665,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 384,
+                    "line": 488,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -683,8 +683,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 384,
-                            "endLine": 384
+                            "startLine": 488,
+                            "endLine": 488
                         }
                     },
                     "default": null,
@@ -695,7 +695,7 @@
         },
         "doctorData": {
             "name": "doctorData",
-            "line": 397,
+            "line": 501,
             "short_desc": "Funkcja odpowiada za pwy\u015bwietlenie danych danego lekarza",
             "long_desc": "",
             "hint": [
@@ -713,7 +713,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 397,
+                    "line": 501,
                     "short_desc": "Id lekarza",
                     "long_desc": null,
                     "hint": [
@@ -732,7 +732,7 @@
         },
         "changePatientData": {
             "name": "changePatientData",
-            "line": 423,
+            "line": 535,
             "short_desc": "Funkcja odpowiada za zmian\u0119 danych danego pacjenta",
             "long_desc": "",
             "hint": [
@@ -752,7 +752,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 423,
+                    "line": 535,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -764,7 +764,7 @@
                 },
                 "request": {
                     "name": "request",
-                    "line": 423,
+                    "line": 535,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -782,8 +782,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 423,
-                            "endLine": 423
+                            "startLine": 535,
+                            "endLine": 535
                         }
                     },
                     "default": null,
@@ -794,7 +794,7 @@
         },
         "changePatientPassword": {
             "name": "changePatientPassword",
-            "line": 453,
+            "line": 565,
             "short_desc": "Funkcja odpowiada za zmian\u0119 has\u0142a danego pacjenta",
             "long_desc": "",
             "hint": [
@@ -814,7 +814,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 453,
+                    "line": 565,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -826,7 +826,7 @@
                 },
                 "request": {
                     "name": "request",
-                    "line": 453,
+                    "line": 565,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -844,8 +844,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 453,
-                            "endLine": 453
+                            "startLine": 565,
+                            "endLine": 565
                         }
                     },
                     "default": null,
@@ -856,7 +856,7 @@
         },
         "changeDoctorData": {
             "name": "changeDoctorData",
-            "line": 473,
+            "line": 585,
             "short_desc": "Funkcja odpowiada za zmian\u0119 danych danego pacjenta",
             "long_desc": "",
             "hint": [
@@ -876,7 +876,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 473,
+                    "line": 585,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -888,7 +888,7 @@
                 },
                 "request": {
                     "name": "request",
-                    "line": 473,
+                    "line": 585,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -906,8 +906,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 473,
-                            "endLine": 473
+                            "startLine": 585,
+                            "endLine": 585
                         }
                     },
                     "default": null,
@@ -918,7 +918,7 @@
         },
         "changeDoctorPassword": {
             "name": "changeDoctorPassword",
-            "line": 500,
+            "line": 612,
             "short_desc": "Funkcja odpowiada za zmian\u0119 has\u0142a danego pacjenta",
             "long_desc": "",
             "hint": [
@@ -938,7 +938,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 500,
+                    "line": 612,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -950,7 +950,7 @@
                 },
                 "request": {
                     "name": "request",
-                    "line": 500,
+                    "line": 612,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -968,8 +968,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 500,
-                            "endLine": 500
+                            "startLine": 612,
+                            "endLine": 612
                         }
                     },
                     "default": null,
@@ -980,7 +980,7 @@
         },
         "disableDoctorAccount": {
             "name": "disableDoctorAccount",
-            "line": 520,
+            "line": 632,
             "short_desc": "Funkcja odpowiada za dezaktywacj\u0119 konta lekarza.",
             "long_desc": "",
             "hint": [
@@ -998,7 +998,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 520,
+                    "line": 632,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -1012,7 +1012,7 @@
         },
         "enableDoctorAccount": {
             "name": "enableDoctorAccount",
-            "line": 541,
+            "line": 661,
             "short_desc": "Funkcja odpowiada za aktywacj\u0119 konta lekarz.",
             "long_desc": "",
             "hint": [
@@ -1030,7 +1030,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 541,
+                    "line": 661,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -1044,11 +1044,16 @@
         },
         "addDeadlines": {
             "name": "addDeadlines",
-            "line": 557,
-            "short_desc": "",
+            "line": 690,
+            "short_desc": "Funkcja odpowiada za dodanie terminarza.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "W przypadku pomy\u015blnego dodania przekierowuje na stron\u0119 wizyt\nz odpowiednim komunikatem.",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -1057,7 +1062,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 557,
+                    "line": 690,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -1069,7 +1074,7 @@
                 },
                 "request": {
                     "name": "request",
-                    "line": 557,
+                    "line": 690,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -1087,8 +1092,128 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 557,
-                            "endLine": 557
+                            "startLine": 690,
+                            "endLine": 690
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "deleteDeadline": {
+            "name": "deleteDeadline",
+            "line": 714,
+            "short_desc": "Funkcja odpowiada za usuni\u0119cie terminarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "W przypadku pomy\u015blnego usuni\u0119cia przekierowuje na stron\u0119 wizyt z odpowiednim komunikatem.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 714,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 714,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 714,
+                            "endLine": 714
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changeDeadline": {
+            "name": "changeDeadline",
+            "line": 737,
+            "short_desc": "Funkcja odpowiada za zmian\u0119 terminarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "W przypadku pomy\u015blnego dodania przekierowuje na stron\u0119 wizyt\nz odpowiednim komunikatem.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 737,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 737,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 737,
+                            "endLine": 737
                         }
                     },
                     "default": null,

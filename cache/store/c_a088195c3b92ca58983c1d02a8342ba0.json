@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\RegisterController",
-    "line": 11,
-    "short_desc": "",
+    "line": 14,
+    "short_desc": "Kontroler rejestracji.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\RegisterController.php",
     "relative_file": null,
-    "hash": "19951511ff12474d3097e28d9f391cce445f352f",
+    "hash": "55401c4f8cf8f2d42114f68e80e26635bbc70c65",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -27,11 +27,16 @@
     "methods": {
         "formView": {
             "name": "formView",
-            "line": 14,
-            "short_desc": "",
+            "line": 21,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie formularza rejestracji.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok formularza rejestracji",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -41,11 +46,16 @@
         },
         "register": {
             "name": "register",
-            "line": 19,
-            "short_desc": "",
+            "line": 31,
+            "short_desc": "Funkcja odpowiada za przes\u0142anie danych rejestracji.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "Przy rejestracji zako\u0144czonej sukcesem - przekierowuje na\nstron\u0119 logowania, w przypadku niepowodzenia zostaje\tna stronie rejestracji.",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -54,7 +64,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 19,
+                    "line": 31,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -72,8 +82,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 19,
-                            "endLine": 19
+                            "startLine": 31,
+                            "endLine": 31
                         }
                     },
                     "default": null,

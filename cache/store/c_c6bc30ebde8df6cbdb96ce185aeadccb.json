@@ -1,14 +1,20 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\LoginController",
-    "line": 9,
+    "line": 13,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
-    "tags": [],
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\Auth\\LoginController.php",
     "relative_file": null,
-    "hash": "ef191be3ec5963e34086f8d91cdc5d03e07bab42",
+    "hash": "63ceffbcd1be5711c6a2180c4795373b7bfb7a8e",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -25,7 +31,7 @@
     "properties": {
         "redirectTo": {
             "name": "redirectTo",
-            "line": 41,
+            "line": 45,
             "short_desc": "Where to redirect users after login.",
             "long_desc": "",
             "hint": [
@@ -41,8 +47,8 @@
                 "nodeType": "Scalar_String",
                 "value": "\/home",
                 "attributes": {
-                    "startLine": 41,
-                    "endLine": 41,
+                    "startLine": 45,
+                    "endLine": 45,
                     "kind": 1
                 }
             },
@@ -52,7 +58,7 @@
     "methods": {
         "authenticated": {
             "name": "authenticated",
-            "line": 24,
+            "line": 28,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -66,7 +72,7 @@
         },
         "__construct": {
             "name": "__construct",
-            "line": 48,
+            "line": 52,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [

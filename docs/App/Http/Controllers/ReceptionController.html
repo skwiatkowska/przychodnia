@@ -398,13 +398,32 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_addDeadlines">addDeadlines</a>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Funkcja odpowiada za dodanie terminarza.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_deleteDeadline">deleteDeadline</a>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        
+                                            <p>Funkcja odpowiada za usunięcie terminarza.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_changeDeadline">changeDeadline</a>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        
+                                            <p>Funkcja odpowiada za zmianę terminarza.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -445,7 +464,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_patientRegisterFormView">
-        <div class="location">at         line 35</div>
+        <div class="location">at         line 36</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>patientRegisterFormView</strong>()
         </code>
@@ -475,7 +494,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_disablePatientAccount">
-        <div class="location">at         line 48</div>
+        <div class="location">at         line 55</div>
         <code>                    void
     <strong>disablePatientAccount</strong>($id)
         </code>
@@ -516,7 +535,7 @@ z odpowiednim komunikatem.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_enablePatientAccount">
-        <div class="location">at         line 70</div>
+        <div class="location">at         line 84</div>
         <code>                    void
     <strong>enablePatientAccount</strong>($id)
         </code>
@@ -557,7 +576,7 @@ z odpowiednim komunikatem.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_patientRegister">
-        <div class="location">at         line 92</div>
+        <div class="location">at         line 113</div>
         <code>                    void
     <strong>patientRegister</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
@@ -598,7 +617,7 @@ listę pacjentów, w przypadku niepowodzenia zostaje na stronie rejestracji.</td
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorRegisterFormView">
-        <div class="location">at         line 123</div>
+        <div class="location">at         line 145</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorRegisterFormView</strong>()
         </code>
@@ -628,7 +647,7 @@ listę pacjentów, w przypadku niepowodzenia zostaje na stronie rejestracji.</td
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorRegister">
-        <div class="location">at         line 136</div>
+        <div class="location">at         line 164</div>
         <code>                    void
     <strong>doctorRegister</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
@@ -669,7 +688,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorsList">
-        <div class="location">at         line 166</div>
+        <div class="location">at         line 194</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorsList</strong>()
         </code>
@@ -699,7 +718,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorsListForVisits">
-        <div class="location">at         line 179</div>
+        <div class="location">at         line 213</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorsListForVisits</strong>()
         </code>
@@ -729,7 +748,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorsListAndVisits">
-        <div class="location">at         line 194</div>
+        <div class="location">at         line 234</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorsListAndVisits</strong>($id)
         </code>
@@ -769,7 +788,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorsListForAPatient">
-        <div class="location">at         line 211</div>
+        <div class="location">at         line 257</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorsListForAPatient</strong>()
         </code>
@@ -799,7 +818,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorsDeadlinesForAPatient">
-        <div class="location">at         line 226</div>
+        <div class="location">at         line 278</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorsDeadlinesForAPatient</strong>(integer $id, integer $doctor_id)
         </code>
@@ -844,7 +863,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorsDeadlines">
-        <div class="location">at         line 245</div>
+        <div class="location">at         line 305</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorsDeadlines</strong>(integer $id)
         </code>
@@ -884,7 +903,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_patientsList">
-        <div class="location">at         line 264</div>
+        <div class="location">at         line 332</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>patientsList</strong>()
         </code>
@@ -914,7 +933,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_patientData">
-        <div class="location">at         line 278</div>
+        <div class="location">at         line 352</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>patientData</strong>(integer $id)
         </code>
@@ -954,7 +973,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_allVisits">
-        <div class="location">at         line 300</div>
+        <div class="location">at         line 382</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>allVisits</strong>()
         </code>
@@ -984,7 +1003,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_patientSettings">
-        <div class="location">at         line 315</div>
+        <div class="location">at         line 403</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>patientSettings</strong>(integer $id)
         </code>
@@ -1024,7 +1043,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorSettings">
-        <div class="location">at         line 334</div>
+        <div class="location">at         line 430</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorSettings</strong>(integer $id)
         </code>
@@ -1064,7 +1083,7 @@ listę lekarzy, w przypadku niepowodzenia zostaje na stronie rejestracji.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_addVisit">
-        <div class="location">at         line 353</div>
+        <div class="location">at         line 457</div>
         <code>                    void
     <strong>addVisit</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $id, $id_lekarza)
         </code>
@@ -1115,7 +1134,7 @@ stronę pacjenta, w przypadku niepowodzenia powraca na stronę terminów danego 
             </div>
                     <div class="method-item">
                     <h3 id="method_deleteVisit">
-        <div class="location">at         line 384</div>
+        <div class="location">at         line 488</div>
         <code>                    void
     <strong>deleteVisit</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
@@ -1156,7 +1175,7 @@ stronę pacjenta.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_doctorData">
-        <div class="location">at         line 397</div>
+        <div class="location">at         line 501</div>
         <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>doctorData</strong>(integer $id)
         </code>
@@ -1196,7 +1215,7 @@ stronę pacjenta.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_changePatientData">
-        <div class="location">at         line 423</div>
+        <div class="location">at         line 535</div>
         <code>                    <abbr title="App\Http\Controllers\redirect">redirect</abbr>
     <strong>changePatientData</strong>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
@@ -1241,7 +1260,7 @@ stronę pacjenta.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_changePatientPassword">
-        <div class="location">at         line 453</div>
+        <div class="location">at         line 565</div>
         <code>                    <abbr title="App\Http\Controllers\redirect">redirect</abbr>
     <strong>changePatientPassword</strong>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
@@ -1286,7 +1305,7 @@ stronę pacjenta.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_changeDoctorData">
-        <div class="location">at         line 473</div>
+        <div class="location">at         line 585</div>
         <code>                    <abbr title="App\Http\Controllers\redirect">redirect</abbr>
     <strong>changeDoctorData</strong>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
@@ -1331,7 +1350,7 @@ stronę pacjenta.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_changeDoctorPassword">
-        <div class="location">at         line 500</div>
+        <div class="location">at         line 612</div>
         <code>                    <abbr title="App\Http\Controllers\redirect">redirect</abbr>
     <strong>changeDoctorPassword</strong>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
@@ -1376,7 +1395,7 @@ stronę pacjenta.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_disableDoctorAccount">
-        <div class="location">at         line 520</div>
+        <div class="location">at         line 632</div>
         <code>                    void
     <strong>disableDoctorAccount</strong>($id)
         </code>
@@ -1417,7 +1436,7 @@ z odpowiednim komunikatem.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_enableDoctorAccount">
-        <div class="location">at         line 541</div>
+        <div class="location">at         line 661</div>
         <code>                    void
     <strong>enableDoctorAccount</strong>($id)
         </code>
@@ -1458,8 +1477,8 @@ z odpowiednim komunikatem.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_addDeadlines">
-        <div class="location">at         line 557</div>
-        <code>                    
+        <div class="location">at         line 690</div>
+        <code>                    void
     <strong>addDeadlines</strong>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
     </h3>
@@ -1467,6 +1486,8 @@ z odpowiednim komunikatem.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>Funkcja odpowiada za dodanie terminarza.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1484,6 +1505,107 @@ z odpowiednim komunikatem.</td>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>W przypadku pomyślnego dodania przekierowuje na stronę wizyt
+z odpowiednim komunikatem.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_deleteDeadline">
+        <div class="location">at         line 714</div>
+        <code>                    void
+    <strong>deleteDeadline</strong>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Funkcja odpowiada za usunięcie terminarza.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$id</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>W przypadku pomyślnego usunięcia przekierowuje na stronę wizyt z odpowiednim komunikatem.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_changeDeadline">
+        <div class="location">at         line 737</div>
+        <code>                    void
+    <strong>changeDeadline</strong>($id, <abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Funkcja odpowiada za zmianę terminarza.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$id</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>W przypadku pomyślnego dodania przekierowuje na stronę wizyt
+z odpowiednim komunikatem.</td>
+        </tr>
+    </table>
+
             
             
                     </div>

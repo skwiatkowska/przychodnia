@@ -167,6 +167,26 @@
                                             <p>Funkcja zwraca błędy.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_removeDeadline">removeDeadline</a>(integer $doctor_id, <abbr title="App\date">date</abbr> $date)
+        
+                                            <p>Funkcja usuwa termin z bazy.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_changeDeadline">changeDeadline</a>(integer $doctor_id, string $hour_from, string $hour_to, <abbr title="App\date">date</abbr> $date)
+        
+                                            <p>Funkcja zmienia termin w bazie.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
             </div>
 
 
@@ -215,7 +235,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_findDoctorAllDeadlines">
-        <div class="location">at         line 122</div>
+        <div class="location">at         line 123</div>
         <code>        static            array
     <strong>findDoctorAllDeadlines</strong>(integer $doctorId)
         </code>
@@ -255,7 +275,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addDeadline">
-        <div class="location">at         line 246</div>
+        <div class="location">at         line 240</div>
         <code>                    boolean
     <strong>addDeadline</strong>(integer $doctor_id, string $hour_from, string $hour_to, <abbr title="App\date">date</abbr> $date)
         </code>
@@ -311,7 +331,7 @@ FALSE jeśli niepoprawnie wypełniono pola.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getErrors">
-        <div class="location">at         line 275</div>
+        <div class="location">at         line 269</div>
         <code>                    
     <strong>getErrors</strong>()
         </code>
@@ -324,6 +344,108 @@ FALSE jeśli niepoprawnie wypełniono pola.</td>
                                     <p>Funkcja zwraca błędy.</p>                                                </div>
                 <div class="tags">
             
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_removeDeadline">
+        <div class="location">at         line 281</div>
+        <code>                    boolean
+    <strong>removeDeadline</strong>(integer $doctor_id, <abbr title="App\date">date</abbr> $date)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Funkcja usuwa termin z bazy.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>integer</td>
+                <td>$doctor_id</td>
+                <td>Id danego lekarza</td>
+            </tr>
+                    <tr>
+                <td><abbr title="App\date">date</abbr></td>
+                <td>$date</td>
+                <td>Data</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>boolean</td>
+            <td>TRUE jeśli udało się usunąć termin z bazy.
+FALSE jeśli niepoprawnie wypełniono pola.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_changeDeadline">
+        <div class="location">at         line 309</div>
+        <code>                    boolean
+    <strong>changeDeadline</strong>(integer $doctor_id, string $hour_from, string $hour_to, <abbr title="App\date">date</abbr> $date)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Funkcja zmienia termin w bazie.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>integer</td>
+                <td>$doctor_id</td>
+                <td>Id danego lekarza</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$hour_from</td>
+                <td>Godzina rozpoczęcia przyjmowania pacjentów</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$hour_to</td>
+                <td>Godzina zakończenia przyjmowania pacjentów</td>
+            </tr>
+                    <tr>
+                <td><abbr title="App\date">date</abbr></td>
+                <td>$date</td>
+                <td>Data</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>boolean</td>
+            <td>TRUE jeśli udało się zmienić termin w bazie.
+FALSE jeśli niepoprawnie wypełniono pola.</td>
+        </tr>
+    </table>
+
             
             
                     </div>

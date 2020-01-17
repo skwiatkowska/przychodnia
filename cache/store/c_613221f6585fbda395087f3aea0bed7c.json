@@ -1,14 +1,20 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\ResetPasswordController",
-    "line": 8,
+    "line": 11,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
-    "tags": [],
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\Auth\\ResetPasswordController.php",
     "relative_file": null,
-    "hash": "d94d8b7f48fc26a3369131eb160fb4b77fd89547",
+    "hash": "ec2c109ed53758a24cce6857154bd064b4e17c4d",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -25,7 +31,7 @@
     "properties": {
         "redirectTo": {
             "name": "redirectTo",
-            "line": 28,
+            "line": 31,
             "short_desc": "Where to redirect users after resetting their password.",
             "long_desc": "",
             "hint": [
@@ -41,8 +47,8 @@
                 "nodeType": "Scalar_String",
                 "value": "\/home",
                 "attributes": {
-                    "startLine": 28,
-                    "endLine": 28,
+                    "startLine": 31,
+                    "endLine": 31,
                     "kind": 1
                 }
             },
@@ -52,7 +58,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 35,
+            "line": 38,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [

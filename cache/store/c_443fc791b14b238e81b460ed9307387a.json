@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\VisitController",
-    "line": 9,
-    "short_desc": "",
+    "line": 12,
+    "short_desc": "Kontroler wizyt.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\VisitController.php",
     "relative_file": null,
-    "hash": "da94ad00b04b016cd6fafb4a4930fa8674747bda",
+    "hash": "49ccac5479a8ff3c8363c0cfe448f23ac3be72ae",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -26,11 +26,16 @@
     "methods": {
         "visitsView": {
             "name": "visitsView",
-            "line": 12,
-            "short_desc": "",
+            "line": 19,
+            "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu wizyt pacjenta.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "Widok panelu wizyt",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -40,7 +45,7 @@
         },
         "addVisit": {
             "name": "addVisit",
-            "line": 27,
+            "line": 34,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -53,7 +58,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 27,
+                    "line": 34,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -71,8 +76,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 27,
-                            "endLine": 27
+                            "startLine": 34,
+                            "endLine": 34
                         }
                     },
                     "default": null,
@@ -83,7 +88,7 @@
         },
         "deleteVisit": {
             "name": "deleteVisit",
-            "line": 46,
+            "line": 53,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -96,7 +101,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 46,
+                    "line": 53,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -114,8 +119,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 46,
-                            "endLine": 46
+                            "startLine": 53,
+                            "endLine": 53
                         }
                     },
                     "default": null,

@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Doctor as Authenticatable;
 
 /**
 * Klasa odpowiedzialna za lekarza.
+*
 */
 
 class Doctor extends Model

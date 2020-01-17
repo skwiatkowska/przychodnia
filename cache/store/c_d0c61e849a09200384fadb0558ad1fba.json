@@ -1,6 +1,6 @@
 {
     "name": "App\\Http\\Controllers\\DoctorController",
-    "line": 16,
+    "line": 18,
     "short_desc": "Kontroler panelu lekarza.",
     "long_desc": "",
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\DoctorController.php",
     "relative_file": null,
-    "hash": "cbdf22b5261273397ca9053d622fbbc059e5c715",
+    "hash": "84f74b9f7a2fb39c891973abf4dd129c4dc5ab77",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -18,6 +18,7 @@
         "Deadline": "App\\Deadline",
         "Patient": "App\\Patient",
         "Visit": "App\\Visit",
+        "User": "App\\User",
         "Auth": "Illuminate\\Support\\Facades\\Auth",
         "Request": "Illuminate\\Http\\Request"
     },
@@ -28,7 +29,7 @@
     "methods": {
         "mainSite": {
             "name": "mainSite",
-            "line": 22,
+            "line": 24,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu lekarza.",
             "long_desc": "",
             "hint": [
@@ -47,7 +48,7 @@
         },
         "doctorsList": {
             "name": "doctorsList",
-            "line": 34,
+            "line": 36,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy lekarzy.",
             "long_desc": "",
             "hint": [
@@ -66,7 +67,7 @@
         },
         "doctorsDeadlines": {
             "name": "doctorsDeadlines",
-            "line": 44,
+            "line": 46,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wolnych termin\u00f3w lekarza.",
             "long_desc": "",
             "hint": [
@@ -84,7 +85,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 44,
+                    "line": 46,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -98,7 +99,7 @@
         },
         "patientsList": {
             "name": "patientsList",
-            "line": 60,
+            "line": 61,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy pacjent\u00f3w.",
             "long_desc": "",
             "hint": [
@@ -117,7 +118,7 @@
         },
         "doctorInfo": {
             "name": "doctorInfo",
-            "line": 76,
+            "line": 83,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych lekarza.",
             "long_desc": "",
             "hint": [
@@ -136,7 +137,7 @@
         },
         "patientData": {
             "name": "patientData",
-            "line": 94,
+            "line": 107,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych pacjenta.",
             "long_desc": "",
             "hint": [
@@ -154,7 +155,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 94,
+                    "line": 107,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -168,7 +169,7 @@
         },
         "visits": {
             "name": "visits",
-            "line": 118,
+            "line": 136,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wizyt u lekarza.",
             "long_desc": "",
             "hint": [
@@ -187,11 +188,16 @@
         },
         "addVisitDescription": {
             "name": "addVisitDescription",
-            "line": 136,
-            "short_desc": "",
+            "line": 165,
+            "short_desc": "Funkcja odpowiada za przes\u0142anie danych do dodania opisu wizyty.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "integer",
+                    false
+                ]
+            ],
+            "hint_desc": "$id Id wizyty",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -200,7 +206,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 136,
+                    "line": 165,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -212,7 +218,7 @@
                 },
                 "request": {
                     "name": "request",
-                    "line": 136,
+                    "line": 165,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -230,8 +236,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 136,
-                            "endLine": 136
+                            "startLine": 165,
+                            "endLine": 165
                         }
                     },
                     "default": null,

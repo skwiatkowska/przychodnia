@@ -1,14 +1,20 @@
 {
     "name": "App\\Http\\Middleware\\RedirectIfAuthenticated",
-    "line": 8,
+    "line": 11,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
-    "tags": [],
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
     "namespace": "App\\Http\\Middleware",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Middleware\\RedirectIfAuthenticated.php",
     "relative_file": null,
-    "hash": "8d279f73775f85658ae9bbc6d112d187b9d385ec",
+    "hash": "ee7e25546f518a99c36363cb9818822fbfef75c2",
     "parent": null,
     "modifiers": 0,
     "is_trait": false,
@@ -24,7 +30,7 @@
     "methods": {
         "handle": {
             "name": "handle",
-            "line": 18,
+            "line": 21,
             "short_desc": "Handle an incoming request.",
             "long_desc": "",
             "hint": [
@@ -42,7 +48,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 18,
+                    "line": 21,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -59,7 +65,7 @@
                 },
                 "next": {
                     "name": "next",
-                    "line": 18,
+                    "line": 21,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -75,8 +81,8 @@
                             "Closure"
                         ],
                         "attributes": {
-                            "startLine": 18,
-                            "endLine": 18
+                            "startLine": 21,
+                            "endLine": 21
                         }
                     },
                     "default": null,
@@ -85,7 +91,7 @@
                 },
                 "guard": {
                     "name": "guard",
-                    "line": 18,
+                    "line": 21,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [

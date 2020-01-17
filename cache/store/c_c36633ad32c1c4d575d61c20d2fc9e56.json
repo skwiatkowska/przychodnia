@@ -1,14 +1,20 @@
 {
     "name": "App\\Http\\Middleware\\TrimStrings",
-    "line": 7,
+    "line": 10,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
-    "tags": [],
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
     "namespace": "App\\Http\\Middleware",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Middleware\\TrimStrings.php",
     "relative_file": null,
-    "hash": "1479ab1071bf6b5f6ecdbd76c412a8e9657091ad",
+    "hash": "a3d1d5f99f64df5e17a8c26f00109d9a66d0ef00",
     "parent": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
     "modifiers": 0,
     "is_trait": false,
@@ -22,7 +28,7 @@
     "properties": {
         "except": {
             "name": "except",
-            "line": 14,
+            "line": 17,
             "short_desc": "The names of the attributes that should not be trimmed.",
             "long_desc": "",
             "hint": [
@@ -44,15 +50,15 @@
                             "nodeType": "Scalar_String",
                             "value": "password",
                             "attributes": {
-                                "startLine": 15,
-                                "endLine": 15,
+                                "startLine": 18,
+                                "endLine": 18,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 15,
-                            "endLine": 15
+                            "startLine": 18,
+                            "endLine": 18
                         }
                     },
                     {
@@ -62,21 +68,21 @@
                             "nodeType": "Scalar_String",
                             "value": "password_confirmation",
                             "attributes": {
-                                "startLine": 16,
-                                "endLine": 16,
+                                "startLine": 19,
+                                "endLine": 19,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 16,
-                            "endLine": 16
+                            "startLine": 19,
+                            "endLine": 19
                         }
                     }
                 ],
                 "attributes": {
-                    "startLine": 14,
-                    "endLine": 17,
+                    "startLine": 17,
+                    "endLine": 20,
                     "kind": 2
                 }
             },

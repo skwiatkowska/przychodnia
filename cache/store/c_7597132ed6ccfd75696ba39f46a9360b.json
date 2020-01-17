@@ -1,14 +1,20 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\RegisterController",
-    "line": 10,
+    "line": 13,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
-    "tags": [],
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\Auth\\RegisterController.php",
     "relative_file": null,
-    "hash": "ee9b25654038adc22707fb6012f4f14f87dc378d",
+    "hash": "075371195829db82d44884e80439a70438cfbcad",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -27,7 +33,7 @@
     "properties": {
         "redirectTo": {
             "name": "redirectTo",
-            "line": 30,
+            "line": 33,
             "short_desc": "Where to redirect users after registration.",
             "long_desc": "",
             "hint": [
@@ -43,8 +49,8 @@
                 "nodeType": "Scalar_String",
                 "value": "\/home",
                 "attributes": {
-                    "startLine": 30,
-                    "endLine": 30,
+                    "startLine": 33,
+                    "endLine": 33,
                     "kind": 1
                 }
             },
@@ -54,7 +60,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 37,
+            "line": 40,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [
@@ -73,7 +79,7 @@
         },
         "validator": {
             "name": "validator",
-            "line": 48,
+            "line": 51,
             "short_desc": "Get a validator for an incoming registration request.",
             "long_desc": "",
             "hint": [
@@ -91,7 +97,7 @@
             "parameters": {
                 "data": {
                     "name": "data",
-                    "line": 48,
+                    "line": 51,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -110,7 +116,7 @@
         },
         "create": {
             "name": "create",
-            "line": 63,
+            "line": 66,
             "short_desc": "Create a new user instance after a valid registration.",
             "long_desc": "",
             "hint": [
@@ -128,7 +134,7 @@
             "parameters": {
                 "data": {
                     "name": "data",
-                    "line": 63,
+                    "line": 66,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [

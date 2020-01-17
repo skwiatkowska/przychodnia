@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\PatientController.php",
     "relative_file": null,
-    "hash": "b0af0202de81dd0649117c832f3e1cad6cce5787",
+    "hash": "0e47c176e1049c2c5227e8fc2c2ce2bc5a927ce4",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -64,7 +64,7 @@
         },
         "patientInfo": {
             "name": "patientInfo",
-            "line": 43,
+            "line": 49,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych pacjenta.",
             "long_desc": "",
             "hint": [
@@ -83,7 +83,7 @@
         },
         "changeData": {
             "name": "changeData",
-            "line": 61,
+            "line": 72,
             "short_desc": "Funkcja odpowiada za przes\u0142anie danych do zmiany ustawie\u0144",
             "long_desc": "",
             "hint": [
@@ -101,7 +101,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 61,
+                    "line": 72,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -119,8 +119,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 61,
-                            "endLine": 61
+                            "startLine": 72,
+                            "endLine": 72
                         }
                     },
                     "default": null,
@@ -131,7 +131,7 @@
         },
         "changePassword": {
             "name": "changePassword",
-            "line": 90,
+            "line": 101,
             "short_desc": "Funkcja odpowiada za przes\u0142anie danych do zmiany has\u0142a",
             "long_desc": "",
             "hint": [
@@ -149,7 +149,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 90,
+                    "line": 101,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -167,8 +167,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 90,
-                            "endLine": 90
+                            "startLine": 101,
+                            "endLine": 101
                         }
                     },
                     "default": null,
@@ -179,8 +179,8 @@
         },
         "disableAccount": {
             "name": "disableAccount",
-            "line": 110,
-            "short_desc": "????Funkcja odpowiada za dezaktywacj\u0119 konta.",
+            "line": 121,
+            "short_desc": "Funkcja odpowiada za dezaktywacj\u0119 konta.",
             "long_desc": "",
             "hint": [
                 [

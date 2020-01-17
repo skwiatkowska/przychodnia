@@ -1,14 +1,20 @@
 {
     "name": "App\\Http\\Middleware\\EncryptCookies",
-    "line": 7,
+    "line": 10,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
-    "tags": [],
+    "tags": {
+        "codeCoverageIgnore": [
+            [
+                ""
+            ]
+        ]
+    },
     "namespace": "App\\Http\\Middleware",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Middleware\\EncryptCookies.php",
     "relative_file": null,
-    "hash": "570743640ff348cd3e679291d8ffb3c992cea7ac",
+    "hash": "a5dec150ece2f893f4eae08f3dcce2739daa7f0c",
     "parent": "Illuminate\\Cookie\\Middleware\\EncryptCookies",
     "modifiers": 0,
     "is_trait": false,
@@ -22,7 +28,7 @@
     "properties": {
         "except": {
             "name": "except",
-            "line": 14,
+            "line": 17,
             "short_desc": "The names of the cookies that should not be encrypted.",
             "long_desc": "",
             "hint": [
@@ -38,8 +44,8 @@
                 "nodeType": "Expr_Array",
                 "items": [],
                 "attributes": {
-                    "startLine": 14,
-                    "endLine": 16,
+                    "startLine": 17,
+                    "endLine": 19,
                     "kind": 2
                 }
             },
