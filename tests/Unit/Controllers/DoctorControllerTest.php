@@ -35,13 +35,6 @@ class DoctorControllerTest extends TestCase
         $response->assertViewIs('lekarz-panel.panel-lekarza');
     }
 	
-	/*
-	public function testMainSiteOtherUser()
-    {
-        $user = factory(User::class)->make(['user_type' => 'patient',]);
-		$response = $this->actingAs($user)->get('/panel_lekarza');		
-		$response->assertSuccessful();
-    }*/
 	
 
 	public function testDoctorsList()
@@ -88,6 +81,14 @@ class DoctorControllerTest extends TestCase
         $response->assertViewIs('lekarz-panel.lista-pacjentow');
     }
 	
+	public function testPatientsListOtherUser()
+    {
+        $user = factory(User::class)->create(['user_type' => 'patient',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/lista_pacjentow');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+    }
+	
 	
 
 	public function testDoctorInfoNotAuthenticatedUser()
@@ -110,11 +111,11 @@ class DoctorControllerTest extends TestCase
 	
 	public function testDoctorInfoOtherUser()
     {
-        $user = factory(User::class)->make(['user_type' => 'patient',]); 
+        $user = factory(User::class)->create(['user_type' => 'patient',]); 
 		$response = $this->actingAs($user)->get('/panel_lekarza/dane');
-		$response->assertStatus(500);		
-    }
-	
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
 	
 	
 	public function testPatientDataNotAuthenticatedUser()
@@ -146,6 +147,15 @@ class DoctorControllerTest extends TestCase
 		$response->assertStatus(404);
 	}
 	
+	public function testPatientDataOtherUser()
+    {
+        $user = factory(User::class)->create(['user_type' => 'patient',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/pacjent/7');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
 	
 	
 	public function testVisitsNotAuthenticatedUser()
@@ -166,15 +176,22 @@ class DoctorControllerTest extends TestCase
 	
 	public function testVisitsOtherUser()
     {
-        $user = factory(User::class)->make(['user_type' => 'patient',]); 
+        $user = factory(User::class)->create(['user_type' => 'patient',]); 
 		$response = $this->actingAs($user)->get('/panel_lekarza/wizyty');
-		$response->assertStatus(500);		
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');		
     }
+	
+	
 	
 	
 	public function testAddVisitDescriptionNotAuthenticatedUser()
     {
-		$id_pac = 7;
+		$data = array(
+        'description' => 'desc',
+        'recommendation' => 'rec');
+
+		$id_pac = 2;
 		$response = $this->get('/panel_lekarza/pacjent/'.$id_pac.'/dodaj_opis_wizyty');
 		$response->assertRedirect('/login');
 		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
@@ -183,12 +200,25 @@ class DoctorControllerTest extends TestCase
 	/*
 	public function testAddVisitDescriptionDoctor()
     {
-		$id_doc = 6;
-		$id_pac = 7;
-        $user = factory(User::class)->make(['id' => $id_doc ,'user_type' => 'doctor',]); 
-		$response = $this->actingAs($user)->get('/panel_lekarza/pacjent/'.$id_pac.'/dodaj_opis_wizyty');
+		$id_doc = 2;
+		$id_pac = 2;
+		$data = array(
+        'description' => 'desc',
+        'recommendation' => 'rec');
+		
+        $user = factory(User::class)->make(['id' => $id_doc,]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/pacjent/'.$id_pac.'/dodaj_opis_wizyty');//$data);
 		$response->assertSuccessful();
-        $response->assertRedirect('lekarz-panel.wizyty');
+        $response->assertRedirect('/panel_lekarza/pacjent/'.$id_pac);
 		$response->assertSessionHas('info','Dodano opis wizyty.');
     }*/
+	
+	public function testAddVisitDescriptionOtherUser()
+    {
+		$id_pac = 2;
+        $user = factory(User::class)->create(['user_type' => 'patient',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/pacjent/'.$id_pac.'/dodaj_opis_wizyty');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');		
+    }
 }

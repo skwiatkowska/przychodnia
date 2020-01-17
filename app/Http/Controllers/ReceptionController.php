@@ -68,8 +68,10 @@ class ReceptionController extends Controller {
         $user->deactivateUser($id_usr);
  
         if ($user = false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
         return redirect('/recepcja/pacjent/'.$id)->with('info','Konto zostało zdezaktywowane.');
     }
@@ -95,8 +97,10 @@ class ReceptionController extends Controller {
        $user->activateUser($id_usr);
 
         if ($user = false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
         return redirect('/recepcja/pacjent/'.$id)->with('info','Konto zostało aktywowane.');
     }
@@ -285,8 +289,10 @@ class ReceptionController extends Controller {
         $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($doctor_id);
 
         if ($doctorsDeadlines==false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
         return View('recepcja-panel/nowa-wizyta-terminy', ['doctorsDeadlines' => $doctorsDeadlines]);
     }
@@ -310,8 +316,10 @@ class ReceptionController extends Controller {
         $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($id);
 
         if ($doctorsDeadlines==false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
 
         return View('recepcja-panel/lekarz', ['doctorsDeadlines' => $doctorsDeadlines]);
@@ -358,8 +366,10 @@ class ReceptionController extends Controller {
         $arr1 = array('status' => $status);
         $patientData['pacjent'] = $patientData['pacjent'] + $arr1;
         if ($patientData==false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         } 
 
         return View('recepcja-panel/pacjent', ['patientData' => $patientData]);
@@ -404,8 +414,10 @@ class ReceptionController extends Controller {
         $patientData= Visit::findAllPatientData($id);
 
         if ($patientData==false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
         return view('recepcja-panel/pacjent-ustawienia', ['patientData' => $patientData]);
     }
@@ -429,8 +441,10 @@ class ReceptionController extends Controller {
         $doctorData= Visit::findAllDoctorData($id);
 
         if ($doctorData==false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
         return view('recepcja-panel/lekarz-ustawienia', ['doctorData' => $doctorData]);
     }
@@ -504,8 +518,10 @@ class ReceptionController extends Controller {
         $visits = Deadline::findDoctorAllDeadlines($id);
         
         if ($doctorData==false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
 
         return View('recepcja-panel/lekarz', ['doctorData' => $doctorData, 'visits' => $visits]);
@@ -629,8 +645,10 @@ class ReceptionController extends Controller {
         $user->deactivateUser($id_usr);
  
         if ($user = false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
         return redirect('/recepcja/lekarz/'.$id)->with('info','Konto zostało zdezaktywowane.');
     }
@@ -656,12 +674,19 @@ class ReceptionController extends Controller {
        $user->activateUser($id_usr);
 
         if ($user = false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
         return redirect('/recepcja/lekarz/'.$id)->with('info','Konto zostało aktywowane.');
     }
 
+	/**
+	*Funkcja odpowiada za dodanie terminarza.
+	*@return void W przypadku pomyślnego dodania przekierowuje na stronę wizyt
+	z odpowiednim komunikatem.
+	*/
     public function addDeadlines($id,Request $request)
     {
         if (!Auth::check()) {
@@ -682,6 +707,10 @@ class ReceptionController extends Controller {
         return redirect('recepcja/wizyty/'.$id)->with('errors', $errors);
     }
 
+	/**
+	*Funkcja odpowiada za usunięcie terminarza.
+	*@return void W przypadku pomyślnego usunięcia przekierowuje na stronę wizyt z odpowiednim komunikatem.
+	*/
     public function deleteDeadline($id,Request $request)
     {
         if (!Auth::check()) {
@@ -699,7 +728,12 @@ class ReceptionController extends Controller {
         $errors = $deadline->getErrors();
         return redirect('recepcja/wizyty/')->with('errors', $errors);
     }
-
+	
+	/**
+	*Funkcja odpowiada za zmianę terminarza.
+	*@return void W przypadku pomyślnego dodania przekierowuje na stronę wizyt
+	z odpowiednim komunikatem.
+	*/
     public function changeDeadline($id,Request $request)
     {
         if (!Auth::check()) {

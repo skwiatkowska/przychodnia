@@ -33,7 +33,7 @@ class PatientControllerTest extends TestCase
     {
         $user = factory(User::class)->make(['user_type' => 'doctor',]);
 		$response = $this->actingAs($user)->get('/panel');		
-		$response->assertSuccessful();				//!!!!!!!!!!!!!!
+		$response->assertSuccessful();			
     }
 	
 	
@@ -48,7 +48,7 @@ class PatientControllerTest extends TestCase
 		
 	public function testSettingsPatient()
     {
-        $user = factory(User::class)->make(['user_type' => 'patient',]); 
+        $user = factory(User::class)->create(['user_type' => 'patient',]); 
 		$response = $this->actingAs($user)->get('/panel/ustawienia');
 		$response->assertSuccessful();
         $response->assertViewIs('pacjent-panel.panel-ustawienia');
@@ -57,9 +57,10 @@ class PatientControllerTest extends TestCase
 	
 	public function testSettingsOtherUser()
     {
-        $user = factory(User::class)->make(['user_type' => 'doctor',]); 
+        $user = factory(User::class)->create(['user_type' => 'doctor',]); 
 		$response = $this->actingAs($user)->get('/panel/ustawienia');
-		$response->assertSuccessful();			//!!!!!!!!!!!!!!
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');			
 		
     }
 	
@@ -82,9 +83,10 @@ class PatientControllerTest extends TestCase
 	
 	public function testPatientInfoOtherUser()
     {
-        $user = factory(User::class)->make(['user_type' => 'doctor',]); 
+        $user = factory(User::class)->create(['user_type' => 'doctor',]); 
 		$response = $this->actingAs($user)->get('/panel/dane');
-		$response->assertStatus(500);			
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');				
     }
 	
 	
@@ -165,5 +167,14 @@ class PatientControllerTest extends TestCase
 		$response->assertSessionHas('info','Wybrane konto zostało zdezaktywowane');
 		$user = User::where('id',12)->first();
 		$user -> activateUser(12);
+	}
+	
+	public function testDisableAccountOtherUser()
+    {
+		$data = array('haslo' => 'test');
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this -> actingAs($user) -> post('/panel/ustawienia/dezaktywuj',$data);
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');	
 	}
 }

@@ -173,6 +173,7 @@ class DoctorController extends Controller
             return redirect('/')->with('info', 'Strona niedostępna!');
         }
         
+		//@codeCoverageIgnoreStart
         $description = $request->input('opis');
         $recommendation = $request->input('zalecenia');
         $patientId = $request->input('id_pacjenta');
@@ -182,5 +183,6 @@ class DoctorController extends Controller
         $check = $visit->addDescription($visitId,$description,$recommendation);
         
         return redirect('/panel_lekarza/pacjent/'.$patientId)->with('info', 'Dodano opis wizyty.');
+		//@codeCoverageIgnoreEnd
     }
 }

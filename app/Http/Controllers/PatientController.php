@@ -133,8 +133,10 @@ class PatientController extends Controller {
         $user = User::where('id',$patientId)->first();
         $user->deactivateUser($patientId);
         if ($user = false) {
+			//@codeCoverageIgnoreStart
             abort(404);
             return;
+			//@codeCoverageIgnoreEnd
         }
         return redirect('/logout')->with('info','Wybrane konto zostało zdezaktywowane');
     }

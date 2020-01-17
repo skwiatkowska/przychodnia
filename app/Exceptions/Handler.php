@@ -9,7 +9,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
-
+/**
+*@codeCoverageIgnore
+*/
 class Handler extends ExceptionHandler
 {
     /**

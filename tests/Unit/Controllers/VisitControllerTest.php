@@ -1,7 +1,5 @@
 <?php
 
-// NIE OK
-
 namespace Tests\Unit\Controllers;
 
 use Tests\TestCase;
@@ -10,52 +8,40 @@ use App\Visit;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * 
+ * @group viscont
+ */
 class VisitsControllerTest extends TestCase
 {
-	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok wizyt?
-	public function testNotAuthenticatedUserVisitsSiteView()
+
+	public function testVisitsViewNotAuthenticatedUser()
     {
 		$response = $this->get('/panel/wizyty');
 		$response->assertRedirect('/login');
 	}
-	
-	
-	//Czy zalogowanemu uzytkownikowi wyswietla sie widok wizyt?
-	public function testVisitsSiteView()
+
+
+	public function testVisitsView()
     {
-        $user = factory(User::class)->make(); 
+        $user = factory(User::class)->make(['id' => 4,'user_type'=>'patient',]); 
 		$response = $this->actingAs($user)->get('/panel/wizyty');
 		$response->assertSuccessful();
-        $response->assertViewIs('pacjent-panel.panel-wizyty');
-    }
-	
-	//Czy zalogowanemu uzytkownikowi wyswietlaja sie wszystkie wizyty?
-	public function testAllVisitsView()
-    {
-        $user = factory(User::class)->make(); 
-		$userId = $user->id;
-		//$visit = new Visit();	//metoda statyczna
-		//$allVisits = $visit -> getWizyty($userId);
-		$response = $this->actingAs($user)->get('/panel/wizyty');
-		$response->assertSuccessful();
-        $response->assertViewIs('pacjent-panel.panel-wizyty');
-		//$response->assertViewHas(['wizyty' => $allVisits]);
-    }
-	/*
-	public function testNotAuthenticatedUserAddVisit()
-	{
 		$visit = new Visit();
-		$this->assertFalse($visit -> addVisit(4, 1, '2019-12-27', '8:00'));		
-	}*/
-	/**
-     *@group visit
-     */
-	 /*
-	public function testAuthenticatedUserAddVisit()
+        $response->assertViewIs('pacjent-panel.panel-wizyty');
+		$response->assertViewHas(['wizytyPrzeszle' => $visit->getPastVisits(4)]);
+		$response->assertViewHas(['wizytyDzis' =>  $visit->getTodaysVisits(4)]);
+		$response->assertViewHas(['wizytyNadchodzace' => $visit->getFutureVisits(4)]);
+    }
+	
+	
+	public function testDeleteVisit()
 	{
-		$user = factory(User::class)->make(['user_type' => 'patient',]);
-		$response = $this->actingAs($user)->post('/terminy/1',[1,'2019-12-27', '8:00']);
-		$response->assertRedirect('/panel/wizyty');		
-	}*/
+		$user = factory(User::class)->make(['id'=> 4,'user_type'=>'patient',]); 
+		$response = $this->actingAs($user)->post('/panel/wizyty/usun_wizyte',['id_wizyty'=> 1,]);
+		$response->assertRedirect('/panel/wizyty');
+		$response->assertSessionHas('info','Wizyta została odwołana');
+	}
+
 	
 }

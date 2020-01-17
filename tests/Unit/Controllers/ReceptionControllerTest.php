@@ -13,21 +13,20 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
  * 
- * @group rec_cont
+ * @group reccont
  */
 class ReceptionControllerTest extends TestCase
 {
 	use WithFaker;
-	 
-    //Czy niezalogowanemu uzytkownikowi wyswietla sie widok recepcji?	
-	public function testNotAuthenticatedReceptionSiteView()
+	
+	public function testMainSiteNotAuthenticated()
     {
 		$response = $this->get('/recepcja');
 		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
 	}
 	
-	//Czy zalogowanemu uzytkownikowi "recepcja" wyswietla sie widok recepcji?
-	public function testReceptionSiteView()
+	public function testMainSiteReception()
     {
         $user = factory(User::class)->make(['user_type' => 'reception',]); 
 		$response = $this->actingAs($user)->get('/recepcja');
@@ -35,47 +34,111 @@ class ReceptionControllerTest extends TestCase
         $response->assertViewIs('recepcja-panel.recepcja');
     }	
 	
-	//Czy zalogowanemu uzytkownikowi innemu niż "Recepcja" wyswietla sie widok recepcji?
-	public function testOtherUserReceptionSiteView()
+	public function testMainSiteOtherUser()
     {
 		$user = factory(User::class)->make(['user_type' => 'patient',]); 
 		$response = $this->get('/recepcja');
 		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
 	}	
 	
 	
 	
-	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok dodawania pacjenta?	
-	public function testNotAuthenticatedAddPatientSiteView()
+	public function testPatientRegisterFormViewNotAuthenticated()
     {
 		$response = $this->get('/recepcja/dodaj_pacjenta');
 		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
 	}
 	
-	//Czy zalogowanemu uzytkownikowi "recepcja" wyswietla sie widok dodawania pacjenta?
-	public function testAddPatientSiteView()
+	public function testPatientRegisterFormViewReception()
     {
-        $user = factory(User::class)->make(['user_type' => 'reception',]); 
+        $user = factory(User::class)->create(['user_type' => 'reception',]); 
 		$response = $this->actingAs($user)->get('/recepcja/dodaj_pacjenta');
 		$response->assertSuccessful();
         $response->assertViewIs('.recepcja-panel.dodaj-pacjenta');
     }	
 	
-	//Czy zalogowanemu uzytkownikowi innemu niż "Recepcja" wyswietla sie widok dodawania pacjenta?
-	public function testOtherUserAddPatientSiteView()
+	public function testPatientRegisterFormViewOtherUser()
     {
-		$response = $this->get('/recepcja/dodaj_pacjenta');
-		$response->assertRedirect('/login');
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/dodaj_pacjenta');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
 	}	
 	
 	
 	
-	/*
-	// Czy uzytkownik "recepcja" moze zarejestrowac pacjenta z poprawnymi danymi?
-	public function testPatientRegister()
+	
+	public function testDisablePatientAccountNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->post('/recepcja/pacjent/'.$id.'/ustawienia/dezaktywuj');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDisablePatientAccountReception()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->post('/recepcja/pacjent/'.$id.'/ustawienia/dezaktywuj');
+		$response->assertRedirect('/recepcja/pacjent/'.$id);
+		$response->assertSessionHas('info','Konto zostało zdezaktywowane.');
+	}
+	
+	public function testDisablePatientAccountOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]);  
+		$response = $this->actingAs($user)->post('/recepcja/pacjent/'.$id.'/ustawienia/dezaktywuj');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	
+	public function testEnablePatientAccountNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->post('/recepcja/pacjent/'.$id.'/ustawienia/aktywuj');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testEnablePatientAccountReception()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->post('/recepcja/pacjent/'.$id.'/ustawienia/aktywuj');
+		$response->assertRedirect('/recepcja/pacjent/'.$id);
+		$response->assertSessionHas('info','Konto zostało aktywowane.');
+	}
+
+	public function testEnablePatientAccountOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]);  
+		$response = $this->actingAs($user)->post('/recepcja/pacjent/'.$id.'/ustawienia/aktywuj');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+
+	public function testPatientRegisterNotAuthenticated()
+    {
+		$response = $this->post('/recepcja/dodaj_pacjenta');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testPatientRegisterReception()
     {
 		
-		$patient = [
+		$patient = array(
 			'imie' => $imie = $this->faker->name,
 			'nazwisko' => $this->faker->lastname,		
 			'email' => $email = $this->faker->unique()->safeEmail,		
@@ -84,58 +147,58 @@ class ReceptionControllerTest extends TestCase
             'haslo' => $this->faker->password(8),
 			'phone' => $this->faker->numberBetween(100000000,999999999),
 			'data_urodzenia' => $this->faker->date	
-		];	
+		);	
 		
-		$response = $this->post('/recepcja/dodaj_pacjenta', $patient);
+		$user = factory(User::class)->make(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->post('/recepcja/dodaj_pacjenta', $patient);
 	
-		$this->assertDatabaseHas('patients', [
-			'imie' => $imie,//$patient->imie,
-			'email' => $email//$patient->email
-		]);
-		$this->assertDatabaseHas('users', [
-			'name' => $imie,//$patient->imie,
-			'email' => $email//$patient->email
-		]);
         $response->assertRedirect('recepcja/lista_pacjentow');
+		$response->assertSessionHas('info','Konto zostało zarejestrowane');
+		$this->assertDatabaseHas('users', [
+			'name' => $imie,
+			'email' => $email
+		]);
 	}
-	*/
 	
 	
 	
 	
-	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok dodawania lekarza?	
-	public function testNotAuthenticatedAddDoctorSiteView()
+	public function testDoctorRegisterFormViewNotAuthenticated()
     {
 		$response = $this->get('/recepcja/dodaj_lekarza');
 		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
 	}
 	
-	//Czy zalogowanemu uzytkownikowi "recepcja" wyswietla sie widok dodawania lekarza?
-	public function testAddDoctorSiteView()
+	public function testdoctorRegisterFormViewReception()
     {
-        $user = factory(User::class)->make(['user_type' => 'reception',]); 
+        $user = factory(User::class)->create(['user_type' => 'reception',]); 
 		$response = $this->actingAs($user)->get('/recepcja/dodaj_lekarza');
 		$response->assertSuccessful();
         $response->assertViewIs('recepcja-panel.dodaj-lekarza');
     }	
 	
-	//Czy zalogowanemu uzytkownikowi innemu niż "Recepcja" wyswietla sie widok dodawania lekarza?
-	public function testOtherUserAddDoctorSiteView()
+	public function testdoctorRegisterFormViewOtherUser()
     {
-		$response = $this->get('/recepcja/dodaj_lekarza');
-		$response->assertRedirect('/login');
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/dodaj_lekarza');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
 	}
 	
-	/**
-	*@covers \ReceptionController::DoctorRegister
-	*@covers \Doctor::AddNewUser
-	*/
-	// Czy uzytkownik "recepcja" moze zarejestrowac lekarza z poprawnymi danymi?
-	/*
-	public function testDoctorRegister()
+	
+	
+	public function testDoctorRegisterNotAuthenticated()
+    {
+		$response = $this->post('/recepcja/dodaj_lekarza');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDoctorRegisterReception()
     {
 		
-		$doctor = [
+		$doctor = array(
 			'imie' => $imie =$this->faker->name,
 			'nazwisko' => $this->faker->lastname,
 			'email' => $email = $this->faker->unique()->safeEmail,
@@ -143,37 +206,179 @@ class ReceptionControllerTest extends TestCase
 			'specjalizacja' => $this->faker->word,
 			'gabinet' => $this->faker->randomDigit ,
 			'haslo' => $this->faker->password(8),
-			'phone' => $this->faker->numberBetween(100000000,999999999),
-		];	
+			'phone' => $this->faker->numberBetween(100000000,999999999)	
+		);	
 		
-		$response = $this->post('/recepcja/dodaj_lekarza', $doctor);
+		$user = factory(User::class)->make(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->post('/recepcja/dodaj_lekarza', $doctor);
 	
-		$this->assertDatabaseHas('doctors', [
-			'imie' => $imie,//$patient->imie,
-			'email' => $email//$patient->email
-		]);
-		$this->assertDatabaseHas('users', [
-			'name' => $imie,//$patient->imie,
-			'email' => $email//$patient->email
-		]);
         $response->assertRedirect('recepcja/lista_lekarzy');
+		$response->assertSessionHas('info','Konto zostało zarejestrowane');
+		$this->assertDatabaseHas('users', [
+			'name' => $imie,
+			'email' => $email
+		]);
+	}
+
+
+
+	public function testDoctorListNotAuthenticated()
+    {
+		$response = $this->get('/recepcja/lista_lekarzy');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
 	}
 	
-	*/
-	
-	
-	//Czy wyswietla sie lista lekarzy i czy zawiera wszystkich lekarzy?
-	public function testDoctorsListView()
+	public function testDoctorsListReception()
     {
-		$doctors = Doctor::all();
-		$user = factory(User::class)->make(['user_type' => 'reception',]); 
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
 		$response = $this->actingAs($user)->get('/recepcja/lista_lekarzy');
         $response->assertSuccessful();
         $response->assertViewIs('recepcja-panel.lista-lekarzy');
-		//$response->assertViewHas(['doctors' => $doctors]);
+		$response->assertViewHas(['doctors' => Doctor::orderBy('nazwisko','asc')->get()]);
+    }	
+	public function testDoctorsListOtherUser()
+    {
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/lista_lekarzy');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	
+	public function testDoctorListForVisitsNotAuthenticated()
+    {
+		$response = $this->get('/recepcja/wizyty');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDoctorListForVisitsReception()
+    {
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/wizyty');
+        $response->assertSuccessful();
+        $response->assertViewIs('recepcja-panel.wizyty-start');
+		$response->assertViewHas(['doctors' => Doctor::orderBy('nazwisko','asc')->get()]);
     }	
 	
-	//Czy wyswietla sie terminarz lekarza i czy zawiera wszystkie terminy?
+	public function testDoctorListForVisitsOtherUser()
+    {
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/wizyty');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	
+	public function testDoctorListAndVisitsNotAuthenticated()
+    {
+		$id = 1;
+		$response = $this->get('/recepcja/wizyty/'.$id);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDoctorListAndVisitsReception()
+    {
+		$id = 1;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/wizyty/'.$id);
+        $response->assertSuccessful();
+        $response->assertViewIs('recepcja-panel.wizyty');
+		$response->assertViewHas(['doctors' => Doctor::orderBy('nazwisko','asc')->get()]);
+		$response->assertViewHas(['doctorData' => Visit::findAllDoctorData($id)]);
+		$response->assertViewHas(['doctorVisits' => Deadline::findDoctorAllDeadlines($id)]);
+    }	
+	
+	public function testDoctorListAndVisitsOtherUser()
+    {
+		$id = 1;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/wizyty/'.$id);
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	
+	public function testDoctorListForAPatientNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->get('/recepcja/pacjent/'.$id.'/nowa_wizyta');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDoctorListForAPatientReception()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$id.'/nowa_wizyta');
+        $response->assertSuccessful();
+        $response->assertViewIs('recepcja-panel.nowa-wizyta');
+		$response->assertViewHas(['doctors' => Doctor::orderBy('nazwisko','asc')->get()]);
+    }
+	
+	public function testDoctorListForAPatientOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$id.'/nowa_wizyta');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	
+	public function testDoctorDeadlinesForAPatientNotAuthenticated()
+    {
+		$id_pac = 2;
+		$id_doc = 2;
+		$response = $this->get('/recepcja/pacjent/'.$id_pac.'/terminy/'.$id_doc);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDoctorDeadlinesForAPatientReception()
+    {
+		$id_pac = 2;
+		$id_doc = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$id_pac.'/terminy/'.$id_doc);
+        $response->assertSuccessful();
+        $response->assertViewIs('recepcja-panel.nowa-wizyta-terminy');
+		$response->assertViewHas(['doctorsDeadlines' => Deadline::findDoctorFreeDeadlines($id_doc)]);
+    }
+	
+	public function testDoctorDeadlinesForAPatientOtherUser()
+    {
+		$id_pac = 2;
+		$id_doc = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$id_pac.'/terminy/'.$id_doc);
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	/*
+	public function testDoctorsDeadlinesNotAuthenticated()
+    {
+		$id_pac = 2;
+		$id_doc = 2;
+		$response = $this->get('/recepcja/pacjent/'.$id_pac.'/terminy/'.$id_doc);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
 	public function testCorrectDoctorIdDeadlines()
 	{
 		$i = $this->faker->randomDigit;	
@@ -198,120 +403,375 @@ class ReceptionControllerTest extends TestCase
 		$user = factory(User::class)->make(['user_type' => 'reception',]); 
 		$response = $this->actingAs($user)->get('/recepcja/lekarz/'.$i);
         $response->assertStatus(500);
-    }
+    }*/
 
 
 	
-	//(Nowa wizyta)Czy wyswietla sie lista lekarzy i czy zawiera wszystkich lekarzy?
-	//Dobre id pacjenta
-	public function testCorrectPatientIdDoctorsForAPatientListView()
+	
+	public function testPatientListNotAuthenticated()
     {
-		$i = $this->faker->randomDigit;	
-		while (Visit::findAllPatientData($i)==false)
-			$i = $this->faker->randomDigit;
-		
-		$doctors = Doctor::all();
-		$user = factory(User::class)->make(['user_type' => 'reception',]); 
-		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$i.'/nowa_wizyta');
-        $response->assertSuccessful();
-        $response->assertViewIs('recepcja-panel.nowa-wizyta');
-		//$response->assertViewHas(['doctors' => $doctors]); !!!
-    }	
+		$response = $this->get('/recepcja/lista_pacjentow');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
 	
-	//(Nowa wizyta)Czy wyswietla sie lista lekarzy i czy zawiera wszystkich lekarzy?
-	//Zle id pacjenta
-	public function testWrongPatientIdDoctorsForAPatientListView()
-    {
-		$i = $this->faker->randomDigit;	
-		while (Visit::findAllPatientData($i)==true)
-			$i = $this->faker->randomDigit;
-		
-		$user = factory(User::class)->make(['user_type' => 'reception',]); 
-		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$i.'/nowa_wizyta');
-		//$response->assertStatus(404);
-		$response->assertSuccessful();			//!!!!!!!!!!!!!!
-    }
-	
-	/*
-	//(Nowa wizyta)Czy wyswietla sie terminarz lekarza i czy zawiera wszystkie terminy?
-	public function testCorrectDoctorIdDeadlinesForAPatient()
-	{
-		$ip = $this->faker->randomDigit;	
-		while (Visit::findAllPatientData($ip)==false)
-			$ip = $this->faker->randomDigit;
-		
-		$i = $this->faker->randomDigit;	
-		while (Deadline::findDoctorFreeDeadlines($i)==false)
-			$i = $this->faker->randomDigit;
-		
-		$doctorsDeadlines = Deadline::findDoctorFreeDeadlines($i);
-		$user = factory(User::class)->make(['user_type' => 'reception',]); 
-		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$ip.'/terminy/'.$i);
-        $response->assertSuccessful();
-        //$response->assertViewIs('recepcja-panel.nowa-wizyta-terminy');
-		//$response->assertViewHas(['doctorsDeadlines' => $doctorsDeadlines]);
-		//$response->assertStatus(404);		//!!!!!!!!!!!!!!
-    }
-		
-	//(Nowa wizyta)Czy wyswietli sie terminarz gdy podamy zle id lekarza?
-	public function testWrongDoctorIdDeadlinesForAPatient()
-	{
-		$ip = $this->faker->randomDigit;	
-		while (Visit::findAllPatientData($ip)==false)
-			$ip = $this->faker->randomDigit;
-		
-		$i = $this->faker->randomDigit;	
-		while (Deadline::findDoctorFreeDeadlines($i)==true)
-			$i = $this->faker->randomDigit;
-		
-		$user = factory(User::class)->make(['user_type' => 'reception',]); 
-		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$ip.'/terminy/'.$i);
-        //$response->assertStatus(404);
-		$response->assertSuccessful();			//!!!!!!!!!!!!!!
-    }
-	
-	*/
-	
-	 //Czy wyswietla sie lista pacjentow i czy zawiera wszystkich pacjentow?
-	public function testPatientsListView()
+	public function testPatientsListReception()
     {
 		$patients = Patient::all();
-		$user = factory(User::class)->make(['user_type' => 'reception',]); 
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
 		$response = $this->actingAs($user)->get('/recepcja/lista_pacjentow');
         $response->assertSuccessful();
         $response->assertViewIs('recepcja-panel.lista-pacjentow');
-		//$response->assertViewHas(['patients' => $patients]);!!!
+		$response->assertViewHas(['patients' => Patient::orderBy('nazwisko','asc')->get()]);
     }
 	
-	//Czy wyswietlaja sie dane pacjenta i czy zawiera wszystkie pola?
-	public function testCorrectPatientIdData()
+	public function testPatientListOtherUser()
+    {
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/lista_pacjentow');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	public function testPatientDataNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->get('/recepcja/pacjent/'.$id);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testPatientDataReceptionCorrectId()
 	{
-		$i = $this->faker->randomDigit;	
-		while (Visit::findAllPatientData($i)==false)
-			$i = $this->faker->randomDigit;
-		
-		$patientData= Visit::findAllPatientData($i);
-		$user = factory(User::class)->make(['user_type' => 'reception',]); 
-		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$i);
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$id);
         $response->assertSuccessful();
         $response->assertViewIs('recepcja-panel.pacjent');
-		//$response->assertViewHas(['patientData' => $patientData]);!!!
     }
 		
-	//Czy wyswietla sie dane pacjenta gdy podamy zle id ?
-	public function testWrongPatientIdData()
+	public function testPatientDataReceptionWrongId()
 	{
-		$i = 1;		
-		while (Visit::findAllPatientData($i)==true)
-			$i = $this->faker->randomDigit;
-		$user = factory(User::class)->make(['user_type' => 'reception',]); 
+		$i = 0;		
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
 		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$i);
         $response->assertStatus(500);
     }
 	
+	public function testPatientDataOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$id);
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
 	
+	
+	
+	
+	public function testPatientSettingsNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->get('/recepcja/pacjent/'.$id.'/ustawienia');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testPatientSettingsCorrectId()
+	{
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$id.'/ustawienia');
+        $response->assertSuccessful();
+        $response->assertViewIs('recepcja-panel.pacjent-ustawienia');
+		$response->assertViewHas(['patientData' => Visit::findAllPatientData($id)]);
+    }
+		
+	public function testPatientSettingsWrongId()
+	{
+		$i = 0;		
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$i.'/ustawienia');
+        $response->assertStatus(404);
+    }
+	
+	public function testPatientSettingsOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/pacjent/'.$id.'/ustawienia');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	
+	public function testDoctorSettingsNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->get('/recepcja/lekarz/'.$id.'/ustawienia');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDoctorSettingsCorrectId()
+	{
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/lekarz/'.$id.'/ustawienia');
+        $response->assertSuccessful();
+        $response->assertViewIs('recepcja-panel.lekarz-ustawienia');
+		$response->assertViewHas(['doctorData' => Visit::findAllDoctorData($id)]);
+    }
+		
+	public function testDoctorSettingsWrongId()
+	{
+		$i = 0;		
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/lekarz/'.$i.'/ustawienia');
+        $response->assertStatus(404);
+    }
+	
+	public function testDoctorSettingsOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/lekarz/'.$id.'/ustawienia');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	
+	public function testDoctorDataNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->get('/recepcja/lekarz/'.$id);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDoctorDataReceptionCorrectId()
+	{
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/lekarz/'.$id);
+        $response->assertSuccessful();
+        $response->assertViewIs('recepcja-panel.lekarz');
+    }
+		
+	public function testDoctorDataReceptionWrongId()
+	{
+		$i = 0;		
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/recepcja/lekarz/'.$i);
+        $response->assertStatus(500);
+    }
+	
+	public function testDoctorDataOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/recepcja/lekarz/'.$id);
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	public function testChangePatientDataNotAuthenticated()
+    {
+		$data = array(
+        'imie' => null,
+        'nazwisko' => null,
+        'email' => null,
+		'pesel' => null,
+		'adres' => null,
+		'phone' => null,
+		'data_urodzenia' => null);
+		
+		$id = 3;
+		$response = $this -> post('/recepcja/pacjent/'.$id.'/ustawienia/zmien_dane', $data);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testChangePatientDataReception()
+    {
+		$data = array(
+        'imie' => 'Zola',
+        'nazwisko' => null,
+        'email' => null,
+		'pesel' => null,
+		'adres' => null,
+		'phone' => null,
+		'data_urodzenia' => null);
+		
+		$id_pac = 3;
+		$user = factory(User::class)->make(['id' => 6,]);
+		$response = $this -> actingAs($user) -> post('/recepcja/pacjent/'.$id_pac.'/ustawienia/zmien_dane', $data);
+		$response->assertRedirect('/recepcja/pacjent/'.$id_pac);
+		$response->assertSessionHas('info','Dane zostały zmienione');
+	}
+	
+	
+	
+	public function testChangePatientPasswordNotAuthenticated()
+    {
+		$data = array(
+        'haslo' => null,
+        'haslo1' => null);
+		$id_pac = 3;
+		$response = $this -> post('/recepcja/pacjent/'.$id_pac.'/ustawienia/zmien_haslo', $data);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+
+	public function testChangePatientPasswordPatient()
+    {
+		$data = array(
+        'haslo1' => null,
+        'haslo2' => null);
+		$id_pac = 3;
+		$user = factory(User::class)->make(['id' => 6,]);
+		$response = $this -> actingAs($user) -> post('/recepcja/pacjent/'.$id_pac.'/ustawienia/zmien_haslo', $data);
+		$response->assertRedirect('/recepcja/pacjent/'.$id_pac);
+		$response->assertSessionHas('info','Hasło zostało zmienione');
+	}
+	
+	
+	
+	
+	public function testChangeDoctorDataNotAuthenticated()
+    {
+		$data = array(
+        'imie' => null,
+        'nazwisko' => null,
+        'tytul' => null,
+		'email' => null,
+		'specjalizacja' => null,
+		'phone' => null,
+		'gabinet' => null);
+		
+		$id = 3;
+		$response = $this -> post('/recepcja/lekarz/'.$id.'/ustawienia/zmien_dane', $data);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testChangeDoctorDataReception()
+    {
+		$data = array(
+        'imie' => 'Zola',
+        'nazwisko' => null,
+        'tytul' => null,
+		'email' => null,
+		'specjalizacja' => null,
+		'phone' => null,
+		'gabinet' => null);
+		
+		$id_doc = 3;
+		$user = factory(User::class)->make(['id' => 6,]);
+		$response = $this -> actingAs($user) -> post('/recepcja/lekarz/'.$id_doc.'/ustawienia/zmien_dane', $data);
+		$response->assertRedirect('/recepcja/lekarz/'.$id_doc);
+		$response->assertSessionHas('info','Dane zostały zmienione');
+	}
+	
+	
+	
+	public function testChangeDoctorPasswordNotAuthenticated()
+    {
+		$data = array(
+        'haslo' => null,
+        'haslo1' => null);
+		$id_doc = 3;
+		$response = $this -> post('/recepcja/lekarz/'.$id_doc.'/ustawienia/zmien_haslo', $data);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+
+	public function testChangeDoctorPasswordPatient()
+    {
+		$data = array(
+        'haslo1' => null,
+        'haslo2' => null);
+		$id_doc = 3;
+		$user = factory(User::class)->make(['id' => 6,]);
+		$response = $this -> actingAs($user) -> post('/recepcja/lekarz/'.$id_doc.'/ustawienia/zmien_haslo', $data);
+		$response->assertRedirect('/recepcja/lekarz/'.$id_doc);
+		$response->assertSessionHas('info','Hasło zostało zmienione');
+	}
+	
+	
+	
+	
+	public function testDisableDoctorAccountNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->post('/recepcja/lekarz/'.$id.'/ustawienia/dezaktywuj');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDisableDoctorAccountReception()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->post('/recepcja/lekarz/'.$id.'/ustawienia/dezaktywuj');
+		$response->assertRedirect('/recepcja/lekarz/'.$id);
+		$response->assertSessionHas('info','Konto zostało zdezaktywowane.');
+	}
+	
+	public function testDisableDoctorAccountOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]);  
+		$response = $this->actingAs($user)->post('/recepcja/lekarz/'.$id.'/ustawienia/dezaktywuj');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
+	
+	
+	
+	
+	public function testEnableDoctorAccountNotAuthenticated()
+    {
+		$id = 2;
+		$response = $this->post('/recepcja/lekarz/'.$id.'/ustawienia/aktywuj');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testEnableDoctorAccountReception()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->post('/recepcja/lekarz/'.$id.'/ustawienia/aktywuj');
+		$response->assertRedirect('/recepcja/lekarz/'.$id);
+		$response->assertSessionHas('info','Konto zostało aktywowane.');
+	}
+	
+	public function testEnableDoctorAccountOtherUser()
+    {
+		$id = 2;
+		$user = factory(User::class)->create(['user_type' => 'doctor',]);  
+		$response = $this->actingAs($user)->post('/recepcja/lekarz/'.$id.'/ustawienia/aktywuj');
+		$response->assertRedirect('/');
+		$response->assertSessionHas('info','Strona niedostępna!');
+	}
 	/*
-	//Czy zalogowanemu uzytkownikowi 'recepcja' wyswietlaja sie wszystkie wizyty?
+	public function testAllVisitsNotAuthenticated()
+    {
+		$response = $this->get('/recepcja/pacjent/'.$id);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
 	public function testAllVisitsView()
     {
         $user = factory(User::class)->make(['user_type' => 'reception',]); 
@@ -325,5 +785,8 @@ class ReceptionControllerTest extends TestCase
 		$response->assertViewHas(['visits' => $allVisits]);
     }
 	*/
+	
+	
+
 	
 }

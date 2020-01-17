@@ -135,8 +135,7 @@ class Deadline extends Model
         $hourVisitFrom = [];
         $hourVisitTo = [];
         $doctorCalendar = [];
-        $doctorCalendarPast = [];
-
+		
         foreach ($doctorDeadlines as $visitHours) {
 
             $hourStart = $visitHours['godzina_od'];
@@ -153,17 +152,12 @@ class Deadline extends Model
 
             $start = $hourVisitFrom[0];
             $end = $hourVisitTo[0];
-            if ($date>$today){
-                $doctorCalendarPast[$date]=[];
-            }else{
-                $doctorCalendar[$date] = [];
-            
-            
+            $doctorCalendar[$date] = [];
 
             while (strtotime($start) < strtotime($end)) {
                 $doctorCalendar[$date][] = $start;
                 $start = date('H:i', strtotime($start . '+' . self::visitTime . ' minutes'));
-            }}
+            }
         }
 
         $visitDays = array_keys($doctorCalendar);
@@ -269,6 +263,9 @@ class Deadline extends Model
         return true;
     }
 
+	/**
+	*Funkcja zwraca błędy.
+	*/
     public function getErrors()
     {
         return $this->errors;
@@ -277,7 +274,6 @@ class Deadline extends Model
 	/**
 	*Funkcja usuwa termin z bazy.
 	*@param integer $doctor_id Id danego lekarza
-	*@param string $hour Godzina przyjmowania pacjentów
 	*@param date $date Data 
 	*@return boolean TRUE jeśli udało się usunąć termin z bazy. 
 	FALSE jeśli niepoprawnie wypełniono pola.	
@@ -300,6 +296,16 @@ class Deadline extends Model
 
         return true;
     }
+	
+	/**
+	*Funkcja zmienia termin w bazie.
+	*@param integer $doctor_id Id danego lekarza
+	*@param string $hour_from Godzina rozpoczęcia przyjmowania pacjentów
+	*@param string $hour_to Godzina zakończenia przyjmowania pacjentów
+	*@param date $date Data 
+	*@return boolean TRUE jeśli udało się zmienić termin w bazie. 
+	FALSE jeśli niepoprawnie wypełniono pola.	
+	*/
     public function changeDeadline($doctor_id,$hour_from,$hour_to,$date)
     {
         $data = [

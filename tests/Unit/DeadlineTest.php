@@ -74,4 +74,57 @@ class DeadlineTest extends TestCase
 		$deadline = new Deadline();
         $this->assertFalse($deadline -> addDeadline($i,null,null,null));
     }
+	
+	
+	
+	public function testRemoveDeadlineCorrectIDEmptyField()
+    {
+		$i = 1;	
+		$deadline = new Deadline();
+        $this->assertFalse($deadline -> removeDeadline($i,null));
+		$this->assertContains($deadline -> getErrors()[0],'Wszystkie pola sa obowiazkowe');
+    }
+	
+	public function testRemoveDeadlineCorrectIDNotEmptyField()
+    {
+		$i = 1;
+		$date = 20200117;
+		$deadline = new Deadline();
+        $this->assertTrue($deadline -> removeDeadline($i,$date));
+    }
+	
+	public function testDeleteDeadlineWrongID()
+    {
+		$i = 0;	
+		$deadline = new Deadline();
+        $this->assertFalse($deadline -> removeDeadline($i,null,null,null));
+    }
+	
+	
+	
+	public function testChangeDeadlineCorrectIDEmptyField()
+    {
+		$i = 1;	
+		$deadline = new Deadline();
+        $this->assertFalse($deadline -> changeDeadline($i,null,null,null));
+		$this->assertContains($deadline -> getErrors()[0],'Wszystkie pola sa obowiazkowe');
+    }
+	
+	public function testChangeDeadlineCorrectIDNotEmptyField()
+    {
+		$i = 1;
+		$date = 20201228;
+		$hour_from = '12:00';
+		$hour_to = '14:00';
+		$deadline = new Deadline();
+        $this->assertTrue($deadline -> changeDeadline($i,$hour_from, $hour_to, $date));
+    }
+	
+	public function testChangeDeadlineWrongID()
+    {
+		$i = 0;	
+		$deadline = new Deadline();
+        $this->assertFalse($deadline -> changeDeadline($i,null,null,null));
+    }
+	
 }

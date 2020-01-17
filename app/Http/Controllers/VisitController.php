@@ -6,9 +6,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
+/**
+* Kontroler wizyt.
+*/
 class VisitController extends Controller
 {
 
+	/**
+	*Funkcja odpowiada za wyświetlenie panelu wizyt pacjenta.
+	*@return view Widok panelu wizyt
+	*/
     public function visitsView()
     {
         if (!Auth::check()) {
