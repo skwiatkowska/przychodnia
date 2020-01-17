@@ -316,4 +316,27 @@ class Deadline extends Model
         
         return true;
     }
+    public function changeDeadline($doctor_id,$hour_from,$hour_to,$date)
+    {
+        $data = [
+            $doctor_id,
+            $hour_from,
+            $hour_to,
+            $date
+        ];
+
+        foreach ($data as $input) {
+            if (empty($input)) {
+                $this->errors[] = 'Wszystkie pola sa obowiazkowe';
+                return false;
+            }
+        }
+
+        $deadline =Deadline::where('id_lekarza',$doctor_id)->where('rok_miesiac_dzien',$date)->first();
+        $deadline->godzina_od = $hour_from;
+        $deadline->godzina_do = $hour_to;
+        $deadline->save();
+        
+        return true;
+    }
 }
