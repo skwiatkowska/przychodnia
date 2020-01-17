@@ -308,8 +308,8 @@ class Deadline extends Model
             $new_to_hr=date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
             $new_from_hr=date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
            
-            self::addDeadline($doctor_id,$deadline->$hour_from,$new_to_hr,$date);
-            self::addDeadline($doctor_id,$deadline->$new_from_hr,$deadline->$godzina_do,$date);
+            self::addDeadline($doctor_id,$deadline->godzina_od,$new_to_hr,$date);
+            self::addDeadline($doctor_id,$new_from_hr,$deadline->$godzina_do,$date);
             $deadline->delete();
         }
         
