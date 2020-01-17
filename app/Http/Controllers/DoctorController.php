@@ -5,6 +5,8 @@ use App\Doctor;
 use App\Deadline;
 use App\Patient;
 use App\Visit;
+use App\User;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -61,6 +63,12 @@ class DoctorController extends Controller
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'doctor'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $doctorId_usr = Auth::id();
         $doctor = Doctor::where('id_usr',$doctorId_usr)->first();
         $doctor_id=$doctor->id;
@@ -76,6 +84,12 @@ class DoctorController extends Controller
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'doctor'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
       
         $doctor = new Doctor();
@@ -94,6 +108,12 @@ class DoctorController extends Controller
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'doctor'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $patientData= Visit::findAllPatientData($id);
 
@@ -117,7 +137,12 @@ class DoctorController extends Controller
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'doctor'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         
         $doctorId = Auth::id();
         
@@ -140,6 +165,12 @@ class DoctorController extends Controller
     public function addVisitDescription($id,Request $request){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'doctor'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         
         $description = $request->input('opis');
