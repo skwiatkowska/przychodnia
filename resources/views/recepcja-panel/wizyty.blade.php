@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <div class="col-md-3 col-md-offset-1">
                                     <input type="date" class="form-control" id="wybierzDzienInput" required value="<?php echo date('Y-m-d'); ?>" onchange="getExactDate()">
-                                </div>
+                                <br><br></div>
                             </div>
 
                         </div>
@@ -98,7 +98,6 @@
                                         <div class="form-group text-center">
                                             <label class="control-label">Zmień godziny pracy w dniu: </label>
                                             <br/>
-                                            <br/>
                                             <div class="row col-md-8 col-md-offset-2">
 
                                             <table id="changeDeadlinesTable" class="table table-striped">
@@ -115,16 +114,13 @@
                                                         </td>
                                                     </tr>
                                                 </table>
-                                            </div>
-                                        </div>
 
                                         <div class="form-group text-center">
                                             <input class="btn btn-info" type="submit" value="Zmień">
-                                        </div>
+                                        </div></div></div>
                                         {{--
                                         <div class="clearfix"></div>--}}
                                         <input type="hidden" name="date" />
-
                                         <input type="hidden" name="id_lekarza" value="{{$doctorData['lekarz']['id']}}" />
                                     </div>
 
@@ -146,8 +142,7 @@
                         </div>
 
                         <div class="row col-md-12 col-md-offset-0">
-                            <br>
-                            <br> @foreach($doctorVisits['terminy'] as $date => $hours)
+                            @foreach($doctorVisits['terminy'] as $date => $hours)
                             <div class="border data">
 
                                 <div class="row">
