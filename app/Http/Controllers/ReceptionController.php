@@ -25,6 +25,7 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        
         return View('recepcja-panel/recepcja');
     }
 
@@ -37,6 +38,12 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         return View('/recepcja-panel/dodaj-pacjenta');
     }
 
@@ -48,6 +55,12 @@ class ReceptionController extends Controller {
     public function disablePatientAccount($id){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $patient = Patient::where('id',$id)->first();
         $id_usr=$patient->getUserId($id);
@@ -69,6 +82,12 @@ class ReceptionController extends Controller {
     public function enablePatientAccount($id){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
        $patient = Patient::where('id',$id)->first();
        $id_usr=$patient->getUserId($id);
@@ -92,6 +111,7 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        
         $name = $request->input('imie');
         $surname = $request->input('nazwisko');
         $email = $request->input('email');
@@ -122,6 +142,12 @@ class ReceptionController extends Controller {
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         return View('recepcja-panel/dodaj-lekarza');
     }
@@ -166,6 +192,12 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $doctors = Doctor::orderBy('nazwisko','asc')->get();;
         return View('recepcja-panel/lista-lekarzy', ['doctors' => $doctors]);
     }
@@ -178,6 +210,12 @@ class ReceptionController extends Controller {
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $doctors = Doctor::orderBy('nazwisko','asc')->get();
  
@@ -193,6 +231,12 @@ class ReceptionController extends Controller {
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $doctors = Doctor::orderBy('nazwisko','asc')->get();
         $visits = Deadline::findDoctorAllDeadlines($id);
@@ -211,6 +255,12 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $doctors = Doctor::orderBy('nazwisko','asc')->get();;
         return View('recepcja-panel/nowa-wizyta', ['doctors' => $doctors]);
     }
@@ -225,6 +275,12 @@ class ReceptionController extends Controller {
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($doctor_id);
 
@@ -245,6 +301,12 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $doctorsDeadlines = Deadline::findDoctorFreeDeadlines($id);
 
         if ($doctorsDeadlines==false) {
@@ -264,6 +326,12 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $patients = Patient::orderBy('nazwisko','asc')->get();;
         return View('recepcja-panel/lista-pacjentow', ['patients' => $patients]);
     }
@@ -277,6 +345,12 @@ class ReceptionController extends Controller {
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $patientData= Visit::findAllPatientData($id);
         $id_user= Patient::where('id',$id)->first()['id_usr'];
@@ -300,6 +374,12 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $visit = new Visit();
         $visits = $visit->getAllVisits();
         return View('recepcja-panel/wizyty', ['visits' => $visits]);
@@ -314,6 +394,12 @@ class ReceptionController extends Controller {
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $patientData= Visit::findAllPatientData($id);
 
@@ -333,6 +419,12 @@ class ReceptionController extends Controller {
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $doctorData= Visit::findAllDoctorData($id);
 
@@ -397,6 +489,12 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         } 
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $doctorData= Visit::findAllDoctorData($id);
         $id_user= Doctor::where('id',$id)->first()['id_usr'];
         $status= User::where('id',$id_user)->first()['status'];
@@ -519,6 +617,12 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $doctor = Doctor::where('id',$id)->first();
         $id_usr=$doctor->id_usr;
         $user=User::where('id',$id_usr)->first();
@@ -539,6 +643,12 @@ class ReceptionController extends Controller {
     public function enableDoctorAccount($id){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'reception'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
        $doctor = Doctor::where('id',$id)->first();
        $id_usr=$doctor->id_usr;
@@ -610,5 +720,6 @@ class ReceptionController extends Controller {
         return redirect('recepcja/wizyty/')->with('errors', $errors);
     }
 
+   
 
 }
