@@ -49,7 +49,6 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        //$user = User::deactivateUser($id);
         $patient = Patient::where('id',$id)->first();
         $id_usr=$patient->getUserId($id);
         $user=User::where('id',$id_usr)->first();
@@ -71,7 +70,6 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-       // $user = User::activateUser($id);
        $patient = Patient::where('id',$id)->first();
        $id_usr=$patient->getUserId($id);
        $user=User::where('id',$id_usr)->first();
