@@ -49,7 +49,6 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        //$user = User::deactivateUser($id);
         $patient = Patient::where('id',$id)->first();
         $id_usr=$patient->getUserId($id);
         $user=User::where('id',$id_usr)->first();
@@ -71,7 +70,6 @@ class ReceptionController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-       // $user = User::activateUser($id);
        $patient = Patient::where('id',$id)->first();
        $id_usr=$patient->getUserId($id);
        $user=User::where('id',$id_usr)->first();
@@ -574,20 +572,39 @@ class ReceptionController extends Controller {
         return redirect('recepcja/wizyty/'.$id)->with('errors', $errors);
     }
 
-    public function deleteDeadline(Request $request)
+    public function deleteDeadline($id,Request $request)
     {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
-        $doctor_id = $request->input('doctorId');
-        $hour = $request->input('hour');
+        $doctor_id = $id;
         $date = $request->input('date');
 
        
         $deadline=new Deadline();
-        $check= $deadline->removeDeadline($doctor_id,$hour,$date);
+        $check= $deadline->removeDeadline($doctor_id,$date);
         if ($check){
-        return redirect('recepcja/wizyty/'.$doctor_id)->with('info', 'Wybrana godzina została poprawnie usunięta z terminarza');
+        return redirect('recepcja/wizyty/'.$doctor_id)->with('info', 'Wybrany dzień przyjęć został poprawnie usunięty z terminarza');
+        }
+        $errors = $deadline->getErrors();
+        return redirect('recepcja/wizyty/')->with('errors', $errors);
+    }
+
+    public function changeDeadline($id,Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $doctor_id = $id;
+        $hour_from = $request->input('godzina_od');
+        $hour_to = $request->input('godzina_do');
+        $date = $request->input('date');
+
+       
+        $deadline=new Deadline();
+        $check= $deadline->changeDeadline($doctor_id,$hour_from,$hour_to,$date);
+        if ($check){
+        return redirect('recepcja/wizyty/'.$doctor_id)->with('info', 'Godziny przyjęć zostały zmienione poprawnie');
         }
         $errors = $deadline->getErrors();
         return redirect('recepcja/wizyty/')->with('errors', $errors);
