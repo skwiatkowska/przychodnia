@@ -115,7 +115,7 @@ class DeadlinesTableSeeder extends Seeder
                 'godzina_od' => '8:00',
                 'godzina_do' => '16:00',
                 'rok_miesiac_dzien' => 20210327,
-		 ],[
+		    ],[
                 'id_lekarza' => 6,
                 'godzina_od' => '9:00',
                 'godzina_do' => '17:00',
@@ -128,6 +128,78 @@ class DeadlinesTableSeeder extends Seeder
                 'rok_miesiac_dzien' => 20200114,
 
             ],
+            [
+
+                'id_lekarza' => 1,
+                'godzina_od' => '8:00',
+                'godzina_do' => '14:00',
+                'rok_miesiac_dzien' => 20200119,
+
+            ],[
+
+                'id_lekarza' => 2,
+                'godzina_od' => '8:00',
+                'godzina_do' => '16:00',
+                'rok_miesiac_dzien' => 20200119,
+
+            ],[
+
+                'id_lekarza' => 3,
+                'godzina_od' => '8:00',
+                'godzina_do' => '17:00',
+                'rok_miesiac_dzien' => 20200119,
+
+            ],[
+
+                'id_lekarza' => 4,
+                'godzina_od' => '10:00',
+                'godzina_do' => '14:00',
+                'rok_miesiac_dzien' => 20200119,
+
+            ],[
+
+                'id_lekarza' => 5,
+                'godzina_od' => '10:00',
+                'godzina_do' => '15:00',
+                'rok_miesiac_dzien' => 20200120,
+
+            ],[
+
+                'id_lekarza' => 6,
+                'godzina_od' => '8:00',
+                'godzina_do' => '13:00',
+                'rok_miesiac_dzien' => 20200120,
+
+            ],[
+
+                'id_lekarza' => 6,
+                'godzina_od' => '8:00',
+                'godzina_do' => '18:00',
+                'rok_miesiac_dzien' => 20200120,
+
+            ],[
+
+                'id_lekarza' => 5,
+                'godzina_od' => '8:00',
+                'godzina_do' => '14:00',
+                'rok_miesiac_dzien' => 20200121,
+
+            ],[
+
+                'id_lekarza' => 4,
+                'godzina_od' => '8:00',
+                'godzina_do' => '15:00',
+                'rok_miesiac_dzien' => 20200121,
+
+            ],[
+
+                'id_lekarza' => 3,
+                'godzina_od' => '8:00',
+                'godzina_do' => '14:00',
+                'rok_miesiac_dzien' => 20200121,
+
+            ],
+            
         ]);
     }
 }
