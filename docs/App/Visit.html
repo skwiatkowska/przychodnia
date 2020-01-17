@@ -132,8 +132,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getErrors">getErrors</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Funkcja zwraca błędy.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -194,6 +193,16 @@
                     <a href="#method_findAllDoctorData">findAllDoctorData</a>(integer $id)
         
                                             <p>Funkcja znajduje wszystkie informacje o lekarzu: dane i wizyty.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addDescription">addDescription</a>($id_wizyty, $description, $recommendation)
+        
+                                            <p>Funkcja dodaje opis do wizyty.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -270,7 +279,7 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
             </div>
                     <div class="method-item">
                     <h3 id="method_getErrors">
-        <div class="location">at         line 68</div>
+        <div class="location">at         line 71</div>
         <code>                    
     <strong>getErrors</strong>()
         </code>
@@ -279,6 +288,8 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
             
     
 
+                    <div class="method-description">
+                                    <p>Funkcja zwraca błędy.</p>                                                </div>
                 <div class="tags">
             
             
@@ -289,7 +300,7 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
             </div>
                     <div class="method-item">
                     <h3 id="method_getTodaysVisits">
-        <div class="location">at         line 79</div>
+        <div class="location">at         line 82</div>
         <code>                    array
     <strong>getTodaysVisits</strong>(integer $patientId)
         </code>
@@ -329,7 +340,7 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
             </div>
                     <div class="method-item">
                     <h3 id="method_getPastVisits">
-        <div class="location">at         line 116</div>
+        <div class="location">at         line 121</div>
         <code>                    array
     <strong>getPastVisits</strong>(integer $patientId)
         </code>
@@ -369,7 +380,7 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
             </div>
                     <div class="method-item">
                     <h3 id="method_getFutureVisits">
-        <div class="location">at         line 153</div>
+        <div class="location">at         line 160</div>
         <code>                    array
     <strong>getFutureVisits</strong>(integer $patientId)
         </code>
@@ -409,7 +420,7 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
             </div>
                     <div class="method-item">
                     <h3 id="method_findAllPatientData">
-        <div class="location">at         line 191</div>
+        <div class="location">at         line 200</div>
         <code>        static            array
     <strong>findAllPatientData</strong>(integer $id)
         </code>
@@ -449,7 +460,7 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
             </div>
                     <div class="method-item">
                     <h3 id="method_getAllVisits">
-        <div class="location">at         line 337</div>
+        <div class="location">at         line 346</div>
         <code>                    array
     <strong>getAllVisits</strong>()
         </code>
@@ -479,7 +490,7 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
             </div>
                     <div class="method-item">
                     <h3 id="method_findAllDoctorData">
-        <div class="location">at         line 396</div>
+        <div class="location">at         line 407</div>
         <code>        static            array
     <strong>findAllDoctorData</strong>(integer $id)
         </code>
@@ -508,6 +519,56 @@ FALSE jeśli nastąpiła próba nieautoryzowanego dostępu, bądź niepoprawnie 
         <tr>
             <td>array</td>
             <td>Wszystkie informacje o lekarzu: dane i wizyty</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addDescription">
+        <div class="location">at         line 476</div>
+        <code>                    boolean
+    <strong>addDescription</strong>($id_wizyty, $description, $recommendation)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Funkcja dodaje opis do wizyty.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$id_wizyty</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$description</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$recommendation</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>boolean</td>
+            <td>TRUE jeśli udało się dodać opis do wizyty.</td>
         </tr>
     </table>
 

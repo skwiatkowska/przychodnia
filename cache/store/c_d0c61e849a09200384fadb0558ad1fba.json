@@ -1,6 +1,6 @@
 {
     "name": "App\\Http\\Controllers\\DoctorController",
-    "line": 15,
+    "line": 16,
     "short_desc": "Kontroler panelu lekarza.",
     "long_desc": "",
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Http\\Controllers\\DoctorController.php",
     "relative_file": null,
-    "hash": "1c1729df0352b48304c001f9dd32ef869bc13925",
+    "hash": "cbdf22b5261273397ca9053d622fbbc059e5c715",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -19,7 +19,7 @@
         "Patient": "App\\Patient",
         "Visit": "App\\Visit",
         "Auth": "Illuminate\\Support\\Facades\\Auth",
-        "Request": "Illuminate\\Support\\Facades\\Request"
+        "Request": "Illuminate\\Http\\Request"
     },
     "errors": [],
     "interfaces": [],
@@ -28,7 +28,7 @@
     "methods": {
         "mainSite": {
             "name": "mainSite",
-            "line": 21,
+            "line": 22,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie panelu lekarza.",
             "long_desc": "",
             "hint": [
@@ -47,7 +47,7 @@
         },
         "doctorsList": {
             "name": "doctorsList",
-            "line": 33,
+            "line": 34,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy lekarzy.",
             "long_desc": "",
             "hint": [
@@ -66,7 +66,7 @@
         },
         "doctorsDeadlines": {
             "name": "doctorsDeadlines",
-            "line": 43,
+            "line": 44,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wolnych termin\u00f3w lekarza.",
             "long_desc": "",
             "hint": [
@@ -84,7 +84,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 43,
+                    "line": 44,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -98,7 +98,7 @@
         },
         "patientsList": {
             "name": "patientsList",
-            "line": 59,
+            "line": 60,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie listy pacjent\u00f3w.",
             "long_desc": "",
             "hint": [
@@ -117,7 +117,7 @@
         },
         "doctorInfo": {
             "name": "doctorInfo",
-            "line": 72,
+            "line": 76,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych lekarza.",
             "long_desc": "",
             "hint": [
@@ -136,7 +136,7 @@
         },
         "patientData": {
             "name": "patientData",
-            "line": 93,
+            "line": 94,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie danych pacjenta.",
             "long_desc": "",
             "hint": [
@@ -154,7 +154,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 93,
+                    "line": 94,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -168,7 +168,7 @@
         },
         "visits": {
             "name": "visits",
-            "line": 112,
+            "line": 118,
             "short_desc": "Funkcja odpowiada za wy\u015bwietlenie wizyt u lekarza.",
             "long_desc": "",
             "hint": [
@@ -184,6 +184,61 @@
             "exceptions": [],
             "errors": [],
             "parameters": []
+        },
+        "addVisitDescription": {
+            "name": "addVisitDescription",
+            "line": 136,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 136,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 136,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 136,
+                            "endLine": 136
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
         }
     },
     "constants": []

@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Deadline.php",
     "relative_file": null,
-    "hash": "19c7f6a0b7ca4f7c69f59be54374ac426fd2e8a0",
+    "hash": "c050610277df695e2629a47c2dc1e87e5e91c5b5",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -83,7 +83,7 @@
     "methods": {
         "findDoctorFreeDeadlines": {
             "name": "findDoctorFreeDeadlines",
-            "line": 26,
+            "line": 27,
             "short_desc": "Funkcja znajduje wolne terminy danego lekarza.",
             "long_desc": "",
             "hint": [
@@ -101,7 +101,7 @@
             "parameters": {
                 "doctorId": {
                     "name": "doctorId",
-                    "line": 26,
+                    "line": 27,
                     "short_desc": "Id danego lekarza",
                     "long_desc": null,
                     "hint": [
@@ -120,7 +120,7 @@
         },
         "findDoctorAllDeadlines": {
             "name": "findDoctorAllDeadlines",
-            "line": 121,
+            "line": 122,
             "short_desc": "Funkcja znajduje wszystkie terminy danego lekarza.",
             "long_desc": "",
             "hint": [
@@ -138,7 +138,7 @@
             "parameters": {
                 "doctorId": {
                     "name": "doctorId",
-                    "line": 121,
+                    "line": 122,
                     "short_desc": "Id danego lekarza",
                     "long_desc": null,
                     "hint": [
@@ -154,6 +154,108 @@
                     "is_by_ref": false
                 }
             }
+        },
+        "addDeadline": {
+            "name": "addDeadline",
+            "line": 246,
+            "short_desc": "Funkcja dodaje nowy terminarz do bazy.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 doda\u0107 termin do bazy.\nFALSE je\u015bli niepoprawnie wype\u0142niono pola.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "doctor_id": {
+                    "name": "doctor_id",
+                    "line": 246,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "hour_from": {
+                    "name": "hour_from",
+                    "line": 246,
+                    "short_desc": "Godzina rozpocz\u0119cia przyjmowania pacjent\u00f3w",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "hour_to": {
+                    "name": "hour_to",
+                    "line": 246,
+                    "short_desc": "Godzina zako\u0144czenia przyjmowania pacjent\u00f3w",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "date": {
+                    "name": "date",
+                    "line": 246,
+                    "short_desc": "Data",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\date",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getErrors": {
+            "name": "getErrors",
+            "line": 275,
+            "short_desc": "Funkcja zwraca b\u0142\u0119dy.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
         }
     },
     "constants": {

@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\User.php",
     "relative_file": null,
-    "hash": "04fc676646a33ee17a7556caa80705445a83703f",
+    "hash": "6ff8889ae6ba86a155f3726e247b12d9410e4c9f",
     "parent": "Illuminate\\Foundation\\Auth\\User",
     "modifiers": 0,
     "is_trait": false,
@@ -786,6 +786,148 @@
                 "new2": {
                     "name": "new2",
                     "line": 222,
+                    "short_desc": "Powt\u00f3rzone nowe has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "ForceNewPassword": {
+            "name": "ForceNewPassword",
+            "line": 248,
+            "short_desc": "Funkcja zmienia has\u0142o u\u017cytkownika - pacjenta.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 zmieni\u0107 has\u0142o u\u017cytkownika.\nFALSE je\u015bli wyst\u0105pi\u0142y b\u0142\u0119dy.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "patientId": {
+                    "name": "patientId",
+                    "line": 248,
+                    "short_desc": "Id danego u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "new": {
+                    "name": "new",
+                    "line": 248,
+                    "short_desc": "Nowe has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "new2": {
+                    "name": "new2",
+                    "line": 248,
+                    "short_desc": "Powt\u00f3rzone nowe has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "ResetDoctorPassword": {
+            "name": "ResetDoctorPassword",
+            "line": 273,
+            "short_desc": "Funkcja zmienia has\u0142o u\u017cytkownika - lekarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 zmieni\u0107 has\u0142o u\u017cytkownika.\nFALSE je\u015bli wyst\u0105pi\u0142y b\u0142\u0119dy.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 273,
+                    "short_desc": "Id danego u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "new": {
+                    "name": "new",
+                    "line": 273,
+                    "short_desc": "Nowe has\u0142o u\u017cytkownika",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "new2": {
+                    "name": "new2",
+                    "line": 273,
                     "short_desc": "Powt\u00f3rzone nowe has\u0142o u\u017cytkownika",
                     "long_desc": null,
                     "hint": [

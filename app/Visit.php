@@ -64,7 +64,10 @@ class Visit extends Model
 
         return true;
     }
-
+	
+	/**
+	*Funkcja zwraca błędy.
+	*/
     public function getErrors()
     {
         return $this->errors;
@@ -101,7 +104,9 @@ class Visit extends Model
 				if (!empty($doctors[$visit->id_lekarza])) {
 					$visit->lekarz = $doctors[$visit->id_lekarza];
 				} else {
+					// @codeCoverageIgnoreStart
 					$visit->lekarz = "";
+					// @codeCoverageIgnoreEnd
 				}
 			}
 			return $visits;
@@ -138,7 +143,9 @@ class Visit extends Model
             if (!empty($doctors[$visit->id_lekarza])) {
                 $visit->lekarz = $doctors[$visit->id_lekarza];
             } else {
+				// @codeCoverageIgnoreStart
                 $visit->lekarz = "";
+				// @codeCoverageIgnoreEnd
             }
         }
         return $visits;
@@ -176,7 +183,9 @@ class Visit extends Model
             if (!empty($doctors[$visit->id_lekarza])) {
                 $visit->lekarz = $doctors[$visit->id_lekarza];
             } else {
+				// @codeCoverageIgnoreStart
                 $visit->lekarz = "";
+				// @codeCoverageIgnoreEnd
             }
         }
         return $visits;
@@ -340,7 +349,9 @@ class Visit extends Model
 
 
       if ($visits==null){
+		// @codeCoverageIgnoreStart
         return false;
+		// @codeCoverageIgnoreEnd
         }
 
   
@@ -455,7 +466,13 @@ class Visit extends Model
     }
 
 
-
+	/**
+	 * Funkcja dodaje opis do wizyty.
+	 * @param integer $id_wizyty Id danej wizyty
+	 * @param string $description Opis wizyty
+	 * @param string $recommendations Zalecenia lekarza
+	 * @return boolean TRUE jeśli udało się dodać opis do wizyty. 
+	*/
     public function addDescription($id_wizyty,$description,$recommendation)
     {
         $visit = Visit::where('id',$id_wizyty)->first();     

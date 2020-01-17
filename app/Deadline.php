@@ -234,7 +234,15 @@ class Deadline extends Model
 
     }
 
-
+	/**
+	*Funkcja dodaje nowy terminarz do bazy.
+	*@param integer $doctor_id Id danego lekarza
+	*@param string $hour_from Godzina rozpoczęcia przyjmowania pacjentów
+	*@param string $hour_to Godzina zakończenia przyjmowania pacjentów
+	*@param date $date Data 
+	*@return boolean TRUE jeśli udało się dodać termin do bazy. 
+	FALSE jeśli niepoprawnie wypełniono pola.	
+	*/
     public function addDeadline($doctor_id,$hour_from,$hour_to,$date)
     {
         $data = [
@@ -266,6 +274,14 @@ class Deadline extends Model
         return $this->errors;
     }
 
+	/**
+	*Funkcja usuwa termin z bazy.
+	*@param integer $doctor_id Id danego lekarza
+	*@param string $hour Godzina przyjmowania pacjentów
+	*@param date $date Data 
+	*@return boolean TRUE jeśli udało się usunąć termin z bazy. 
+	FALSE jeśli niepoprawnie wypełniono pola.	
+	*/
     public function removeDeadline($doctor_id,$hour,$date)
     {
         $data = [

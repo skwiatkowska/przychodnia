@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": "C:\\xampp\\htdocs\\przychodnia\\app\\Doctor.php",
     "relative_file": null,
-    "hash": "fe74917c7f2144a28b9e8eef6470111f820ccc93",
+    "hash": "db405ca4014a8f65618d532ebac787cf362dfc40",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -299,6 +299,162 @@
                     "hint": [
                         [
                             "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "changeData": {
+            "name": "changeData",
+            "line": 109,
+            "short_desc": "Funkcja zmienia dane lekarza.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "TRUE je\u015bli uda\u0142o si\u0119 zmieni\u0107 dane lekarza.",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 109,
+                    "short_desc": "Id danego lekarza",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "title": {
+                    "name": "title",
+                    "line": 109,
+                    "short_desc": "Tytu\u0142 Naukowy lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "name": {
+                    "name": "name",
+                    "line": 109,
+                    "short_desc": "Imie lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "surname": {
+                    "name": "surname",
+                    "line": 109,
+                    "short_desc": "Nazwisko lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "email": {
+                    "name": "email",
+                    "line": 109,
+                    "short_desc": "Email lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "telefon": {
+                    "name": "telefon",
+                    "line": 109,
+                    "short_desc": "Telefon lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "specialization": {
+                    "name": "specialization",
+                    "line": 109,
+                    "short_desc": "Specjalizacja lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "room": {
+                    "name": "room",
+                    "line": 109,
+                    "short_desc": "Gabinet lekarza - je\u015bli ma pozosta\u0107 niezmienione: Null",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
                             false
                         ]
                     ],

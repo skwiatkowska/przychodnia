@@ -19,7 +19,7 @@ class PatientTest extends TestCase
 	
 	public function testAddNewUserCorrectData()
     {
-		$id_usr = 400;
+		$id_usr = 500;
 		$name = $this->faker->name;
 		$surname = $this->faker->lastname;
         $email = $this->faker->unique()->safeEmail;
@@ -53,6 +53,7 @@ class PatientTest extends TestCase
 		$patient =  new Patient;
         $this->assertFalse($patient->addNewUser($id_usr, $name, $surname, $email, $pesel, $adres,$telefon,$data_urodzenia, $password));
 		$this->assertNotNull($patient -> getErrors());
+		$this->assertContains($patient -> getErrors()[0],'Wszystkie pola sa obowiazkowe');
 	}
 	
 	/**
@@ -74,7 +75,9 @@ class PatientTest extends TestCase
 		$patient =  new Patient;
         $this->assertFalse($patient->addNewUser($id_usr, $name, $surname, $email, $pesel, $adres,$telefon,$data_urodzenia, $password));
 		$this->assertNotNull($patient -> getErrors());
+		$this->assertContains($patient -> getErrors()[0],'Konto jest juz zarejestrowane na podany email.');
 	}
+	
 	
     /**
      * @expectedException \ErrorException
@@ -96,6 +99,7 @@ class PatientTest extends TestCase
 		$this->assertEquals($data,$data_all[0]);
     }
 	
+	
 	public function testGetUserIdWrongID()
 	{
 		$i = 0;	
@@ -112,6 +116,7 @@ class PatientTest extends TestCase
 		$this->assertEquals($i, $id_usr);  
 	}
 	
+	
 	/**
      * @expectedException \ErrorException
      */
@@ -121,6 +126,7 @@ class PatientTest extends TestCase
 		$patient = new Patient();
 		$this -> assertFalse($patient->changeData($i,"XXX",null,null,null,null,null,null));
 	}
+	
 	
 	public function testChangeDataCorrectID()
 	{
