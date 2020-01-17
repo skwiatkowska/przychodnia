@@ -585,7 +585,7 @@ class ReceptionController extends Controller {
 
        
         $deadline=new Deadline();
-        $check= $deadline->removeDeadline($doctor_id,$hou,$date);
+        $check= $deadline->removeDeadline($doctor_id,$hour,$date);
         if ($check){
         return redirect('recepcja/wizyty/'.$id)->with('info', 'Godziny przyjęć zostały dodane poprawnie');
         }
