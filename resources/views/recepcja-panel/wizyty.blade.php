@@ -85,6 +85,50 @@
 
                         </div>
 
+                        <div id="zmienGodziny" class="zmienGodz col-md-10 col-md-offset-1">
+                            <br>
+                            <div class="border">
+                                <form role="form" class="form-horizontal" method="post" action="{{$doctorData['lekarz']['id']}}/usun_termin">
+                                    <div class="row">
+                                        <div class="form-group text-center">
+                                            <label class="control-label">Zmień godziny pracy w dniu: </label>
+                                            <br/>
+                                            <br/>
+                                            <div class="row col-md-8 col-md-offset-2">
+
+                                            <table id="changeDeadlinesTable" class="table table-striped">
+                                                    <tr class="text-center">
+                                                        <th class="small">Godzina rozpoczęcia</th>
+                                                        <th class="small">Godzina zakończenia</th>
+                                                    </tr>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <input type="time" class="form-control" id="godzina_od" name="godzina_od" min="07:00" max="20:00" step="1800" value="09:00" required>
+                                                        </td>
+                                                        <td>
+                                                            <input type="time" class="form-control" id="godzina_do" name="godzina_do" min="07:00" max="20:00" step="1800" value="16:00" required>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group text-center">
+                                            <input class="btn btn-info" type="submit" value="Zmień">
+                                        </div>
+                                        {{--
+                                        <div class="clearfix"></div>--}}
+                                        <input type="hidden" name="date" />
+
+                                        <input type="hidden" name="id_lekarza" value="{{$doctorData['lekarz']['id']}}" />
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+
                         <div class="row text-center" id="brakWizytDanegoDnia">
                             <p>
                                 <br>
@@ -111,49 +155,9 @@
                                             <input type="hidden" name="date" value="{{$date}}" />
                                             <input type="hidden" name="doctorId" value="{{$doctorData['lekarz']['id']}}" />
                                         </form>
-                                        <a type="button" id="editDeadlineBtn" class="col-md-1 pull-right btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <a type="button" id="editDeadlineBtn" onclick="showOrHideEditingDeadlineForm('{{$date}}')" class="col-md-1 pull-right btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
                                         <br>
-                                        <div class="row col-md-12">
-                                        <div class="border">
-                                <form role="form" method="post" action="{{$doctorData['lekarz']['id']}}/zmien_termin">
-                            
-                                    <div class="row">
-                                        <div class="form-group text-center">
-                                            <label class="">Zmień godziny pracy</label>
-                                            <br/>
-                                            <br/>
-                                            <div class="row col-md-12">
-
-                                                <table id="changeDeadlinesTable" class="table table-striped">
-                                                    <tr class="text-center">
-                                                        <th class="small">Godzina rozpoczęcia</th>
-                                                        <th class="small">Godzina zakończenia</th>
-                                                    </tr>
-                                                    <tr class="text-center">
-                                                        <td>
-                                                            <input type="time" class="form-control" id="godzina_od" name="godzina_od" min="07:00" max="20:00" step="1800" value="09:00" required>
-                                                        </td>
-                                                        <td>
-                                                            <input type="time" class="form-control" id="godzina_do" name="godzina_do" min="07:00" max="20:00" step="1800" value="16:00" required>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        {{ csrf_field() }}
-
-                                        <div class="form-group text-center">
-                                            <input class="btn btn-info" type="submit" value="Zmień">
-                                        </div>
-                                        {{--
-                                        <div class="clearfix"></div>--}}
-                                        <input type="hidden" name="date" value="{{$date}}" />
-
-                                        <input type="hidden" name="id_lekarza" value="{{$doctorData['lekarz']['id']}}" />
-                                    </div>
-
-                                </form>
-                            </div></div>
+                                       
                                     </div>
                                     <div class="form-group">
                                         <table class="table table-striped table-numbered">
