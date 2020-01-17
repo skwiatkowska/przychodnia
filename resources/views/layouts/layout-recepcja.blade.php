@@ -144,12 +144,6 @@ function showOrHideVisitDescriptionForm() {
 };
 
 
-function checkIfAnyChechboxIsSelected(id) {
-    var checked = $(id).find(':checked').length;
-    console.log(checked);
-   
-
-}
 
 
 function getExactDate() {
@@ -157,15 +151,17 @@ function getExactDate() {
   input = document.getElementById("wybierzDzienInput");
   filter = input.value.toUpperCase();
   data = document.getElementsByClassName("data");
-  console.log(filter);
 
   var noneCounts = 0;
   for (i = 0; i < data.length; i++) {
     label = data[i].getElementsByTagName("label")[0];
-    
+    var today = new Date();   
+
     if (label) {
       txtValue = label.textContent || label.innerText;
+      var labelDate = new Date(txtValue);
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          
         data[i].style.display = "";
         document.getElementById("brakWizytDanegoDnia").style.display = "none";
       } else {
@@ -174,7 +170,6 @@ function getExactDate() {
       }
     }
   }
-  console.log(noneCounts);
 
   if(data.length == noneCounts){
         document.getElementById("brakWizytDanegoDnia").style.display = "";

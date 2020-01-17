@@ -32,9 +32,9 @@
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-3 col-md-offset-1">
-                                <input type="date" class="form-control" id="wybierzDzienInput" required value="<?php echo date('Y-m-d'); ?>" onchange="getExactDate()">
+                                    <input type="date" class="form-control" id="wybierzDzienInput" required value="<?php echo date('Y-m-d'); ?>" onchange="getExactDate()">
+                                </div>
                             </div>
-                        </div>
 
                         </div>
 
@@ -86,60 +86,102 @@
                         </div>
 
                         <div class="row text-center" id="brakWizytDanegoDnia">
-                            <p><br><br><br><br><br><br><br>Brak terminów w tym dniu.</p>
+                            <p>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>Brak terminów w tym dniu.</p>
                         </div>
 
-                            <div class="row col-md-12 col-md-offset-0">
-                                <br><br>
-                                @foreach($doctorVisits['terminy'] as $date => $hours)
-                                <div class="border data">
+                        <div class="row col-md-12 col-md-offset-0">
+                            <br>
+                            <br> @foreach($doctorVisits['terminy'] as $date => $hours)
+                            <div class="border data">
 
+                                <div class="row">
+                                    <div class="form-group text-center font">
+                                        <label class="col-md-7 col-md-offset-2 text-center control-label data-label">{{$date}}</label>
+
+                                        <form role="form" method="post" action="{{$doctorData['lekarz']['id']}}/usun_termin" id="deletingVisitsForm">
+                                            {{ csrf_field() }}
+                                            <button type="submit" id="deleteDeadlineBtn" class="col-md-1 pull-right btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+                                            <input type="hidden" name="date" value="{{$date}}" />
+                                            <input type="hidden" name="doctorId" value="{{$doctorData['lekarz']['id']}}" />
+                                        </form>
+                                        <a type="button" id="editDeadlineBtn" class="col-md-1 pull-right btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <br>
+                                        <div class="row col-md-12">
+                                        <div class="border">
+                                <form role="form" method="post" action="{{$doctorData['lekarz']['id']}}/zmien_termin">
+                            
                                     <div class="row">
-                                        <div class="form-group text-center font">
-                                            <label class="control-label data-label">{{$date}}</label>
+                                        <div class="form-group text-center">
+                                            <label class="">Zmień godziny pracy</label>
+                                            <br/>
+                                            <br/>
+                                            <div class="row col-md-12">
+
+                                                <table id="changeDeadlinesTable" class="table table-striped">
+                                                    <tr class="text-center">
+                                                        <th class="small">Godzina rozpoczęcia</th>
+                                                        <th class="small">Godzina zakończenia</th>
+                                                    </tr>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <input type="time" class="form-control" id="godzina_od" name="godzina_od" min="07:00" max="20:00" step="1800" value="09:00" required>
+                                                        </td>
+                                                        <td>
+                                                            <input type="time" class="form-control" id="godzina_do" name="godzina_do" min="07:00" max="20:00" step="1800" value="16:00" required>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <table class="table table-striped">
-                                                @foreach($hours as $hour )
-                                                <form role="form" method="post" action="usun_termin" id="deletingVisitsForm">
+                                        {{ csrf_field() }}
 
-                                                <tr>
-                                                    <td class="col-md-1">
-                                                    {{ csrf_field() }}
-
-                                                        <input type="submit" value="Usuń" class="btn btn-primary form-control"/>
-                                                        <input type="hidden" name="date" value="{{$date}}" />
-                                                        <input type="hidden" name="hour" value="{{substr($hour, 0, 5)}}" />
-                                                        <input type="hidden" name="doctorId" value="{{$doctorData['lekarz']['id']}}" />
-
-
-                                                    </td></form>
-                                                    <td id="oneRow" class="col-md-2">
-                                                        {{substr($hour, 0, 5)}}
-
-                                                    </td>
-                                                    <td id="oneRow" class="col-md-3 col-md-offset-1">
-                                                        @if(substr($hour, 6, -3) == "") 
-                                                            - 
-                                                        @else 
-                                                            {{substr($hour, 6, -2)}} 
-                                                        @endif
-                                                    </td>
-                                                    <td class="col-md-2 text-right">
-                                                        <button class="btn btn-gray col-sm-10 redirectBtn" onclick="goToAPatientProfile({{substr($hour, -2)}})" type="btn" name="{{$hour}}">ds</button>
-                                                    </td>
-                                                </tr>
-                                                
-
-
-                                                @endforeach
-                                            </table>
+                                        <div class="form-group text-center">
+                                            <input class="btn btn-info" type="submit" value="Zmień">
                                         </div>
+                                        {{--
+                                        <div class="clearfix"></div>--}}
+                                        <input type="hidden" name="date" value="{{$date}}" />
+
+                                        <input type="hidden" name="id_lekarza" value="{{$doctorData['lekarz']['id']}}" />
+                                    </div>
+
+                                </form>
+                            </div></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <table class="table table-striped table-numbered">
+                                            @foreach($hours as $hour )
+
+                                            <tr>
+                                                <td class="col-md-1">
+                                                </td>
+                                                <td id="oneRow" class="col-md-2">
+                                                    {{substr($hour, 0, 5)}}
+
+                                                </td>
+                                                <td id="oneRow" class="col-md-3 col-md-offset-1">
+                                                    @if(substr($hour, 6, -3) == "") - @else {{substr($hour, 6, -2)}} @endif
+                                                </td>
+                                                <td class="col-md-2 text-right">
+                                                    <button class="btn btn-gray col-sm-10 redirectBtn" onclick="goToAPatientProfile({{substr($hour, -2)}})" type="btn" name="{{$hour}}">ds</button>
+                                                </td>
+                                            </tr>
+
+                                            @endforeach
+                                        </table>
                                     </div>
                                 </div>
-                                @endforeach
-
                             </div>
+                            @endforeach
+
+                        </div>
 
                     </div>
 

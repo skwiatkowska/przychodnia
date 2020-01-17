@@ -42,7 +42,8 @@ Route::get('/recepcja/lista_lekarzy', 'ReceptionController@doctorsList');
 Route::get('/recepcja/wizyty', 'ReceptionController@doctorsListForVisits');
 Route::get('/recepcja/wizyty/{id}', 'ReceptionController@doctorsListAndVisits');
 Route::get('/recepcja/wizyty/{id}/dodaj_termin', 'ReceptionController@addDeadlines');
-Route::post('/recepcja/wizyty/usun_termin', 'ReceptionController@deleteDeadline');
+Route::post('/recepcja/wizyty/{id}/usun_termin', 'ReceptionController@deleteDeadline');
+Route::post('/recepcja/wizyty/{id}/zmien_termin', 'ReceptionController@changeDeadline');
 
 
 Route::get('/recepcja/pacjent/{id}', 'ReceptionController@patientData');

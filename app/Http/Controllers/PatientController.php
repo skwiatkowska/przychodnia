@@ -122,14 +122,4 @@ class PatientController extends Controller {
         return redirect('/logout')->with('info','Wybrane konto zostało zdezaktywowane');
     }
 
-
-/*
-    public function disableAccount(Request $request)
-    {
-          if (!Auth::check()) {
-            return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
-        }
-        return view('pacjent-panel/panel-ustawienia');
-    }*/
-
 }
