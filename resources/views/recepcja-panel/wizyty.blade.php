@@ -7,8 +7,9 @@
             <div class="col-lg-12">
                 <div class="row">
                     <hr>
-                    <h2 class="intro-text text-center">Terminarz - <b>{{$doctorData['lekarz']['tytul']}} {{$doctorData['lekarz']['imie']}} {{$doctorData['lekarz']['nazwisko']}}</b>
+                    <h2 class="intro-text text-center">Terminarz - <b>{{$doctorData['lekarz']['tytul']}} {{$doctorData['lekarz']['imie']}} {{$doctorData['lekarz']['nazwisko']}} </b> - Gabinet nr {{$doctorData['lekarz']['gabinet']}}
                     </h2>
+                   
                     <hr>
                 </div>
                 <div class="row">
@@ -155,11 +156,11 @@
 
                                         <form role="form" method="post" action="{{$doctorData['lekarz']['id']}}/usun_termin" id="deletingVisitsForm">
                                             {{ csrf_field() }}
-                                            <button type="submit" id="deleteDeadlineBtn" class="col-md-1 pull-right btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+                                            <button type="submit" class="deleteDeadlineBtn col-md-1 pull-right btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
                                             <input type="hidden" name="date" value="{{$date}}" />
                                             <input type="hidden" name="doctorId" value="{{$doctorData['lekarz']['id']}}" />
                                         </form>
-                                        <a type="button" id="editDeadlineBtn" onclick="showOrHideEditingDeadlineForm('{{$date}}')" class="col-md-1 pull-right btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <button type="button" onclick="showOrHideEditingDeadlineForm('{{$date}}')" class="editDeadlineBtn col-md-1 pull-right btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></button>
                                         <br>
                                        
                                     </div>

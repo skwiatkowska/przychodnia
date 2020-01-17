@@ -152,6 +152,7 @@ function showOrHideEditingDeadlineForm(date) {
     x.style.display = "none";
   }
   document.getElementsByClassName("zmienGodz")[0].getElementsByTagName("input")[4].value = date;
+  
 };
 
 
@@ -166,9 +167,26 @@ function getExactDate() {
   var noneCounts = 0;
   for (i = 0; i < data.length; i++) {
     label = data[i].getElementsByTagName("label")[0];
+    var labelDate = new Date(label.innerText);
+    var today = new Date();
+    if(labelDate < today){
+        document.getElementsByClassName("deleteDeadlineBtn")[i].disabled = true;
+        document.getElementsByClassName("editDeadlineBtn")[i].disabled = true;
+
+    }
+    
+    var tr = data[i].getElementsByTagName("tr");
+    for(var j=0; j < tr.length; j++){
+    var td = tr[j].getElementsByTagName("td")[3].innerText;
+    if(td == "Profil pacjenta"){
+        document.getElementsByClassName("deleteDeadlineBtn")[i].disabled = true;
+    }
+    }
+    
     if (label) {
       txtValue = label.textContent || label.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+
         data[i].style.display = "";
         document.getElementById("brakWizytDanegoDnia").style.display = "none";
       } else {
