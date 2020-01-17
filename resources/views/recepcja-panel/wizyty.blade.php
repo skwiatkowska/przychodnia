@@ -105,6 +105,8 @@
 
                                                 <tr>
                                                     <td class="col-md-1">
+                                                    {{ csrf_field() }}
+
                                                         <input type="submit" value="Usuń" class="btn btn-primary form-control"/>
                                                         <input type="hidden" name="date" value="{{$date}}" />
                                                         <input type="hidden" name="hour" value="{{substr($hour, 0, 5)}}" />
