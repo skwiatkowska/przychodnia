@@ -101,7 +101,7 @@
                                         <div class="form-group">
                                             <table class="table table-striped">
                                                 @foreach($hours as $hour )
-                                                <form role="form" method="post" action="usun_wizyte" id="deletingVisitsForm">
+                                                <form role="form" method="post" action="usun_termin" id="deletingVisitsForm">
 
                                                 <tr>
                                                     <td class="col-md-1">
