@@ -27,12 +27,13 @@ class Deadline extends Model
     static function findDoctorFreeDeadlines($doctorId)
     {
         $doctor = Doctor::where('id', $doctorId)->first();
+        $today = date("Ymd");
 
         if ($doctor==null){
             return false;
         }
 
-        $doctorDeadlines = self::where('id_lekarza', '=', $doctorId)->get();
+        $doctorDeadlines = self::where('id_lekarza', '=', $doctorId)->whereDate('rok_miesiac_dzien','>=',$today)->orderBy('rok_miesiac_dzien','asc')->get();
 
         $hourVisitFrom = [];
         $hourVisitTo = [];

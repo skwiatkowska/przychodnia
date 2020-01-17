@@ -104,7 +104,7 @@ class PatientController extends Controller {
     }
 
 	/**
-	*????Funkcja odpowiada za dezaktywację konta.
+	*Funkcja odpowiada za dezaktywację konta.
 	*@return void W przypadku pomyślnej dezaktywacji wylogowuje użytkownika.
 	*/
     public function disableAccount(){
