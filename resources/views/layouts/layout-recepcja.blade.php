@@ -151,7 +151,7 @@ function showOrHideEditingDeadlineForm(date) {
   } else {
     x.style.display = "none";
   }
-  document.getElementsByClassName("zmienGodz")[0].getElementsByTagName("input")[3].value = date;
+  document.getElementsByClassName("zmienGodz")[0].getElementsByTagName("input")[4].value = date;
 };
 
 

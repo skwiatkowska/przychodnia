@@ -42,6 +42,8 @@
                             <br>
                             <div class="border">
                                 <form role="form" class="form-horizontal" method="get" action="{{$doctorData['lekarz']['id']}}/dodaj_termin">
+                                {{ csrf_field() }}
+
                                     <div class="row">
                                         <div class="form-group text-center">
                                             <label class="control-label">Dodaj nowe terminy dla lekarza</label>
@@ -88,7 +90,9 @@
                         <div id="zmienGodziny" class="zmienGodz col-md-10 col-md-offset-1">
                             <br>
                             <div class="border">
-                                <form role="form" class="form-horizontal" method="post" action="{{$doctorData['lekarz']['id']}}/usun_termin">
+                                <form role="form" class="form-horizontal" method="post" action="{{$doctorData['lekarz']['id']}}/zmien_termin">
+                                {{ csrf_field() }}
+
                                     <div class="row">
                                         <div class="form-group text-center">
                                             <label class="control-label">Zmień godziny pracy w dniu: </label>
