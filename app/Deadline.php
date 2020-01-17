@@ -305,12 +305,13 @@ class Deadline extends Model
             $deadline->godzina_do = date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
             $deadline->save();
         }else{
-            $new_to_hr=date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
-            $new_from_hr=date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
-           
-            self::addDeadline($doctor_id,$deadline->godzina_od,$new_to_hr,$date);
-            self::addDeadline($doctor_id,$new_from_hr,$deadline->godzina_do,$date);
-            $deadline->delete();
+            //$new_to_hr=date('H:i', strtotime($hour . '-' . self::visitTime . ' minutes'));
+            //$new_from_hr=date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
+           $visit = new Visit();
+           $visit->addVisit(12, $doctor_id, $date, $hour, " ", " ");
+            //self::addDeadline($doctor_id,$deadline->godzina_od,$new_to_hr,$date);
+           // self::addDeadline($doctor_id,$new_from_hr,$deadline->godzina_do,$date);
+           // $deadline->delete();
         }
         
         return true;
