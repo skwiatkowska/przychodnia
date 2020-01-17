@@ -587,10 +587,10 @@ class ReceptionController extends Controller {
         $deadline=new Deadline();
         $check= $deadline->removeDeadline($doctor_id,$hour,$date);
         if ($check){
-        return redirect('recepcja/wizyty/'.$id)->with('info', 'Godziny przyjęć zostały dodane poprawnie');
+        return redirect('recepcja/wizyty')->with('info', 'Godziny przyjęć zostały dodane poprawnie');
         }
         $errors = $deadline->getErrors();
-        return redirect('recepcja/wizyty/'.$id)->with('errors', $errors);
+        return redirect('recepcja/wizyty/')->with('errors', $errors);
     }
 
 

@@ -297,7 +297,7 @@ class Deadline extends Model
             }
         }
 
-        $deadline =Deadline::where('id_lekarza',$doctor_id)->where('rok_miesiac_dzien',$date)->where('godzina_od','<=',$hour)->where('godzina_do','>=',$hour)->delete();
+        $deadline =Deadline::where('id_lekarza',$doctor_id)->where('rok_miesiac_dzien',$date)->where('godzina_od','<=',$hour)->where('godzina_do','>=',$hour)->first();
         if ($deadline->godzina_od == $hour){
             $deadline->godzina_od = date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
             $deadline->save();
@@ -309,7 +309,7 @@ class Deadline extends Model
             $new_from_hr=date('H:i', strtotime($hour . '+' . self::visitTime . ' minutes'));
            
             self::addDeadline($doctor_id,$deadline->godzina_od,$new_to_hr,$date);
-            self::addDeadline($doctor_id,$new_from_hr,$deadline->$godzina_do,$date);
+            self::addDeadline($doctor_id,$new_from_hr,$deadline->godzina_do,$date);
             $deadline->delete();
         }
         
