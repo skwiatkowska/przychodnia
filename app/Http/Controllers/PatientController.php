@@ -33,6 +33,12 @@ class PatientController extends Controller {
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
         }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'patient'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         return view('pacjent-panel/panel-ustawienia');
     }
 
@@ -45,7 +51,12 @@ class PatientController extends Controller {
         if (!Auth::check()) {
             return redirect('/login');
         }
-
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'patient'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
+        }
         $patient = new Patient();
         $patientId = Auth::id();
         
@@ -110,6 +121,12 @@ class PatientController extends Controller {
     public function disableAccount(){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');
+        }
+        $login_id= Auth::id();
+        $user_logged = User::where('id',$login_id)->first();
+        $role = $user_logged->user_type;
+        if ($role != 'patient'){
+            return redirect('/')->with('info', 'Strona niedostępna!');
         }
         $patientId = Auth::id();
 
