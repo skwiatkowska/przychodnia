@@ -185,6 +185,16 @@
 		}, 600);
 	})
 
+
+    function validatePesel() {
+  var x = document.forms["registerForm"]["pesel"].value;
+  if (x.size != 11) {
+    alert("Wprowadź poprawny numer PESEL (11 znaków).");
+    return false;
+  }
+}
+
+
 </script>
 
 </body>
