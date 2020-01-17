@@ -17,7 +17,7 @@ class DoctorTest extends TestCase
     
 	public function testAddNewUserCorrectData()
     {
-		$user_id = 400;
+		$user_id = 450;
 		$name = $this->faker->name;
 		$surname = $this->faker->lastname;
 		$email = $this->faker->unique()->safeEmail;
@@ -110,7 +110,7 @@ class DoctorTest extends TestCase
 		
 	public function testChangeDataCorrectID()
 	{
-		$i = 7;	
+		$i = 6;	
 		$doctor = new Doctor();
 		$name = $this->faker->name;
 		$surname = $this->faker->lastname;

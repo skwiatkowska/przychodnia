@@ -1,7 +1,5 @@
 <?php
 
-// NIE OK
- 
 namespace Tests\Unit\Controllers;
 
 use Tests\TestCase;
@@ -10,18 +8,20 @@ use App\User;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * 
+ * @group patcont   
+ */
 class PatientControllerTest extends TestCase
 {
 	
-	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok panelu pacjenta?
-	public function testNotAuthenticatedUserPatientPanelSiteView()
+	public function testMainSiteNotAuthenticatedUser()
     {
 		$response = $this->get('/panel');
 		$response->assertRedirect('/login');
 	}
 		
-	//Czy zalogowanemu uzytkownikowi 'pacjent' wyswietla sie widok panelu pacjenta?
-	public function testPatientPanelSiteView()
+	public function testMainSitePatient()
     {
         $user = factory(User::class)->make(['user_type' => 'patient',]); 
 		$response = $this->actingAs($user)->get('/panel');
@@ -29,8 +29,7 @@ class PatientControllerTest extends TestCase
         $response->assertViewIs('pacjent-panel.panel');
     }
 	
-	//Czy zalogowanemu innemu uzytkownikowi wyswietla sie widok panelu pacjenta?
-	public function testOtherUserPatientPanelSiteView()
+	public function testMainSiteOtherUser()
     {
         $user = factory(User::class)->make(['user_type' => 'doctor',]);
 		$response = $this->actingAs($user)->get('/panel');		
@@ -39,15 +38,15 @@ class PatientControllerTest extends TestCase
 	
 	
 	
-	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok panelu ustawien?
-	public function testNotAuthenticatedUserSettingsPanelSiteView()
+
+	public function testSettingsNotAuthenticatedUser()
     {
 		$response = $this->get('/panel/ustawienia');
 		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
 	}
 		
-	//Czy zalogowanemu uzytkownikowi 'pacjent' wyswietla sie widok panelu ustawien?
-	public function testSettingsPanelSiteView()
+	public function testSettingsPatient()
     {
         $user = factory(User::class)->make(['user_type' => 'patient',]); 
 		$response = $this->actingAs($user)->get('/panel/ustawienia');
@@ -56,8 +55,7 @@ class PatientControllerTest extends TestCase
 		
     }
 	
-	//Czy zalogowanemu innemu uzytkownikowi wyswietla sie widok panelu ustawien?
-	public function testOtherUserSettingsPanelSiteView()
+	public function testSettingsOtherUser()
     {
         $user = factory(User::class)->make(['user_type' => 'doctor',]); 
 		$response = $this->actingAs($user)->get('/panel/ustawienia');
@@ -66,42 +64,106 @@ class PatientControllerTest extends TestCase
     }
 	
 	
-	
-	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok panelu dane pacjenta?
-	public function testNotAuthenticatedUserDataPanelSiteView()
+
+	public function testPatientInfoNotAuthenticated()
     {
 		$response = $this->get('/panel/dane');
 		$response->assertRedirect('/login');
 	}
 		
-	//Czy zalogowanemu uzytkownikowi 'pacjent' wyswietla sie widok panelu dane pacjenta?
-	public function testDataPanelSiteView()
+	public function testPatientInfoPatient()
     {
-        $user = factory(User::class)->make(['user_type' => 'patient',]); 
+        $user = factory(User::class)->make(['id' => 4,'user_type' => 'patient',]); 
 		$response = $this->actingAs($user)->get('/panel/dane');
-		//$response->assertSuccessful();
-        //$response->assertViewIs('pacjent-panel.panel');
-		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+		$response->assertSuccessful();
+        $response->assertViewIs('pacjent-panel.panel-dane');
+
     }
 	
-	//Czy zalogowanemu innemu uzytkownikowi wyswietla sie widok panelu dane pacjenta?
-	public function testOtherUserDataPanelSiteView()
+	public function testPatientInfoOtherUser()
     {
         $user = factory(User::class)->make(['user_type' => 'doctor',]); 
 		$response = $this->actingAs($user)->get('/panel/dane');
-		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+		$response->assertStatus(500);			
     }
 	
 	
 	
-	/*
-    //Czy wyswietla sie lista pacjentow i czy zawiera wszystkich pacjentow?
-	public function testPatientsListView()
+	public function testChangeDataNotAuthenticated()
     {
-		$patients = Patient::all();
-        $response = $this->get('/lista_pacjentow');
-        $response->assertSuccessful();
-        $response->assertViewIs('lista-pacjentow');
-		$response->assertViewHas(['patients' => $patients]);
-    }*/
+		$data = array(
+        'imie' => null,
+        'nazwisko' => null,
+        'email' => null,
+		'pesel' => null,
+		'adres' => null,
+		'phone' => null,
+		'data_urodzenia' => null);
+	
+		$response = $this -> post('/panel/ustawienia/zmien_dane', $data);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testChangeDataPatient()
+    {
+		$data = array(
+        'imie' => 'Zola',
+        'nazwisko' => null,
+        'email' => null,
+		'pesel' => null,
+		'adres' => null,
+		'phone' => null,
+		'data_urodzenia' => null);
+		$user = factory(User::class)->make(['id' => 6,]);
+		$response = $this -> actingAs($user) -> post('/panel/ustawienia/zmien_dane', $data);
+		$response->assertRedirect('/panel/dane');
+		$response->assertSessionHas('info','Dane zostały zmienione');
+	}
+	
+	
+	public function testChangePasswordNotAuthenticated()
+    {
+		$data = array(
+        'haslo' => null,
+        'haslo1' => null,
+        'haslo2' => null);
+	
+		$response = $this -> post('/panel/ustawienia/zmien_haslo', $data);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+
+	public function testChangePasswordPatient()
+    {
+		$data = array(
+        'haslo' => null,
+        'haslo1' => null,
+        'haslo2' => null);
+	
+		$user = factory(User::class)->make(['id' => 6,]);
+		$response = $this -> actingAs($user) -> post('/panel/ustawienia/zmien_haslo', $data);
+		$response->assertRedirect('/panel/dane');
+		$response->assertSessionHas('info','Hasło zostało zmienione');
+	}
+	
+	
+	public function testDisableAccountNotAuthenticated()
+    {
+		$data = array('haslo' => 'xx');
+		$response = $this->post('/panel/ustawienia/dezaktywuj',$data);
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testDisableAccountPatient()
+    {
+		$data = array('haslo' => 'test');
+		$user = factory(User::class)->make(['id' => 12,]);
+		$response = $this -> actingAs($user) -> post('/panel/ustawienia/dezaktywuj',$data);
+		$response->assertRedirect('/logout');
+		$response->assertSessionHas('info','Wybrane konto zostało zdezaktywowane');
+		$user = User::where('id',12)->first();
+		$user -> activateUser(12);
+	}
 }

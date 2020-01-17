@@ -1,39 +1,50 @@
 <?php
 
-//OK
-
 namespace Tests\Unit\Controllers;
 
 use Tests\TestCase;
+use App\User;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * 
+ * @group webcont   
+ */
 class WebsiteControllerTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-	 
-    //Czy wyswietla sie widok glownej strony?
-	public function testMainSiteView()
+	public function testMainSiteNotAuthenticatedAndPatient()
     {
         $response = $this->get('/');
         $response->assertSuccessful();
         $response->assertViewIs('home');
     }
 	
-	//Czy wyswietla sie widok klauzuli RODO?
-	public function testRodoSiteView()
+	public function testMainSiteDoctor()
+    {
+        $user = factory(User::class)->create(['user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/');
+		$response->assertSuccessful();
+        $response->assertViewIs('lekarz-panel.panel-lekarza');
+    }
+	
+	public function testMainSiteReception()
+    {
+        $user = factory(User::class)->create(['user_type' => 'reception',]); 
+		$response = $this->actingAs($user)->get('/');
+		$response->assertSuccessful();
+        $response->assertViewIs('recepcja-panel.recepcja');
+    }
+	
+
+	public function testRodo()
     {
         $response = $this->get('/rodo');
         $response->assertSuccessful();
         $response->assertViewIs('rodo');
     }
 	
-	//Czy wyswietla sie widok poradnii?
-	public function testClinicsSiteView()
+	public function testClinicList()
     {
         $response = $this->get('/poradnie');
         $response->assertSuccessful();

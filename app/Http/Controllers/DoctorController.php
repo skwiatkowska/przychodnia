@@ -47,7 +47,6 @@ class DoctorController extends Controller
 
         if ($doctorsDeadlines==false) {
             abort(404);
-            return;
         }
 
         return View('terminy', ['doctorsDeadlines' => $doctorsDeadlines]);
@@ -100,7 +99,6 @@ class DoctorController extends Controller
 
         if ($patientData==false) {
             abort(404);
-            return;
         }
         $doctor = new Doctor();
         $doctorId = Auth::id();
@@ -133,6 +131,12 @@ class DoctorController extends Controller
         //return redirect('lekarz-panel/wizyty');//->with('info','wizyty'.$fullVisits);
     }
 
+	/**
+	*Funkcja odpowiada za przesłanie danych do dodania opisu wizyty.
+	*@return integer $id Id wizyty
+	*@return void Przy dododaniu opisu wizyty zakończonym sukcesem - przekierowuje na
+	stronę pacjenta.
+	*/
     public function addVisitDescription($id,Request $request){
         if (!Auth::check()) {
             return redirect('/login')->with('info', 'Aby przejść na wybraną stronę, musisz być zalogowany.');

@@ -1,7 +1,5 @@
 <?php
 
-//NIE OK 
-
 namespace Tests\Unit\Controllers;
 
 use Tests\TestCase;
@@ -9,27 +7,27 @@ use App\Doctor;
 use App\Deadline;
 use App\Patient;
 use App\User;
+use App\Visit;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+
+/**
+ * 
+ * @group doccont   
+ */
 class DoctorControllerTest extends TestCase
 {
 	use WithFaker;
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
 	 
-	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok panelu lekarza?
-	public function testNotAuthenticatedUserDoctorPanelSiteView()
+	public function testMainSiteNotAuthenticatedUser()
     {
 		$response = $this->get('/panel_lekarza');
 		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
 	}
 		
-	//Czy zalogowanemu uzytkownikowi 'lekarz' wyswietla sie widok panelu lekarza?
-	public function testDoctorPanelSiteView()
+	public function testMainSiteDoctor()
     {
         $user = factory(User::class)->make(['user_type' => 'doctor',]); 
 		$response = $this->actingAs($user)->get('/panel_lekarza');
@@ -37,32 +35,29 @@ class DoctorControllerTest extends TestCase
         $response->assertViewIs('lekarz-panel.panel-lekarza');
     }
 	
-	//Czy zalogowanemu innemu uzytkownikowi wyswietla sie widok panelu lekarza?
-	public function testOtherUserPatientPanelSiteView()
+	/*
+	public function testMainSiteOtherUser()
     {
         $user = factory(User::class)->make(['user_type' => 'patient',]);
 		$response = $this->actingAs($user)->get('/panel_lekarza');		
 		$response->assertSuccessful();
-    }
+    }*/
 	
 
-    //Czy wyswietla sie lista lekarzy i czy zawiera wszystkich lekarzy?
-	public function testDoctorsListView()
+	public function testDoctorsList()
     {
-		$doctors = Doctor::all();
+		$doctors = Doctor::orderBy('nazwisko','asc')->get();
         $response = $this->get('/lista_lekarzy');
         $response->assertSuccessful();
         $response->assertViewIs('lista-lekarzy');
-		//$response->assertViewHas(['doctors' => $doctors]);
+		$response->assertViewHas(['doctors' => $doctors]);
     }	
 	
-	//Czy wyswietla sie terminarz lekarza i czy zawiera wszystkie terminy?
-	public function testCorrectDoctorIdDeadlines()
+	
+
+	public function testDoctorsDeadlinesCorrectId()
 	{
-		$i = $this->faker->randomDigit;	
-		while (Deadline::findDoctorFreeDeadlines($i)==false)
-			$i = $this->faker->randomDigit;
-		
+		$i = 1;
 		$doctorsDeadlines = Deadline::findDoctorFreeDeadlines($i);
         $response = $this->get('/terminy/'.$i);
         $response->assertSuccessful();
@@ -70,51 +65,130 @@ class DoctorControllerTest extends TestCase
 		$response->assertViewHas(['doctorsDeadlines' => $doctorsDeadlines]);
     }
 		
-	//Czy wyswietli sie terminarz gdy podamy zle id lekarza?
-	public function testWrongDoctorIdDeadlines()
+	public function testDoctorsDeadlinesWrongId()
 	{
-		$i = 1;		
-		while (Deadline::findDoctorFreeDeadlines($i)==true)
-			$i = $this->faker->randomDigit;
-		
+		$i = 0;
         $response = $this->get('/terminy/'.$i);
         $response->assertStatus(404);
     }
 
-	
-	 //Czy wyswietla sie lista pacjentow i czy zawiera wszystkich pacjentow?
-	/*public function testPatientsListView()
+
+	public function testPatientsListNotAuthenticatedUser()
     {
-		$patients = Patient::all();
-        $response = $this->get('/panel_lekarza/lista_pacjentow');
-        $response->assertSuccessful();
+		$response = $this->get('/panel_lekarza/lista_pacjentow');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testPatientsListDoctor()
+    {
+        $user = factory(User::class)->make(['id' => 8 ,'user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/lista_pacjentow');
+		$response->assertSuccessful();
         $response->assertViewIs('lekarz-panel.lista-pacjentow');
-		$response->assertViewHas(['patients' => $patients]);
-    }*/
+    }
 	
 	
-	//Czy niezalogowanemu uzytkownikowi wyswietla sie widok panelu dane lekarza?
-	public function testNotAuthenticatedUserDoctorInfoPanelSiteView()
+
+	public function testDoctorInfoNotAuthenticatedUser()
     {
 		$response = $this->get('/panel_lekarza/dane');
 		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
 	}
 		
-	//Czy zalogowanemu uzytkownikowi 'lekarz' wyswietla sie widok panelu dane lekarza?
-	public function testDoctorInfoPanelSiteView()
+	public function testDoctorInfoDoctor()
     {
-        $user = factory(User::class)->make(['user_type' => 'doctor',]); 
+		$id = 8;
+        $user = factory(User::class)->make(['id' => $id ,'user_type' => 'doctor',]); 
 		$response = $this->actingAs($user)->get('/panel_lekarza/dane');
-		//$response->assertSuccessful();
-        //$response->assertViewIs('lekarz-panel.dane');
-		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+		$doctor = new Doctor();
+		$response->assertSuccessful();
+        $response->assertViewIs('lekarz-panel.dane');
+		$response->assertViewHas(['data' => $doctor->getData($id)]);
     }
 	
-	//Czy zalogowanemu innemu uzytkownikowi wyswietla sie widok panelu dane lekarza?
-	public function testOtherUserDoctorInfoPanelSiteView()
+	public function testDoctorInfoOtherUser()
     {
         $user = factory(User::class)->make(['user_type' => 'patient',]); 
 		$response = $this->actingAs($user)->get('/panel_lekarza/dane');
-		$response->assertStatus(500);			//!!!!!!!!!!!!!!
+		$response->assertStatus(500);		
     }
+	
+	
+	
+	public function testPatientDataNotAuthenticatedUser()
+    {
+		$response = $this->get('/panel_lekarza/pacjent/7');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testPatientDataDoctorCorrectPatientId()
+    {
+		$id_doc = 2;
+		$id_pac = 5;
+		$user = factory(User::class)->make(['id' => $id_doc ,'user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/pacjent/'.$id_pac);
+		$doctor = new Doctor();
+		$response->assertSuccessful();
+        $response->assertViewIs('lekarz-panel.pacjent');
+		$response->assertViewHas(['patientData' => Visit::findAllPatientData($id_pac)]);
+		$response->assertViewHas(['doctorData' =>  $doctor->getData($id_doc)]);
+	}
+	
+	public function testPatientDataDoctorWrongPatientId()
+    {
+		$id_doc = 8;
+		$id_pac = 0;
+		$user = factory(User::class)->make(['id' => $id_doc ,'user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/pacjent/'.$id_pac);
+		$response->assertStatus(404);
+	}
+	
+	
+	
+	public function testVisitsNotAuthenticatedUser()
+    {
+		$response = $this->get('/panel_lekarza/wizyty');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	public function testVisitsDoctor()
+    {
+		$id = 8;
+        $user = factory(User::class)->make(['id' => $id ,'user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/wizyty');
+		$response->assertSuccessful();
+        $response->assertViewIs('lekarz-panel.wizyty');
+    }
+	
+	public function testVisitsOtherUser()
+    {
+        $user = factory(User::class)->make(['user_type' => 'patient',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/wizyty');
+		$response->assertStatus(500);		
+    }
+	
+	
+	public function testAddVisitDescriptionNotAuthenticatedUser()
+    {
+		$id_pac = 7;
+		$response = $this->get('/panel_lekarza/pacjent/'.$id_pac.'/dodaj_opis_wizyty');
+		$response->assertRedirect('/login');
+		$response->assertSessionHas('info','Aby przejść na wybraną stronę, musisz być zalogowany.');
+	}
+	
+	/*
+	public function testAddVisitDescriptionDoctor()
+    {
+		$id_doc = 6;
+		$id_pac = 7;
+        $user = factory(User::class)->make(['id' => $id_doc ,'user_type' => 'doctor',]); 
+		$response = $this->actingAs($user)->get('/panel_lekarza/pacjent/'.$id_pac.'/dodaj_opis_wizyty');
+		$response->assertSuccessful();
+        $response->assertRedirect('lekarz-panel.wizyty');
+		$response->assertSessionHas('info','Dodano opis wizyty.');
+    }*/
 }

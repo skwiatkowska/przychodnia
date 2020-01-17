@@ -66,20 +66,4 @@ class AuthController extends Controller
         return redirect('/')->with('info','Wylogowano');
     }
 
-	/**
-	*?????Funkcja odpowiada za wylogowywanie.
-	*@return void Przekierowuje na stronę startową.
-	*/
-    protected function authenticated() {
-
-        if (auth()->user()->isDoctor()) {
-            return View('recepcja');
-        } 
-        else if (auth()->user()->isAdmin()) {
-            return View('panel_lekarza');
-           } else {
-               return View('/');
-               } 
-   }
-
 }
