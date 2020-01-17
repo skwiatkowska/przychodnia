@@ -117,14 +117,11 @@ $(document).ready(function()  {
 
             }
         }
-        var newDescr = document.getElementById("noweTerminy");
-        newDescr.style.display = "none";
-        
-        var noVisitsOnThatDay = document.getElementById("brakWizytDanegoDnia");
-        noVisitsOnThatDay.style.display = "none";
-
+        document.getElementById("noweTerminy").style.display = "none";
+        document.getElementById("brakWizytDanegoDnia").style.display = "none";
+        document.getElementById("zmienGodziny").style.display = "none";
         getExactDate();
- 
+
     } )  
 
 
@@ -136,11 +133,25 @@ function goToAPatientProfile(arg){
 
 function showOrHideVisitDescriptionForm() {
   var x = document.getElementById("noweTerminy");
+
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
   }
+};
+
+function showOrHideEditingDeadlineForm(date) {
+  var x = document.getElementById("zmienGodziny");
+  console.log(date);
+  document.getElementsByClassName("zmienGodz")[0].getElementsByTagName("label")[0].innerHTML += date;
+
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  document.getElementsByClassName("zmienGodz")[0].getElementsByTagName("input")[3].value = date;
 };
 
 
@@ -155,13 +166,9 @@ function getExactDate() {
   var noneCounts = 0;
   for (i = 0; i < data.length; i++) {
     label = data[i].getElementsByTagName("label")[0];
-    var today = new Date();   
-
     if (label) {
       txtValue = label.textContent || label.innerText;
-      var labelDate = new Date(txtValue);
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          
         data[i].style.display = "";
         document.getElementById("brakWizytDanegoDnia").style.display = "none";
       } else {
