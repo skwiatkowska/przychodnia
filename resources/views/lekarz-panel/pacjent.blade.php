@@ -123,7 +123,7 @@
                                                 <th>Przebieg wizyty</th>
                                             </tr>
                                             @foreach($patientData['wizytyDzis'] as $wizyta)
-                                            @if($wizyta['lekarz'] == $doctorData['tytul']." ".$doctorData['imie']." ".$doctorData['nazwisko'])
+                                            @if($wizyta['lekarz'] == $doctorData['tytul']." ".$doctorData['imie']." ".$doctorData['nazwisko']. " - " . $doctorData['specjalizacja'])
                                             <tbody>
                                                 <tr data-toggle="collapse" data-target="#{{$wizyta['id']}}" class="info accordion-toggle">
 
