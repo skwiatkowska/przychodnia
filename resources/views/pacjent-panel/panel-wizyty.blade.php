@@ -50,7 +50,7 @@
                                                     {{$wizyta['godzina_minuta']}}
                                                 </td>
                                                 <td>
-                                                    <form method="post" action="wizyty/usun">
+                                                    <form method="post" action="wizyty/usun_wizyte">
                                                         {{ csrf_field() }}
                                                         <input type="hidden" name="id_wizyty" value="{{$wizyta['id']}}">
                                                         <input type="submit" class="btn btn-sm btn-gray" role="button" value="odwołaj" />
@@ -94,7 +94,7 @@
                                                     {{$wizyta['godzina_minuta']}}
                                                 </td>
                                                 <td>
-                                                    <form method="post" action="wizyty/usun">
+                                                    <form method="post" action="wizyty/usun_wizyte">
                                                         {{ csrf_field() }}
                                                         <input type="hidden" name="id_wizyty" value="{{$wizyta['id']}}">
                                                         <input type="submit" class="btn btn-sm btn-gray" role="button" value="odwołaj" />
