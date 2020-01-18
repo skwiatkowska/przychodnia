@@ -23,7 +23,7 @@ class DoctorTest extends TestCase
 		$email = $this->faker->unique()->safeEmail;
 		$title = $this->faker->word;
 		$specialization = $this->faker->word;
-		$gabinet = $this->faker->randomDigit ;
+		$gabinet = 50 ;
 		$password = $this->faker->password(8);
 		$phone = $this->faker->numberBetween(100000000,999999999);
 
@@ -43,7 +43,7 @@ class DoctorTest extends TestCase
 		$email = $this->faker->unique()->safeEmail;
 		$title = $this->faker->word;
 		$specialization = $this->faker->word;
-		$gabinet = $this->faker->randomDigit ;
+		$gabinet = 100 ;
 		$password = $this->faker->password(8);
 		$phone = null;
 
@@ -65,7 +65,7 @@ class DoctorTest extends TestCase
 		$email = "nowak@przychodnia.pl";
 		$title = $this->faker->word;
 		$specialization = $this->faker->word;
-		$gabinet = $this->faker->randomDigit ;
+		$gabinet = 150 ;
 		$password = $this->faker->password(8);
 		$phone = $this->faker->numberBetween(100000000,999999999);
 
@@ -117,7 +117,7 @@ class DoctorTest extends TestCase
 		$email = $this->faker->unique()->safeEmail;
 		$title = $this->faker->word;
 		$specialization = $this->faker->word;
-		$gabinet = $this->faker->randomDigit ;
+		$gabinet = 20 ;
 		$phone = $this->faker->numberBetween(100000000,999999999);	
 		$this -> assertTrue($doctor->changeData($i,$title,$name,$surname,$email,$phone,$specialization,$gabinet));
 		

@@ -204,7 +204,7 @@ class ReceptionControllerTest extends TestCase
 			'email' => $email = $this->faker->unique()->safeEmail,
 			'tytul' => $this->faker->word,
 			'specjalizacja' => $this->faker->word,
-			'gabinet' => $this->faker->randomDigit ,
+			'gabinet' => 20 ,
 			'haslo' => $this->faker->password(8),
 			'phone' => $this->faker->numberBetween(100000000,999999999)	
 		);	
