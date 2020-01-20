@@ -1,7 +1,7 @@
 ## Przychodnia
 
 
-How to run this app:
+How to run this app:\
 -composer install
 -rename .env.example to .env and set your database name, a username and a password
 -create \cache directory in \przychodnia\bootstrap
