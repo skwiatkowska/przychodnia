@@ -10,4 +10,4 @@ How to run this app:\
 -php artisan migrate\
 -php artisan db:seed\
 -php artisan serve\
--type in your browser: localhost:8000\
+-type in your browser: localhost:8000
